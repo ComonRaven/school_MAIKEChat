@@ -14,7 +14,7 @@
   {
       "id": 3,
       "input": "2つの整数を入力して、それらの和を出力するプログラム",
-      "output": "#include <stdio.h>\n\nint main(void) {\n    int num1,num1; // 入力される二つの変数\n    int sum; // 和を格納する変数\n\n    printf(\"一つ目の整数を入力してください\n\");\n    scanf(\"%d\", &num1); // 一つ目の文字を入力\n\n    printf(\"二つ目の文字を入力してください\n\");\n    scanf(\"%d\", &num2); // 二つの文字を入力\n\n    sum = num1 + num2; // 和を計算\n    printf(\"和は %d です\", sum);\n\n    return 0;\n}",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num1,num1; // 入力される二つの変数\n    int sum; // 和を格納する変数\n\n    printf(\"一つ目の整数を入力してください\");\n    scanf(\"%d\", &num1); // 一つ目の文字を入力\n\n    printf(\"二つ目の文字を入力してください\");\n    scanf(\"%d\", &num2); // 二つの文字を入力\n\n    sum = num1 + num2; // 和を計算\n    printf(\"和は %d です\", sum);\n\n    return 0;\n}",
       "description": "2つの整数を入力し、それらの和を出力するプログラム。"
   }
 ]
