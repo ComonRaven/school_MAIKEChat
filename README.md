@@ -28,3 +28,36 @@ pandas  2.2.3 <br>
 matplotlib  3.9.3 <br>
 scikit-learn  1.5.2 <br>
 jupyter 1.1.1 <br>
+transformers  4.63.3 <br>
+protobuf  5.29.0 <br>
+torch 2.5.1<br>
+torchvision 0.20.1<br>
+torchaudio  2.5.1<br>
+tiktoken  0.8.0 <br>
+
+# memo
+主に使用するライブラリ <br>
+・Hugging Face Transformers // 事前学習モデルを使用 <br>
+・PyTorch or TensorFlow // モデルの微調整に使用 <br>
+・Scikit-learn // データの前処理や評価に活用 <br>
+・Detasets(Hugging Face) // データセットの管理 <br>
+<br>
+使用検討中モデル <br>
+・CodeT5(Salesforce) // コード生成に特化したモデル <br>
+<br>
+データセット <br>
+json形式でデータセットを作成 <br>
+id,input,output,descriptionで設定する <br>
+<br>
+学習済みモデルの準備 <br>
+Hugging Face Transformersを使用してモデルを読み込む <br>
+<br>
+データセットの前処理 <br>
+<br>
+モデルの微調整 <br>
+Trainerを使用 <br>
+<br>
+モデルの推論 <br>
+<br>
+フロンんととの接続 <br>
+Eelを使って接続
