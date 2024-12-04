@@ -12,19 +12,36 @@ UI...山本瑞貴 <br>
 
 # 直近のタスク
 ・UI作成 <br>
-・基本的な処理作成 <br>
+・データセットを大量に作成
 
 # AIに何をさせたいか？（メモ用：随時更新）
 ・コード補完 <br>
 ・コードエラーチェック <br>
 ・最適化 <br>
 
-# 実行環境
-python  3.11.0 <br>
-Flask   3.1.0 <br>
-Eel     0.18.1 <br>
-numpy   2.1.3 <br>
-pandas  2.2.3 <br>
-matplotlib  3.9.3 <br>
-scikit-learn  1.5.2 <br>
-jupyter 1.1.1 <br>
+# memo
+主に使用するライブラリ <br>
+・Hugging Face Transformers // 事前学習モデルを使用 <br>
+・PyTorch or TensorFlow // モデルの微調整に使用 <br>
+・Scikit-learn // データの前処理や評価に活用 <br>
+・Detasets(Hugging Face) // データセットの管理 <br>
+<br>
+使用検討中モデル <br>
+・CodeT5(Salesforce) // コード生成に特化したモデル <br>
+<br>
+データセット <br>
+json形式でデータセットを作成 <br>
+id,input,output,descriptionで設定する <br>
+<br>
+学習済みモデルの準備 <br>
+Hugging Face Transformersを使用してモデルを読み込む <br>
+<br>
+データセットの前処理 <br>
+<br>
+モデルの微調整 <br>
+Trainerを使用 <br>
+<br>
+モデルの推論 <br>
+<br>
+フロンんととの接続 <br>
+Eelを使って接続
