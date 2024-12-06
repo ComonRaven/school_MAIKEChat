@@ -10,7 +10,7 @@ def load_dataset(json_file):
     """
     try:
         # ファイルパスの取得
-        dataset_path = os.path.join("datasets", json_file)
+        dataset_path = os.path.join("local_datasets", json_file)
         
         # JSONデータを読み込む
         with open(dataset_path, "r", encoding="utf-8") as f:
@@ -89,16 +89,23 @@ def update_dataset_with_compilation(dataset):
     return dataset
 
 
-# JSON データセットの読み込み
-dataset = load_dataset("printf.json")
+# local_datasetsディレクトリ内の全てのjsonファイルを処理
+dataset_directory = 'local_datasets'
 
-if dataset:
-    # データセットを更新
-    updated_dataset = update_dataset_with_compilation(dataset)
+for file_name in os.listdir(dataset_directory):
+    if file_name.endswith('.json'):
+        print(f"Processing file: {file_name}")
+        # JSON データセットの読み込み
+        dataset = load_dataset(file_name)
 
-    # 更新されたデータセットを新しいファイルに保存
-    output_file = os.path.join("datasets", "updated_printf.json")
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(updated_dataset, f, ensure_ascii=False, indent=4)
+        if dataset:
+            # データセットを更新
+            updated_dataset = update_dataset_with_compilation(dataset)
 
-    print(f"更新されたデータセットを {output_file} に保存しました。")
+            # 更新されたデータセットを新しいファイルに保存
+            output_file = os.path.join("datasets", f"updated_{file_name}")
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
+            with open(output_file, "w", encoding="utf-8") as f:
+                json.dump(updated_dataset, f, ensure_ascii=False, indent=4)
+
+            print(f"更新されたデータセットを {output_file} に保存しました。")

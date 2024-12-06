@@ -1,0 +1,1202 @@
+[
+  {
+      "id": 1,
+      "input": "画面に'Hello, World!'を表示するプログラム",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 2,
+      "input": "ハローワールドを出力するプログラム",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 3,
+      "input": "画面にハローワールドを出力させて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 4,
+      "input": "C言語で画面にハローワールドを出力させるプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 5,
+      "input": "c言語でHello Worldを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 6,
+      "input": "Write a program that outputs hello world in C language",
+      "output":"#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description":"C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 7,
+      "input": "Write a C program that prints 'Hello, World!' to the screen using printf.",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 8,
+      "input": "C言語で２を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 2;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}",
+      "description": "C言語で2を出力するプログラム"
+  },
+  {
+      "id": 9,
+      "input": "C言語で１０を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 10;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}",
+      "description": "C言語で10を出力するプログラム"
+  },
+  {
+      "id": 10,
+      "input": "C言語で2を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 2;\n\n    printf(\"%d\\n\" num);\n\n    return 0;\n}",
+      "description": "C言語で2を出力するプログラム"
+  },
+  {
+      "id": 11,
+      "input": "C言語で10を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 10;\n\n    printf(\"%d\\n\" num);\n\n    return 0;\n}",
+      "description": "C言語で10を出力するプログラム"
+  },
+  {
+      "id": 12,
+      "input": "C言語で2を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"%d\\n\", 2);\n\n    return 0;\n}",
+      "description": "C言語で2を出力するプログラム"
+  },
+  {
+      "id": 13,
+      "input": "C言語で10を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"%d\\n\", 10);\n\n    return 0;\n}",
+      "description": "C言語で2を出力するプログラム"
+  },
+  {
+      "id": 14,
+      "input": "入力された数字を出力するプログラムをC言語で書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    printf(\"表示する整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    printf(\"入力された整数: %d\\n\", num);\n\n    return 0;\n}",
+      "description": "C言語で入力された数字を出力するプログラム"
+  },
+  {
+      "id": 15,
+      "input": "C言語で整数型の変数を宣言するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    return 0;\n}",
+      "description": "C言語で整数型の変数を宣言するだけのプログラム"
+  },
+  {
+      "id": 16,
+      "input": "C言語で文字型の変数を宣言するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char str;\n\n    return 0;\n}",
+      "description": "C言語で文字列型の変数を宣言するだけのプログラム"
+  },
+  {
+      "id": 17,
+      "input": "C言語で入力された文字列を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char str[256];\n\n    fgets(str, sizeof(str), stdin);\n\n    // 出力\n    printf(\"%s\\n\", str);\n\n    return 0;\n}",
+      "description": "C言語で入力された文字列を出力するプログラム"
+  },
+  {
+      "id": 18,
+      "input": "C言語でなにもしないプログラムを作成して",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    return 0;\n}",
+      "description": "C言語で何もしないで正常終了を示す return 0 しかないプログラム"
+  },
+  {
+      "id": 19,
+      "input": "C言語で年齢を表示するプログラムを作成して",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int age = 25;\n    printf(\"年齢は %d 歳です\\n\", age);\n    return 0;\n}",
+      "description": "C言語で年齢を出力するプログラム。\n整数型のage関数に年齢の25を格納。\nprintf関数で年齢を出力。\nreturn 0 でプログラムの正常終了を示す。"
+  },
+  {
+      "id": 20,
+      "input": "C言語で入力された年齢を出力するプログラムを作成して",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int age; // 整数型で年齢を格納するage変数を宣言\n    scanf(\"%d\", &age); // scanf関数でage変数のアドレスに年齢を格納\n    printf(\"年齢は %d 歳です\\n\", age); // printf関数でageを出力\n    return 0;\n}",
+      "description": "C言語で入力された年齢を出力するプログラム。\n年齢を格納する整数型のage変数を宣言。\nscanf関数でage変数に入力された整数を格納。printf関数でage変数を出力"
+  },
+  {
+      "id": 21,
+      "input": "C言語でAという一文字を出力するプログラムを作成して",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"A\\n\"); // printf関数でAを出力\n return 0;\n}",
+      "description": "C言語でAという一文字を出力するプログラム。\nprintf関数で直接Aを出力。"
+  },
+  {
+      "id": 22,
+      "input": "C言語でAという一文字を出力するプログラムを作成して",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char ace = 'A'; // 文字型の変数のaceにAという一文字を格納\n    printf(\"%c\\n\", ace); // Aを出力\n    return 0;\n}",
+      "description": "C言語でAという一文字を出力するプログラム。\n文字型の変数のaceにAを出力。\nprintf関数でaceを出力。\n一文字なので%cを使用して出力させる。"
+  },
+  {
+      "id": 23,
+      "input": "C言語で入力された一文字の文字を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char character; // 文字型のcharacterを宣言\n    scanf(\"%c\", &character); // characterに文字を入力された文字を格納\n    printf(\"%c\\n\", character); // 文字を出力\n    return 0;\n}",
+      "description": "C言語で入力された一文字の文字を出力するプログラム。\n文字型のcharacter変数を宣言。\nscanf関数で入力された文字をcharacter変数のアドレスの格納。文字型なので%cを指定\nprintf関数でcharacter変数に格納されている文字列を表示"
+  },
+  {
+      "id": 24,
+      "input": "C言語で少数を出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    float num = 2.56; // float型で少数を格納した変数numを初期化\n    printf(\"%.2f\\n\", num); // numを出力\n    return 0;\n}",
+      "description": "C言語で少数を出力するプログラム。\nfloat型(浮動小数点型)で少数を格納したnum変数を初期化。\nprintf関数でnumを出力。小数点以下2桁なので、%.2を指定し、float型なのでfを指定。よって、%.2fとなる。"
+  },
+  {
+      "id": 25,
+      "input": "C言語で整数型の変数に値を代入するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    printf(\"%d\\n\", num);\n    return 0;\n}",
+      "description": "整数型の変数numに5を代入し、その値を出力するプログラム"
+  },
+  {
+      "id": 26,
+      "input": "C言語で浮動小数点型の変数に値を代入するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    float num = 3.14;\n    printf(\"%.2f\\n\", num);\n    return 0;\n}",
+      "description": "浮動小数点型の変数numに3.14を代入し、その値を出力するプログラム"
+  },
+  {
+      "id": 27,
+      "input": "C言語で文字型の変数に文字を代入するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char letter = 'A';\n    printf(\"%c\\n\", letter);\n    return 0;\n}",
+      "description": "文字型の変数letterに'A'を代入し、その文字を出力するプログラム"
+  },
+  {
+      "id": 28,
+      "input": "C言語で文字列型の変数に文字列を代入するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    printf(\"%s\\n\", str);\n    return 0;\n}",
+      "description": "文字列型の変数strに\"Hello\"を代入し、その文字列を出力するプログラム"
+  },
+  {
+      "id": 29,
+      "input": "C言語で複数の変数を宣言して使用するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num1 = 10, num2 = 20;\n    printf(\"%d, %d\\n\", num1, num2);\n    return 0;\n}",
+      "description": "複数の変数num1とnum2を宣言し、その値を出力するプログラム"
+  },
+  {
+      "id": 30,
+      "input": "C言語で配列を宣言して使用するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    printf(\"%d, %d, %d\\n\", arr[0], arr[1], arr[2]);\n    return 0;\n}",
+      "description": "整数型の配列arrを宣言し、その要素を出力するプログラム"
+  },
+  {
+      "id": 31,
+      "input": "C言語で構造体を宣言して使用するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nstruct Person {\n    int age;\n    char name[20];\n};\n\nint main(void) {\n    struct Person person = {25, \"Alice\"};\n    printf(\"Name: %s, Age: %d\\n\", person.name, person.age);\n    return 0;\n}",
+      "description": "構造体Personを宣言し、nameとageを格納して出力するプログラム"
+  },
+  {
+      "id": 32,
+      "input": "C言語でポインタを宣言して使用するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int *ptr = &num;\n    printf(\"%d\\n\", *ptr);\n    return 0;\n}",
+      "description": "ポインタptrを使って変数numの値を出力するプログラム"
+  },
+  {
+      "id": 33,
+      "input": "C言語でポインタを使って配列の値を変更するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    int *ptr = arr;\n    ptr[1] = 10;\n    printf(\"%d, %d, %d\\n\", arr[0], arr[1], arr[2]);\n    return 0;\n}",
+      "description": "ポインタを使って配列の2番目の要素を変更し、配列を出力するプログラム"
+  },
+  {
+      "id": 34,
+      "input": "C言語で動的メモリ確保を行うプログラムを書いて",
+      "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *ptr = (int *)malloc(sizeof(int));\n    *ptr = 100;\n    printf(\"%d\\n\", *ptr);\n    free(ptr);\n    return 0;\n}",
+      "description": "mallocを使って動的にメモリを確保し、その値を出力した後、メモリを解放するプログラム"
+  },
+  {
+      "id": 35,
+      "input": "C言語で論理演算子を使用するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 1, b = 0;\n    if (a && b) {\n        printf(\"True\\n\");\n    } else {\n        printf(\"False\\n\");\n    }\n    return 0;\n}",
+      "description": "論理AND演算子を使った条件分岐の例"
+  },
+  {
+      "id": 36,
+      "input": "C言語で比較演算子を使用するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 5, b = 10;\n    if (a < b) {\n        printf(\"a is less than b\\n\");\n    }\n    return 0;\n}",
+      "description": "比較演算子<を使用して条件を評価し、結果を出力するプログラム"
+  },
+  {
+      "id": 37,
+      "input": "C言語で文字列長を取得するプログラムを書いて",
+      "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    int length = strlen(str);\n    printf(\"String length: %d\\n\", length);\n    return 0;\n}",
+      "description": "strlen関数を使って文字列の長さを取得するプログラム"
+  },
+  {
+      "id": 38,
+      "input": "C言語で文字列を連結するプログラムを書いて",
+      "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[50] = \"Hello\";\n    char str2[] = \" World\";\n    strcat(str1, str2);\n    printf(\"%s\\n\", str1);\n    return 0;\n}",
+      "description": "strcat関数を使って文字列を連結するプログラム"
+  },
+  {
+      "id": 39,
+      "input": "C言語で整数の配列を逆順に表示するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int i;\n    for (i = 4; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n    return 0;\n}",
+      "description": "配列の要素を逆順に表示するプログラム"
+  },
+  {
+      "id": 40,
+      "input": "C言語で整数型の変数に値を代入し、出力するプログラムを書いて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 15;\n    int y = x + 5;\n    printf(\"y = %d\\n\", y);\n    return 0;\n}",
+      "description": "整数型の変数に値を代入し、出力するプログラム"
+  },
+  {
+    "id": 41,
+    "input": "C言語でint型の変数を宣言し、値を初期化して出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // int型の変数を宣言して初期化\n    int num = 42;\n\n    // 変数の値を出力\n    printf(\"整数の値: %d\\n\", num);\n\n    return 0;\n}",
+    "description": "int型の変数numを宣言し、値42を初期化して出力するプログラム。\n%dフォーマット指定子を使用して、整数値をprintfで表示します。"
+  },
+  {
+    "id": 42,
+    "input": "C言語でfloat型の変数を使用して計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // float型の変数を宣言して初期化\n    float a = 5.5, b = 2.2;\n\n    // 足し算を行う\n    float result = a + b;\n\n    // 計算結果を出力\n    printf(\"%.2f + %.2f = %.2f\\n\", a, b, result);\n\n    return 0;\n}",
+    "description": "float型の変数aとbにそれぞれ5.5と2.2を代入し、それらを足し算して結果を出力するプログラム。\nprintfでは小数点以下2桁を表示するため、%.2fを指定しています。"
+  },
+  {
+    "id": 43,
+    "input": "C言語でchar型の変数を複数宣言して使用するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // char型の変数を複数宣言\n    char first = 'C';\n    char second = 'L';\n\n    // 変数の値を出力\n    printf(\"1文字目: %c, 2文字目: %c\\n\", first, second);\n\n    return 0;\n}",
+    "description": "char型の変数firstとsecondを宣言し、それぞれ'C'と'L'を代入。\nprintfを使用して、%cフォーマット指定子で1文字ずつ出力します。"
+  },
+  {
+    "id": 44,
+    "input": "C言語でint型の変数を使って四則演算を行うプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // int型の変数を宣言して初期化\n    int x = 10, y = 3;\n\n    // 四則演算を行い結果を出力\n    printf(\"%d + %d = %d\\n\", x, y, x + y);\n    printf(\"%d - %d = %d\\n\", x, y, x - y);\n    printf(\"%d * %d = %d\\n\", x, y, x * y);\n    printf(\"%d / %d = %d\\n\", x, y, x / y);\n\n    return 0;\n}",
+    "description": "int型の変数xとyに値を代入し、足し算、引き算、掛け算、割り算を行います。\n各結果をprintfで%dフォーマット指定子を使い出力します。割り算は整数の商を返します。"
+  },
+  {
+    "id": 45,
+    "input": "C言語でdouble型の変数を宣言して値を初期化するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // double型の変数を宣言して初期化\n    double pi = 3.141592653589793;\n\n    // 変数の値を出力\n    printf(\"円周率: %.15f\\n\", pi);\n\n    return 0;\n}",
+    "description": "double型の変数piに円周率を代入し、小数点以下15桁まで表示するプログラム。\nprintfでは%.15fを使用して精度を指定します。"
+  },
+  {
+    "id": 46,
+    "input": "C言語でunsigned型の変数を使って非負の値を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // unsigned int型の変数を宣言して初期化\n    unsigned int count = 500;\n\n    // 変数の値を出力\n    printf(\"非負の整数: %u\\n\", count);\n\n    return 0;\n}",
+    "description": "unsigned int型の変数countに500を代入し、%uフォーマット指定子で出力するプログラム。\nunsigned型は負の値を扱えず、正の整数のみを表します。"
+  },
+  {
+    "id": 47,
+    "input": "C言語でshort型の変数を宣言して値を代入するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // short型の変数を宣言して初期化\n    short age = 25;\n\n    // 変数の値を出力\n    printf(\"年齢: %d\\n\", age);\n\n    return 0;\n}",
+    "description": "short型の変数ageに25を代入し、%dフォーマット指定子で出力するプログラム。\nshort型はint型より小さいメモリサイズで整数を扱います。"
+  },
+  {
+    "id": 48,
+    "input": "C言語でlong型の変数を宣言して値を代入するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // long型の変数を宣言して初期化\n    long population = 7800000000;\n\n    // 変数の値を出力\n    printf(\"世界の人口: %ld\\n\", population);\n\n    return 0;\n}",
+    "description": "long型の変数populationに世界の人口値を代入し、%ldフォーマット指定子で出力するプログラム。\nlong型はint型より大きな整数を格納できます。"
+  },
+  {
+    "id": 49,
+    "input": "C言語でbool型の変数を使用するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <stdbool.h>\n\nint main(void) {\n    // bool型の変数を宣言して初期化\n    bool isEven = true;\n\n    // 変数の値を出力\n    if (isEven) {\n        printf(\"数は偶数です\\n\");\n    } else {\n        printf(\"数は奇数です\\n\");\n    }\n\n    return 0;\n}",
+    "description": "stdbool.hヘッダファイルをインクルードし、bool型の変数isEvenを宣言してtrueを代入。\n条件分岐を使って、isEvenがtrueなら\"偶数\"と出力します。"
+  },
+  {
+    "id": 50,
+    "input": "C言語で変数の型を自動推論するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // auto型（C++の例ではなくC言語の通常型推論）\n    int a = 10;\n    float b = 3.5;\n    \n    // 型を推論して操作\n    printf(\"%dと%.1fを使用しました\\n\", a, b);\n    return 0;\n}",
+    "description": "int型とfloat型の変数に適切なデータ型で値を代入し、型推論をシミュレートします。\nCでは型推論は自動ではなく明示的です。"
+  },
+  {
+    "id": 51,
+    "input": "C言語で配列を使い、合計を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // int型の配列を宣言して初期化\n    int numbers[] = {1, 2, 3, 4, 5};\n    int size = sizeof(numbers) / sizeof(numbers[0]);\n\n    // 合計を計算\n    int sum = 0;\n    for (int i = 0; i < size; i++) {\n        sum += numbers[i];\n    }\n\n    // 結果を出力\n    printf(\"配列の合計: %d\\n\", sum);\n\n    return 0;\n}",
+    "description": "int型の配列numbersに5つの整数を格納し、forループで要素を順番に足し合わせて合計を計算します。\n配列のサイズを動的に計算するため、sizeofを使用しています。"
+  },
+  {
+    "id": 52,
+    "input": "C言語で構造体を使って学生の情報を管理するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nstruct Student {\n    int id;\n    char name[50];\n    float grade;\n};\n\nint main(void) {\n    // 構造体の変数を宣言して初期化\n    struct Student student1;\n    student1.id = 101;\n    strcpy(student1.name, \"Alice\");\n    student1.grade = 95.5;\n\n    // 結果を出力\n    printf(\"学生ID: %d\\n\", student1.id);\n    printf(\"名前: %s\\n\", student1.name);\n    printf(\"成績: %.2f\\n\", student1.grade);\n\n    return 0;\n}",
+    "description": "構造体Studentを定義し、学生のID、名前、成績を格納します。\nstrcpyを使用して文字列を構造体メンバーに代入し、各メンバーの値を出力します。"
+  },
+  {
+    "id": 53,
+    "input": "C言語でポインタを使って変数の値を変更するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // int型の変数を宣言\n    int x = 10;\n    int *ptr = &x;\n\n    // ポインタを使用して値を変更\n    *ptr = 20;\n\n    // 結果を出力\n    printf(\"xの新しい値: %d\\n\", x);\n\n    return 0;\n}",
+    "description": "int型の変数xのアドレスをポインタptrに代入。\nポインタを介してxの値を変更し、新しい値を出力します。"
+  },
+  {
+    "id": 54,
+    "input": "C言語で配列とポインタを使ったデータ操作を行うプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // int型の配列を宣言\n    int arr[] = {10, 20, 30, 40, 50};\n    int *ptr = arr; // 配列の先頭アドレスをポインタに代入\n\n    // ポインタを使用して配列の値を出力\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, *(ptr + i));\n    }\n\n    return 0;\n}",
+    "description": "int型の配列をポインタで操作するプログラム。\n配列の先頭アドレスをポインタに代入し、ポインタを使って各要素を順番に出力します。"
+  },
+  {
+    "id": 55,
+    "input": "C言語で列挙型を使ったプログラムを書いて",
+    "output": "#include <stdio.h>\n\nenum Day {SUN, MON, TUE, WED, THU, FRI, SAT};\n\nint main(void) {\n    // 列挙型の変数を宣言\n    enum Day today = WED;\n\n    // 結果を出力\n    printf(\"今日は%d番目の曜日です\\n\", today);\n\n    return 0;\n}",
+    "description": "列挙型Dayを定義し、曜日を表す定数を設定します。\n列挙型変数todayを使用して値を代入し、その値を出力します。\n列挙型は整数値に変換され、0から順に値が割り当てられます。"
+  },
+  {
+    "id": 56,
+    "input": "C言語でポインタを使って関数内で変数を操作するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nvoid increment(int *value) {\n    *value += 1;\n}\n\nint main(void) {\n    int num = 10;\n\n    // 関数を呼び出して値を変更\n    increment(&num);\n\n    // 結果を出力\n    printf(\"インクリメント後の値: %d\\n\", num);\n\n    return 0;\n}",
+    "description": "関数incrementを定義し、ポインタを使って引数の値を変更します。\nmain関数からnumのアドレスを渡し、increment内で値をインクリメントします。"
+  },
+  {
+    "id": 57,
+    "input": "C言語で文字列を扱うプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[50] = \"Hello, \";\n    char str2[] = \"World!\";\n\n    // 文字列を連結\n    strcat(str1, str2);\n\n    // 結果を出力\n    printf(\"結合された文字列: %s\\n\", str1);\n\n    return 0;\n}",
+    "description": "char型配列を使って文字列を格納し、strcat関数を使用して2つの文字列を結合します。\n結果として結合された文字列を出力します。"
+  },
+  {
+    "id": 58,
+    "input": "C言語で動的メモリ確保を使用するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *arr;\n    int size = 5;\n\n    // 動的メモリ確保\n    arr = (int *)malloc(size * sizeof(int));\n    if (arr == NULL) {\n        printf(\"メモリ確保に失敗しました\\n\");\n        return 1;\n    }\n\n    // 配列に値を代入\n    for (int i = 0; i < size; i++) {\n        arr[i] = i + 1;\n    }\n\n    // 結果を出力\n    for (int i = 0; i < size; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n\n    // メモリ解放\n    free(arr);\n\n    return 0;\n}",
+    "description": "mallocを使用して動的にメモリを確保し、int型の配列を作成します。\nメモリ確保が成功した場合、配列に値を格納し、最後にfree関数でメモリを解放します。"
+  },
+  {
+    "id": 59,
+    "input": "C言語でファイルに文字列を書き込むプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    FILE *file = fopen(\"output.txt\", \"w\");\n\n    if (file == NULL) {\n        printf(\"ファイルを開けませんでした\\n\");\n        return 1;\n    }\n\n    // ファイルに文字列を書き込む\n    fprintf(file, \"Hello, World!\\n\");\n\n    // ファイルを閉じる\n    fclose(file);\n\n    printf(\"ファイルに書き込みました\\n\");\n\n    return 0;\n}",
+    "description": "fopen関数を使用してファイルを開き、fprintf関数で文字列を書き込みます。\n最後にfclose関数でファイルを閉じます。"
+  },
+  {
+    "id": 60,
+    "input": "C言語で再帰関数を使った階乗計算プログラムを書いて",
+    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n\nint main(void) {\n    int num = 5;\n\n    // 再帰関数を使用して階乗を計算\n    printf(\"%dの階乗は: %d\\n\", num, factorial(num));\n\n    return 0;\n}",
+    "description": "再帰関数factorialを定義し、階乗を計算します。\n引数が0の場合に1を返し、それ以外の場合は自身を呼び出して計算を繰り返します。"
+  },
+  {
+    "id": 61,
+    "input": "C言語でfor文を使って1から10までの数を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 10; i++) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}",
+    "description": "for文を使用して1から10までの数を順番に出力します。\nループ変数iを1から10までインクリメントしながら処理します。"
+  },
+  {
+    "id": 62,
+    "input": "C言語でfor文を使って1から10までの偶数だけを出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}",
+    "description": "1から10までの数の中で偶数だけを出力するプログラム。\nif文を使って条件を満たす場合にのみ値を出力します。"
+  },
+  {
+    "id": 63,
+    "input": "C言語でfor文を使って配列の要素を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = 0; i < size; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    return 0;\n}",
+    "description": "配列の各要素を出力するプログラム。\n配列のサイズを動的に計算し、for文を使用して各インデックスの値を順に表示します。"
+  },
+  {
+    "id": 64,
+    "input": "C言語でfor文を使って1から10までの数の合計を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n\n    for (int i = 1; i <= 10; i++) {\n        sum += i;\n    }\n\n    printf(\"1から10までの合計: %d\\n\", sum);\n    return 0;\n}",
+    "description": "1から10までの数の合計を計算するプログラム。\nfor文で各数を順番に加算し、最終的な合計値を出力します。"
+  },
+  {
+    "id": 65,
+    "input": "C言語でfor文を使って九九の表を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 9; i++) {\n        for (int j = 1; j <= 9; j++) {\n            printf(\"%d x %d = %d\\t\", i, j, i * j);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "ネストしたfor文を使用して九九の表を出力します。\n外側のループが掛ける数を、内側のループが掛けられる数を制御し、掛け算の結果を表示します。"
+  },
+  {
+    "id": 66,
+    "input": "C言語でfor文を使って文字列の各文字を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello, World!\";\n    int length = strlen(str);\n\n    for (int i = 0; i < length; i++) {\n        printf(\"%c\\n\", str[i]);\n    }\n    return 0;\n}",
+    "description": "文字列の各文字をfor文で1文字ずつ出力します。\nstrlen関数で文字列の長さを取得し、ループで各インデックスの文字を表示します。"
+  },
+  {
+    "id": 67,
+    "input": "C言語でfor文を使って階乗を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n\n    for (int i = 1; i <= num; i++) {\n        factorial *= i;\n    }\n\n    printf(\"%dの階乗は: %d\\n\", num, factorial);\n    return 0;\n}",
+    "description": "for文を使用して与えられた数（例: 5）の階乗を計算します。\nループ変数を1から指定した数までインクリメントし、乗算を繰り返します。"
+  },
+  {
+    "id": 68,
+    "input": "C言語でfor文を使って逆順に配列の要素を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = size - 1; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n    return 0;\n}",
+    "description": "for文を使って配列の要素を逆順に出力します。\nループ変数を配列の最後のインデックスから減少させながら各要素を表示します。"
+  },
+  {
+    "id": 69,
+    "input": "C言語でfor文を使って2のべき乗を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n\n    for (int i = 0; i < 10; i++) {\n        printf(\"2^%d = %d\\n\", i, power);\n        power *= 2;\n    }\n    return 0;\n}",
+    "description": "for文を使って2のべき乗を計算し、10回繰り返して結果を出力します。\n変数powerに2を掛け続け、各段階の結果を表示します。"
+  },
+  {
+    "id": 70,
+    "input": "C言語でfor文を使って三角形をアスタリスクで描画するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int rows = 5;\n\n    for (int i = 1; i <= rows; i++) {\n        for (int j = 1; j <= i; j++) {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "ネストしたfor文を使ってアスタリスク(*)で三角形を描画します。\n外側のループで行数を制御し、内側のループで各行に出力するアスタリスクの数を増やしていきます。"
+  },
+  {
+    "id": 71,
+    "input": "C言語でwhile文を使って1から10までの数を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    while (i <= 10) {\n        printf(\"%d\\n\", i);\n        i++;\n    }\n    return 0;\n}",
+    "description": "while文を使って1から10までの数を順番に出力します。\nループ変数iを初期化し、条件を満たす間ループを繰り返して出力します。"
+  },
+  {
+    "id": 72,
+    "input": "C言語でwhile文を使って1から10までの偶数だけを出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    while (i <= 10) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n        i++;\n    }\n    return 0;\n}",
+    "description": "while文を使って1から10までの偶数だけを出力します。\n条件式で偶数かどうかを判定し、該当する場合にのみ出力します。"
+  },
+  {
+    "id": 73,
+    "input": "C言語でwhile文を使って配列の要素を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = 0;\n\n    while (i < size) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n        i++;\n    }\n    return 0;\n}",
+    "description": "配列の各要素をwhile文を使って出力します。\n配列のインデックスをループ内でインクリメントしながら処理します。"
+  },
+  {
+    "id": 74,
+    "input": "C言語でwhile文を使って1から10までの数の合計を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n    int i = 1;\n\n    while (i <= 10) {\n        sum += i;\n        i++;\n    }\n\n    printf(\"1から10までの合計: %d\\n\", sum);\n    return 0;\n}",
+    "description": "while文を使って1から10までの数の合計を計算します。\nループ内で変数sumに各数値を加算していきます。"
+  },
+  {
+    "id": 75,
+    "input": "C言語でwhile文を使って逆順に配列の要素を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = size - 1;\n\n    while (i >= 0) {\n        printf(\"%d\\n\", arr[i]);\n        i--;\n    }\n    return 0;\n}",
+    "description": "while文を使って配列の要素を逆順に出力します。\nループ変数を配列の最後のインデックスから減少させながら処理します。"
+  },
+  {
+    "id": 76,
+    "input": "C言語でwhile文を使って数を入力し、負の数が入力されるまでの合計を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    int sum = 0;\n\n    printf(\"数値を入力してください (負の数で終了): \\n\");\n    scanf(\"%d\", &num);\n\n    while (num >= 0) {\n        sum += num;\n        printf(\"数値を入力してください: \\n\");\n        scanf(\"%d\", &num);\n    }\n\n    printf(\"合計: %d\\n\", sum);\n    return 0;\n}",
+    "description": "負の数が入力されるまで、入力された数値を合計するプログラム。\nユーザー入力をwhile文の条件として使用します。"
+  },
+  {
+    "id": 77,
+    "input": "C言語でwhile文を使って指定された数の階乗を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n    int i = 1;\n\n    while (i <= num) {\n        factorial *= i;\n        i++;\n    }\n\n    printf(\"%dの階乗は: %d\\n\", num, factorial);\n    return 0;\n}",
+    "description": "while文を使って指定された数（例: 5）の階乗を計算します。\nループ内で乗算を繰り返し、結果を表示します。"
+  },
+  {
+    "id": 78,
+    "input": "C言語でwhile文を使って文字列の各文字を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello, World!\";\n    int i = 0;\n\n    while (str[i] != '\\0') {\n        printf(\"%c\\n\", str[i]);\n        i++;\n    }\n    return 0;\n}",
+    "description": "while文を使って文字列の各文字を1文字ずつ出力します。\n文字列の終端記号 '\\0' を検出するまでループを繰り返します。"
+  },
+  {
+    "id": 79,
+    "input": "C言語でwhile文を使ってフィボナッチ数列を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 1;\n    int next, count = 0, limit = 10;\n\n    printf(\"フィボナッチ数列: \\n\");\n    while (count < limit) {\n        printf(\"%d\\n\", a);\n        next = a + b;\n        a = b;\n        b = next;\n        count++;\n    }\n    return 0;\n}",
+    "description": "while文を使ってフィボナッチ数列を計算し、最初の10項を出力します。\n2つの変数を更新しながら数列を生成します。"
+  },
+  {
+    "id": 80,
+    "input": "C言語でwhile文を使って2のべき乗を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n    int count = 0;\n\n    while (count < 10) {\n        printf(\"2^%d = %d\\n\", count, power);\n        power *= 2;\n        count++;\n    }\n    return 0;\n}",
+    "description": "while文を使って2のべき乗を計算し、最初の10回分を出力します。\nループ内で変数に2を掛け続けて計算します。"
+  },
+  {
+    "id": 81,
+    "input": "C言語でdo-while文を使って1から10までの数を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    do {\n        printf(\"%d\\n\", i);\n        i++;\n    } while (i <= 10);\n\n    return 0;\n}",
+    "description": "do-while文を使って1から10までの数を順番に出力します。\nループは少なくとも1回実行され、条件を満たす間繰り返されます。"
+  },
+  {
+    "id": 82,
+    "input": "C言語でdo-while文を使って1から10までの数の合計を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n    int i = 1;\n\n    do {\n        sum += i;\n        i++;\n    } while (i <= 10);\n\n    printf(\"1から10までの合計: %d\\n\", sum);\n    return 0;\n}",
+    "description": "do-while文を使って1から10までの数の合計を計算します。\n少なくとも1回実行され、その後条件が満たされていればループを続行します。"
+  },
+  {
+    "id": 83,
+    "input": "C言語でdo-while文を使ってユーザーが0を入力するまで数を合計するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    int sum = 0;\n\n    do {\n        printf(\"数値を入力してください (0で終了): \");\n        scanf(\"%d\", &num);\n        sum += num;\n    } while (num != 0);\n\n    printf(\"合計: %d\\n\", sum);\n    return 0;\n}",
+    "description": "ユーザーが0を入力するまで、入力された数値を合計します。\ndo-while文により、少なくとも1回はユーザー入力を受け付けます。"
+  },
+  {
+    "id": 84,
+    "input": "C言語でdo-while文を使って指定された文字列を逆順に出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    int len = strlen(str);\n    int i = len - 1;\n\n    do {\n        printf(\"%c\", str[i]);\n        i--;\n    } while (i >= 0);\n\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "do-while文を使って指定された文字列を逆順に出力します。\nループ変数を文字列の最後から減少させて処理します。"
+  },
+  {
+    "id": 85,
+    "input": "C言語でdo-while文を使って階乗を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n    int i = 1;\n\n    do {\n        factorial *= i;\n        i++;\n    } while (i <= num);\n\n    printf(\"%dの階乗は: %d\\n\", num, factorial);\n    return 0;\n}",
+    "description": "do-while文を使って指定された数（例: 5）の階乗を計算します。\n少なくとも1回は計算が実行されます。"
+  },
+  {
+    "id": 86,
+    "input": "C言語でdo-while文を使ってユーザー入力された数値が偶数になるまで繰り返すプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    do {\n        printf(\"偶数を入力してください: \");\n        scanf(\"%d\", &num);\n    } while (num % 2 != 0);\n\n    printf(\"入力された偶数: %d\\n\", num);\n    return 0;\n}",
+    "description": "ユーザーが偶数を入力するまで繰り返し入力を促すプログラムです。\ndo-while文を使うことで、少なくとも1回入力を受け取ります。"
+  },
+  {
+    "id": 87,
+    "input": "C言語でdo-while文を使ってフィボナッチ数列の最初の10項を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 1;\n    int next, count = 0;\n\n    printf(\"フィボナッチ数列: \\n\");\n    do {\n        printf(\"%d\\n\", a);\n        next = a + b;\n        a = b;\n        b = next;\n        count++;\n    } while (count < 10);\n\n    return 0;\n}",
+    "description": "do-while文を使ってフィボナッチ数列の最初の10項を出力します。\nカウントを基にループが終了します。"
+  },
+  {
+    "id": 88,
+    "input": "C言語でdo-while文を使って2のべき乗を10回計算して出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n    int count = 0;\n\n    do {\n        printf(\"2^%d = %d\\n\", count, power);\n        power *= 2;\n        count++;\n    } while (count < 10);\n\n    return 0;\n}",
+    "description": "do-while文を使って2のべき乗を計算し、最初の10回分を出力します。\n計算は必ず1回は実行されます。"
+  },
+  {
+    "id": 89,
+    "input": "C言語でdo-while文を使って配列の要素を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = 0;\n\n    do {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n        i++;\n    } while (i < size);\n\n    return 0;\n}",
+    "description": "do-while文を使って配列の各要素を出力します。\n少なくとも1回、配列の要素を処理します。"
+  },
+  { 
+    "id": 90,
+    "input": "C言語でdo-while文を使ってユーザーが正の数を入力するまで繰り返すプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    do {\n        printf(\"正の数を入力してください: \");\n        scanf(\"%d\", &num);\n    } while (num <= 0);\n\n    printf(\"入力された正の数: %d\\n\", num);\n    return 0;\n}",
+    "description": "ユーザーが正の数を入力するまで繰り返すプログラムです。\ndo-while文により、少なくとも1回は入力処理が実行されます。"
+  },
+  {
+    "id": 91,
+    "input": "C言語でif文を使って偶数か奇数かを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"数値を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num % 2 == 0) {\n        printf(\"%dは偶数です。\\n\", num);\n    } else {\n        printf(\"%dは奇数です。\\n\", num);\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した数値が偶数か奇数かを判定するプログラムです。\n`if` 文で偶数条件を確認し、条件に合致しない場合は `else` ブロックが実行されます。"
+  },
+  {
+    "id": 92,
+    "input": "C言語でif文を使って入力された値が正か負かを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"%dは正の数です。\\n\", num);\n    } else if (num < 0) {\n        printf(\"%dは負の数です。\\n\", num);\n    } else {\n        printf(\"数値は0です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した整数が正、負、または0であるかを判定します。\n`if-else if-else` 文を使用して条件をチェックします。"
+  },
+  {
+    "id": 93,
+    "input": "C言語でif文を使って3つの数値の中で最も大きい値を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n    printf(\"3つの数値を入力してください: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a >= b && a >= c) {\n        printf(\"最大の数値は: %d\\n\", a);\n    } else if (b >= a && b >= c) {\n        printf(\"最大の数値は: %d\\n\", b);\n    } else {\n        printf(\"最大の数値は: %d\\n\", c);\n    }\n\n    return 0;\n}",
+    "description": "3つの入力値を比較して最も大きい値を出力します。\n`if-else if` 文を使用して条件を評価します。"
+  },
+  {
+    "id": 94,
+    "input": "C言語でif文を使って年齢を入力し、成人かどうかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int age;\n    printf(\"年齢を入力してください: \");\n    scanf(\"%d\", &age);\n\n    if (age >= 18) {\n        printf(\"あなたは成人です。\\n\");\n    } else {\n        printf(\"あなたは未成年です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した年齢が18歳以上であれば成人、それ未満であれば未成年と判定します。\n`if-else` 文を使用しています。"
+  },
+  {
+    "id": 95,
+    "input": "C言語でif文を使ってユーザー入力が正の偶数か負の偶数かを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0 && num % 2 == 0) {\n        printf(\"%dは正の偶数です。\\n\", num);\n    } else if (num < 0 && num % 2 == 0) {\n        printf(\"%dは負の偶数です。\\n\", num);\n    } else {\n        printf(\"%dは偶数ではありません。\\n\", num);\n    }\n\n    return 0;\n}",
+    "description": "入力された数値が正の偶数か負の偶数かを判定します。\n条件式には`&&`を使って複数の条件を組み合わせています。"
+  },
+  {
+    "id": 96,
+    "input": "C言語でif文を使って指定された年が閏年かどうかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"年を入力してください: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {\n        printf(\"%d年は閏年です。\\n\", year);\n    } else {\n        printf(\"%d年は閏年ではありません。\\n\", year);\n    }\n\n    return 0;\n}",
+    "description": "入力された年が閏年かどうかを判定します。\n閏年の条件を`if` 文で評価します: 4で割り切れるが100で割り切れない、または400で割り切れる年。"
+  },
+  { 
+    "id": 97,
+    "input": "C言語でif文を使って温度を入力し、特定の範囲に基づいて状態を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    float temp;\n    printf(\"温度を入力してください (℃): \");\n    scanf(\"%f\", &temp);\n\n    if (temp < 0) {\n        printf(\"氷点下\\n\");\n    } else if (temp <= 30) {\n        printf(\"快適な温度\\n\");\n    } else {\n        printf(\"暑い\\n\");\n    }\n\n    return 0;\n}",
+    "description": "温度を入力し、その値に基づいて「氷点下」、「快適な温度」、「暑い」を出力します。\n`if-else if-else` 文を使って温度範囲を評価します。"
+  },
+  {
+    "id": 98,
+    "input": "C言語でif文を使って三角形が成立するかどうかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n    printf(\"三角形の3辺を入力してください: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a + b > c && a + c > b && b + c > a) {\n        printf(\"三角形は成立します。\\n\");\n    } else {\n        printf(\"三角形は成立しません。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "入力された3辺の長さから三角形が成立するかを判定します。\n三角形成立の条件は任意の2辺の和が他の1辺より大きいことです。"
+  },
+  { 
+    "id": 99,
+    "input": "C言語でif文を使って成績を評価するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int score;\n    printf(\"点数を入力してください: \");\n    scanf(\"%d\", &score);\n\n    if (score >= 90) {\n        printf(\"成績: A\\n\");\n    } else if (score >= 80) {\n        printf(\"成績: B\\n\");\n    } else if (score >= 70) {\n        printf(\"成績: C\\n\");\n    } else if (score >= 60) {\n        printf(\"成績: D\\n\");\n    } else {\n        printf(\"成績: F\\n\");\n    }\n\n    return 0;\n}",
+    "description": "点数に応じて成績を評価するプログラムです。\n`if-else if-else` 文で範囲ごとに条件を評価します。"
+  },
+  { 
+    "id": 100,
+    "input": "C言語でif文を使って文字が母音かどうかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char ch;\n    printf(\"文字を入力してください: \");\n    scanf(\" %c\", &ch);\n\n    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||\n        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {\n        printf(\"%cは母音です。\\n\", ch);\n    } else {\n        printf(\"%cは母音ではありません。\\n\", ch);\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した文字が母音かどうかを判定します。\n`||` 演算子を使って複数の条件をチェックします。"
+  },
+  {
+    "id": 101,
+    "input": "C言語でswitch文を使って曜日を入力し、対応する曜日名を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"曜日を表す数値を入力してください (1〜7): \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"月曜日\\n\"); break;\n        case 2: printf(\"火曜日\\n\"); break;\n        case 3: printf(\"水曜日\\n\"); break;\n        case 4: printf(\"木曜日\\n\"); break;\n        case 5: printf(\"金曜日\\n\"); break;\n        case 6: printf(\"土曜日\\n\"); break;\n        case 7: printf(\"日曜日\\n\"); break;\n        default: printf(\"無効な入力です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した数値 (1〜7) に基づいて、対応する曜日名を出力します。\n`switch` 文を使い、各ケースで曜日を対応させています。\n不正な値が入力された場合は `default` ケースが実行されます。"
+  },
+  {
+    "id": 102,
+    "input": "C言語でswitch文を使って簡単な計算機プログラムを作って",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char operator;\n    double num1, num2;\n\n    printf(\"演算子を入力してください (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"2つの数値を入力してください: \");\n    scanf(\"%lf %lf\", &num1, &num2);\n\n    switch (operator) {\n        case '+':\n            printf(\"結果: %.2lf\\n\", num1 + num2);\n            break;\n        case '-':\n            printf(\"結果: %.2lf\\n\", num1 - num2);\n            break;\n        case '*':\n            printf(\"結果: %.2lf\\n\", num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0) {\n                printf(\"結果: %.2lf\\n\", num1 / num2);\n            } else {\n                printf(\"ゼロで割ることはできません。\\n\");\n            }\n            break;\n        default:\n            printf(\"無効な演算子です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "演算子と2つの数値を入力し、`switch` 文で演算を実行する簡単な計算機プログラムです。\n入力された演算子に応じて対応する計算を実行します。\nゼロ除算の場合はエラーメッセージを表示します。"
+  },
+  { 
+    "id": 103,
+    "input": "C言語でswitch文を使って季節を判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"月を入力してください (1〜12): \");\n    scanf(\"%d\", &month);\n\n    switch (month) {\n        case 12:\n        case 1:\n        case 2:\n            printf(\"冬です。\\n\");\n            break;\n        case 3:\n        case 4:\n        case 5:\n            printf(\"春です。\\n\");\n            break;\n        case 6:\n        case 7:\n        case 8:\n            printf(\"夏です。\\n\");\n            break;\n        case 9:\n        case 10:\n        case 11:\n            printf(\"秋です。\\n\");\n            break;\n        default:\n            printf(\"無効な月です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "入力された月に基づいて季節を判定します。\n`switch` 文の複数ケースをまとめて使い、季節を表示します。\n無効な月が入力された場合は `default` ケースでエラーを表示します。"
+  },
+  {
+    "id": 104,
+    "input": "C言語でswitch文を使って入力された文字が母音か子音かを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char ch;\n    printf(\"文字を入力してください: \");\n    scanf(\" %c\", &ch);\n\n    switch (ch) {\n        case 'a':\n        case 'e':\n        case 'i':\n        case 'o':\n        case 'u':\n        case 'A':\n        case 'E':\n        case 'I':\n        case 'O':\n        case 'U':\n            printf(\"%cは母音です。\\n\", ch);\n            break;\n        default:\n            printf(\"%cは子音です。\\n\", ch);\n    }\n\n    return 0;\n}",
+    "description": "入力された文字が母音か子音かを判定します。\n母音をリストアップしたケースに一致すれば母音と出力し、それ以外は子音と判定します。"
+  },
+  {
+    "id": 105,
+    "input": "C言語でswitch文を使って数値に対応する色を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int colorCode;\n    printf(\"色コードを入力してください (1〜5): \");\n    scanf(\"%d\", &colorCode);\n\n    switch (colorCode) {\n        case 1: printf(\"赤\\n\"); break;\n        case 2: printf(\"青\\n\"); break;\n        case 3: printf(\"緑\\n\"); break;\n        case 4: printf(\"黄色\\n\"); break;\n        case 5: printf(\"紫\\n\"); break;\n        default: printf(\"無効な色コードです。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "数値に応じた色を出力するプログラムです。\n`switch` 文で数値に対応する色を定義しています。\n無効な入力値の場合、エラーを表示します。"
+  },
+  { 
+    "id": 106,
+    "input": "C言語でswitch文を使ってユーザーが入力した整数が正の偶数、正の奇数、負の偶数、負の奇数のどれかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    switch (num > 0) {\n        case 1:\n            switch (num % 2 == 0) {\n                case 1: printf(\"正の偶数\\n\"); break;\n                case 0: printf(\"正の奇数\\n\"); break;\n            }\n            break;\n        case 0:\n            switch (num % 2 == 0) {\n                case 1: printf(\"負の偶数\\n\"); break;\n                case 0: printf(\"負の奇数\\n\"); break;\n            }\n            break;\n    }\n\n    return 0;\n}",
+    "description": "ネストされた`switch` 文を使い、入力された整数が正の偶数、正の奇数、負の偶数、負の奇数のどれに該当するかを判定します。\n外側の`switch`で正負を、内側の`switch`で偶奇を評価します。"
+  },
+  {
+    "id": 107,
+    "input": "C言語でswitch文を使って1から10までの数字を入力し、その数字の倍数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"1から10までの数字を入力してください: \");\n    scanf(\"%d\", &num);\n\n    switch (num) {\n        case 1: printf(\"1の倍数はすべての整数です。\\n\"); break;\n        case 2: printf(\"2の倍数は 2, 4, 6, 8, 10 です。\\n\"); break;\n        case 3: printf(\"3の倍数は 3, 6, 9 です。\\n\"); break;\n        case 4: printf(\"4の倍数は 4, 8 です。\\n\"); break;\n        case 5: printf(\"5の倍数は 5, 10 です。\\n\"); break;\n        case 6: printf(\"6の倍数は 6 です。\\n\"); break;\n        case 7: printf(\"7の倍数は 7 です。\\n\"); break;\n        case 8: printf(\"8の倍数は 8 です。\\n\"); break;\n        case 9: printf(\"9の倍数は 9 です。\\n\"); break;\n        case 10: printf(\"10の倍数は 10 です。\\n\"); break;\n        default: printf(\"無効な数字です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "1から10の数字を入力し、その数字に対応する倍数を表示するプログラムです。\n`switch` 文を使って、各ケースで倍数を表示します。\n無効な数字が入力された場合は `default` ケースでエラーメッセージを表示します。"
+  },
+  {
+    "id": 108,
+    "input": "C言語でswitch文を使って数値を入力し、それが正の数、負の数、ゼロかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    switch (num > 0) {\n        case 1: printf(\"正の数です。\\n\"); break;\n        case 0:\n            switch (num < 0) {\n                case 1: printf(\"負の数です。\\n\"); break;\n                case 0: printf(\"ゼロです。\\n\"); break;\n            }\n            break;\n    }\n\n    return 0;\n}",
+    "description": "入力された数値が正の数、負の数、ゼロかを判定します。\n`switch` 文で正負を判定し、ゼロの場合も処理します。\nネストされた`switch`で詳細な判定を行っています。"
+  },
+  { 
+    "id": 109,
+    "input": "C言語でswitch文を使って数字に対応する英単語を出力するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"数字を入力してください (1〜5): \");\n    scanf(\"%d\", &num);\n\n    switch (num) {\n        case 1: printf(\"One\\n\"); break;\n        case 2: printf(\"Two\\n\"); break;\n        case 3: printf(\"Three\\n\"); break;\n        case 4: printf(\"Four\\n\"); break;\n        case 5: printf(\"Five\\n\"); break;\n        default: printf(\"無効な数字です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "1〜5の数字を入力し、それに対応する英単語を出力するプログラムです。\n`switch` 文を使い、各数字に対応する英単語を表示します。\n無効な入力がされた場合は `default` ケースでエラーメッセージを表示します。"
+  },
+  { 
+    "id": 110,
+    "input": "C言語でswitch文を使ってユーザーが入力した月に対応する季節を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"月を入力してください (1〜12): \");\n    scanf(\"%d\", &month);\n\n    switch (month) {\n        case 12:\n        case 1:\n        case 2: printf(\"冬です。\\n\"); break;\n        case 3:\n        case 4:\n        case 5: printf(\"春です。\\n\"); break;\n        case 6:\n        case 7:\n        case 8: printf(\"夏です。\\n\"); break;\n        case 9:\n        case 10:\n        case 11: printf(\"秋です。\\n\"); break;\n        default: printf(\"無効な月です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "入力された月に基づいて季節を表示するプログラムです。\n`switch` 文で1〜12の月に対応する季節を表示し、それ以外の入力にはエラーメッセージを表示します。"
+  },
+  {
+    "id": 111,
+    "input": "C言語でfor文とif文を組み合わせて1から100までの数字のうち、3の倍数と5の倍数の数字を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0 && i % 5 == 0) {\n            printf(\"%dは3の倍数かつ5の倍数です。\\n\", i);\n        }\n    }\n    return 0;\n}",
+    "description": "1から100までの数字を `for` 文で繰り返し、各数字が3と5の倍数かどうかを `if` 文で判定し、該当する数字を表示します。\n`if` 文で3の倍数かつ5の倍数の条件をチェックしています。"
+  },
+  {
+    "id": 112,
+    "input": "C言語でwhile文とif文を使って、入力された整数が偶数か奇数かを判定し、その結果を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    while (1) {\n        printf(\"整数を入力してください (0で終了): \");\n        scanf(\"%d\", &num);\n\n        if (num == 0) break;\n\n        if (num % 2 == 0) {\n            printf(\"%dは偶数です。\\n\", num);\n        } else {\n            printf(\"%dは奇数です。\\n\", num);\n        }\n    }\n\n    return 0;\n}",
+    "description": "整数が偶数か奇数かを判定するプログラムです。\n`while` 文で繰り返し入力を受け付け、0が入力されるまでループします。\n`if` 文で偶数か奇数を判定し、結果を表示します。"
+  },
+  {
+    "id": 113,
+    "input": "C言語でdo-while文とswitch文を組み合わせて、メニューから選択された処理を実行するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int choice;\n    do {\n        printf(\"メニュー:\\n1. 計算\\n2. 終了\\n選択肢を入力: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1: printf(\"計算処理を実行します。\\n\"); break;\n            case 2: printf(\"プログラムを終了します。\\n\"); break;\n            default: printf(\"無効な選択です。\\n\");\n        }\n    } while (choice != 2);\n\n    return 0;\n}",
+    "description": "メニューから選択された処理を実行するプログラムです。\n`do-while` 文でメニューを表示し、ユーザーが選択肢を入力します。\n`switch` 文で選択された番号に基づいて処理を実行します。終了するまで繰り返し表示されます。"
+  },
+  { 
+    "id": 114,
+    "input": "C言語でif-else文とswitch文を組み合わせて、入力された数字が正の数、負の数、またはゼロかを判定し、その後数字の倍数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"正の数です。\\n\");\n        switch (num) {\n            case 1: printf(\"1の倍数はすべての整数です。\\n\"); break;\n            case 2: printf(\"2の倍数は 2, 4, 6, 8, 10 です。\\n\"); break;\n            default: printf(\"その数の倍数はまだ対応していません。\\n\");\n        }\n    } else if (num < 0) {\n        printf(\"負の数です。\\n\");\n    } else {\n        printf(\"ゼロです。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "入力された整数が正の数、負の数、ゼロかを判定し、その後、正の数の場合にその倍数を表示します。\n`if-else` 文で数値の符号を判定し、正の数の場合は `switch` 文を使って倍数を表示します。"
+  },
+  {
+    "id": 115,
+    "input": "C言語でfor文とif文を組み合わせて、1から50までの数字の中で素数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i, j, is_prime;\n    for (i = 2; i <= 50; i++) {\n        is_prime = 1;  // 素数かどうかを判定するフラグ\n        for (j = 2; j <= i / 2; j++) {\n            if (i % j == 0) {\n                is_prime = 0;  // 素数でない場合\n                break;\n            }\n        }\n        if (is_prime == 1) {\n            printf(\"%dは素数です。\\n\", i);\n        }\n    }\n\n    return 0;\n}",
+    "description": "1から50までの数字を対象に素数を表示するプログラムです。\n`for` 文で数字を繰り返し、内部で別の `for` 文を使って素数判定を行います。\n素数が見つかるたびにその数字を表示します。"
+  },
+  { 
+    "id": 116,
+    "input": "C言語でif-else文とwhile文を組み合わせて、ユーザーが入力した正の整数の階乗を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, factorial = 1;\n    printf(\"正の整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num < 0) {\n        printf(\"負の数には階乗は定義されていません。\\n\");\n    } else {\n        while (num > 1) {\n            factorial *= num;\n            num--;\n        }\n        printf(\"階乗の結果は %d です。\\n\", factorial);\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した正の整数の階乗を計算するプログラムです。\n`if-else` 文で負の数の入力を判定し、正の整数の場合は `while` 文を使って階乗を計算します。"
+  },
+  {
+    "id": 117,
+    "input": "C言語でdo-while文とif文を組み合わせて、1から10までの整数を順番に表示し、偶数の場合は'EVEN'、奇数の場合は'ODD'と表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n    do {\n        if (i % 2 == 0) {\n            printf(\"%dはEVENです。\\n\", i);\n        } else {\n            printf(\"%dはODDです。\\n\", i);\n        }\n        i++;\n    } while (i <= 10);\n\n    return 0;\n}",
+    "description": "1から10までの整数を順番に表示し、それが偶数か奇数かを判定するプログラムです。\n`do-while` 文を使って繰り返し、`if` 文で偶数か奇数かを判定して表示します。"
+  },
+  { 
+    "id": 118,
+    "input": "C言語でswitch文とif-else文を組み合わせて、ユーザーが入力した数字に対応する曜日を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"1から7の数字を入力してください: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"月曜日です。\\n\"); break;\n        case 2: printf(\"火曜日です。\\n\"); break;\n        case 3: printf(\"水曜日です。\\n\"); break;\n        case 4: printf(\"木曜日です。\\n\"); break;\n        case 5: printf(\"金曜日です。\\n\"); break;\n        case 6: printf(\"土曜日です。\\n\"); break;\n        case 7: printf(\"日曜日です。\\n\"); break;\n        default: printf(\"無効な入力です。\\n\"); break;\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した1から7の数字に対応する曜日を表示するプログラムです。\n`switch` 文で曜日を判定し、無効な入力には `default` でエラーメッセージを表示します。"
+  },
+  { 
+    "id": 119,
+    "input": "C言語でfor文とif文を使って、1から30までの数字の中で3の倍数、5の倍数、15の倍数を区別して表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 30; i++) {\n        if (i % 15 == 0) {\n            printf(\"%dは15の倍数です。\\n\", i);\n        } else if (i % 3 == 0) {\n            printf(\"%dは3の倍数です。\\n\", i);\n        } else if (i % 5 == 0) {\n            printf(\"%dは5の倍数です。\\n\", i);\n        }\n    }\n\n    return 0;\n}",
+    "description": "1から30までの数字を対象に、3の倍数、5の倍数、15の倍数を区別して表示するプログラムです。\n`for` 文と `if` 文を使い、15の倍数を優先して判定し、それぞれに応じたメッセージを表示します。"
+  },
+  {
+    "id": 120,
+    "input": "C言語でif-else文とswitch文を組み合わせて、月番号（1～12）に対応する月の名前を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"月番号（1～12）を入力してください: \");\n    scanf(\"%d\", &month);\n\n    if (month < 1 || month > 12) {\n        printf(\"無効な月番号です。\\n\");\n    } else {\n        switch (month) {\n            case 1: printf(\"1月です。\\n\"); break;\n            case 2: printf(\"2月です。\\n\"); break;\n            case 3: printf(\"3月です。\\n\"); break;\n            case 4: printf(\"4月です。\\n\"); break;\n            case 5: printf(\"5月です。\\n\"); break;\n            case 6: printf(\"6月です。\\n\"); break;\n            case 7: printf(\"7月です。\\n\"); break;\n            case 8: printf(\"8月です。\\n\"); break;\n            case 9: printf(\"9月です。\\n\"); break;\n            case 10: printf(\"10月です。\\n\"); break;\n            case 11: printf(\"11月です。\\n\"); break;\n            case 12: printf(\"12月です。\\n\"); break;\n        }\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した1～12の月番号に対応する月の名前を表示するプログラムです。\n`if-else` 文で月番号が範囲外かどうかを判定し、範囲内であれば `switch` 文を使用して月の名前を表示します。"
+  },
+  {
+    "id": 121,
+    "input": "C言語でif文とfor文を使って、1から50までの偶数のみを表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 50; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}",
+    "description": "1から50までの数字をループで回し、その中で偶数のみを `if` 文で判定して表示するプログラムです。\n偶数は2で割った余りが0になることで判定します。"
+  },
+  {
+    "id": 122,
+    "input": "C言語でswitch文を使って、ユーザーが入力した曜日番号（1～7）に対応する曜日を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"1から7の数字を入力してください: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"月曜日\\n\"); break;\n        case 2: printf(\"火曜日\\n\"); break;\n        case 3: printf(\"水曜日\\n\"); break;\n        case 4: printf(\"木曜日\\n\"); break;\n        case 5: printf(\"金曜日\\n\"); break;\n        case 6: printf(\"土曜日\\n\"); break;\n        case 7: printf(\"日曜日\\n\"); break;\n        default: printf(\"無効な入力です。\\n\"); break;\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した1から7の数字に対応する曜日を表示します。\n`switch` 文を使い、曜日番号に応じた文字列を `printf` で出力します。\n無効な入力には `default` 節でエラーメッセージを表示します。"
+  },
+  {
+    "id": 123,
+    "input": "C言語でwhile文を使って、1から100までの数字の中で3の倍数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n    while (i <= 100) {\n        if (i % 3 == 0) {\n            printf(\"%d\\n\", i);\n        }\n        i++;\n    }\n    return 0;\n}",
+    "description": "1から100までの数字をループで回し、その中で3の倍数を判定して表示するプログラムです。\n`while` 文を使用し、変数 `i` をインクリメントしながら条件を満たす数字を表示します。"
+  },
+  {
+    "id": 124,
+    "input": "C言語でdo-while文を使って、ユーザーが負の数を入力するまで数を入力させ続け、合計を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, sum = 0;\n    do {\n        printf(\"数字を入力してください（負の数で終了）: \");\n        scanf(\"%d\", &num);\n        if (num >= 0) {\n            sum += num;\n        }\n    } while (num >= 0);\n\n    printf(\"合計: %d\\n\", sum);\n    return 0;\n}",
+    "description": "ユーザーが負の数を入力するまで正の数を入力させ、その合計を計算します。\n`do-while` 文を使用することで、必ず1回は入力を受け付けます。\n入力値が負の数でない場合、合計に加算されます。"
+  },
+  {
+    "id": 125,
+    "input": "C言語でif文とswitch文を組み合わせて、成績（A～F）に応じてメッセージを表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char grade;\n    printf(\"成績を入力してください（A～F）: \");\n    scanf(\" %c\", &grade);\n\n    if (grade >= 'A' && grade <= 'F') {\n        switch (grade) {\n            case 'A': printf(\"優秀です！\\n\"); break;\n            case 'B': printf(\"よくできました！\\n\"); break;\n            case 'C': printf(\"普通です。\\n\"); break;\n            case 'D': printf(\"がんばりましょう。\\n\"); break;\n            case 'F': printf(\"再挑戦が必要です。\\n\"); break;\n        }\n    } else {\n        printf(\"無効な成績です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "成績を入力し、それに応じたメッセージを表示するプログラムです。\n`if` 文で成績が有効かどうかを判定し、有効な場合は `switch` 文でそれぞれの成績に対応するメッセージを出力します。"
+  },
+  {
+    "id": 126,
+    "input": "C言語でfor文を使って、ユーザーが入力した数までの全ての奇数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int limit;\n    printf(\"表示する最大の数を入力してください: \");\n    scanf(\"%d\", &limit);\n\n    for (int i = 1; i <= limit; i++) {\n        if (i % 2 != 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した数までの奇数を表示します。\n`for` 文で1から入力値までループを回し、`if` 文で奇数を判定して表示します。"
+  },
+  {
+    "id": 127,
+    "input": "C言語でif-else文を使って、ユーザーが入力した年がうるう年かどうかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"西暦を入力してください: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d年はうるう年です。\\n\", year);\n    } else {\n        printf(\"%d年はうるう年ではありません。\\n\", year);\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した年がうるう年かどうかを判定します。\n`if-else` 文を使い、うるう年の条件（4で割り切れるが100で割り切れない、または400で割り切れる）をチェックして結果を表示します。"
+  },
+  {
+    "id": 128,
+    "input": "C言語でswitch文を使って、ユーザーが選択した演算子（+, -, *, /）に応じて2つの数の計算を行うプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char operator;\n    double num1, num2;\n\n    printf(\"演算子を入力してください (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"1つ目の数を入力してください: \");\n    scanf(\"%lf\", &num1);\n    printf(\"2つ目の数を入力してください: \");\n    scanf(\"%lf\", &num2);\n\n    switch (operator) {\n        case '+':\n            printf(\"結果: %.2lf\\n\", num1 + num2);\n            break;\n        case '-':\n            printf(\"結果: %.2lf\\n\", num1 - num2);\n            break;\n        case '*':\n            printf(\"結果: %.2lf\\n\", num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0) {\n                printf(\"結果: %.2lf\\n\", num1 / num2);\n            } else {\n                printf(\"ゼロで割ることはできません。\\n\");\n            }\n            break;\n        default:\n            printf(\"無効な演算子です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した演算子（+, -, *, /）に基づいて2つの数を計算します。\n`switch` 文を使用して、演算子ごとに異なる処理を行います。\n除算ではゼロ除算を避けるための条件分岐も含まれています。"
+  },
+  {
+    "id": 129,
+    "input": "C言語でwhile文を使って、ユーザーが入力した数が0になるまでその数を2倍にして表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    printf(\"数を入力してください（0で終了）: \");\n    scanf(\"%d\", &num);\n\n    while (num != 0) {\n        printf(\"2倍: %d\\n\", num * 2);\n        printf(\"次の数を入力してください（0で終了）: \");\n        scanf(\"%d\", &num);\n    }\n\n    printf(\"プログラムを終了します。\\n\");\n    return 0;\n}",
+    "description": "ユーザーが入力した数が0になるまで、その数を2倍にして表示します。\n`while` 文を使用し、繰り返し入力を受け付けながら処理を行います。\n0が入力されるとループを終了します。"
+  },
+  {
+    "id": 130,
+    "input": "C言語でif文を使って、3つの数の中で最大の数を見つけて表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n\n    printf(\"3つの数を入力してください: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a >= b && a >= c) {\n        printf(\"最大の数は: %d\\n\", a);\n    } else if (b >= a && b >= c) {\n        printf(\"最大の数は: %d\\n\", b);\n    } else {\n        printf(\"最大の数は: %d\\n\", c);\n    }\n\n    return 0;\n}",
+    "description": "3つの数を比較し、その中で最大の数を表示するプログラムです。\n`if-else` 文を使用して、各数を比較して条件を満たす数を出力します。"
+  },
+  {
+    "id": 131,
+    "input": "C言語でif文を使い、入力された年がうるう年かどうかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"年を入力してください: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d年はうるう年です。\\n\", year);\n    } else {\n        printf(\"%d年はうるう年ではありません。\\n\", year);\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した年がうるう年かどうかを判定するプログラムです。うるう年の条件は、4で割り切れ、100で割り切れないか、または400で割り切れる年です。"
+  },
+  {
+    "id": 132,
+    "input": "C言語でfor文を使って、1から100までの間で3の倍数の数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0) {\n            printf(\"%d \\n\", i);\n        }\n    }\n    return 0;\n}",
+    "description": "1から100までの数の中で、3の倍数のみを表示するプログラムです。`for` 文を使って1から100まで繰り返し、`if` 文で3の倍数かを判定しています。"
+  },
+  {
+    "id": 133,
+    "input": "C言語でswitch文を使い、入力された曜日（数字）に対応する曜日名を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"曜日を表す数字（1～7）を入力してください: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"月曜日\\n\"); break;\n        case 2: printf(\"火曜日\\n\"); break;\n        case 3: printf(\"水曜日\\n\"); break;\n        case 4: printf(\"木曜日\\n\"); break;\n        case 5: printf(\"金曜日\\n\"); break;\n        case 6: printf(\"土曜日\\n\"); break;\n        case 7: printf(\"日曜日\\n\"); break;\n        default: printf(\"無効な曜日番号です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した曜日番号（1～7）に対応する曜日名を表示します。`switch` 文を使用し、無効な曜日番号の場合は `default` でエラーメッセージを表示します。"
+  },
+  {
+    "id": 134,
+    "input": "C言語でfor文とif文を組み合わせて、1から100までの中で偶数の数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}",
+    "description": "1から100までの数を対象に、偶数だけを表示するプログラムです。`for` 文で1から100まで繰り返し、`if` 文で偶数かどうかを判定します。"
+  },
+  {
+    "id": 135,
+    "input": "C言語でwhile文を使って、1から100までの数の合計を計算するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1, sum = 0;\n\n    while (i <= 100) {\n        sum += i;\n        i++;\n    }\n\n    printf(\"1から100までの合計は: %d\\n\", sum);\n    return 0;\n}",
+    "description": "1から100までの数を加算し、その合計を表示するプログラムです。`while` 文を使用し、数を1から100まで繰り返して加算します。"
+  },
+  {
+    "id": 136,
+    "input": "C言語でif文を使って、数値が正の数か負の数かゼロかを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"数値を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"%dは正の数です。\\n\", num);\n    } else if (num < 0) {\n        printf(\"%dは負の数です。\\n\", num);\n    } else {\n        printf(\"%dはゼロです。\\n\", num);\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した数値が正の数、負の数、またはゼロであるかを判定するプログラムです。`if-else` 文を使って分岐します。"
+  },
+  {
+    "id": 137,
+    "input": "C言語でfor文を使い、1から20までの数で2の倍数と3の倍数を区別して表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 20; i++) {\n        if (i % 6 == 0) {\n            printf(\"%dは2と3の倍数です。\\n\", i);\n        } else if (i % 2 == 0) {\n            printf(\"%dは2の倍数です。\\n\", i);\n        } else if (i % 3 == 0) {\n            printf(\"%dは3の倍数です。\\n\", i);\n        }\n    }\n    return 0;\n}",
+    "description": "1から20までの数を対象に、2の倍数、3の倍数、そしてその両方を区別して表示します。`for` 文と `if` 文を使って条件分岐しています。"
+  },
+  {
+    "id": 138,
+    "input": "C言語でswitch文を使い、入力された文字がアルファベットか数字かを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char ch;\n    printf(\"文字を入力してください: \");\n    scanf(\"%c\", &ch);\n\n    switch (ch) {\n        case 'a' ... 'z':\n        case 'A' ... 'Z':\n            printf(\"'%c'はアルファベットです。\\n\", ch);\n            break;\n        case '0' ... '9':\n            printf(\"'%c'は数字です。\\n\", ch);\n            break;\n        default:\n            printf(\"'%c'はアルファベットでも数字でもありません。\\n\", ch);\n    }\n\n    return 0;\n}",
+    "description": "入力された文字がアルファベットか数字かを判定するプログラムです。`switch` 文を使ってアルファベットや数字の範囲をチェックします。"
+  },
+  {
+    "id": 139,
+    "input": "C言語でif文を使って、2つの数のうち大きい数を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n\n    if (num1 > num2) {\n        printf(\"%dが大きいです。\\n\", num1);\n    } else if (num1 < num2) {\n        printf(\"%dが大きいです。\\n\", num2);\n    } else {\n        printf(\"%dと%dは等しいです。\\n\", num1, num2);\n    }\n\n    return 0;\n}",
+    "description": "2つの数のうち、大きい数を表示するプログラムです。`if-else` 文を使用し、数の大小を比較します。"
+  },
+  {
+    "id": 140,
+    "input": "C言語でfor文を使い、10から1まで逆順で表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 10; i >= 1; i--) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}",
+    "description": "1から10までの数を逆順で表示するプログラムです。`for` 文を使って、10から1まで減少させながら繰り返します。"
+  },
+  {
+    "id": 141,
+    "input": "C言語でif文とwhile文を使い、正の数が入力されるまで繰り返すプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    while (1) {\n        printf(\"正の数を入力してください: \");\n        scanf(\"%d\", &num);\n        if (num > 0) {\n            printf(\"入力された数は: %d\\n\", num);\n            break;\n        } else {\n            printf(\"正の数ではありません。再度入力してください。\\n\");\n        }\n    }\n\n    return 0;\n}",
+    "description": "ユーザーに正の数が入力されるまで繰り返し入力を求めるプログラムです。`while` 文で繰り返し処理し、`if` 文で条件を判定します。"
+  },
+  {
+    "id": 142,
+    "input": "C言語でdo-while文を使い、ユーザーが続けたい場合に再入力を促すプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char choice;\n\n    do {\n        printf(\"もう一度続けますか？ (y/n): \");\n        scanf(\" %c\", &choice);\n    } while (choice == 'y' || choice == 'Y');\n\n    printf(\"終了します。\\n\");\n    return 0;\n}",
+    "description": "ユーザーに続けたいかどうかを尋ね、`y` や `Y` が入力される限り繰り返すプログラムです。`do-while` 文を使用しています。"
+  },
+  {
+    "id": 143,
+    "input": "C言語でwhile文を使って、10回繰り返すプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int count = 1;\n\n    while (count <= 10) {\n        printf(\"繰り返し: %d\\n\", count);\n        count++;\n    }\n\n    return 0;\n}",
+    "description": "10回繰り返し処理を行うプログラムです。`while` 文を使って回数をカウントし、10回まで繰り返します。"
+  },
+  {
+    "id": 144,
+    "input": "C言語でswitch文を使って、月番号に応じた季節を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"月番号（1～12）を入力してください: \");\n    scanf(\"%d\", &month);\n\n    switch (month) {\n        case 12:\n        case 1:\n        case 2:\n            printf(\"冬です。\\n\");\n            break;\n        case 3:\n        case 4:\n        case 5:\n            printf(\"春です。\\n\");\n            break;\n        case 6:\n        case 7:\n        case 8:\n            printf(\"夏です。\\n\");\n            break;\n        case 9:\n        case 10:\n        case 11:\n            printf(\"秋です。\\n\");\n            break;\n        default:\n            printf(\"無効な月番号です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "ユーザーが入力した月番号に応じて、季節を表示するプログラムです。`switch` 文を使って月の範囲を確認し、季節を表示します。"
+  },
+  {
+    "id": 145,
+    "input": "C言語でif文を使って、入力された数が偶数か奇数かを判定するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"数値を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num % 2 == 0) {\n        printf(\"%dは偶数です。\\n\", num);\n    } else {\n        printf(\"%dは奇数です。\\n\", num);\n    }\n\n    return 0;\n}",
+    "description": "入力された数値が偶数か奇数かを判定するプログラムです。`if` 文を使って偶数かどうかを判定します。"
+  },
+  {
+    "id": 146,
+    "input": "C言語でswitch文を使って、1から12までの月に対応する星座を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"月番号（1～12）を入力してください: \");\n    scanf(\"%d\", &month);\n\n    switch (month) {\n        case 1:\n            printf(\"星座は山羊座です。\\n\");\n            break;\n        case 2:\n            printf(\"星座は水瓶座です。\\n\");\n            break;\n        case 3:\n            printf(\"星座は魚座です。\\n\");\n            break;\n        case 4:\n            printf(\"星座は牡羊座です。\\n\");\n            break;\n        case 5:\n            printf(\"星座は牡牛座です。\\n\");\n            break;\n        case 6:\n            printf(\"星座は双子座です。\\n\");\n            break;\n        case 7:\n            printf(\"星座は蟹座です。\\n\");\n            break;\n        case 8:\n            printf(\"星座は獅子座です。\\n\");\n            break;\n        case 9:\n            printf(\"星座は乙女座です。\\n\");\n            break;\n        case 10:\n            printf(\"星座は天秤座です。\\n\");\n            break;\n        case 11:\n            printf(\"星座は蠍座です。\\n\");\n            break;\n        case 12:\n            printf(\"星座は射手座です。\\n\");\n            break;\n        default:\n            printf(\"無効な月番号です。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "月番号に対応する星座を表示するプログラムです。`switch` 文を使用して月に対応する星座を表示します。"
+  },
+  {
+    "id": 147,
+    "input": "C言語でif文を使って、数値の絶対値を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"数値を入力してください: \");\n    scanf(\"%d\", &num);\n\n    if (num < 0) {\n        num = -num;\n    }\n\n    printf(\"絶対値は: %d\\n\", num);\n\n    return 0;\n}",
+    "description": "入力された数値の絶対値を表示するプログラムです。`if` 文を使って負の数を正の数に変換しています。"
+  },
+  {
+    "id": 148,
+    "input": "C言語でfor文を使って、九九の表を表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 9; i++) {\n        for (int j = 1; j <= 9; j++) {\n            printf(\"%d x %d = %d\\t\", i, j, i * j);\n        }\n        printf(\"\\n\");\n    }\n\n    return 0;\n}",
+    "description": "九九の掛け算表を表示するプログラムです。`for` 文を使って、1から9までの掛け算を繰り返し表示します。"
+  },
+  {
+    "id": 149,
+    "input": "C言語で配列を使って、要素を逆順に表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int length = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = length - 1; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n\n    return 0;\n}",
+    "description": "配列の要素を逆順で表示するプログラムです。`for` 文を使って、配列の最後の要素から順に表示します。"
+  },
+  {
+    "id": 150,
+    "input": "C言語でポインタを使って、配列の要素を逆順に表示するプログラムを書いて",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int *ptr = arr + 4;\n\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d\\n\", *(ptr - i));\n    }\n\n    return 0;\n}",
+    "description": "ポインタを使って配列の要素を逆順に表示するプログラムです。ポインタを使って、配列の要素にアクセスし、逆順で表示します。"
+  },
+  {
+    "id": 151,
+    "input": "C言語で文字列の長さを求めるプログラムを作成してください。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[100];\n    int length = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 文字列の長さを計算する\n    while (str[length] != '\\0') {\n        length++;\n    }\n\n    printf(\"入力した文字列の長さは: %d\n\", length);\n\n    return 0;\n}",
+    "description": "このプログラムはユーザーから文字列を入力させ、その文字列の長さを計算して表示します。\n文字列の末尾にある`\\0`（ヌル文字）を探して、長さを手動で計算します。`fgets`を使用して改行を含む入力も処理しています。"
+  },
+  {
+    "id": 152,
+    "input": "C言語で文字列を逆順に並べ替えるプログラムを作成してください。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[100], reversed[100];\n    int length = 0, i, j;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 文字列の長さを計算する\n    while (str[length] != '\\0') {\n        length++;\n    }\n\n    // 逆順に文字を並べる\n    for (i = 0, j = length - 2; j >= 0; i++, j--) {\n        reversed[i] = str[j];\n    }\n    reversed[i] = '\\0';  // 文字列の末尾を設定\n\n    printf(\"逆順の文字列: %s\n\", reversed);\n\n    return 0;\n}",
+    "description": "このプログラムはユーザーが入力した文字列を逆順に並べ替え、結果を表示します。\n文字列の長さを計算し、その長さを基に逆順で文字を新しい配列に格納しています。最後にヌル文字（`\\0`）を加えて文字列として終了します。"
+  },
+  {
+    "id": 153,
+    "input": "C言語で文字列が回文かどうかを判定するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    int i, length;\n    int is_palindrome = 1;  // 回文であるかのフラグ\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 文字列の長さを取得\n    length = strlen(str) - 1;  // 改行文字を除くため-1\n\n    // 文字列の前半と後半を比較\n    for (i = 0; i < length / 2; i++) {\n        if (str[i] != str[length - 1 - i]) {\n            is_palindrome = 0;\n            break;\n        }\n    }\n\n    if (is_palindrome) {\n        printf(\"この文字列は回文です。\\n\");\n    } else {\n        printf(\"この文字列は回文ではありません。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "このプログラムは入力された文字列が回文かどうかを判定します。\n文字列を前半と後半で比較し、一致しなければ回文でないと判断します。`strlen`関数を使って文字列の長さを取得し、回文判定を行っています。"
+  },
+  {
+    "id": 154,
+    "input": "C言語で文字列を大文字から小文字に変換するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n    int i;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 文字列を大文字から小文字に変換\n    for (i = 0; str[i] != '\\0'; i++) {\n        str[i] = tolower(str[i]);\n    }\n\n    printf(\"変換後の文字列: %s\n\", str);\n\n    return 0;\n}",
+    "description": "このプログラムは入力された文字列をすべて小文字に変換します。\n`tolower`関数を使用して、各文字を大文字から小文字に変換しています。文字列が`\\0`で終わるまで処理が続きます。"
+  },
+  { 
+    "id": 155,
+    "input": "C言語で文字列の中で最初に出現する特定の文字を検索するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], target;\n    char *position;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    printf(\"検索する文字を入力してください: \");\n    scanf(\" %c\", &target);\n\n    position = strchr(str, target);\n\n    if (position != NULL) {\n        printf(\"'%c'は位置 %ld に最初に現れます。\\n\", target, position - str);\n    } else {\n        printf(\"'%c'は文字列に存在しません。\\n\", target);\n    }\n\n    return 0;\n}",
+    "description": "このプログラムは、ユーザーが入力した文字列の中で、指定された文字が最初に現れる位置を検索します。\n`strchr`関数を使用して文字列中の特定の文字を検索し、その位置を出力します。見つからなければその旨を表示します。"
+  },
+  {
+    "id": 156,
+    "input": "C言語で文字列を逆順に並べた新しい文字列を作成するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], reversed[100];\n    int i, j;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 文字列の長さを計算\n    int length = strlen(str) - 1;  // 改行文字を除く\n\n    // 逆順に並べる\n    for (i = 0, j = length - 1; j >= 0; i++, j--) {\n        reversed[i] = str[j];\n    }\n    reversed[i] = '\\0';  // 文字列の末尾を設定\n\n    printf(\"逆順の文字列: %s\n\", reversed);\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列を逆順に並べ替え、新しい文字列として表示します。\n`strlen`関数を使用して文字列の長さを計算し、逆順に文字を新しい配列に格納しています。最後にヌル文字を加えて文字列として終了します。"
+  },
+  {
+    "id": 157,
+    "input": "C言語で文字列を大文字と小文字を入れ替えるプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n    int i;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 大文字と小文字を入れ替える\n    for (i = 0; str[i] != '\\0'; i++) {\n        if (isupper(str[i])) {\n            str[i] = tolower(str[i]);\n        } else if (islower(str[i])) {\n            str[i] = toupper(str[i]);\n        }\n    }\n\n    printf(\"変換後の文字列: %s\n\", str);\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列内の大文字と小文字を互いに入れ替えます。\n`isupper`と`islower`を使用して文字のケースを判定し、それに応じて`tolower`または`toupper`で変換を行います。"
+  },
+  {
+    "id": 158,
+    "input": "C言語で文字列から空白を削除するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], result[100];\n    int i, j = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 空白を削除する\n    for (i = 0; str[i] != '\\0'; i++) {\n        if (str[i] != ' ') {\n            result[j++] = str[i];\n        }\n    }\n    result[j] = '\\0';  // 文字列の末尾を設定\n\n    printf(\"空白を削除した文字列: %s\n\", result);\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列からすべての空白を削除します。\n文字列を1文字ずつチェックし、空白でない文字だけを新しい配列に格納します。最後にヌル文字で終了します。"
+  },
+  {
+    "id": 159,
+    "input": "C言語で文字列内の数字の個数をカウントするプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n    int i, count = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 数字の個数をカウントする\n    for (i = 0; str[i] != '\\0'; i++) {\n        if (isdigit(str[i])) {\n            count++;\n        }\n    }\n\n    printf(\"文字列内の数字の個数: %d\n\", count);\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列内に含まれる数字の個数をカウントします。\n`isdigit`関数を使用して各文字が数字かどうかを確認し、数字が見つかるたびにカウントを増やします。"
+  },
+  {
+    "id": 160,
+    "input": "C言語で文字列を指定した位置で分割するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], first_part[50], second_part[50];\n    int position;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    printf(\"分割位置を入力してください: \");\n    scanf(\"%d\", &position);\n\n    // 文字列を分割する\n    strncpy(first_part, str, position);\n    first_part[position] = '\\0';\n\n    strcpy(second_part, str + position);\n\n    printf(\"分割された文字列:\n%s\n%s\n\", first_part, second_part);\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列を指定された位置で2つの部分に分割します。\n`strncpy`と`strcpy`を使って、指定位置で文字列を分割し、それぞれの部分を表示します。"
+  },
+  { 
+    "id": 161,
+    "input": "C言語で指定した文字列が空でないかを確認するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 空の文字列か確認する\n    if (str[0] == '\\0' || strcmp(str, \"\\n\") == 0) {\n        printf(\"入力された文字列は空です。\\n\");\n    } else {\n        printf(\"入力された文字列は空ではありません。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "このプログラムは、ユーザーが入力した文字列が空でないかどうかを確認します。\n文字列が空（`\\0`で始まる）または改行だけの入力であれば空と判断します。`strcmp`を使用して比較しています。"
+  },
+  { 
+    "id": 162,
+    "input": "C言語で文字列を大文字で表示するプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n    int i;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // 大文字に変換して表示\n    for (i = 0; str[i] != '\\0'; i++) {\n        str[i] = toupper(str[i]);\n    }\n\n    printf(\"大文字の文字列: %s\n\", str);\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列をすべて大文字に変換し、表示します。\n`toupper`関数を使って各文字を大文字に変換します。文字列が終了するまでこの処理が繰り返されます。"
+  },
+  {
+    "id": 163,
+    "input": "C言語で文字列を指定した回数だけ繰り返すプログラムを作成してください。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    int count, i;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    printf(\"繰り返し回数を入力してください: \");\n    scanf(\"%d\", &count);\n\n    // 文字列を指定回数繰り返す\n    for (i = 0; i < count; i++) {\n        printf(\"%s\", str);\n    }\n\n    return 0;\n}",
+    "description": "このプログラムは、入力された文字列を指定された回数だけ繰り返して表示します。\n`for`ループを使って指定された回数分、文字列を表示します。"
+  },
+  {
+    "id": 164,
+    "input": "C言語で2次元配列を使って、3x3の行列の転置を求めるプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int matrix[3][3], transpose[3][3];\n\n    printf(\"3x3の行列の要素を入力してください:\");\n\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            scanf(\"%d\", &matrix[i][j]);\n        }\n    }\n\n    // 転置行列の計算\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            transpose[i][j] = matrix[j][i];\n        }\n    }\n\n    printf(\"転置行列:\n\");\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            printf(\"%d \", transpose[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    return 0;\n}",
+    "description": "3x3の行列を入力し、その転置行列を求めるプログラムです。最初に行列の各要素を入力し、2重のfor文を使って転置行列を計算します。計算後に転置行列を出力します。"
+  },
+  {
+    "id": 165,
+    "input": "C言語で文字列の長さを求める関数を自作し、その関数を使って文字列の長さを表示するプログラムを書いて。",
+    "output": "#include <stdio.h>\n\n// 文字列の長さを求める関数\nint string_length(char str[]) {\n    int length = 0;\n    while (str[length] != '\\0') {\n        length++;\n    }\n    return length;\n}\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    int len = string_length(str);\n    printf(\"文字列の長さは %d です。\\n\", len);\n\n    return 0;\n}",
+    "description": "ユーザーから文字列を入力させ、その文字列の長さを自作関数 `string_length` を使って求めるプログラムです。文字列の長さを数えるために、文字列の終端（\\0）までループしてカウントします。"
+  },
+  {
+    "id": 166,
+    "input": "C言語で2つの文字列が同じかどうかを判定するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[100], str2[100];\n    printf(\"1つ目の文字列を入力してください: \");\n    fgets(str1, sizeof(str1), stdin);\n    printf(\"2つ目の文字列を入力してください: \");\n    fgets(str2, sizeof(str2), stdin);\n\n    // 改行文字を削除\n    str1[strcspn(str1, \"\\n\")] = '\\0';\n    str2[strcspn(str2, \"\\n\")] = '\\0';\n\n    if (strcmp(str1, str2) == 0) {\n        printf(\"2つの文字列は同じです。\\n\");\n    } else {\n        printf(\"2つの文字列は異なります。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "2つの文字列が同じかどうかを判定するプログラムです。`strcmp`関数を使用して、文字列を比較します。改行文字の処理を行い、正確に比較できるようにしています。"
+  },
+  {
+    "id": 167,
+    "input": "C言語で1から100までの数字の中で、3の倍数と5の倍数の数字を配列に格納し、最後にその配列を表示するプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int multiples[100], index = 0;\n\n    // 1から100までの数字で3または5の倍数を格納\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0 || i % 5 == 0) {\n            multiples[index++] = i;\n        }\n    }\n\n    // 配列の内容を表示\n    printf(\"3または5の倍数:\n\");\n    for (int i = 0; i < index; i++) {\n        printf(\"%d \", multiples[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "1から100までの数字の中で、3の倍数と5の倍数を配列に格納し、格納された配列を表示するプログラムです。3または5の倍数を判定し、それを配列に追加します。"
+  },
+  {
+    "id": 168,
+    "input": "C言語で指定した文字列の中に特定の文字が含まれているか調べるプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], target;\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    printf(\"検索する文字を入力してください: \");\n    scanf(\"%c\", &target);\n\n    // 文字列の中に特定の文字があるか検索\n    if (strchr(str, target) != NULL) {\n        printf(\"文字 '%c' は文字列に含まれています。\\n\", target);\n    } else {\n        printf(\"文字 '%c' は文字列に含まれていません。\\n\", target);\n    }\n\n    return 0;\n}",
+    "description": "指定した文字列の中に特定の文字が含まれているかどうかを調べるプログラムです。`strchr`関数を使って、文字列内に特定の文字が存在するかを確認します。"
+  },
+  {
+    "id": 169,
+    "input": "C言語で文字列を逆順に表示するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    int length = strlen(str);\n    printf(\"逆順の文字列: \");\n    for (int i = length - 2; i >= 0; i--) {\n        printf(\"%c\", str[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "入力された文字列を逆順に表示するプログラムです。`strlen`関数を使って文字列の長さを取得し、その長さを使って逆順で文字列を表示します。"
+  },
+  {
+    "id": 170,
+    "input": "C言語で文字列の中からアルファベット以外の文字を取り除くプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], result[100];\n    int j = 0;\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n\n    // アルファベット以外の文字を取り除く\n    for (int i = 0; i < strlen(str); i++) {\n        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {\n            result[j++] = str[i];\n        }\n    }\n    result[j] = '\\0';  // 終端文字を追加\n\n    printf(\"アルファベットのみの文字列: %s\\n\", result);\n\n    return 0;\n}",
+    "description": "入力された文字列からアルファベット以外の文字を取り除くプログラムです。文字列の各文字をチェックし、アルファベット以外の文字はスキップします。"
+  },
+  {
+    "id": 171,
+    "input": "C言語で整数の配列を作り、全ての要素の合計を計算するプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int sum = 0;\n\n    for (int i = 0; i < 5; i++) {\n        sum += arr[i];\n    }\n\n    printf(\"配列の合計: %d\\n\", sum);\n\n    return 0;\n}",
+    "description": "5つの整数からなる配列を作成し、その合計を計算するプログラムです。`for`文を使用して配列の各要素を加算していきます。"
+  },
+  {
+    "id": 172,
+    "input": "C言語で文字列を配列に格納し、配列から文字列を出力するプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[100] = \"Hello, World!\";\n\n    printf(\"文字列: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "文字列を配列に格納し、それを出力する簡単なプログラムです。文字列リテラルを`char`型の配列に格納し、`printf`関数で表示します。"
+  },
+  {
+    "id": 173,
+    "input": "C言語で配列内の最大値を求めるプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[5] = {10, 20, 50, 40, 30};\n    int max = arr[0];\n\n    for (int i = 1; i < 5; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n\n    printf(\"最大値: %d\\n\", max);\n\n    return 0;\n}",
+    "description": "配列内で最も大きな値を求めるプログラムです。`for`文を使用して配列の各要素を比較し、最大値を見つけ出します。"
+  },
+  {
+    "id": 174,
+    "input": "C言語で文字列の長さを求めるプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100] = \"Hello, World!\";\n    int length = strlen(str);\n\n    printf(\"文字列の長さ: %d\\n\", length);\n\n    return 0;\n}",
+    "description": "文字列の長さを`strlen`関数を使って求めるプログラムです。`strlen`関数は文字列の終端文字（`'\\0'`）を見つけて長さを計算します。"
+  },
+  {
+    "id": 175,
+    "input": "C言語で文字列内の特定の文字を検索するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100] = \"Hello, World!\";\n    char target = 'o';\n\n    char *ptr = strchr(str, target);\n    if (ptr != NULL) {\n        printf(\"文字 '%c' は文字列の位置 %ld にあります。\\n\", target, ptr - str);\n    } else {\n        printf(\"文字 '%c' は文字列にありません。\\n\", target);\n    }\n\n    return 0;\n}",
+    "description": "文字列内で特定の文字を検索し、その位置を出力するプログラムです。`strchr`関数を使って、文字が見つかればその位置を表示します。"
+  },
+  {
+    "id": 176,
+    "input": "C言語で文字列を大文字に変換するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100] = \"Hello, World!\";\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        str[i] = toupper(str[i]);\n    }\n\n    printf(\"大文字に変換された文字列: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "文字列を大文字に変換するプログラムです。`toupper`関数を使って文字列内の各文字を大文字に変換します。"
+  },
+  {
+    "id": 177,
+    "input": "C言語で文字列を小文字に変換するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100] = \"Hello, World!\";\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        str[i] = tolower(str[i]);\n    }\n\n    printf(\"小文字に変換された文字列: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "文字列を小文字に変換するプログラムです。`tolower`関数を使って文字列内の各文字を小文字に変換します。"
+  },
+  {
+    "id": 178,
+    "input": "C言語で配列内の偶数と奇数を別々の配列に振り分けるプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};\n    int even[10], odd[10];\n    int evenIndex = 0, oddIndex = 0;\n\n    for (int i = 0; i < 10; i++) {\n        if (arr[i] % 2 == 0) {\n            even[evenIndex++] = arr[i];\n        } else {\n            odd[oddIndex++] = arr[i];\n        }\n    }\n\n    printf(\"偶数: \");\n    for (int i = 0; i < evenIndex; i++) {\n        printf(\"%d \", even[i]);\n    }\n    printf(\"\\n\");\n\n    printf(\"奇数: \");\n    for (int i = 0; i < oddIndex; i++) {\n        printf(\"%d \", odd[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "整数の配列から偶数と奇数をそれぞれ別々の配列に振り分け、出力するプログラムです。配列を順にチェックし、偶数と奇数をそれぞれ格納します。"
+  },
+  {
+    "id": 179,
+    "input": "C言語で文字列を指定した位置から指定した長さだけ切り取るプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100] = \"Hello, World!\";\n    int start = 7, length = 5;\n    char subStr[100];\n\n    strncpy(subStr, &str[start], length);\n    subStr[length] = '\\0';  // 終端文字を追加\n\n    printf(\"切り取った文字列: %s\\n\", subStr);\n\n    return 0;\n}",
+    "description": "文字列の指定した位置から指定した長さだけ切り取るプログラムです。`strncpy`関数を使って、部分文字列をコピーし、終端文字を追加します。"
+  },
+  {
+    "id": 180,
+    "input": "C言語で配列内の要素を昇順にソートするプログラムを書いて。",
+    "output": "#include <stdio.h>\n\nvoid bubbleSort(int arr[], int size) {\n    for (int i = 0; i < size - 1; i++) {\n        for (int j = 0; j < size - 1 - i; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}\n\nint main(void) {\n    int arr[5] = {5, 3, 8, 1, 2};\n\n    bubbleSort(arr, 5);\n\n    printf(\"ソート後: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "配列内の要素をバブルソートを使用して昇順に並べ替えるプログラムです。隣接する要素を比較して順番を入れ替える操作を繰り返します。"
+  },
+  {
+    "id": 181,
+    "input": "C言語で複数の文字列を逆順で入力して、それらを1つの文字列に結合するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[100], str2[100], result[200];\n\n    printf(\"1つ目の文字列を入力してください: \");\n    fgets(str1, sizeof(str1), stdin);\n    str1[strcspn(str1, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"2つ目の文字列を入力してください: \");\n    fgets(str2, sizeof(str2), stdin);\n    str2[strcspn(str2, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    strcpy(result, str2);\n    strcat(result, str1);  // str2 + str1 の順番で結合\n\n    printf(\"結合した文字列: %s\\n\", result);\n\n    return 0;\n}",
+    "description": "2つの文字列を逆順で入力し、結合するプログラムです。入力された文字列をそのまま結合せず、順番を逆にして結合します。"
+  },
+  {
+    "id": 182,
+    "input": "C言語で、文字列内の特定の文字の出現回数をカウントするプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], ch;\n    int count = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"検索する文字を入力してください: \");\n    scanf(\"%c\", &ch);\n\n    for (int i = 0; i < strlen(str); i++) {\n        if (str[i] == ch) {\n            count++;\n        }\n    }\n\n    printf(\"文字 '%c' の出現回数: %d\\n\", ch, count);\n\n    return 0;\n}",
+    "description": "指定された文字が文字列に何回出現するかをカウントするプログラムです。文字列内を1文字ずつチェックし、出現回数をカウントします。"
+  },
+  {
+    "id": 183,
+    "input": "C言語で文字列を単語ごとに分割して、その単語を逆順に並べるプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], word[20];\n    char *token;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    token = strtok(str, \" \");  // スペースで分割\n\n    // 単語を逆順に並べる\n    while (token != NULL) {\n        strcpy(word, token);\n        for (int i = strlen(word) - 1; i >= 0; i--) {\n            printf(\"%c\", word[i]);\n        }\n        printf(\" \");\n        token = strtok(NULL, \" \");\n    }\n\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "入力された文字列を単語ごとに分割し、その各単語を逆順にして出力するプログラムです。`strtok` 関数を使用して単語を分割し、各単語を逆順に表示します。"
+  },
+  {
+    "id": 184,
+    "input": "C言語で文字列内のアルファベットだけを抽出するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"アルファベットだけの文字列: \");\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (isalpha(str[i])) {\n            printf(\"%c\", str[i]);\n        }\n    }\n\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "文字列内からアルファベットの文字だけを抽出して表示するプログラムです。`isalpha` 関数を使用してアルファベットかどうかを判定します。"
+  },
+  {
+    "id": 185,
+    "input": "C言語で文字列内に出現する最大の連続した数字の部分を探して表示するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], temp[100];\n    int maxLength = 0, currentLength = 0;\n    char longest[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (str[i] >= '0' && str[i] <= '9') {\n            temp[currentLength++] = str[i];\n        } else {\n            if (currentLength > maxLength) {\n                maxLength = currentLength;\n                strncpy(longest, temp, maxLength);\n                longest[maxLength] = '\\0';  // 文字列の終端を設定\n            }\n            currentLength = 0;\n        }\n    }\n\n    if (currentLength > maxLength) {\n        maxLength = currentLength;\n        strncpy(longest, temp, maxLength);\n        longest[maxLength] = '\\0';\n    }\n\n    printf(\"最大の連続した数字: %s\\n\", longest);\n\n    return 0;\n}",
+    "description": "文字列内の最大の連続した数字部分を探して表示するプログラムです。数字部分が終わると、現在までの連続した数字の長さをチェックして最大の部分を記録します。"
+  },
+  {
+    "id": 186,
+    "input": "C言語で2つの文字列が同じかどうかを判定するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[100], str2[100];\n\n    printf(\"1つ目の文字列を入力してください: \");\n    fgets(str1, sizeof(str1), stdin);\n    str1[strcspn(str1, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"2つ目の文字列を入力してください: \");\n    fgets(str2, sizeof(str2), stdin);\n    str2[strcspn(str2, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    if (strcmp(str1, str2) == 0) {\n        printf(\"2つの文字列は同じです。\\n\");\n    } else {\n        printf(\"2つの文字列は異なります。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "2つの文字列が同じかどうかを判定するプログラムです。`strcmp` 関数を使用して文字列を比較します。"
+  },
+  {
+    "id": 187,
+    "input": "C言語で文字列を大文字に変換するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        str[i] = toupper(str[i]);\n    }\n\n    printf(\"大文字に変換した文字列: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "文字列内のすべての文字を大文字に変換するプログラムです。`toupper` 関数を使用して各文字を大文字に変換します。"
+  },
+  {
+    "id": 188,
+    "input": "C言語で文字列内の数字をすべて削除するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"数字を削除した文字列: \");\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (!(str[i] >= '0' && str[i] <= '9')) {\n            printf(\"%c\", str[i]);\n        }\n    }\n\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "文字列から数字をすべて削除するプログラムです。数字を除外して文字列を再構成します。"
+  },
+  {
+    "id": 189,
+    "input": "C言語で文字列内の空白をすべて削除するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], result[100];\n    int j = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (str[i] != ' ') {\n            result[j++] = str[i];\n        }\n    }\n    result[j] = '\\0';  // 終端を設定\n\n    printf(\"空白を削除した文字列: %s\\n\", result);\n\n    return 0;\n}",
+    "description": "文字列から空白を削除するプログラムです。文字列内を走査し、空白でない文字だけを新しい文字列にコピーします。"
+  },
+  {
+    "id": 190,
+    "input": "C言語で文字列を小文字に変換するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char str[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        str[i] = tolower(str[i]);\n    }\n\n    printf(\"小文字に変換した文字列: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "文字列内のすべての文字を小文字に変換するプログラムです。`tolower` 関数を使用して各文字を小文字に変換します。"
+  },
+  {
+    "id": 191,
+    "input": "C言語で、複数の文字列を入力し、それらを辞書順に並べ替えるプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[5][100];\n    char temp[100];\n    int n = 5;\n\n    printf(\"5つの文字列を入力してください:\\n\");\n    for (int i = 0; i < n; i++) {\n        fgets(str[i], sizeof(str[i]), stdin);\n        str[i][strcspn(str[i], \"\\n\")] = '\\0';  // 改行文字を取り除く\n    }\n\n    // 辞書順に並べ替え\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = i + 1; j < n; j++) {\n            if (strcmp(str[i], str[j]) > 0) {\n                strcpy(temp, str[i]);\n                strcpy(str[i], str[j]);\n                strcpy(str[j], temp);\n            }\n        }\n    }\n\n    printf(\"辞書順に並べ替えた文字列:\\n\");\n    for (int i = 0; i < n; i++) {\n        printf(\"%s\\n\", str[i]);\n    }\n\n    return 0;\n}",
+    "description": "5つの文字列を入力し、`strcmp`関数を使って辞書順に並べ替えるプログラムです。文字列を比較して、必要に応じて並べ替えます。"
+  },
+  {
+    "id": 192,
+    "input": "C言語で、文字列内で最も頻繁に出現する文字を探し、その文字と出現回数を表示するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    int freq[256] = {0};  // ASCIIの文字数分\n    char mostFreqChar;\n    int maxCount = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        freq[(int)str[i]]++;  // 文字ごとの出現回数をカウント\n    }\n\n    for (int i = 0; i < 256; i++) {\n        if (freq[i] > maxCount) {\n            maxCount = freq[i];\n            mostFreqChar = (char)i;\n        }\n    }\n\n    printf(\"最も頻繁に出現する文字: '%c' 出現回数: %d\\n\", mostFreqChar, maxCount);\n\n    return 0;\n}",
+    "description": "文字列内で最も頻繁に出現する文字とその出現回数を表示するプログラムです。`freq` 配列を使って各文字の出現回数をカウントします。"
+  },
+  {
+    "id": 193,
+    "input": "C言語で、与えられた文字列に対してパリンドローム（回文）かどうかを判定するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    int len, isPalindrome = 1;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    len = strlen(str);\n\n    // 回文かどうかをチェック\n    for (int i = 0; i < len / 2; i++) {\n        if (str[i] != str[len - i - 1]) {\n            isPalindrome = 0;\n            break;\n        }\n    }\n\n    if (isPalindrome) {\n        printf(\"この文字列は回文です。\\n\");\n    } else {\n        printf(\"この文字列は回文ではありません。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "文字列が回文かどうかを判定するプログラムです。文字列の先頭と末尾を比較して、回文であるかを確認します。"
+  },
+  {
+    "id": 194,
+    "input": "C言語で、文字列内の単語を逆順に並べ替えるプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], temp[100];\n    char *token;\n    char *words[50];\n    int i = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    token = strtok(str, \" \");  // スペースで単語を分割\n    while (token != NULL) {\n        words[i++] = token;\n        token = strtok(NULL, \" \");\n    }\n\n    printf(\"逆順に並べた単語:\\n\");\n    for (int j = i - 1; j >= 0; j--) {\n        printf(\"%s \", words[j]);\n    }\n\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "文字列内の単語を逆順に並べ替えて表示するプログラムです。`strtok` 関数を使用して文字列を単語に分割し、逆順に出力します。"
+  },
+  {
+    "id": 195,
+    "input": "C言語で、文字列に含まれる各単語の長さを計算し、その長さを出力するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    char *token;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    token = strtok(str, \" \");  // スペースで単語を分割\n    while (token != NULL) {\n        printf(\"単語: %s 長さ: %d\\n\", token, strlen(token));\n        token = strtok(NULL, \" \");\n    }\n\n    return 0;\n}",
+    "description": "文字列内の各単語の長さを計算して出力するプログラムです。`strtok` 関数で単語を分割し、`strlen` で長さを計算します。"
+  },
+  {
+    "id": 196,
+    "input": "C言語で、文字列の最初のn文字を切り取って別の文字列に格納するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], newStr[100];\n    int n;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"切り取る文字数を入力してください: \");\n    scanf(\"%d\", &n);\n\n    // 最初のn文字を切り取る\n    strncpy(newStr, str, n);\n    newStr[n] = '\\0';  // 終端を設定\n\n    printf(\"切り取った文字列: %s\\n\", newStr);\n\n    return 0;\n}",
+    "description": "文字列の最初のn文字を切り取って新しい文字列に格納するプログラムです。`strncpy`関数を使って指定した長さだけ切り取ります。"
+  },
+  {
+    "id": 197,
+    "input": "C言語で、2つの文字列が同じかどうかを判定するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[100], str2[100];\n\n    printf(\"1つ目の文字列を入力してください: \");\n    fgets(str1, sizeof(str1), stdin);\n    str1[strcspn(str1, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"2つ目の文字列を入力してください: \");\n    fgets(str2, sizeof(str2), stdin);\n    str2[strcspn(str2, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    if (strcmp(str1, str2) == 0) {\n        printf(\"2つの文字列は同じです。\\n\");\n    } else {\n        printf(\"2つの文字列は異なります。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "2つの文字列が同じかどうかを判定するプログラムです。`strcmp`関数を使って文字列を比較します。"
+  },
+  {
+    "id": 198,
+    "input": "C言語で、文字列に含まれる英字をすべて置き換えるプログラムを書いて（例：aをzに、bをyに）。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (str[i] >= 'a' && str[i] <= 'z') {\n            str[i] = 'z' - (str[i] - 'a');  // aはzに、bはyに置き換える\n        } else if (str[i] >= 'A' && str[i] <= 'Z') {\n            str[i] = 'Z' - (str[i] - 'A');  // AはZに、BはYに置き換える\n        }\n    }\n\n    printf(\"置き換え後の文字列: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "文字列内の英字をすべて置き換えるプログラムです。例えば、`a` を `z` に、`b` を `y` に置き換えます。"
+  },
+  {
+    "id": 199,
+    "input": "C言語で、文字列の中から特定の文字を削除するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], result[100];\n    char target;\n    int j = 0;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    printf(\"削除する文字を入力してください: \");\n    scanf(\"%c\", &target);\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (str[i] != target) {\n            result[j++] = str[i];\n        }\n    }\n    result[j] = '\\0';  // 終端を設定\n\n    printf(\"削除後の文字列: %s\\n\", result);\n\n    return 0;\n}",
+    "description": "指定された文字を文字列から削除するプログラムです。削除する文字をユーザーから入力し、その文字を削除します。"
+  },
+  {
+    "id": 200,
+    "input": "C言語で、文字列が数字だけで構成されているかを判定するプログラムを書いて。",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    int isDigit = 1;\n\n    printf(\"文字列を入力してください: \");\n    fgets(str, sizeof(str), stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // 改行文字を取り除く\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        if (str[i] < '0' || str[i] > '9') {\n            isDigit = 0;\n            break;\n        }\n    }\n\n    if (isDigit) {\n        printf(\"この文字列は数字だけで構成されています。\\n\");\n    } else {\n        printf(\"この文字列は数字だけで構成されていません。\\n\");\n    }\n\n    return 0;\n}",
+    "description": "文字列が数字だけで構成されているかを判定するプログラムです。各文字が数字であるかを確認し、結果を表示します。"
+  }
+]
