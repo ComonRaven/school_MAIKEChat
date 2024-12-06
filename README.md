@@ -27,7 +27,7 @@ UI...山本瑞貴 <br>
 ・Detasets(Hugging Face) // データセットの管理 <br>
 <br>
 使用検討中モデル <br>
-・CodeT5(Salesforce) // コード生成に特化したモデル <br>
+・StarCoder // コード生成に特化したLLM <br>
 <br>
 データセット <br>
 json形式でデータセットを作成 <br>
