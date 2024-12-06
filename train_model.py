@@ -1,44 +1,75 @@
-from transformers import T5ForConditionalGeneration, RobertaTokenizer
-from datasets import load_dataset
+import os
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from datasets import load_dataset, concatenate_datasets
 from transformers import Trainer, TrainingArguments
+from huggingface_hub import login
 
-# ローカルデータセットの読み込み
-dataset = load_dataset('json', data_files='local_datasets/printf.json')
+# local_datasets内の全てのjsonファイルを取得
+dataset_files = [f'local_datasets/{file}' for file in os.listdir('local_datasets') if file.endswith('.json')]
+
+# データセットをロードして統合
+datasets = []
+for file in dataset_files:
+    dataset = load_dataset('json', data_files=file)
+    datasets.append(dataset['train'])
+
+# 複数のデータセットを統合
+full_dataset = concatenate_datasets(datasets)
+
+# Hugging Face Hubにログイン
+login("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")
 
 # モデルとトークナイザーのロード
-model = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base')
-tokenizer = RobertaTokenizer.from_pretrained('Salesforce/codet5-base')  # T5Tokenizer から RobertaTokenizer に変更
+model = AutoModelForCausalLM.from_pretrained("bigcode/starcoder")
+tokenizer = AutoTokenizer.from_pretrained("bigcode/starcoder")
 
-# データをトークン化
+# EOSトークンをパディングトークンとして設定
+tokenizer.pad_token = tokenizer.eos_token
+
+# トークン化関数
 def tokenize_function(examples):
-    # 入力と出力両方をトークン化
-    inputs = tokenizer(examples['input'], padding="max_length", truncation=True)
-    outputs = tokenizer(examples['output'], padding="max_length", truncation=True)
-    
-    # 出力をlabelsとして設定
+    inputs = tokenizer(examples['input'], padding="max_length", truncation=True, max_length=512)
+    outputs = tokenizer(examples['output'], padding="max_length", truncation=True, max_length=512)
     inputs['labels'] = outputs['input_ids']
     return inputs
 
-tokenized_datasets = dataset.map(tokenize_function, batched=True)
+tokenized_datasets = full_dataset.map(tokenize_function, batched=True, remove_columns=['id'])
 
-# 手動でtrain/validationに分割
-train_dataset = tokenized_datasets['train']
-val_dataset = train_dataset.shuffle(seed=42).select([i for i in list(range(int(0.8 * len(train_dataset))))])  # 80% for training
+# データセットの分割
+train_size = int(0.8 * len(full_dataset))
+train_dataset = full_dataset.select([i for i in range(train_size)])
+val_dataset = full_dataset.select([i for i in range(train_size, len(full_dataset))])
+
+# シャッフル
+train_dataset = train_dataset.shuffle(seed=42)
 
 # トレーニング設定
 training_args = TrainingArguments(
     output_dir="./results",
-    num_train_epochs=1,  # エポック数を1に変更
-    per_device_train_batch_size=2,  # バッチサイズを2に変更
-    save_steps=10_000,
+    num_train_epochs=3,
+    per_device_train_batch_size=16,
+    gradient_accumulation_steps=4,
+    save_steps=5_000,
     save_total_limit=2,
+    learning_rate=5e-5,
+    eval_strategy="steps",
+    eval_steps=500,
+    load_best_model_at_end=True,
+    logging_dir='./logs',
+    weight_decay=0.01,  # 正則化
+    logging_steps=100,  # ロギングの頻度
+    remove_unused_columns=False,  # 不要なカラムを削除しない
 )
 
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=train_dataset,
-    eval_dataset=val_dataset,  # 手動で作成したバリデーションセット
+    eval_dataset=val_dataset,
 )
 
 trainer.train()
+
+# モデルとトークナイザーの保存
+trainer.save_model("./saved_model")
+tokenizer.save_pretrained("./saved_model")
