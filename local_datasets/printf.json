@@ -1,0 +1,44 @@
+[
+  {
+      "id": 1,
+      "input": "画面に'Hello, World!'を表示するプログラム",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 2,
+      "input": "ハローワールドを出力するプログラム",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 3,
+      "input": "画面にハローワールドを出力させて",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  },
+  {
+      "id": 4,
+      "input": "入力された文字列を出力するプログラムを作成して",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    char str[256];\n\n    printf(\"文字を入力してください: \\n\");\n    fgets(str, sizeof(str), stdin); // fgets関数を使って入力された分だけ読み込む\n    printf(\"入力された文字列: %s\\n\", str);\n\n    return 0;\n}",
+      "description": "C言語で画面に入力された文字列を表示するプログラム。"
+  },
+  {
+      "id": 5,
+      "input": "整数を入力して、それを出力するプログラム",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int number;\n    printf(\"整数を入力してください: \\n\");\n    scanf(\"%d\", &number);\n    printf(\"入力された数値: %d\\n\", number);\n    return 0;\n}",
+      "description": "整数を入力し、画面に表示するプログラム。"
+  },
+  {
+      "id": 6,
+      "input": "2つの整数を入力して、それらの和を出力するプログラム",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    int num1,num1; // 入力される二つの変数\n    int sum; // 和を格納する変数\n\n    printf(\"一つ目の整数を入力してください\\n\");\n    scanf(\"%d\", &num1); // 一つ目の文字を入力\n\n    printf(\"二つ目の文字を入力してください\\n\");\n    scanf(\"%d\", &num2); // 二つの文字を入力\n\n    sum = num1 + num2; // 和を計算\n    printf(\"和は %d です\\n\", sum);\n\n    return 0;\n}",
+      "description": "2つの整数を入力し、それらの和を出力するプログラム。"
+  },
+  {
+      "id": 7,
+      "input": "Write a C program that prints 'Hello, World!' to the screen using printf.",
+      "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
+      "description": "C言語で画面に 'Hello, World!' を表示する基本的なプログラム。"
+  }
+]
