@@ -9,3 +9,7 @@ node_modules/
 
 # データファイル
 *.csv
+logs/*
+results/*
+generation_config.json
+training_args.bin

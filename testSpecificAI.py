@@ -3,14 +3,16 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 def main():
     # モデルとトークナイザーのロード
     model_name = "gpt2"  # GPT-2 Small モデル
-    model = AutoModelForCausalLM.from_pretrained(model_name)
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained("saved_model")
+    tokenizer = AutoTokenizer.from_pretrained("saved_model")
+    #model = AutoModelForCausalLM.from_pretrained(model_name)
+    #tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     # pad_tokenを設定
     tokenizer.pad_token = tokenizer.eos_token
 
     # テスト用のプロンプト
-    prompt = "What is the capital of Japan?"
+    prompt = "C言語でHello Worldを書いて"
 
     # トークン化
     inputs = tokenizer(prompt, return_tensors="pt", padding=True)
