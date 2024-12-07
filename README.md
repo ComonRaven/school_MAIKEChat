@@ -27,7 +27,7 @@ UI...山本瑞貴 <br>
 ・Detasets(Hugging Face) // データセットの管理 <br>
 <br>
 使用検討中モデル <br>
-・StarCoder // コード生成に特化したLLM <br>
+・gpt2-small // コード生成に特化したLLM <br>
 <br>
 データセット <br>
 json形式でデータセットを作成 <br>
