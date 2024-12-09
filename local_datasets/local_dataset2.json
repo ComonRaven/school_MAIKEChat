@@ -1,602 +1,602 @@
 [
   {
     "id": 201,
-    "input": "C言語で、引数として渡された2つの整数の和を計算する関数を書いて。",
-    "output": "#include <stdio.h>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d + %d = %d\\n\", num1, num2, add(num1, num2));\n    return 0;\n}",
-    "description": "2つの整数を引数として受け取り、その和を返す `add` 関数を定義します。`main` 関数でユーザーから入力を受け取り、結果を表示します。"
+    "input": "Write a function in C that calculates the sum of two integers passed as arguments.",
+    "output": "#include <stdio.h>\n\nint add(int a, int b) {\n    return a + b;\n}\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d + %d = %d\\n\", num1, num2, add(num1, num2));\n    return 0;\n}",
+    "description": "Defines an `add` function that takes two integers as arguments and returns their sum. In the `main` function, it prompts the user to input two integers and displays the result."
   },
   {
     "id": 202,
-    "input": "C言語で、引数として渡された整数の階乗を計算する再帰関数を書いて。",
-    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d! = %d\\n\", num, factorial(num));\n    return 0;\n}",
-    "description": "再帰関数 `factorial` を使用して、整数 `n` の階乗を計算します。`n == 0` のときに 1 を返し、それ以外では再帰的に `n * factorial(n - 1)` を計算します。"
+    "input": "Write a recursive function in C to calculate the factorial of an integer passed as an argument.",
+    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"%d! = %d\\n\", num, factorial(num));\n    return 0;\n}",
+    "description": "Uses a recursive function `factorial` to calculate the factorial of an integer `n`. If `n == 0`, it returns 1; otherwise, it recursively calculates `n * factorial(n - 1)`."
   },
   {
     "id": 203,
-    "input": "C言語で、配列の中の最大値を求める関数を書いて。",
-    "output": "#include <stdio.h>\n\nint findMax(int arr[], int size) {\n    int max = arr[0];\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}\n\nint main(void) {\n    int arr[] = {3, 5, 7, 2, 8, 1};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"最大値は: %d\\n\", findMax(arr, size));\n    return 0;\n}",
-    "description": "配列内の最大値を求める関数 `findMax` を定義しています。配列の各要素を調べて最大値を更新していきます。"
+    "input": "Write a function in C to find the maximum value in an array.",
+    "output": "#include <stdio.h>\n\nint findMax(int arr[], int size) {\n    int max = arr[0];\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}\n\nint main(void) {\n    int arr[] = {3, 5, 7, 2, 8, 1};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"Maximum value is: %d\\n\", findMax(arr, size));\n    return 0;\n}",
+    "description": "Defines a function `findMax` to find the maximum value in an array. It iterates through each element in the array, updating the maximum value."
   },
   {
     "id": 204,
-    "input": "C言語で、再帰を使ってフィボナッチ数列を計算する関数を書いて。",
-    "output": "#include <stdio.h>\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}\n\nint main(void) {\n    int n;\n    printf(\"フィボナッチ数列の何番目の数を求めますか?: \");\n    scanf(\"%d\", &n);\n    printf(\"%d番目のフィボナッチ数は: %d\\n\", n, fibonacci(n));\n    return 0;\n}",
-    "description": "再帰的にフィボナッチ数列の `n` 番目の数を計算する `fibonacci` 関数を定義しています。基底条件 `n <= 1` の場合に `n` を返し、それ以外は再帰的に計算します。"
+    "input": "Write a recursive function in C to calculate the Fibonacci sequence.",
+    "output": "#include <stdio.h>\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}\n\nint main(void) {\n    int n;\n    printf(\"Which term in the Fibonacci sequence do you want to calculate?: \");\n    scanf(\"%d\", &n);\n    printf(\"The %dth Fibonacci number is: %d\\n\", n, fibonacci(n));\n    return 0;\n}",
+    "description": "Defines a recursive function `fibonacci` to calculate the `n`th Fibonacci number. It returns `n` when `n <= 1` and recursively calculates the value otherwise."
   },
   {
     "id": 205,
-    "input": "C言語で、2つの整数の最大公約数を求める再帰関数を書いて。",
-    "output": "#include <stdio.h>\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    } else {\n        return gcd(b, a % b);\n    }\n}\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"最大公約数は: %d\\n\", gcd(num1, num2));\n    return 0;\n}",
-    "description": "再帰的に最大公約数を求める `gcd` 関数を定義しています。ユークリッドの互除法を使用し、`b == 0` の場合に `a` を返し、それ以外では `gcd(b, a % b)` を再帰的に計算します。"
+    "input": "Write a recursive function in C to calculate the greatest common divisor (GCD) of two integers.",
+    "output": "#include <stdio.h>\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    } else {\n        return gcd(b, a % b);\n    }\n}\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"The greatest common divisor is: %d\\n\", gcd(num1, num2));\n    return 0;\n}",
+    "description": "Defines a recursive function `gcd` to calculate the greatest common divisor using Euclid's algorithm. If `b == 0`, it returns `a`; otherwise, it recursively calculates `gcd(b, a % b)`."
   },
   {
     "id": 206,
-    "input": "C言語で、整数のリストを引数として受け取り、その和を計算する関数を書いて。",
-    "output": "#include <stdio.h>\n\nint sum(int arr[], int size) {\n    int total = 0;\n    for (int i = 0; i < size; i++) {\n        total += arr[i];\n    }\n    return total;\n}\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"配列の和は: %d\\n\", sum(arr, size));\n    return 0;\n}",
-    "description": "配列内のすべての整数の和を計算する `sum` 関数を定義しています。配列の各要素を順に足し算していきます。"
+    "input": "Write a function in C that accepts a list of integers as an argument and calculates their sum.",
+    "output": "#include <stdio.h>\n\nint sum(int arr[], int size) {\n    int total = 0;\n    for (int i = 0; i < size; i++) {\n        total += arr[i];\n    }\n    return total;\n}\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"The sum of the array is: %d\\n\", sum(arr, size));\n    return 0;\n}",
+    "description": "Defines a function `sum` that calculates the sum of all integers in an array. It iterates through each element, adding it to the total sum."
   },
   {
     "id": 207,
-    "input": "C言語で、再帰を使って指定された回数だけメッセージを表示する関数を書いて。",
-    "output": "#include <stdio.h>\n\nvoid printMessage(int n) {\n    if (n <= 0) {\n        return;\n    }\n    printf(\"メッセージを表示します。\\n\");\n    printMessage(n - 1);\n}\n\nint main(void) {\n    int num;\n    printf(\"メッセージを何回表示しますか?: \");\n    scanf(\"%d\", &num);\n    printMessage(num);\n    return 0;\n}",
-    "description": "再帰関数 `printMessage` を使用して、指定された回数だけメッセージを表示します。`n` が 0 以下になるまで再帰を繰り返します。"
+    "input": "Write a recursive function in C that displays a message a specified number of times.",
+    "output": "#include <stdio.h>\n\nvoid printMessage(int n) {\n    if (n <= 0) {\n        return;\n    }\n    printf(\"Displaying the message.\\n\");\n    printMessage(n - 1);\n}\n\nint main(void) {\n    int num;\n    printf(\"How many times do you want to display the message?: \");\n    scanf(\"%d\", &num);\n    printMessage(num);\n    return 0;\n}",
+    "description": "Defines a recursive function `printMessage` that displays a message a specified number of times. It recurses until `n` becomes 0 or less."
   },
   {
     "id": 208,
-    "input": "C言語で、2つの整数を引数として受け取り、その最小公倍数を求める関数を書いて。",
-    "output": "#include <stdio.h>\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    } else {\n        return gcd(b, a % b);\n    }\n}\n\nint lcm(int a, int b) {\n    return (a * b) / gcd(a, b);\n}\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"最小公倍数は: %d\\n\", lcm(num1, num2));\n    return 0;\n}",
-    "description": "最小公倍数を求める関数 `lcm` を定義しています。最小公倍数は `lcm(a, b) = (a * b) / gcd(a, b)` として、最大公約数を求める `gcd` 関数を再利用します。"
+    "input": "Write a function in C that accepts two integers as arguments and calculates their least common multiple (LCM).",
+    "output": "#include <stdio.h>\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    } else {\n        return gcd(b, a % b);\n    }\n}\n\nint lcm(int a, int b) {\n    return (a * b) / gcd(a, b);\n}\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"The least common multiple is: %d\\n\", lcm(num1, num2));\n    return 0;\n}",
+    "description": "Defines a function `lcm` to calculate the least common multiple using the formula `lcm(a, b) = (a * b) / gcd(a, b)`, reusing the `gcd` function."
   },
   {
     "id": 209,
-    "input": "C言語で、再帰を使って整数のリストの中で最小値を求める関数を書いて。",
-    "output": "#include <stdio.h>\n\nint findMin(int arr[], int size) {\n    if (size == 1) {\n        return arr[0];\n    }\n    int min = findMin(arr + 1, size - 1);\n    return (arr[0] < min) ? arr[0] : min;\n}\n\nint main(void) {\n    int arr[] = {7, 2, 9, 3, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"最小値は: %d\\n\", findMin(arr, size));\n    return 0;\n}",
-    "description": "再帰的に配列内の最小値を求める関数 `findMin` を定義しています。配列の最初の要素と再帰的に取得した最小値を比較して最小値を返します。"
+    "input": "Write a recursive function in C to find the minimum value in a list of integers.",
+    "output": "#include <stdio.h>\n\nint findMin(int arr[], int size) {\n    if (size == 1) {\n        return arr[0];\n    }\n    int min = findMin(arr + 1, size - 1);\n    return (arr[0] < min) ? arr[0] : min;\n}\n\nint main(void) {\n    int arr[] = {7, 2, 9, 3, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"The minimum value is: %d\\n\", findMin(arr, size));\n    return 0;\n}",
+    "description": "Defines a recursive function `findMin` to find the minimum value in an array. It compares the first element with the recursively found minimum value and returns the smaller one."
   },
   {
     "id": 210,
-    "input": "C言語で、整数の引数を受け取り、その偶数と奇数のカウントを行う関数を書いて。",
-    "output": "#include <stdio.h>\n\nvoid countEvenOdd(int arr[], int size, int *evenCount, int *oddCount) {\n    *evenCount = 0;\n    *oddCount = 0;\n    for (int i = 0; i < size; i++) {\n        if (arr[i] % 2 == 0) {\n            (*evenCount)++;\n        } else {\n            (*oddCount)++;\n        }\n    }\n}\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5, 6};\n    int evenCount, oddCount;\n    int size = sizeof(arr) / sizeof(arr[0]);\n    countEvenOdd(arr, size, &evenCount, &oddCount);\n    printf(\"偶数の数: %d, 奇数の数: %d\\n\", evenCount, oddCount);\n    return 0;\n}",
-    "description": "配列内の偶数と奇数を数える関数 `countEvenOdd` を定義しています。ポインタを使って、偶数と奇数のカウントを返します。"
+    "input": "Write a function in C that accepts an array of integers and counts how many are even and how many are odd.",
+    "output": "#include <stdio.h>\n\nvoid countEvenOdd(int arr[], int size, int *evenCount, int *oddCount) {\n    *evenCount = 0;\n    *oddCount = 0;\n    for (int i = 0; i < size; i++) {\n        if (arr[i] % 2 == 0) {\n            (*evenCount)++;\n        } else {\n            (*oddCount)++;\n        }\n    }\n}\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5, 6};\n    int evenCount, oddCount;\n    int size = sizeof(arr) / sizeof(arr[0]);\n    countEvenOdd(arr, size, &evenCount, &oddCount);\n    printf(\"Even count: %d, Odd count: %d\\n\", evenCount, oddCount);\n    return 0;\n}",
+    "description": "Defines a function `countEvenOdd` that counts the number of even and odd integers in an array. It uses pointers to return the counts of even and odd numbers."
   },
   {
     "id": 211,
-    "input": "C言語で、引数として渡された2つの整数の和を計算する関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint add(int, int);  // プロトタイプ宣言\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d + %d = %d\\n\", num1, num2, add(num1, num2));\n    return 0;\n}\n\nint add(int a, int b) {\n    return a + b;\n}",
-    "description": "2つの整数を引数として受け取り、その和を返す `add` 関数をプロトタイプ宣言と共に作成しています。`main` 関数から `add` 関数を呼び出す前に、プロトタイプ宣言を行っています。"
+    "input": "In C language, write a function that calculates the sum of two integers passed as arguments, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint add(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num1, num2;\n    printf(\"Please enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d + %d = %d\\n\", num1, num2, add(num1, num2));\n    return 0;\n}\n\nint add(int a, int b) {\n    return a + b;\n}",
+    "description": "This function `add` takes two integers as arguments and returns their sum. The function prototype declaration is made above the `main` function before the `add` function is called."
   },
   {
     "id": 212,
-    "input": "C言語で、引数として渡された整数の階乗を計算する再帰関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint factorial(int);  // プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d! = %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}",
-    "description": "整数の階乗を計算する再帰関数 `factorial` のプロトタイプ宣言を `main` 関数の上に記述しています。"
+    "input": "In C language, write a recursive function that calculates the factorial of an integer passed as an argument, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint factorial(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"%d! = %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}",
+    "description": "This is a recursive function `factorial` that calculates the factorial of an integer. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 213,
-    "input": "C言語で、配列の中の最大値を求める関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint findMax(int[], int);  // プロトタイプ宣言\n\nint main(void) {\n    int arr[] = {3, 5, 7, 2, 8, 1};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"最大値は: %d\\n\", findMax(arr, size));\n    return 0;\n}\n\nint findMax(int arr[], int size) {\n    int max = arr[0];\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}",
-    "description": "配列内の最大値を求める関数 `findMax` のプロトタイプ宣言を `main` 関数の上に記述しています。"
+    "input": "In C language, write a function that finds the maximum value in an array, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint findMax(int[], int);  // Function prototype declaration\n\nint main(void) {\n    int arr[] = {3, 5, 7, 2, 8, 1};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"The maximum value is: %d\\n\", findMax(arr, size));\n    return 0;\n}\n\nint findMax(int arr[], int size) {\n    int max = arr[0];\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}",
+    "description": "This function `findMax` finds the maximum value in an array. The function prototype declaration is made above the `main` function."
   },
   {
     "id": 214,
-    "input": "C言語で、再帰を使ってフィボナッチ数列を計算する関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint fibonacci(int);  // プロトタイプ宣言\n\nint main(void) {\n    int n;\n    printf(\"フィボナッチ数列の何番目の数を求めますか?: \");\n    scanf(\"%d\", &n);\n    printf(\"%d番目のフィボナッチ数は: %d\\n\", n, fibonacci(n));\n    return 0;\n}\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}",
-    "description": "再帰関数 `fibonacci` を使ってフィボナッチ数列を計算するプログラムで、`fibonacci` 関数のプロトタイプ宣言を `main` 関数の上に記述しています。"
+    "input": "In C language, write a recursive function that calculates the Fibonacci sequence, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint fibonacci(int);  // Function prototype declaration\n\nint main(void) {\n    int n;\n    printf(\"Which term of the Fibonacci sequence would you like to find?: \");\n    scanf(\"%d\", &n);\n    printf(\"The %dth Fibonacci number is: %d\\n\", n, fibonacci(n));\n    return 0;\n}\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}",
+    "description": "This program uses a recursive function `fibonacci` to calculate the Fibonacci sequence. The function prototype declaration is written above the `main` function."
   },
   {
     "id": 215,
-    "input": "C言語で、2つの整数の最大公約数（GCD）を求める関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint gcd(int, int);  // プロトタイプ宣言\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d と %d の最大公約数は: %d\\n\", num1, num2, gcd(num1, num2));\n    return 0;\n}\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    } else {\n        return gcd(b, a % b);\n    }\n}",
-    "description": "2つの整数の最大公約数を求める再帰関数 `gcd` のプロトタイプ宣言を `main` 関数の上に記述しています。"
+    "input": "In C language, write a function that finds the greatest common divisor (GCD) of two integers, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint gcd(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num1, num2;\n    printf(\"Please enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"The greatest common divisor of %d and %d is: %d\\n\", num1, num2, gcd(num1, num2));\n    return 0;\n}\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    } else {\n        return gcd(b, a % b);\n    }\n}",
+    "description": "This function `gcd` uses recursion to find the greatest common divisor of two integers. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 216,
-    "input": "C言語で、2つの文字列が同じかどうかを比較する関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint compareStrings(char[], char[]);  // プロトタイプ宣言\n\nint main(void) {\n    char str1[100], str2[100];\n    printf(\"2つの文字列を入力してください: \");\n    scanf(\"%s %s\", str1, str2);\n    if (compareStrings(str1, str2) == 0) {\n        printf(\"文字列は同じです。\\n\");\n    } else {\n        printf(\"文字列は異なります。\\n\");\n    }\n    return 0;\n}\n\nint compareStrings(char str1[], char str2[]) {\n    int i = 0;\n    while (str1[i] != '\\0' && str2[i] != '\\0') {\n        if (str1[i] != str2[i]) {\n            return 1;\n        }\n        i++;\n    }\n    return (str1[i] == str2[i]) ? 0 : 1;\n}",
-    "description": "2つの文字列を比較して同じか異なるかを判定する関数 `compareStrings` をプロトタイプ宣言と共に作成しています。"
+    "input": "In C language, write a function that compares two strings to check if they are the same, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint compareStrings(char[], char[]);  // Function prototype declaration\n\nint main(void) {\n    char str1[100], str2[100];\n    printf(\"Please enter two strings: \");\n    scanf(\"%s %s\", str1, str2);\n    if (compareStrings(str1, str2) == 0) {\n        printf(\"The strings are the same.\\n\");\n    } else {\n        printf(\"The strings are different.\\n\");\n    }\n    return 0;\n}\n\nint compareStrings(char str1[], char str2[]) {\n    int i = 0;\n    while (str1[i] != '\\0' && str2[i] != '\\0') {\n        if (str1[i] != str2[i]) {\n            return 1;\n        }\n        i++;\n    }\n    return (str1[i] == str2[i]) ? 0 : 1;\n}",
+    "description": "This function `compareStrings` compares two strings and checks if they are the same or different. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 217,
-    "input": "C言語で、文字列を逆順に並べ替える関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nvoid reverseString(char[]);  // プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    reverseString(str);\n    printf(\"逆順の文字列は: %s\\n\", str);\n    return 0;\n}\n\nvoid reverseString(char str[]) {\n    int len = 0, i;\n    while (str[len] != '\\0') {\n        len++;\n    }\n    for (i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - 1 - i];\n        str[len - 1 - i] = temp;\n    }\n}",
-    "description": "文字列を逆順に並べ替える関数 `reverseString` をプロトタイプ宣言と共に作成しています。"
+    "input": "In C language, write a function that reverses a string, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nvoid reverseString(char[]);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Please enter a string: \");\n    scanf(\"%s\", str);\n    reverseString(str);\n    printf(\"The reversed string is: %s\\n\", str);\n    return 0;\n}\n\nvoid reverseString(char str[]) {\n    int len = 0, i;\n    while (str[len] != '\\0') {\n        len++;\n    }\n    for (i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - 1 - i];\n        str[len - 1 - i] = temp;\n    }\n}",
+    "description": "This function `reverseString` reverses a given string. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 218,
-    "input": "C言語で、配列の要素を逆順に並べ替える関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nvoid reverseArray(int[], int);  // プロトタイプ宣言\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    reverseArray(arr, size);\n    printf(\"逆順の配列: \");\n    for (int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseArray(int arr[], int size) {\n    for (int i = 0; i < size / 2; i++) {\n        int temp = arr[i];\n        arr[i] = arr[size - 1 - i];\n        arr[size - 1 - i] = temp;\n    }\n}",
-    "description": "配列の要素を逆順に並べ替える関数 `reverseArray` をプロトタイプ宣言と共に作成しています。"
+    "input": "In C language, write a function that reverses the elements of an array, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nvoid reverseArray(int[], int);  // Function prototype declaration\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    reverseArray(arr, size);\n    printf(\"Reversed array: \");\n    for (int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseArray(int arr[], int size) {\n    for (int i = 0; i < size / 2; i++) {\n        int temp = arr[i];\n        arr[i] = arr[size - 1 - i];\n        arr[size - 1 - i] = temp;\n    }\n}",
+    "description": "This function `reverseArray` reverses the elements of an array. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 219,
-    "input": "C言語で、2つの整数を交換する関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nvoid swap(int*, int*);  // プロトタイプ宣言\n\nint main(void) {\n    int num1 = 5, num2 = 10;\n    printf(\"交換前: num1 = %d, num2 = %d\\n\", num1, num2);\n    swap(&num1, &num2);\n    printf(\"交換後: num1 = %d, num2 = %d\\n\", num1, num2);\n    return 0;\n}\n\nvoid swap(int* a, int* b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}",
-    "description": "2つの整数を交換する関数 `swap` をプロトタイプ宣言と共に作成しています。ポインタを使って値を交換します。"
+    "input": "In C language, write a function that swaps two integers, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nvoid swap(int*, int*);  // Function prototype declaration\n\nint main(void) {\n    int num1 = 5, num2 = 10;\n    printf(\"Before swapping: num1 = %d, num2 = %d\\n\", num1, num2);\n    swap(&num1, &num2);\n    printf(\"After swapping: num1 = %d, num2 = %d\\n\", num1, num2);\n    return 0;\n}\n\nvoid swap(int* a, int* b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}",
+    "description": "This function `swap` swaps two integers using pointers. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 220,
-    "input": "C言語で、指定された数が素数かどうかを判定する関数をプロトタイプ宣言と共に書いて。",
-    "output": "#include <stdio.h>\n\nint isPrime(int);  // プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num)) {\n        printf(\"%d は素数です。\\n\", num);\n    } else {\n        printf(\"%d は素数ではありません。\\n\", num);\n    }\n    return 0;\n}\n\nint isPrime(int n) {\n    if (n <= 1) {\n        return 0;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return 0;\n        }\n    }\n    return 1;\n}",
-    "description": "素数を判定する関数 `isPrime` のプロトタイプ宣言を `main` 関数の上に記述しています。"
+    "input": "In C language, write a function that checks whether a given number is prime, including the function prototype declaration.",
+    "output": "#include <stdio.h>\n\nint isPrime(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num)) {\n        printf(\"%d is a prime number.\\n\", num);\n    } else {\n        printf(\"%d is not a prime number.\\n\", num);\n    }\n    return 0;\n}\n\nint isPrime(int n) {\n    if (n <= 1) {\n        return 0;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return 0;\n        }\n    }\n    return 1;\n}",
+    "description": "This function `isPrime` checks whether a given integer is a prime number or not. The function prototype declaration is placed above the `main` function."
   },
   {
     "id": 221,
-    "input": "C言語で、引数として渡された整数の和を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint add(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d + %d = %d\\n\", num1, num2, add(num1, num2));\n    return 0;\n}\n\nint add(int a, int b) {\n    return a + b;\n}",
-    "description": "2つの整数を足し合わせる `add` 関数を作成し、その結果を出力します。"
+    "input": "Create a function in C language that calculates the sum of two integers passed as arguments.",
+    "output": "#include <stdio.h>\n\nint add(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num1, num2;\n    printf(\"Please enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d + %d = %d\\n\", num1, num2, add(num1, num2));\n    return 0;\n}\n\nint add(int a, int b) {\n    return a + b;\n}",
+    "description": "Creates an `add` function that adds two integers and outputs the result."
   },
   {
     "id": 222,
-    "input": "C言語で、引数として渡された整数の積を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint multiply(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d * %d = %d\\n\", num1, num2, multiply(num1, num2));\n    return 0;\n}\n\nint multiply(int a, int b) {\n    return a * b;\n}",
-    "description": "2つの整数を掛け合わせる `multiply` 関数を作成し、その結果を出力します。"
+    "input": "Create a function in C language that calculates the product of two integers passed as arguments.",
+    "output": "#include <stdio.h>\n\nint multiply(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num1, num2;\n    printf(\"Please enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d * %d = %d\\n\", num1, num2, multiply(num1, num2));\n    return 0;\n}\n\nint multiply(int a, int b) {\n    return a * b;\n}",
+    "description": "Creates a `multiply` function that multiplies two integers and outputs the result."
   },
   {
     "id": 223,
-    "input": "C言語で、引数として渡された整数の階乗を再帰的に計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint factorial(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d! = %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}",
-    "description": "再帰を使って整数の階乗を計算する `factorial` 関数を作成します。"
+    "input": "Create a function in C language that recursively calculates the factorial of an integer passed as an argument.",
+    "output": "#include <stdio.h>\n\nint factorial(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"%d! = %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}",
+    "description": "Creates a `factorial` function that calculates the factorial of an integer using recursion."
   },
   {
     "id": 224,
-    "input": "C言語で、引数として渡された整数が素数かどうかを再帰的に判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isPrime(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num, 2)) {\n        printf(\"%d は素数です。\\n\", num);\n    } else {\n        printf(\"%d は素数ではありません。\\n\", num);\n    }\n    return 0;\n}\n\nint isPrime(int n, int i) {\n    if (i * i > n) {\n        return 1;\n    } else if (n % i == 0) {\n        return 0;\n    } else {\n        return isPrime(n, i + 1);\n    }\n}",
-    "description": "再帰を使って素数判定を行う関数 `isPrime` を作成します。"
+    "input": "Create a function in C language that recursively determines whether an integer passed as an argument is a prime number.",
+    "output": "#include <stdio.h>\n\nint isPrime(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num, 2)) {\n        printf(\"%d is a prime number.\\n\", num);\n    } else {\n        printf(\"%d is not a prime number.\\n\", num);\n    }\n    return 0;\n}\n\nint isPrime(int n, int i) {\n    if (i * i > n) {\n        return 1;\n    } else if (n % i == 0) {\n        return 0;\n    } else {\n        return isPrime(n, i + 1);\n    }\n}",
+    "description": "Creates a `isPrime` function that recursively checks whether an integer is a prime number."
   },
   {
     "id": 225,
-    "input": "C言語で、指定された整数までのフィボナッチ数列を再帰を使って求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint fibonacci(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int n;\n    printf(\"フィボナッチ数列の何番目の数を求めますか?: \");\n    scanf(\"%d\", &n);\n    printf(\"%d番目のフィボナッチ数は: %d\\n\", n, fibonacci(n));\n    return 0;\n}\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}",
-    "description": "再帰を使ってフィボナッチ数列を計算する関数 `fibonacci` を作成します。"
+    "input": "Create a function in C language that recursively calculates the Fibonacci sequence up to a specified integer.",
+    "output": "#include <stdio.h>\n\nint fibonacci(int);  // Function prototype declaration\n\nint main(void) {\n    int n;\n    printf(\"Which term of the Fibonacci sequence would you like to calculate?: \");\n    scanf(\"%d\", &n);\n    printf(\"The %d-th Fibonacci number is: %d\\n\", n, fibonacci(n));\n    return 0;\n}\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}",
+    "description": "Creates a `fibonacci` function that calculates the Fibonacci sequence using recursion."
   },
   {
     "id": 226,
-    "input": "C言語で、配列の中から最大の値を返す関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint findMax(int[], int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int arr[] = {3, 5, 7, 2, 8, 1};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"配列の最大値は: %d\\n\", findMax(arr, size));\n    return 0;\n}\n\nint findMax(int arr[], int size) {\n    int max = arr[0];\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}",
-    "description": "配列の中から最大の値を求める関数 `findMax` を作成します。"
+    "input": "Create a function in C language that returns the maximum value from an array.",
+    "output": "#include <stdio.h>\n\nint findMax(int[], int);  // Function prototype declaration\n\nint main(void) {\n    int arr[] = {3, 5, 7, 2, 8, 1};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    printf(\"The maximum value in the array is: %d\\n\", findMax(arr, size));\n    return 0;\n}\n\nint findMax(int arr[], int size) {\n    int max = arr[0];\n    for (int i = 1; i < size; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    return max;\n}",
+    "description": "Creates a `findMax` function that finds the maximum value in an array."
   },
   {
     "id": 227,
-    "input": "C言語で、文字列を逆順に並べる関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid reverseString(char[]);  // 関数プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    reverseString(str);\n    printf(\"逆順の文字列は: %s\\n\", str);\n    return 0;\n}\n\nvoid reverseString(char str[]) {\n    int len = 0, i;\n    while (str[len] != '\\0') {\n        len++;\n    }\n    for (i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - 1 - i];\n        str[len - 1 - i] = temp;\n    }\n}",
-    "description": "文字列を逆順に並べる関数 `reverseString` を作成します。"
+    "input": "Create a function in C language that reverses a string.",
+    "output": "#include <stdio.h>\n\nvoid reverseString(char[]);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Please enter a string: \");\n    scanf(\"%s\", str);\n    reverseString(str);\n    printf(\"The reversed string is: %s\\n\", str);\n    return 0;\n}\n\nvoid reverseString(char str[]) {\n    int len = 0, i;\n    while (str[len] != '\\0') {\n        len++;\n    }\n    for (i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - 1 - i];\n        str[len - 1 - i] = temp;\n    }\n}",
+    "description": "Creates a `reverseString` function that reverses a given string."
   },
   {
     "id": 228,
-    "input": "C言語で、指定された整数の約数を求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid findDivisors(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    findDivisors(num);\n    return 0;\n}\n\nvoid findDivisors(int n) {\n    printf(\"%d の約数は: \", n);\n    for (int i = 1; i <= n; i++) {\n        if (n % i == 0) {\n            printf(\"%d \", i);\n        }\n    }\n    printf(\"\\n\");\n}",
-    "description": "指定された整数の約数を求める関数 `findDivisors` を作成します。"
+    "input": "Create a function in C language that finds the divisors of a given integer.",
+    "output": "#include <stdio.h>\n\nvoid findDivisors(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    findDivisors(num);\n    return 0;\n}\n\nvoid findDivisors(int n) {\n    printf(\"The divisors of %d are: \", n);\n    for (int i = 1; i <= n; i++) {\n        if (n % i == 0) {\n            printf(\"%d \", i);\n        }\n    }\n    printf(\"\\n\");\n}",
+    "description": "Creates a `findDivisors` function that finds the divisors of a given integer."
   },
   {
     "id": 229,
-    "input": "C言語で、文字列が回文かどうかを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isPalindrome(char[]);  // 関数プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    if (isPalindrome(str)) {\n        printf(\"'%s' は回文です。\\n\", str);\n    } else {\n        printf(\"'%s' は回文ではありません。\\n\", str);\n    }\n    return 0;\n}\n\nint isPalindrome(char str[]) {\n    int len = 0;\n    while (str[len] != '\\0') {\n        len++;\n    }\n    for (int i = 0; i < len / 2; i++) {\n        if (str[i] != str[len - 1 - i]) {\n            return 0;\n        }\n    }\n    return 1;\n}",
-    "description": "文字列が回文かどうかを判定する関数 `isPalindrome` を作成します。"
+    "input": "Create a function in C language that checks whether a string is a palindrome.",
+    "output": "#include <stdio.h>\n\nint isPalindrome(char[]);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Please enter a string: \");\n    scanf(\"%s\", str);\n    if (isPalindrome(str)) {\n        printf(\"'%s' is a palindrome.\\n\", str);\n    } else {\n        printf(\"'%s' is not a palindrome.\\n\", str);\n    }\n    return 0;\n}\n\nint isPalindrome(char str[]) {\n    int len = 0;\n    while (str[len] != '\\0') {\n        len++;\n    }\n    for (int i = 0; i < len / 2; i++) {\n        if (str[i] != str[len - 1 - i]) {\n            return 0;\n        }\n    }\n    return 1;\n}",
+    "description": "Creates an `isPalindrome` function that checks if a string is a palindrome."
   },
   {
     "id": 230,
-    "input": "C言語で、再帰を使って整数の合計を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint sum(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"1 から %d までの合計は: %d\\n\", num, sum(num));\n    return 0;\n}\n\nint sum(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n + sum(n - 1);\n    }\n}",
-    "description": "再帰を使って1から指定された整数までの合計を計算する関数 `sum` を作成します。"
+    "input": "Create a function in C language that recursively calculates the sum of integers from 1 to a specified integer.",
+    "output": "#include <stdio.h>\n\nint sum(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum from 1 to %d is: %d\\n\", num, sum(num));\n    return 0;\n}\n\nint sum(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n + sum(n - 1);\n    }\n}",
+    "description": "Creates a `sum` function that recursively calculates the sum of integers from 1 to a specified integer."
   },
   {
     "id": 231,
-    "input": "C言語で、再帰を使って指定された数の逆順を出力する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid printReverse(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printReverse(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid printReverse(int n) {\n    if (n == 0) {\n        return;\n    }\n    printf(\"%d \", n % 10);\n    printReverse(n / 10);\n}",
-    "description": "再帰を使って指定された整数の逆順を出力する関数 `printReverse` を作成します。"
+    "input": "In C language, create a function that prints the reverse order of a given number using recursion.",
+    "output": "#include <stdio.h>\n\nvoid printReverse(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printReverse(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid printReverse(int n) {\n    if (n == 0) {\n        return;\n    }\n    printf(\"%d \", n % 10);\n    printReverse(n / 10);\n}",
+    "description": "Creates a function `printReverse` that uses recursion to print the reverse order of a given integer."
   },
   {
     "id": 232,
-    "input": "C言語で、再帰を使って指定された数の桁数を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint countDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d は %d 桁の整数です。\\n\", num, countDigits(num));\n    return 0;\n}\n\nint countDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return 1 + countDigits(n / 10);\n}",
-    "description": "再帰を使って指定された整数の桁数を計算する関数 `countDigits` を作成します。"
+    "input": "In C language, create a function that calculates the number of digits of a given number using recursion.",
+    "output": "#include <stdio.h>\n\nint countDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"%d has %d digits.\\n\", num, countDigits(num));\n    return 0;\n}\n\nint countDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return 1 + countDigits(n / 10);\n}",
+    "description": "Creates a function `countDigits` that uses recursion to calculate the number of digits of a given integer."
   },
   {
     "id": 233,
-    "input": "C言語で、再帰を使って指定された数の逆順に足し算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint reverseAdd(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"逆順に足し算した結果は: %d\\n\", reverseAdd(num));\n    return 0;\n}\n\nint reverseAdd(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) + reverseAdd(n / 10);\n}",
-    "description": "再帰を使って指定された整数の逆順に足し算をする関数 `reverseAdd` を作成します。"
+    "input": "In C language, create a function that recursively adds the digits of a given number in reverse order.",
+    "output": "#include <stdio.h>\n\nint reverseAdd(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum in reverse order is: %d\\n\", reverseAdd(num));\n    return 0;\n}\n\nint reverseAdd(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) + reverseAdd(n / 10);\n}",
+    "description": "Creates a function `reverseAdd` that recursively adds the digits of a given integer in reverse order."
   },
   {
     "id": 234,
-    "input": "C言語で、再帰を使って2つの整数の最小公倍数を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint lcm(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int a, b;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"%d と %d の最小公倍数は: %d\\n\", a, b, lcm(a, b));\n    return 0;\n}\n\nint lcm(int a, int b) {\n    static int multiple = 1;\n    if (multiple % a == 0 && multiple % b == 0) {\n        return multiple;\n    }\n    return lcm(a, b, multiple + 1);\n}",
-    "description": "再帰を使って2つの整数の最小公倍数を計算する関数 `lcm` を作成します。"
+    "input": "In C language, create a function that calculates the least common multiple (LCM) of two integers using recursion.",
+    "output": "#include <stdio.h>\n\nint lcm(int, int);  // Function prototype declaration\n\nint main(void) {\n    int a, b;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"The least common multiple of %d and %d is: %d\\n\", a, b, lcm(a, b));\n    return 0;\n}\n\nint lcm(int a, int b) {\n    static int multiple = 1;\n    if (multiple % a == 0 && multiple % b == 0) {\n        return multiple;\n    }\n    return lcm(a, b, multiple + 1);\n}",
+    "description": "Creates a function `lcm` that calculates the least common multiple (LCM) of two integers using recursion."
   },
   {
     "id": 235,
-    "input": "C言語で、再帰を使って与えられた整数までの偶数の合計を求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint sumEven(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"1 から %d までの偶数の合計は: %d\\n\", num, sumEven(num));\n    return 0;\n}\n\nint sumEven(int n) {\n    if (n == 0) {\n        return 0;\n    } else if (n % 2 == 0) {\n        return n + sumEven(n - 2);\n    } else {\n        return sumEven(n - 1);\n    }\n}",
-    "description": "再帰を使って与えられた整数までの偶数の合計を求める関数 `sumEven` を作成します。"
+    "input": "In C language, create a function that calculates the sum of even numbers up to a given integer using recursion.",
+    "output": "#include <stdio.h>\n\nint sumEven(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum of even numbers from 1 to %d is: %d\\n\", num, sumEven(num));\n    return 0;\n}\n\nint sumEven(int n) {\n    if (n == 0) {\n        return 0;\n    } else if (n % 2 == 0) {\n        return n + sumEven(n - 2);\n    } else {\n        return sumEven(n - 1);\n    }\n}",
+    "description": "Creates a function `sumEven` that recursively calculates the sum of even numbers up to a given integer."
   },
   {
     "id": 236,
-    "input": "C言語で、再帰を使って指定された整数の階乗を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint factorial(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d の階乗は: %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}",
-    "description": "再帰を使って整数の階乗を計算する関数 `factorial` を作成します。基本的な再帰の例です。"
+    "input": "In C language, create a function that calculates the factorial of a given integer using recursion.",
+    "output": "#include <stdio.h>\n\nint factorial(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The factorial of %d is: %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}",
+    "description": "Creates a function `factorial` that recursively calculates the factorial of a given integer."
   },
   {
     "id": 237,
-    "input": "C言語で、再帰を使って指定された範囲内の整数を逆順に出力する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid printReverseRange(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int start, end;\n    printf(\"開始と終了の整数を入力してください: \");\n    scanf(\"%d %d\", &start, &end);\n    printReverseRange(start, end);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid printReverseRange(int start, int end) {\n    if (start > end) {\n        return;\n    }\n    printReverseRange(start + 1, end);\n    printf(\"%d \", start);\n}",
-    "description": "指定された範囲内の整数を再帰で逆順に出力する関数 `printReverseRange` を作成します。"
+    "input": "In C language, create a function that recursively prints integers in reverse order within a specified range.",
+    "output": "#include <stdio.h>\n\nvoid printReverseRange(int, int);  // Function prototype declaration\n\nint main(void) {\n    int start, end;\n    printf(\"Enter the start and end integers: \");\n    scanf(\"%d %d\", &start, &end);\n    printReverseRange(start, end);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid printReverseRange(int start, int end) {\n    if (start > end) {\n        return;\n    }\n    printReverseRange(start + 1, end);\n    printf(\"%d \", start);\n}",
+    "description": "Creates a function `printReverseRange` that recursively prints integers in reverse order within a specified range."
   },
   {
     "id": 238,
-    "input": "C言語で、再帰を使って与えられた数の合計が偶数か奇数かを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isEven(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isEven(num)) {\n        printf(\"%d は偶数です。\\n\", num);\n    } else {\n        printf(\"%d は奇数です。\\n\", num);\n    }\n    return 0;\n}\n\nint isEven(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    if (n == 1) {\n        return 0;\n    }\n    return isEven(n - 2);\n}",
-    "description": "再帰を使って整数が偶数か奇数かを判定する関数 `isEven` を作成します。"
+    "input": "In C language, create a function that determines whether the sum of the digits of a given number is even or odd using recursion.",
+    "output": "#include <stdio.h>\n\nint isEven(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isEven(num)) {\n        printf(\"%d is even.\\n\", num);\n    } else {\n        printf(\"%d is odd.\\n\", num);\n    }\n    return 0;\n}\n\nint isEven(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    if (n == 1) {\n        return 0;\n    }\n    return isEven(n - 2);\n}",
+    "description": "Creates a function `isEven` that recursively determines whether the sum of the digits of a given integer is even or odd."
   },
   {
     "id": 239,
-    "input": "C言語で、再帰を使って与えられた数の桁ごとの和を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint digitSum(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d の桁ごとの和は: %d\\n\", num, digitSum(num));\n    return 0;\n}\n\nint digitSum(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return n % 10 + digitSum(n / 10);\n}",
-    "description": "再帰を使って整数の桁ごとの和を計算する関数 `digitSum` を作成します。"
+    "input": "In C language, create a function that calculates the sum of the digits of a given number using recursion.",
+    "output": "#include <stdio.h>\n\nint digitSum(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum of the digits of %d is: %d\\n\", num, digitSum(num));\n    return 0;\n}\n\nint digitSum(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return n % 10 + digitSum(n / 10);\n}",
+    "description": "Creates a function `digitSum` that recursively calculates the sum of the digits of a given integer."
   },
   {
     "id": 240,
-    "input": "C言語で、再帰を使って与えられた数の逆順の桁を取り出す関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid reverseDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    reverseDigits(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseDigits(int n) {\n    if (n == 0) {\n        return;\n    }\n    printf(\"%d \", n % 10);\n    reverseDigits(n / 10);\n}",
-    "description": "再帰を使って整数の桁を逆順に取り出す関数 `reverseDigits` を作成します。"
+    "input": "In C language, create a function that recursively extracts the digits of a given number in reverse order.",
+    "output": "#include <stdio.h>\n\nvoid reverseDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    reverseDigits(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseDigits(int n) {\n    if (n == 0) {\n        return;\n    }\n    printf(\"%d \", n % 10);\n    reverseDigits(n / 10);\n}",
+    "description": "Creates a function `reverseDigits` that recursively extracts the digits of a given integer in reverse order."
   },
   {
     "id": 241,
-    "input": "C言語で、再帰を使って指定された範囲内の素数を表示する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isPrime(int, int);  // 関数プロトタイプ宣言\n\nvoid printPrimes(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int start, end;\n    printf(\"開始と終了の整数を入力してください: \");\n    scanf(\"%d %d\", &start, &end);\n    printPrimes(start, end);\n    return 0;\n}\n\nint isPrime(int num, int div) {\n    if (num <= 1) {\n        return 0;\n    }\n    if (div == num) {\n        return 1;\n    }\n    if (num % div == 0) {\n        return 0;\n    }\n    return isPrime(num, div + 1);\n}\n\nvoid printPrimes(int start, int end) {\n    if (start > end) {\n        return;\n    }\n    if (isPrime(start, 2)) {\n        printf(\"%d \", start);\n    }\n    printPrimes(start + 1, end);\n}",
-    "description": "再帰を使って指定された範囲内の素数を表示する関数 `printPrimes` を作成します。"
+    "input": "In C language, create a function that uses recursion to display prime numbers within a specified range.",
+    "output": "#include <stdio.h>\n\nint isPrime(int, int);  // Function prototype declaration\n\nvoid printPrimes(int, int);  // Function prototype declaration\n\nint main(void) {\n    int start, end;\n    printf(\"Enter the start and end integers: \");\n    scanf(\"%d %d\", &start, &end);\n    printPrimes(start, end);\n    return 0;\n}\n\nint isPrime(int num, int div) {\n    if (num <= 1) {\n        return 0;\n    }\n    if (div == num) {\n        return 1;\n    }\n    if (num % div == 0) {\n        return 0;\n    }\n    return isPrime(num, div + 1);\n}\n\nvoid printPrimes(int start, int end) {\n    if (start > end) {\n        return;\n    }\n    if (isPrime(start, 2)) {\n        printf(\"%d \", start);\n    }\n    printPrimes(start + 1, end);\n}",
+    "description": "Create a function `printPrimes` that uses recursion to display prime numbers within a specified range."
   },
   {
     "id": 242,
-    "input": "C言語で、再帰を使って指定された数の平均を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\ndouble calculateAverage(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num, sum;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    sum = calculateAverage(num, 0);\n    printf(\"平均は: %.2f\\n\", sum / (double)num);\n    return 0;\n}\n\ndouble calculateAverage(int n, int sum) {\n    if (n == 0) {\n        return sum;\n    }\n    return calculateAverage(n - 1, sum + n);\n}",
-    "description": "再帰を使って指定された数の平均を計算する関数 `calculateAverage` を作成します。"
+    "input": "In C language, create a function that uses recursion to calculate the average of a specified number.",
+    "output": "#include <stdio.h>\n\ndouble calculateAverage(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num, sum;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    sum = calculateAverage(num, 0);\n    printf(\"The average is: %.2f\\n\", sum / (double)num);\n    return 0;\n}\n\ndouble calculateAverage(int n, int sum) {\n    if (n == 0) {\n        return sum;\n    }\n    return calculateAverage(n - 1, sum + n);\n}",
+    "description": "Create a function `calculateAverage` that uses recursion to calculate the average of a specified number."
   },
   {
     "id": 243,
-    "input": "C言語で、再帰を使って指定された整数の各桁を2倍にして合計を出す関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint doubleDigitsSum(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"各桁を2倍にした合計は: %d\\n\", doubleDigitsSum(num));\n    return 0;\n}\n\nint doubleDigitsSum(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) * 2 + doubleDigitsSum(n / 10);\n}",
-    "description": "再帰を使って整数の各桁を2倍にしてその合計を出す関数 `doubleDigitsSum` を作成します。"
+    "input": "In C language, create a function that uses recursion to double each digit of a given integer and sum them up.",
+    "output": "#include <stdio.h>\n\nint doubleDigitsSum(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum of doubled digits is: %d\\n\", doubleDigitsSum(num));\n    return 0;\n}\n\nint doubleDigitsSum(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) * 2 + doubleDigitsSum(n / 10);\n}",
+    "description": "Create a function `doubleDigitsSum` that uses recursion to double each digit of an integer and sum them up."
   },
   {
     "id": 244,
-    "input": "C言語で、再帰を使って指定された数の各桁を加算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint addDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"各桁の合計は: %d\\n\", addDigits(num));\n    return 0;\n}\n\nint addDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) + addDigits(n / 10);\n}",
-    "description": "再帰を使って整数の各桁を加算する関数 `addDigits` を作成します。"
+    "input": "In C language, create a function that uses recursion to sum up each digit of a given integer.",
+    "output": "#include <stdio.h>\n\nint addDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum of digits is: %d\\n\", addDigits(num));\n    return 0;\n}\n\nint addDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) + addDigits(n / 10);\n}",
+    "description": "Create a function `addDigits` that uses recursion to sum up each digit of an integer."
   },
   {
     "id": 245,
-    "input": "C言語で、再帰を使って与えられた文字列を逆順に出力する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid reverseString(char[], int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    reverseString(str, 0);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseString(char str[], int i) {\n    if (str[i] == '\\0') {\n        return;\n    }\n    reverseString(str, i + 1);\n    printf(\"%c\", str[i]);\n}",
-    "description": "再帰を使って文字列を逆順に出力する関数 `reverseString` を作成します。"
+    "input": "In C language, create a function that uses recursion to print a given string in reverse order.",
+    "output": "#include <stdio.h>\n\nvoid reverseString(char[], int);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n    reverseString(str, 0);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseString(char str[], int i) {\n    if (str[i] == '\\0') {\n        return;\n    }\n    reverseString(str, i + 1);\n    printf(\"%c\", str[i]);\n}",
+    "description": "Create a function `reverseString` that uses recursion to print a given string in reverse order."
   },
   {
     "id": 246,
-    "input": "C言語で、再帰を使って与えられた数の2の累乗を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint powerOfTwo(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"2 の %d の累乗は: %d\\n\", num, powerOfTwo(num));\n    return 0;\n}\n\nint powerOfTwo(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return 2 * powerOfTwo(n - 1);\n}",
-    "description": "再帰を使って2の累乗を計算する関数 `powerOfTwo` を作成します。"
+    "input": "In C language, create a function that uses recursion to calculate the power of 2 for a given number.",
+    "output": "#include <stdio.h>\n\nint powerOfTwo(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"2 raised to the power of %d is: %d\\n\", num, powerOfTwo(num));\n    return 0;\n}\n\nint powerOfTwo(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return 2 * powerOfTwo(n - 1);\n}",
+    "description": "Create a function `powerOfTwo` that uses recursion to calculate the power of 2 for a given number."
   },
   {
     "id": 247,
-    "input": "C言語で、再帰を使って与えられた数が完全数かどうかを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint sumDivisors(int, int);  // 関数プロトタイプ宣言\n\nint isPerfectNumber(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isPerfectNumber(num)) {\n        printf(\"%d は完全数です。\\n\", num);\n    } else {\n        printf(\"%d は完全数ではありません。\\n\", num);\n    }\n    return 0;\n}\n\nint sumDivisors(int n, int div) {\n    if (div >= n) {\n        return 0;\n    }\n    if (n % div == 0) {\n        return div + sumDivisors(n, div + 1);\n    }\n    return sumDivisors(n, div + 1);\n}\n\nint isPerfectNumber(int num) {\n    return sumDivisors(num, 1) == num;\n}",
-    "description": "再帰を使って与えられた数が完全数かどうかを判定する関数 `isPerfectNumber` を作成します。"
+    "input": "In C language, create a function that uses recursion to check whether a given number is a perfect number.",
+    "output": "#include <stdio.h>\n\nint sumDivisors(int, int);  // Function prototype declaration\n\nint isPerfectNumber(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isPerfectNumber(num)) {\n        printf(\"%d is a perfect number.\\n\", num);\n    } else {\n        printf(\"%d is not a perfect number.\\n\", num);\n    }\n    return 0;\n}\n\nint sumDivisors(int n, int div) {\n    if (div >= n) {\n        return 0;\n    }\n    if (n % div == 0) {\n        return div + sumDivisors(n, div + 1);\n    }\n    return sumDivisors(n, div + 1);\n}\n\nint isPerfectNumber(int num) {\n    return sumDivisors(num, 1) == num;\n}",
+    "description": "Create a function `isPerfectNumber` that uses recursion to check whether a given number is a perfect number."
   },
   {
     "id": 248,
-    "input": "C言語で、再帰を使って与えられた数が素数かどうかを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isPrime(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num, 2)) {\n        printf(\"%d は素数です。\\n\", num);\n    } else {\n        printf(\"%d は素数ではありません。\\n\", num);\n    }\n    return 0;\n}\n\nint isPrime(int num, int div) {\n    if (num <= 1) {\n        return 0;\n    }\n    if (div == num) {\n        return 1;\n    }\n    if (num % div == 0) {\n        return 0;\n    }\n    return isPrime(num, div + 1);\n}",
-    "description": "再帰を使って与えられた数が素数かどうかを判定する関数 `isPrime` を作成します。"
+    "input": "In C language, create a function that uses recursion to check whether a given number is a prime number.",
+    "output": "#include <stdio.h>\n\nint isPrime(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num, 2)) {\n        printf(\"%d is a prime number.\\n\", num);\n    } else {\n        printf(\"%d is not a prime number.\\n\", num);\n    }\n    return 0;\n}\n\nint isPrime(int num, int div) {\n    if (num <= 1) {\n        return 0;\n    }\n    if (div == num) {\n        return 1;\n    }\n    if (num % div == 0) {\n        return 0;\n    }\n    return isPrime(num, div + 1);\n}",
+    "description": "Create a function `isPrime` that uses recursion to check whether a given number is a prime number."
   },
   {
     "id": 249,
-    "input": "C言語で、再帰を使って指定された整数のすべての約数を表示する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid printDivisors(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printDivisors(num, 1);\n    return 0;\n}\n\nvoid printDivisors(int n, int div) {\n    if (div == n) {\n        return;\n    }\n    if (n % div == 0) {\n        printf(\"%d \", div);\n    }\n    printDivisors(n, div + 1);\n}",
-    "description": "再帰を使って指定された整数の約数を表示する関数 `printDivisors` を作成します。"
+    "input": "In C language, create a function that uses recursion to print all divisors of a given integer.",
+    "output": "#include <stdio.h>\n\nvoid printDivisors(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printDivisors(num, 1);\n    return 0;\n}\n\nvoid printDivisors(int n, int div) {\n    if (div == n) {\n        return;\n    }\n    if (n % div == 0) {\n        printf(\"%d \", div);\n    }\n    printDivisors(n, div + 1);\n}",
+    "description": "Create a function `printDivisors` that uses recursion to print all divisors of a given integer."
   },
   {
     "id": 250,
-    "input": "C言語で、再帰を使って与えられた数がフェボナッチ数かどうかを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isFibonacci(int, int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isFibonacci(num, 0, 1)) {\n        printf(\"%d はフェボナッチ数です。\\n\", num);\n    } else {\n        printf(\"%d はフェボナッチ数ではありません。\\n\", num);\n    }\n    return 0;\n}\n\nint isFibonacci(int num, int a, int b) {\n    if (a == num) {\n        return 1;\n    }\n    if (a > num) {\n        return 0;\n    }\n    return isFibonacci(num, b, a + b);\n}",
-    "description": "再帰を使って指定された数がフェボナッチ数かどうかを判定する関数 `isFibonacci` を作成します。"
+    "input": "In C language, create a function that uses recursion to check whether a given number is a Fibonacci number.",
+    "output": "#include <stdio.h>\n\nint isFibonacci(int, int, int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isFibonacci(num, 0, 1)) {\n        printf(\"%d is a Fibonacci number.\\n\", num);\n} else {\n        printf(\"%d is not a Fibonacci number.\\n\", num);\n}\n    return 0;\n}\n\nint isFibonacci(int num, int a, int b) {\n    if (a == num) {\n        return 1;\n    }\n    if (a > num) {\n        return 0;\n    }\n    return isFibonacci(num, b, a + b);\n}",
+    "description": "Create a function `isFibonacci` that uses recursion to check whether a given number is a Fibonacci number."
   },
   {
     "id": 251,
-    "input": "C言語で、再帰を使って与えられた数の各桁を3倍してその合計を出す関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint tripleDigitsSum(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"各桁を3倍にした合計は: %d\\n\", tripleDigitsSum(num));\n    return 0;\n}\n\nint tripleDigitsSum(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) * 3 + tripleDigitsSum(n / 10);\n}",
-    "description": "再帰を使って整数の各桁を3倍にしてその合計を出す関数 `tripleDigitsSum` を作成します。"
+    "input": "In C language, create a function that uses recursion to multiply each digit of a given number by 3 and return their sum.",
+    "output": "#include <stdio.h>\n\nint tripleDigitsSum(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum of each digit multiplied by 3 is: %d\\n\", tripleDigitsSum(num));\n    return 0;\n}\n\nint tripleDigitsSum(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) * 3 + tripleDigitsSum(n / 10);\n}",
+    "description": "Create a function `tripleDigitsSum` using recursion that multiplies each digit of an integer by 3 and returns the sum."
   },
   {
     "id": 252,
-    "input": "C言語で、再帰を使って指定された数の階乗を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint factorial(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n\n    printf(\"%d の階乗は: %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}",
-    "description": "再帰を使って整数の階乗を計算する関数 `factorial` を作成します。"
+    "input": "In C language, create a function that uses recursion to calculate the factorial of a given number.",
+    "output": "#include <stdio.h>\n\nint factorial(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n\n    printf(\"The factorial of %d is: %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}",
+    "description": "Create a function `factorial` using recursion to calculate the factorial of an integer."
   },
   {
     "id": 253,
-    "input": "C言語で、再帰を使って与えられた数の桁数を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint countDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"桁数は: %d\\n\", countDigits(num));\n    return 0;\n}\n\nint countDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return 1 + countDigits(n / 10);\n}",
-    "description": "再帰を使って整数の桁数を計算する関数 `countDigits` を作成します。"
+    "input": "In C language, create a function that uses recursion to calculate the number of digits of a given number.",
+    "output": "#include <stdio.h>\n\nint countDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The number of digits is: %d\\n\", countDigits(num));\n    return 0;\n}\n\nint countDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return 1 + countDigits(n / 10);\n}",
+    "description": "Create a function `countDigits` using recursion to calculate the number of digits of an integer."
   },
   {
     "id": 254,
-    "input": "C言語で、再帰を使って与えられた整数の逆数を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nfloat reciprocal(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"逆数は: %.2f\\n\", reciprocal(num));\n    return 0;\n}\n\nfloat reciprocal(int n) {\n    if (n == 1) {\n        return 1.0;\n    }\n    return 1.0 / n;\n}",
-    "description": "再帰を使って与えられた整数の逆数を計算する関数 `reciprocal` を作成します。"
+    "input": "In C language, create a function that uses recursion to calculate the reciprocal of a given integer.",
+    "output": "#include <stdio.h>\n\nfloat reciprocal(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The reciprocal is: %.2f\\n\", reciprocal(num));\n    return 0;\n}\n\nfloat reciprocal(int n) {\n    if (n == 1) {\n        return 1.0;\n    }\n    return 1.0 / n;\n}",
+    "description": "Create a function `reciprocal` using recursion to calculate the reciprocal of a given integer."
   },
   {
     "id": 255,
-    "input": "C言語で、再帰を使って指定された数の数字の和を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint sumOfDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"数字の和は: %d\\n\", sumOfDigits(num));\n    return 0;\n}\n\nint sumOfDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) + sumOfDigits(n / 10);\n}",
-    "description": "再帰を使って指定された数の数字の和を計算する関数 `sumOfDigits` を作成します。"
+    "input": "In C language, create a function that uses recursion to calculate the sum of the digits of a given number.",
+    "output": "#include <stdio.h>\n\nint sumOfDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The sum of the digits is: %d\\n\", sumOfDigits(num));\n    return 0;\n}\n\nint sumOfDigits(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return (n % 10) + sumOfDigits(n / 10);\n}",
+    "description": "Create a function `sumOfDigits` using recursion to calculate the sum of the digits of a given integer."
   },
   {
     "id": 256,
-    "input": "C言語で、再帰を使って指定された数の数字の積を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint productOfDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"数字の積は: %d\\n\", productOfDigits(num));\n    return 0;\n}\n\nint productOfDigits(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return (n % 10) * productOfDigits(n / 10);\n}",
-    "description": "再帰を使って指定された整数の各桁の積を計算する関数 `productOfDigits` を作成します。再帰的に各桁を取り出し、その積を計算します。"
+    "input": "In C language, create a function that uses recursion to calculate the product of the digits of a given number.",
+    "output": "#include <stdio.h>\n\nint productOfDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The product of the digits is: %d\\n\", productOfDigits(num));\n    return 0;\n}\n\nint productOfDigits(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    return (n % 10) * productOfDigits(n / 10);\n}",
+    "description": "Create a function `productOfDigits` using recursion to calculate the product of the digits of a given integer."
   },
   {
     "id": 257,
-    "input": "C言語で、再帰を使って指定された数の各桁を偶数と奇数に分けて表示する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid separateEvenOdd(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    separateEvenOdd(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid separateEvenOdd(int n) {\n    if (n == 0) {\n        return;\n    }\n    int digit = n % 10;\n    if (digit % 2 == 0) {\n        printf(\"偶数: %d \", digit);\n    } else {\n        printf(\"奇数: %d \", digit);\n    }\n    separateEvenOdd(n / 10);\n}",
-    "description": "再帰を使って整数の各桁を偶数と奇数に分けて表示する関数 `separateEvenOdd` を作成します。整数を1桁ずつ処理し、偶数か奇数かを判定して表示します。"
+    "input": "In C language, create a function that uses recursion to separate and display the even and odd digits of a given number.",
+    "output": "#include <stdio.h>\n\nvoid separateEvenOdd(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    separateEvenOdd(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid separateEvenOdd(int n) {\n    if (n == 0) {\n        return;\n    }\n    int digit = n % 10;\n    if (digit % 2 == 0) {\n        printf(\"Even: %d \", digit);\n    } else {\n        printf(\"Odd: %d \", digit);\n    }\n    separateEvenOdd(n / 10);\n}",
+    "description": "Create a function `separateEvenOdd` using recursion to separate and display the even and odd digits of a given integer."
   },
   {
     "id": 258,
-    "input": "C言語で、再帰を使って指定された数の逆順に並べた数字を表示する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid reverseDigits(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    reverseDigits(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseDigits(int n) {\n    if (n == 0) {\n        return;\n    }\n    printf(\"%d\", n % 10);\n    reverseDigits(n / 10);\n}",
-    "description": "再帰を使って指定された整数の桁を逆順に並べて表示する関数 `reverseDigits` を作成します。整数の桁を一つずつ取り出し、逆順に表示します。"
+    "input": "In C language, create a function that uses recursion to display the digits of a given number in reverse order.",
+    "output": "#include <stdio.h>\n\nvoid reverseDigits(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    reverseDigits(num);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid reverseDigits(int n) {\n    if (n == 0) {\n        return;\n    }\n    printf(\"%d\", n % 10);\n    reverseDigits(n / 10);\n}",
+    "description": "Create a function `reverseDigits` using recursion to display the digits of a given integer in reverse order."
   },
   {
     "id": 259,
-    "input": "C言語で、再帰を使って与えられた数が完全平方数かどうかを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isPerfectSquare(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    if (isPerfectSquare(num, 1)) {\n        printf(\"%d は完全平方数です。\\n\", num);\n    } else {\n        printf(\"%d は完全平方数ではありません。\\n\", num);\n    }\n    return 0;\n}\n\nint isPerfectSquare(int num, int i) {\n    if (i * i > num) {\n        return 0;\n    }\n    if (i * i == num) {\n        return 1;\n    }\n    return isPerfectSquare(num, i + 1);\n}",
-    "description": "再帰を使って与えられた数が完全平方数かどうかを判定する関数 `isPerfectSquare` を作成します。指定された数が平方数であるかどうかを再帰的に調べます。"
+    "input": "In C language, create a function that uses recursion to determine whether a given number is a perfect square.",
+    "output": "#include <stdio.h>\n\nint isPerfectSquare(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n    if (isPerfectSquare(num, 1)) {\n        printf(\"%d is a perfect square.\\n\", num);\n    } else {\n        printf(\"%d is not a perfect square.\\n\", num);\n    }\n    return 0;\n}\n\nint isPerfectSquare(int num, int i) {\n    if (i * i > num) {\n        return 0;\n    }\n    if (i * i == num) {\n        return 1;\n    }\n    return isPerfectSquare(num, i + 1);\n}",
+    "description": "Create a function `isPerfectSquare` using recursion to determine whether a given number is a perfect square."
   },
   {
     "id": 260,
-    "input": "C言語で、再帰を使って与えられた文字列が回文かどうかを判定する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint isPalindrome(char[], int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    int length = 0;\n    while (str[length] != '\\0') {\n        length++;\n    }\n    if (isPalindrome(str, 0, length - 1)) {\n        printf(\"%s は回文です。\\n\", str);\n    } else {\n        printf(\"%s は回文ではありません。\\n\", str);\n    }\n    return 0;\n}\n\nint isPalindrome(char str[], int start, int end) {\n    if (start >= end) {\n        return 1;\n    }\n    if (str[start] != str[end]) {\n        return 0;\n    }\n    return isPalindrome(str, start + 1, end - 1);\n}",
-    "description": "再帰を使って与えられた文字列が回文かどうかを判定する関数 `isPalindrome` を作成します。文字列の最初と最後を比較し、再帰的に判定を行います。"
+    "input": "In C language, create a function that uses recursion to check whether a given string is a palindrome.",
+    "output": "#include <stdio.h>\n\nint isPalindrome(char[], int, int);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Please enter a string: \");\n    scanf(\"%s\", str);\n    int length = 0;\n    while (str[length] != '\\0') {\n        length++;\n    }\n    if (isPalindrome(str, 0, length - 1)) {\n        printf(\"%s is a palindrome.\\n\", str);\n    } else {\n        printf(\"%s is not a palindrome.\\n\", str);\n    }\n    return 0;\n}\n\nint isPalindrome(char str[], int start, int end) {\n    if (start >= end) {\n        return 1;\n    }\n    if (str[start] != str[end]) {\n        return 0;\n    }\n    return isPalindrome(str, start + 1, end - 1);\n}",
+    "description": "Create a function `isPalindrome` using recursion to check whether a given string is a palindrome."
   },
   {
     "id": 261,
-    "input": "C言語で、再帰を使って指定された数のすべての約数を求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid findDivisors(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d の約数: \", num);\n    findDivisors(num, 1);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid findDivisors(int n, int i) {\n    if (i == n) {\n        return;\n    }\n    if (n % i == 0) {\n        printf(\"%d \", i);\n    }\n    findDivisors(n, i + 1);\n}",
-    "description": "再帰を使って指定された整数のすべての約数を求める関数 `findDivisors` を作成します。1からその数まで再帰的に調べ、約数を出力します。"
+    "input": "In C language, create a function using recursion to find all divisors of a given number.",
+    "output": "#include <stdio.h>\n\nvoid findDivisors(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"Divisors of %d: \", num);\n    findDivisors(num, 1);\n    printf(\"\\n\");\n    return 0;\n}\n\nvoid findDivisors(int n, int i) {\n    if (i == n) {\n        return;\n    }\n    if (n % i == 0) {\n        printf(\"%d \", i);\n    }\n    findDivisors(n, i + 1);\n}",
+    "description": "A function `findDivisors` is created using recursion to find all divisors of the specified integer. It recursively checks from 1 to the number and outputs the divisors."
   },
   {
     "id": 262,
-    "input": "C言語で、再帰を使って指定された数の合計を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint sumUpTo(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"1から%dまでの合計は: %d\\n\", num, sumUpTo(num));\n    return 0;\n}\n\nint sumUpTo(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return n + sumUpTo(n - 1);\n}",
-    "description": "再帰を使って1から指定された数までの合計を計算する関数 `sumUpTo` を作成します。再帰的に1からnまでの数を加算します。"
+    "input": "In C language, create a function using recursion to calculate the sum of all numbers up to the given number.",
+    "output": "#include <stdio.h>\n\nint sumUpTo(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"Sum of numbers from 1 to %d: %d\\n\", num, sumUpTo(num));\n    return 0;\n}\n\nint sumUpTo(int n) {\n    if (n == 0) {\n        return 0;\n    }\n    return n + sumUpTo(n - 1);\n}",
+    "description": "A function `sumUpTo` is created using recursion to calculate the sum of all numbers from 1 to the specified number. It recursively adds numbers from 1 to n."
   },
   {
     "id": 263,
-    "input": "C言語で、再帰を使って指定された文字列の文字数を計算する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint countCharacters(char[]);  // 関数プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    printf(\"文字数は: %d\\n\", countCharacters(str));\n    return 0;\n}\n\nint countCharacters(char str[]) {\n    if (str[0] == '\\0') {\n        return 0;\n    }\n    return 1 + countCharacters(str + 1);\n}",
-    "description": "再帰を使って指定された文字列の文字数を計算する関数 `countCharacters` を作成します。文字列の先頭から再帰的に文字を数えます。"
+    "input": "In C language, create a function using recursion to count the number of characters in a given string.",
+    "output": "#include <stdio.h>\n\nint countCharacters(char[]);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n    printf(\"Number of characters: %d\\n\", countCharacters(str));\n    return 0;\n}\n\nint countCharacters(char str[]) {\n    if (str[0] == '\\0') {\n        return 0;\n    }\n    return 1 + countCharacters(str + 1);\n}",
+    "description": "A function `countCharacters` is created using recursion to count the number of characters in the given string. It recursively counts characters starting from the first character."
   },
   {
     "id": 264,
-    "input": "C言語で、再帰を使って指定された文字列の逆順を作成する関数を作成してください。",
-    "output": "#include <stdio.h>\n\nvoid reverseString(char[], int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    char str[100];\n    printf(\"文字列を入力してください: \");\n    scanf(\"%s\", str);\n    int length = 0;\n    while (str[length] != '\\0') {\n        length++;\n    }\n    reverseString(str, 0, length - 1);\n    printf(\"逆順の文字列: %s\\n\", str);\n    return 0;\n}\n\nvoid reverseString(char str[], int start, int end) {\n    if (start >= end) {\n        return;\n    }\n    char temp = str[start];\n    str[start] = str[end];\n    str[end] = temp;\n    reverseString(str, start + 1, end - 1);\n}",
-    "description": "再帰を使って指定された文字列の逆順を作成する関数 `reverseString` を作成します。文字列の最初と最後を入れ替えながら再帰的に処理します。"
+    "input": "In C language, create a function using recursion to reverse the given string.",
+    "output": "#include <stdio.h>\n\nvoid reverseString(char[], int, int);  // Function prototype declaration\n\nint main(void) {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n    int length = 0;\n    while (str[length] != '\\0') {\n        length++;\n    }\n    reverseString(str, 0, length - 1);\n    printf(\"Reversed string: %s\\n\", str);\n    return 0;\n}\n\nvoid reverseString(char str[], int start, int end) {\n    if (start >= end) {\n        return;\n    }\n    char temp = str[start];\n    str[start] = str[end];\n    str[end] = temp;\n    reverseString(str, start + 1, end - 1);\n}",
+    "description": "A function `reverseString` is created using recursion to reverse the given string. It swaps the first and last characters while recursively processing the string."
   },
   {
     "id": 265,
-    "input": "C言語で、再帰を使って二分探索を実装してください。配列は事前にソートされていると仮定します。",
-    "output": "#include <stdio.h>\n\nint binarySearch(int[], int, int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};\n    int target, result;\n    printf(\"探索する数値を入力してください: \");\n    scanf(\"%d\", &target);\n    result = binarySearch(arr, 0, 9, target);\n    if (result != -1) {\n        printf(\"%d は配列のインデックス %d にあります。\\n\", target, result);\n    } else {\n        printf(\"%d は配列に存在しません。\\n\", target);\n    }\n    return 0;\n}\n\nint binarySearch(int arr[], int low, int high, int target) {\n    if (low > high) {\n        return -1;\n    }\n    int mid = (low + high) / 2;\n    if (arr[mid] == target) {\n        return mid;\n    } else if (arr[mid] > target) {\n        return binarySearch(arr, low, mid - 1, target);\n    } else {\n        return binarySearch(arr, mid + 1, high, target);\n    }\n}",
-    "description": "再帰を使用して、二分探索アルゴリズムを実装しています。配列がソートされていることを前提に、再帰的に探索範囲を絞り込み、指定された値を探します。"
+    "input": "In C language, implement binary search using recursion. Assume the array is pre-sorted.",
+    "output": "#include <stdio.h>\n\nint binarySearch(int[], int, int, int);  // Function prototype declaration\n\nint main(void) {\n    int arr[] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};\n    int target, result;\n    printf(\"Enter a number to search: \");\n    scanf(\"%d\", &target);\n    result = binarySearch(arr, 0, 9, target);\n    if (result != -1) {\n        printf(\"%d is at index %d in the array.\\n\", target, result);\n    } else {\n        printf(\"%d is not in the array.\\n\", target);\n    }\n    return 0;\n}\n\nint binarySearch(int arr[], int low, int high, int target) {\n    if (low > high) {\n        return -1;\n    }\n    int mid = (low + high) / 2;\n    if (arr[mid] == target) {\n        return mid;\n    } else if (arr[mid] > target) {\n        return binarySearch(arr, low, mid - 1, target);\n    } else {\n        return binarySearch(arr, mid + 1, high, target);\n    }\n}",
+    "description": "This implementation uses recursion to perform binary search. Given a pre-sorted array, the search range is narrowed recursively to find the target value."
   },
   {
     "id": 266,
-    "input": "C言語で、再帰を使って、与えられた2つの整数の最大公約数(GCD)を求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint gcd(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d と %d の最大公約数は: %d\\n\", num1, num2, gcd(num1, num2));\n    return 0;\n}\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return gcd(b, a % b);\n}",
-    "description": "再帰を使って最大公約数(GCD)を求める関数 `gcd` を作成しています。ユークリッドの互除法に基づいており、a と b の余りを使って再帰的に処理します。"
+    "input": "Write a function in C using recursion to find the greatest common divisor (GCD) of two given integers.",
+    "output": "#include <stdio.h>\n\nint gcd(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"The greatest common divisor of %d and %d is: %d\\n\", num1, num2, gcd(num1, num2));\n    return 0;\n}\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return gcd(b, a % b);\n}",
+    "description": "A function `gcd` is created using recursion to find the greatest common divisor (GCD) based on Euclid's algorithm, which uses the remainder of a and b for recursive processing."
   },
   {
     "id": 267,
-    "input": "C言語で、再帰を使って与えられた2つの整数間のすべての数の和を求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint sumBetween(int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num1, num2;\n    printf(\"2つの整数を入力してください: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"%d と %d の間の整数の和は: %d\\n\", num1, num2, sumBetween(num1, num2));\n    return 0;\n}\n\nint sumBetween(int a, int b) {\n    if (a > b) {\n        return 0;\n    }\n    return a + sumBetween(a + 1, b);\n}",
-    "description": "再帰を使って、与えられた2つの整数の間に含まれる全ての整数の和を求める関数 `sumBetween` を作成します。a から b までの整数を加算していきます。"
+    "input": "Write a function in C using recursion to calculate the sum of all integers between two given integers.",
+    "output": "#include <stdio.h>\n\nint sumBetween(int, int);  // Function prototype declaration\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &num1, &num2);\n    printf(\"The sum of integers between %d and %d is: %d\\n\", num1, num2, sumBetween(num1, num2));\n    return 0;\n}\n\nint sumBetween(int a, int b) {\n    if (a > b) {\n        return 0;\n    }\n    return a + sumBetween(a + 1, b);\n}",
+    "description": "A function `sumBetween` is created using recursion to calculate the sum of all integers between two given integers, adding integers from a to b recursively."
   },
   {
     "id": 268,
-    "input": "C言語で、再帰を使って配列内の最大値を求める関数を作成してください。",
-    "output": "#include <stdio.h>\n\nint findMax(int[], int, int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int arr[] = {12, 4, 7, 9, 15, 3, 8};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    printf(\"配列内の最大値は: %d\\n\", findMax(arr, 0, n - 1));\n    return 0;\n}\n\nint findMax(int arr[], int low, int high) {\n    if (low == high) {\n        return arr[low];\n    }\n    int mid = (low + high) / 2;\n    int leftMax = findMax(arr, low, mid);\n    int rightMax = findMax(arr, mid + 1, high);\n    return (leftMax > rightMax) ? leftMax : rightMax;\n}",
-    "description": "再帰を使って配列の最大値を求める関数 `findMax` を作成します。配列を半分に分け、それぞれの最大値を再帰的に比較して求めます。"
+    "input": "Write a function in C using recursion to find the maximum value in an array.",
+    "output": "#include <stdio.h>\n\nint findMax(int[], int, int);  // Function prototype declaration\n\nint main(void) {\n    int arr[] = {12, 4, 7, 9, 15, 3, 8};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    printf(\"The maximum value in the array is: %d\\n\", findMax(arr, 0, n - 1));\n    return 0;\n}\n\nint findMax(int arr[], int low, int high) {\n    if (low == high) {\n        return arr[low];\n    }\n    int mid = (low + high) / 2;\n    int leftMax = findMax(arr, low, mid);\n    int rightMax = findMax(arr, mid + 1, high);\n    return (leftMax > rightMax) ? leftMax : rightMax;\n}",
+    "description": "A function `findMax` is created using recursion to find the maximum value in an array. The array is split in half, and the maximum values of each half are compared recursively."
   },
   {
     "id": 269,
-    "input": "C言語で、再帰を使って指定された整数の階乗を計算する関数を作成してください。プログラムの動作を改善するために、途中経過を表示するようにしてください。",
-    "output": "#include <stdio.h>\n\nint factorial(int);  // 関数プロトタイプ宣言\n\nint main(void) {\n    int num;\n    printf(\"整数を入力してください: \");\n    scanf(\"%d\", &num);\n    printf(\"%d の階乗は: %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    int result = n * factorial(n - 1);\n    printf(\"%d! = %d\\n\", n, result);  // 階乗の途中経過を表示\n    return result;\n}",
-    "description": "再帰を使って整数の階乗を計算する関数 `factorial` を作成しています。計算途中の結果も表示しながら再帰的に処理します。"
+    "input": "Write a function in C using recursion to calculate the factorial of a given integer. Improve the program to display intermediate results.",
+    "output": "#include <stdio.h>\n\nint factorial(int);  // Function prototype declaration\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n    printf(\"The factorial of %d is: %d\\n\", num, factorial(num));\n    return 0;\n}\n\nint factorial(int n) {\n    if (n == 0) {\n        return 1;\n    }\n    int result = n * factorial(n - 1);\n    printf(\"%d! = %d\\n\", n, result);  // Display intermediate results\n    return result;\n}",
+    "description": "A function `factorial` is created using recursion to calculate the factorial of an integer, displaying intermediate results during the calculation process."
   },
   {
     "id": 270,
-    "input": "C言語で、整数のリストを管理するプログラムを作成してください。リストに整数を追加、削除、検索、表示するための関数を作り、それらを組み合わせてプログラムを作成してください。",
-    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid addItem(int[], int*, int);  // アイテム追加関数\nvoid removeItem(int[], int*, int);  // アイテム削除関数\nint searchItem(int[], int, int);  // アイテム検索関数\nvoid displayList(int[], int);  // リスト表示関数\n\nint main(void) {\n    int list[10];  // リスト用配列\n    int size = 0;  // 現在のリストのサイズ\n    int choice, value;\n\n    while (1) {\n        printf(\"1. アイテム追加 2. アイテム削除 3. アイテム検索 4. リスト表示 5. 終了\\n\");\n        printf(\"選択肢を入力してください: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"追加する値を入力してください: \");\n                scanf(\"%d\", &value);\n                addItem(list, &size, value);\n                break;\n            case 2:\n                printf(\"削除する値を入力してください: \");\n                scanf(\"%d\", &value);\n                removeItem(list, &size, value);\n                break;\n            case 3:\n                printf(\"検索する値を入力してください: \");\n                scanf(\"%d\", &value);\n                if (searchItem(list, size, value) != -1) {\n                    printf(\"値 %d はリストに存在します。\\n\", value);\n                } else {\n                    printf(\"値 %d はリストに存在しません。\\n\", value);\n                }\n                break;\n            case 4:\n                displayList(list, size);\n                break;\n            case 5:\n                printf(\"プログラムを終了します。\\n\");\n                return 0;\n            default:\n                printf(\"無効な選択肢です。\\n\");\n        }\n    }\n}\n\nvoid addItem(int list[], int* size, int value) {\n    if (*size < 10) {\n        list[*size] = value;\n        (*size)++;\n        printf(\"値 %d をリストに追加しました。\\n\", value);\n    } else {\n        printf(\"リストは満杯です。\\n\");\n    }\n}\n\nvoid removeItem(int list[], int* size, int value) {\n    int i, found = 0;\n    for (i = 0; i < *size; i++) {\n        if (list[i] == value) {\n            found = 1;\n            break;\n        }\n    }\n    if (found) {\n        for (int j = i; j < *size - 1; j++) {\n            list[j] = list[j + 1];\n        }\n        (*size)--;\n        printf(\"値 %d をリストから削除しました。\\n\", value);\n    } else {\n        printf(\"値 %d はリストに存在しません。\\n\", value);\n    }\n}\n\nint searchItem(int list[], int size, int value) {\n    for (int i = 0; i < size; i++) {\n        if (list[i] == value) {\n            return i;\n        }\n    }\n    return -1;\n}\n\nvoid displayList(int list[], int size) {\n    if (size == 0) {\n        printf(\"リストは空です。\\n\");\n    } else {\n        printf(\"リストの内容:\\n\");\n        for (int i = 0; i < size; i++) {\n            printf(\"%d \", list[i]);\n        }\n        printf(\"\\n\");\n    }\n}",
-    "description": "このプログラムは、整数のリストを管理するための関数をいくつか自作し、それを組み合わせて実際のリスト操作を行うプログラムです。以下の4つの主要な関数を使用しています:\n1. `addItem`: リストにアイテムを追加する関数\n2. `removeItem`: リストからアイテムを削除する関数\n3. `searchItem`: リストから指定したアイテムを検索する関数\n4. `displayList`: 現在のリストの内容を表示する関数\n\n各関数は、リスト操作の基礎的な部分を担当しており、リストにアイテムを追加したり、削除したり、検索したり、表示したりすることができます。リストは最大10個のアイテムまで管理でき、ユーザーからの入力を受けて操作を実行します。"
+    "input": "Write a program in C to manage a list of integers. Create functions to add, remove, search, and display integers in the list, and combine them into a complete program.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid addItem(int[], int*, int);  // Add item function\nvoid removeItem(int[], int*, int);  // Remove item function\nint searchItem(int[], int, int);  // Search item function\nvoid displayList(int[], int);  // Display list function\n\nint main(void) {\n    int list[10];  // List array\n    int size = 0;  // Current list size\n    int choice, value;\n\n    while (1) {\n        printf(\"1. Add item 2. Remove item 3. Search item 4. Display list 5. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter value to add: \");\n                scanf(\"%d\", &value);\n                addItem(list, &size, value);\n                break;\n            case 2:\n                printf(\"Enter value to remove: \");\n                scanf(\"%d\", &value);\n                removeItem(list, &size, value);\n                break;\n            case 3:\n                printf(\"Enter value to search: \");\n                scanf(\"%d\", &value);\n                if (searchItem(list, size, value) != -1) {\n                    printf(\"Value %d exists in the list.\\n\", value);\n                } else {\n                    printf(\"Value %d does not exist in the list.\\n\", value);\n                }\n                break;\n            case 4:\n                displayList(list, size);\n                break;\n            case 5:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice.\\n\");\n        }\n    }\n}\n\nvoid addItem(int list[], int* size, int value) {\n    if (*size < 10) {\n        list[*size] = value;\n        (*size)++;\n        printf(\"Value %d added to the list.\\n\", value);\n    } else {\n        printf(\"List is full.\\n\");\n    }\n}\n\nvoid removeItem(int list[], int* size, int value) {\n    int i, found = 0;\n    for (i = 0; i < *size; i++) {\n        if (list[i] == value) {\n            found = 1;\n            break;\n        }\n    }\n    if (found) {\n        for (int j = i; j < *size - 1; j++) {\n            list[j] = list[j + 1];\n        }\n        (*size)--;\n        printf(\"Value %d removed from the list.\\n\", value);\n    } else {\n        printf(\"Value %d not found in the list.\\n\", value);\n    }\n}\n\nint searchItem(int list[], int size, int value) {\n    for (int i = 0; i < size; i++) {\n        if (list[i] == value) {\n            return i;\n        }\n    }\n    return -1;\n}\n\nvoid displayList(int list[], int size) {\n    if (size == 0) {\n        printf(\"The list is empty.\\n\");\n    } else {\n        printf(\"List contents:\\n\");\n        for (int i = 0; i < size; i++) {\n            printf(\"%d \", list[i]);\n        }\n        printf(\"\\n\");\n    }\n}",
+    "description": "This program creates several functions for managing a list of integers, combining them to perform actual list operations. It uses the following four main functions:\n1. `addItem`: Adds an item to the list\n2. `removeItem`: Removes an item from the list\n3. `searchItem`: Searches for an item in the list\n4. `displayList`: Displays the current contents of the list\n\nEach function handles basic list operations such as adding, removing, searching, and displaying items. The list can manage up to 10 items and performs operations based on user input."
   },
   {
     "id": 271,
-    "input": "グローバル変数を使って、関数間で共通のカウント値を管理するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint counter = 0;  // グローバル変数\n\nvoid incrementCounter() {\n    counter++;\n    printf(\"カウンターの値をインクリメントしました: %d\\n\", counter);\n}\n\nvoid resetCounter() {\n    counter = 0;\n    printf(\"カウンターをリセットしました: %d\\n\", counter);\n}\n\nint main(void) {\n    printf(\"現在のカウンター: %d\\n\", counter);\n    incrementCounter();\n    incrementCounter();\n    resetCounter();\n    incrementCounter();\n    return 0;\n}",
-    "description": "このプログラムでは、グローバルスコープにカウンター変数 `counter` を定義しています。`incrementCounter` 関数でカウンターをインクリメントし、`resetCounter` 関数でリセットします。グローバル変数を使うことで、関数間で値を共有しています。"
+    "input": "Create a program that manages a common counter value between functions using a global variable.",
+    "output": "#include <stdio.h>\n\nint counter = 0;  // Global variable\n\nvoid incrementCounter() {\n    counter++;\n    printf(\"Counter value incremented: %d\\n\", counter);\n}\n\nvoid resetCounter() {\n    counter = 0;\n    printf(\"Counter reset: %d\\n\", counter);\n}\n\nint main(void) {\n    printf(\"Current counter: %d\\n\", counter);\n    incrementCounter();\n    incrementCounter();\n    resetCounter();\n    incrementCounter();\n    return 0;\n}",
+    "description": "This program defines a global variable `counter`. The `incrementCounter` function increments the counter, while the `resetCounter` function resets it. By using a global variable, the counter value is shared between functions."
   },
   {
     "id": 272,
-    "input": "ローカル変数を使って、各関数で独立したカウントを管理するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid incrementLocalCounter() {\n    int counter = 0;  // ローカル変数\n    counter++;\n    printf(\"この関数のカウンター: %d\\n\", counter);\n}\n\nint main(void) {\n    incrementLocalCounter();\n    incrementLocalCounter();\n    incrementLocalCounter();\n    return 0;\n}",
-    "description": "このプログラムでは、`incrementLocalCounter` 関数内にローカルスコープの変数 `counter` を定義しています。この変数は関数を呼び出すたびに初期化されるため、各呼び出しごとに独立した値を管理します。"
+    "input": "Create a program that manages an independent counter for each function using local variables.",
+    "output": "#include <stdio.h>\n\nvoid incrementLocalCounter() {\n    int counter = 0;  // Local variable\n    counter++;\n    printf(\"This function's counter: %d\\n\", counter);\n}\n\nint main(void) {\n    incrementLocalCounter();\n    incrementLocalCounter();\n    incrementLocalCounter();\n    return 0;\n}",
+    "description": "In this program, the variable `counter` is defined within the `incrementLocalCounter` function, making it local. Each time the function is called, the counter is reinitialized, keeping the counters independent between function calls."
   },
   {
     "id": 273,
-    "input": "ブロックスコープを使って、条件分岐内でスコープが制限された変数を使うプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 10;\n    printf(\"外部のx: %d\\n\", x);\n\n    if (x > 5) {\n        int x = 20;  // ブロックスコープ\n        printf(\"ブロック内のx: %d\\n\", x);\n    }\n\n    printf(\"外部のx (変化なし): %d\\n\", x);\n    return 0;\n}",
-    "description": "このプログラムでは、`if` ブロック内に同名の変数 `x` を定義しています。この変数はブロックスコープに属しており、外部の `x` には影響を与えません。スコープの影響範囲を確認する例です。"
+    "input": "Create a program that uses block scope to define a variable with a limited scope within a conditional statement.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 10;\n    printf(\"External x: %d\\n\", x);\n\n    if (x > 5) {\n        int x = 20;  // Block scope\n        printf(\"Block x: %d\\n\", x);\n    }\n\n    printf(\"External x (unchanged): %d\\n\", x);\n    return 0;\n}",
+    "description": "This program demonstrates the use of block scope by defining a variable `x` inside an `if` statement. The block-scoped `x` does not affect the `x` variable outside of the block, illustrating the scope limits."
   },
   {
     "id": 274,
-    "input": "関数の中でローカル変数の値を保持するために `static` を使ったプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid staticCounter() {\n    static int counter = 0;  // 静的ローカル変数\n    counter++;\n    printf(\"静的カウンター: %d\\n\", counter);\n}\n\nint main(void) {\n    staticCounter();\n    staticCounter();\n    staticCounter();\n    return 0;\n}",
-    "description": "このプログラムでは、`static` キーワードを使用して関数内でローカル変数 `counter` を静的に宣言しています。静的ローカル変数は関数を呼び出すたびに値を保持します。"
+    "input": "Create a program that uses `static` inside a function to retain the value of a local variable across function calls.",
+    "output": "#include <stdio.h>\n\nvoid staticCounter() {\n    static int counter = 0;  // Static local variable\n    counter++;\n    printf(\"Static counter: %d\\n\", counter);\n}\n\nint main(void) {\n    staticCounter();\n    staticCounter();\n    staticCounter();\n    return 0;\n}",
+    "description": "This program uses the `static` keyword to define a local variable `counter` that retains its value between function calls. Static local variables maintain their value across calls."
   },
   {
     "id": 275,
-    "input": "関数内でグローバル変数を変更するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint value = 100;  // グローバル変数\n\nvoid modifyGlobalValue() {\n    value += 50;\n    printf(\"関数内で変更後のグローバル変数: %d\\n\", value);\n}\n\nint main(void) {\n    printf(\"初期グローバル変数: %d\\n\", value);\n    modifyGlobalValue();\n    printf(\"関数呼び出し後のグローバル変数: %d\\n\", value);\n    return 0;\n}",
-    "description": "このプログラムでは、グローバル変数 `value` を関数 `modifyGlobalValue` 内で変更しています。グローバル変数を直接変更できることを示しています。"
+    "input": "Create a program that modifies a global variable inside a function.",
+    "output": "#include <stdio.h>\n\nint value = 100;  // Global variable\n\nvoid modifyGlobalValue() {\n    value += 50;\n    printf(\"Modified global variable inside function: %d\\n\", value);\n}\n\nint main(void) {\n    printf(\"Initial global variable: %d\\n\", value);\n    modifyGlobalValue();\n    printf(\"Global variable after function call: %d\\n\", value);\n    return 0;\n}",
+    "description": "This program demonstrates modifying a global variable `value` inside the `modifyGlobalValue` function. Global variables can be directly modified from within any function."
   },
   {
     "id": 276,
-    "input": "グローバル変数とローカル変数の同名変数の振る舞いを比較するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint value = 100;  // グローバル変数\n\nvoid compareScope() {\n    int value = 50;  // ローカル変数\n    printf(\"関数内のローカル変数: %d\\n\", value);\n    printf(\"グローバル変数にアクセス: %d\\n\", ::value);\n}\n\nint main(void) {\n    printf(\"メイン関数のグローバル変数: %d\\n\", value);\n    compareScope();\n    return 0;\n}",
-    "description": "このプログラムでは、関数内でローカル変数とグローバル変数の名前が同じ場合、ローカル変数が優先されることを示します。"
+    "input": "Create a program that compares the behavior of global and local variables with the same name.",
+    "output": "#include <stdio.h>\n\nint value = 100;  // Global variable\n\nvoid compareScope() {\n    int value = 50;  // Local variable\n    printf(\"Local variable in function: %d\\n\", value);\n    printf(\"Accessing global variable: %d\\n\", ::value);\n}\n\nint main(void) {\n    printf(\"Global variable in main: %d\\n\", value);\n    compareScope();\n    return 0;\n}",
+    "description": "This program shows that when a local variable and a global variable have the same name, the local variable takes precedence within the function. It also demonstrates how to access the global variable using the scope resolution operator `::`."
   },
   {
     "id": 277,
-    "input": "複数の関数で同じ静的ローカル変数の効果を試すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid functionA() {\n    static int counter = 0;  // 静的ローカル変数\n    counter++;\n    printf(\"functionAのカウンター: %d\\n\", counter);\n}\n\nvoid functionB() {\n    static int counter = 0;  // 静的ローカル変数\n    counter += 2;\n    printf(\"functionBのカウンター: %d\\n\", counter);\n}\n\nint main(void) {\n    functionA();\n    functionA();\n    functionB();\n    functionB();\n    return 0;\n}",
-    "description": "このプログラムでは、`functionA` と `functionB` でそれぞれ独立した静的ローカル変数 `counter` を使用しています。静的ローカル変数は関数ごとに管理されるため、両関数の `counter` は互いに影響を受けません。"
+    "input": "Create a program that tests the effect of using the same static local variable in multiple functions.",
+    "output": "#include <stdio.h>\n\nvoid functionA() {\n    static int counter = 0;  // Static local variable\n    counter++;\n    printf(\"functionA's counter: %d\\n\", counter);\n}\n\nvoid functionB() {\n    static int counter = 0;  // Static local variable\n    counter += 2;\n    printf(\"functionB's counter: %d\\n\", counter);\n}\n\nint main(void) {\n    functionA();\n    functionA();\n    functionB();\n    functionB();\n    return 0;\n}",
+    "description": "This program demonstrates that each function has its own static local variable when declared with `static`. The counters in `functionA` and `functionB` are independent of each other."
   },
   {
     "id": 278,
-    "input": "ブロックスコープを利用して、一時的な計算結果を保持するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int total = 0;\n\n    for (int i = 1; i <= 5; i++) {\n        {\n            int temp = i * i;  // ブロックスコープの変数\n            printf(\"%d の二乗: %d\\n\", i, temp);\n            total += temp;\n        }\n        // printf(\"Temp: %d\\n\", temp);  // エラー: temp はスコープ外\n    }\n\n    printf(\"合計: %d\\n\", total);\n    return 0;\n}",
-    "description": "このプログラムでは、`for` ループ内にブロックスコープの変数 `temp` を定義しています。この変数は一時的な計算結果を保持し、スコープ外ではアクセスできないことを示します。"
+    "input": "Create a program that uses block scope to hold temporary calculation results.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int total = 0;\n\n    for (int i = 1; i <= 5; i++) {\n        {\n            int temp = i * i;  // Block-scoped variable\n            printf(\"%d squared: %d\\n\", i, temp);\n            total += temp;\n        }\n        // printf(\"Temp: %d\\n\", temp);  // Error: temp is out of scope\n    }\n\n    printf(\"Total: %d\\n\", total);\n    return 0;\n}",
+    "description": "In this program, the `temp` variable is defined inside a block scope within a `for` loop. The variable holds temporary calculation results and is inaccessible outside the block, showing the scope limits."
   },
   {
     "id": 279,
-    "input": "ローカル変数のポインタを返そうとした場合の誤りを示すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint* returnLocalPointer() {\n    int localVar = 10;  // ローカル変数\n    return &localVar;  // ローカル変数のアドレスを返す\n}\n\nint main(void) {\n    int* ptr = returnLocalPointer();\n    printf(\"ポインタが指す値: %d (未定義動作の可能性あり)\\n\", *ptr);  // 未定義動作\n    return 0;\n}",
-    "description": "このプログラムでは、ローカル変数 `localVar` のアドレスを返そうとしていますが、ローカル変数は関数終了後に破棄されるため、未定義動作が発生する可能性があります。この例は、スコープと寿命の関係を学ぶためのものです。"
+    "input": "Create a program that demonstrates an error when attempting to return a pointer to a local variable.",
+    "output": "#include <stdio.h>\n\nint* returnLocalPointer() {\n    int localVar = 10;  // Local variable\n    return &localVar;  // Returning address of local variable\n}\n\nint main(void) {\n    int* ptr = returnLocalPointer();\n    printf(\"Pointer points to value: %d (undefined behavior likely)\\n\", *ptr);  // Undefined behavior\n    return 0;\n}",
+    "description": "This program demonstrates the error that occurs when trying to return a pointer to a local variable `localVar`. Since local variables are destroyed when the function returns, accessing their address results in undefined behavior."
   },
   {
     "id": 280,
-    "input": "グローバル変数を用いて、複数の関数間で状態を共有するカウンタープログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint counter = 0;  // グローバル変数\n\nvoid increment() {\n    counter++;\n    printf(\"カウンターをインクリメント: %d\\n\", counter);\n}\n\nvoid decrement() {\n    counter--;\n    printf(\"カウンターをデクリメント: %d\\n\", counter);\n}\n\nint main(void) {\n    printf(\"初期カウンター: %d\\n\", counter);\n    increment();\n    increment();\n    decrement();\n    return 0;\n}",
-    "description": "このプログラムでは、グローバル変数 `counter` を用いて、`increment` 関数と `decrement` 関数間で状態を共有しています。これにより、異なる関数でカウンター値を管理することが可能です。"
+    "input": "Create a program that uses a global variable to share a counter state between multiple functions.",
+    "output": "#include <stdio.h>\n\nint counter = 0;  // Global variable\n\nvoid increment() {\n    counter++;\n    printf(\"Counter incremented: %d\\n\", counter);\n}\n\nvoid decrement() {\n    counter--;\n    printf(\"Counter decremented: %d\\n\", counter);\n}\n\nint main(void) {\n    printf(\"Initial counter: %d\\n\", counter);\n    increment();\n    increment();\n    decrement();\n    return 0;\n}",
+    "description": "This program demonstrates the use of a global variable `counter` to share the counter state between the `increment` and `decrement` functions. The global counter value is managed across multiple functions."
   },
   {
     "id": 281,
-    "input": "グローバル変数を宣言し、main関数で値を変更するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 100;  // グローバル変数\n\nint main(void) {\n    printf(\"初期値: %d\\n\", globalVar);\n    globalVar = 200;  // グローバル変数を変更\n    printf(\"変更後の値: %d\\n\", globalVar);\n    return 0;\n}",
-    "description": "このプログラムでは、グローバル変数 `globalVar` を宣言し、`main` 関数内で値を変更しています。グローバル変数はプログラム全体でアクセス可能です。"
+    "input": "Create a program that declares a global variable and changes its value in the main function.",
+    "output": "#include <stdio.h>\n\nint globalVar = 100;  // Global variable\n\nint main(void) {\n    printf(\"Initial value: %d\\n\", globalVar);\n    globalVar = 200;  // Change global variable\n    printf(\"Changed value: %d\\n\", globalVar);\n    return 0;\n}",
+    "description": "This program declares a global variable `globalVar` and changes its value inside the `main` function. Global variables are accessible throughout the entire program."
   },
   {
     "id": 282,
-    "input": "ローカル変数のスコープを確認するため、異なる関数で同じ名前の変数を使うプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid functionA() {\n    int localVar = 10;  // ローカル変数\n    printf(\"functionAのlocalVar: %d\\n\", localVar);\n}\n\nvoid functionB() {\n    int localVar = 20;  // 同じ名前のローカル変数\n    printf(\"functionBのlocalVar: %d\\n\", localVar);\n}\n\nint main(void) {\n    functionA();\n    functionB();\n    return 0;\n}",
-    "description": "このプログラムでは、`functionA` と `functionB` に同じ名前のローカル変数 `localVar` を宣言しています。それぞれのスコープ内で独立して管理されるため、値が衝突しません。"
+    "input": "Create a program to check the scope of local variables by using the same variable name in different functions.",
+    "output": "#include <stdio.h>\n\nvoid functionA() {\n    int localVar = 10;  // Local variable\n    printf(\"functionA's localVar: %d\\n\", localVar);\n}\n\nvoid functionB() {\n    int localVar = 20;  // Local variable with the same name\n    printf(\"functionB's localVar: %d\\n\", localVar);\n}\n\nint main(void) {\n    functionA();\n    functionB();\n    return 0;\n}",
+    "description": "This program declares the same local variable `localVar` in both `functionA` and `functionB`. They are independent within their scopes and do not conflict."
   },
   {
     "id": 283,
-    "input": "ブロックスコープで定義された変数と同じ名前のローカル変数を使用するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 5;  // ローカル変数\n    printf(\"外側のx: %d\\n\", x);\n\n    {\n        int x = 10;  // ブロックスコープの変数\n        printf(\"内側のx: %d\\n\", x);\n    }\n\n    printf(\"外側のx（元に戻る）: %d\\n\", x);\n    return 0;\n}",
-    "description": "このプログラムでは、外側のローカル変数 `x` と内側のブロックスコープの変数 `x` が同じ名前で宣言されています。ブロックスコープ内では外側の `x` が隠蔽されますが、スコープを出ると元の `x` が復元されます。"
+    "input": "Create a program using the same name for a local variable inside a block scope.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 5;  // Local variable\n    printf(\"Outer x: %d\\n\", x);\n\n    {\n        int x = 10;  // Block-scoped variable\n        printf(\"Inner x: %d\\n\", x);\n    }\n\n    printf(\"Outer x (back to original): %d\\n\", x);\n    return 0;\n}",
+    "description": "This program declares a local variable `x` in the outer scope and a block-scoped variable `x` in the inner block. The inner block variable shadows the outer variable, but the outer variable is restored after exiting the block."
   },
   {
     "id": 284,
-    "input": "グローバル変数をローカル変数で隠すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 50;  // グローバル変数\n\nint main(void) {\n    printf(\"グローバル変数の値: %d\\n\", globalVar);\n    int globalVar = 100;  // ローカル変数で隠す\n    printf(\"ローカル変数の値: %d\\n\", globalVar);\n    return 0;\n}",
-    "description": "このプログラムでは、ローカル変数 `globalVar` がグローバル変数と同じ名前で宣言されています。ローカルスコープ内ではローカル変数が優先され、グローバル変数が隠蔽されます。"
+    "input": "Create a program that hides a global variable with a local variable of the same name.",
+    "output": "#include <stdio.h>\n\nint globalVar = 50;  // Global variable\n\nint main(void) {\n    printf(\"Global variable value: %d\\n\", globalVar);\n    int globalVar = 100;  // Local variable hiding the global one\n    printf(\"Local variable value: %d\\n\", globalVar);\n    return 0;\n}",
+    "description": "This program declares a local variable `globalVar` with the same name as a global variable. The local variable takes precedence within the local scope, hiding the global variable."
   },
   {
     "id": 285,
-    "input": "静的変数を使って関数呼び出し回数をカウントするプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid countCalls() {\n    static int callCount = 0;  // 静的変数\n    callCount++;\n    printf(\"この関数は %d 回呼び出されました。\\n\", callCount);\n}\n\nint main(void) {\n    countCalls();\n    countCalls();\n    countCalls();\n    return 0;\n}",
-    "description": "このプログラムでは、関数 `countCalls` に静的変数 `callCount` を使用して呼び出し回数をカウントしています。静的変数は関数を抜けても値を保持します。"
+    "input": "Create a program using a static variable to count the number of function calls.",
+    "output": "#include <stdio.h>\n\nvoid countCalls() {\n    static int callCount = 0;  // Static variable\n    callCount++;\n    printf(\"This function has been called %d times.\\n\", callCount);\n}\n\nint main(void) {\n    countCalls();\n    countCalls();\n    countCalls();\n    return 0;\n}",
+    "description": "This program uses a static variable `callCount` inside the `countCalls` function to count how many times the function is called. Static variables retain their values between function calls."
   },
   {
     "id": 286,
-    "input": "関数内でグローバル変数を変更するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 5;  // グローバル変数\n\nvoid modifyGlobal() {\n    globalVar *= 10;  // グローバル変数を変更\n}\n\nint main(void) {\n    printf(\"変更前の値: %d\\n\", globalVar);\n    modifyGlobal();\n    printf(\"変更後の値: %d\\n\", globalVar);\n    return 0;\n}",
-    "description": "このプログラムでは、関数 `modifyGlobal` がグローバル変数 `globalVar` の値を変更します。グローバル変数はどの関数からでもアクセス・変更が可能です。"
+    "input": "Create a program that modifies a global variable inside a function.",
+    "output": "#include <stdio.h>\n\nint globalVar = 5;  // Global variable\n\nvoid modifyGlobal() {\n    globalVar *= 10;  // Modify global variable\n}\n\nint main(void) {\n    printf(\"Value before modification: %d\\n\", globalVar);\n    modifyGlobal();\n    printf(\"Value after modification: %d\\n\", globalVar);\n    return 0;\n}",
+    "description": "This program modifies the global variable `globalVar` inside the function `modifyGlobal`. Global variables can be accessed and modified by any function."
   },
   {
     "id": 287,
-    "input": "同じ名前のローカル変数とグローバル変数を区別するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint value = 10;  // グローバル変数\n\nint main(void) {\n    int value = 20;  // ローカル変数\n    printf(\"ローカル変数: %d\\n\", value);\n    printf(\"グローバル変数: %d\\n\", ::value);  // グローバル変数を参照\n    return 0;\n}",
-    "description": "このプログラムでは、ローカル変数とグローバル変数が同じ名前 `value` を持っています。`::value` を使ってグローバル変数を参照し、ローカル変数との違いを示します。"
+    "input": "Create a program to distinguish between a local variable and a global variable with the same name.",
+    "output": "#include <stdio.h>\n\nint value = 10;  // Global variable\n\nint main(void) {\n    int value = 20;  // Local variable\n    printf(\"Local variable: %d\\n\", value);\n    printf(\"Global variable: %d\\n\", ::value);  // Referencing global variable\n    return 0;\n}",
+    "description": "This program demonstrates how to distinguish between a local variable and a global variable with the same name. The global variable is referenced using `::value`."
   },
   {
     "id": 288,
-    "input": "関数内で一時的にグローバル変数を変更して、関数終了後に元に戻すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 5;  // グローバル変数\n\nvoid temporaryChange() {\n    int original = globalVar;\n    globalVar = 100;  // 一時的に変更\n    printf(\"関数内の値: %d\\n\", globalVar);\n    globalVar = original;  // 元に戻す\n}\n\nint main(void) {\n    printf(\"初期値: %d\\n\", globalVar);\n    temporaryChange();\n    printf(\"元に戻った値: %d\\n\", globalVar);\n    return 0;\n}",
-    "description": "このプログラムでは、関数 `temporaryChange` 内でグローバル変数を一時的に変更し、関数終了時に元の値に戻しています。"
+    "input": "Create a program that temporarily modifies a global variable inside a function and restores it after the function ends.",
+    "output": "#include <stdio.h>\n\nint globalVar = 5;  // Global variable\n\nvoid temporaryChange() {\n    int original = globalVar;\n    globalVar = 100;  // Temporarily change\n    printf(\"Value inside function: %d\\n\", globalVar);\n    globalVar = original;  // Restore original value\n}\n\nint main(void) {\n    printf(\"Initial value: %d\\n\", globalVar);\n    temporaryChange();\n    printf(\"Restored value: %d\\n\", globalVar);\n    return 0;\n}",
+    "description": "This program modifies the global variable `globalVar` temporarily inside the function `temporaryChange` and restores its original value when the function ends."
   },
-  { 
+  {
     "id": 289,
-    "input": "静的変数を使用して数列を生成するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid generateSequence() {\n    static int num = 1;  // 静的変数\n    printf(\"%d\\n\", num);\n    num += 2;  // 奇数を生成\n}\n\nint main(void) {\n    for (int i = 0; i < 5; i++) {\n        generateSequence();\n    }\n    return 0;\n}",
-    "description": "このプログラムでは、静的変数 `num` を使用して奇数の数列を生成しています。静的変数は関数を抜けても値を保持するため、次回の呼び出しで前回の状態を利用できます。"
+    "input": "Create a program that generates a sequence using a static variable.",
+    "output": "#include <stdio.h>\n\nvoid generateSequence() {\n    static int num = 1;  // Static variable\n    printf(\"%d\\n\", num);\n    num += 2;  // Generate odd numbers\n}\n\nint main(void) {\n    for (int i = 0; i < 5; i++) {\n        generateSequence();\n    }\n    return 0;\n}",
+    "description": "This program uses a static variable `num` to generate a sequence of odd numbers. Static variables retain their values between function calls."
   },
   {
     "id": 290,
-    "input": "グローバル変数の初期化と未初期化の違いを示すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalInit = 10;  // 初期化されたグローバル変数\nint globalUninit;     // 未初期化のグローバル変数\n\nint main(void) {\n    printf(\"初期化済み: %d\\n\", globalInit);\n    printf(\"未初期化: %d\\n\", globalUninit);  // デフォルトで0\n    return 0;\n}",
-    "description": "このプログラムでは、初期化済みのグローバル変数 `globalInit` と未初期化のグローバル変数 `globalUninit` を使用しています。未初期化のグローバル変数はデフォルトで0が設定されます。"
+    "input": "Create a program that demonstrates the difference between initialized and uninitialized global variables.",
+    "output": "#include <stdio.h>\n\nint globalInit = 10;  // Initialized global variable\nint globalUninit;     // Uninitialized global variable\n\nint main(void) {\n    printf(\"Initialized: %d\\n\", globalInit);\n    printf(\"Uninitialized: %d\\n\", globalUninit);  // Defaults to 0\n    return 0;\n}",
+    "description": "This program demonstrates the difference between an initialized global variable `globalInit` and an uninitialized global variable `globalUninit`. Uninitialized global variables default to 0."
   },
   {
     "id": 291,
-    "input": "関数内で静的変数を使用して呼び出し回数を記録する基本的なプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid countCalls() {\n    static int count = 0; // 静的変数\n    count++;\n    printf(\"関数が %d 回呼び出されました。\\n\", count);\n}\n\nint main(void) {\n    countCalls();\n    countCalls();\n    countCalls();\n    return 0;\n}",
-    "description": "このプログラムでは、関数 `countCalls` 内の静的変数 `count` を使用して、関数の呼び出し回数を記録します。静的変数は関数を抜けても値を保持するため、呼び出すたびに累積されます。"
+    "input": "Create a basic program that uses a static variable within a function to record the number of calls.",
+    "output": "#include <stdio.h>\n\nvoid countCalls() {\n    static int count = 0; // Static variable\n    count++;\n    printf(\"The function has been called %d times.\\n\", count);\n}\n\nint main(void) {\n    countCalls();\n    countCalls();\n    countCalls();\n    return 0;\n}",
+    "description": "In this program, a static variable `count` inside the `countCalls` function is used to record the number of calls. The static variable retains its value even after the function exits, so the count accumulates with each call."
   },
   {
     "id": 292,
-    "input": "ローカル変数とグローバル変数を使用し、スコープの違いを示すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 10; // グローバル変数\n\nint main(void) {\n    int localVar = 20; // ローカル変数\n    printf(\"グローバル変数: %d\\n\", globalVar);\n    printf(\"ローカル変数: %d\\n\", localVar);\n    return 0;\n}",
-    "description": "このプログラムでは、グローバル変数 `globalVar` とローカル変数 `localVar` を使用しています。グローバル変数はプログラム全体で共有され、ローカル変数は宣言された関数内のみでアクセス可能です。"
+    "input": "Create a program that uses local and global variables to demonstrate the difference in their scopes.",
+    "output": "#include <stdio.h>\n\nint globalVar = 10; // Global variable\n\nint main(void) {\n    int localVar = 20; // Local variable\n    printf(\"Global variable: %d\\n\", globalVar);\n    printf(\"Local variable: %d\\n\", localVar);\n    return 0;\n}",
+    "description": "This program uses a global variable `globalVar` and a local variable `localVar`. The global variable is accessible throughout the program, while the local variable is only accessible within the function where it is declared."
   },
   {
     "id": 293,
-    "input": "関数内でローカル変数と同名のグローバル変数を使うプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint value = 50; // グローバル変数\n\nint main(void) {\n    int value = 100; // ローカル変数\n    printf(\"ローカル変数: %d\\n\", value);\n    printf(\"グローバル変数: %d\\n\", ::value); // グローバル変数を参照\n    return 0;\n}",
-    "description": "このプログラムでは、ローカル変数とグローバル変数が同じ名前 `value` を持っています。ローカルスコープ内ではローカル変数が優先されますが、スコープ解決演算子 `::` を使用してグローバル変数を明示的に参照できます。"
+    "input": "Create a program that uses both a local variable and a global variable with the same name inside a function.",
+    "output": "#include <stdio.h>\n\nint value = 50; // Global variable\n\nint main(void) {\n    int value = 100; // Local variable\n    printf(\"Local variable: %d\\n\", value);\n    printf(\"Global variable: %d\\n\", ::value); // Access the global variable\n    return 0;\n}",
+    "description": "In this program, both a local variable and a global variable with the same name `value` are used. The local variable takes precedence within its scope, but the global variable can be explicitly accessed using the scope resolution operator `::`."
   },
   {
     "id": 294,
-    "input": "ローカルスコープとブロックスコープの違いを示すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 10; // ローカルスコープ\n    printf(\"外側のx: %d\\n\", x);\n\n    {\n        int x = 20; // ブロックスコープ\n        printf(\"内側のx: %d\\n\", x);\n    }\n\n    printf(\"外側のx（元に戻る）: %d\\n\", x);\n    return 0;\n}",
-    "description": "このプログラムでは、同じ名前の変数 `x` が外側のローカルスコープと内側のブロックスコープで宣言されています。ブロックスコープ内では外側の変数が隠蔽されますが、スコープを抜けると外側の変数が復元されます。"
+    "input": "Create a program to demonstrate the difference between local scope and block scope.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 10; // Local scope\n    printf(\"Outer x: %d\\n\", x);\n\n    {\n        int x = 20; // Block scope\n        printf(\"Inner x: %d\\n\", x);\n    }\n\n    printf(\"Outer x (restored): %d\\n\", x);\n    return 0;\n}",
+    "description": "This program demonstrates the difference between local scope and block scope by declaring a variable `x` in both an outer local scope and an inner block scope. The inner block scope hides the outer variable, but once the block scope is exited, the outer variable is restored."
   },
   {
     "id": 295,
-    "input": "静的変数を使用して関数で一度だけ値を初期化するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid initializeOnce() {\n    static int initialized = 0; // 静的変数\n    if (initialized == 0) {\n        printf(\"初回の初期化を行います。\\n\");\n        initialized = 1;\n    } else {\n        printf(\"初期化済みです。\\n\");\n    }\n}\n\nint main(void) {\n    initializeOnce();\n    initializeOnce();\n    initializeOnce();\n    return 0;\n}",
-    "description": "このプログラムでは、静的変数 `initialized` を使用して関数が初回にのみ初期化を行うよう制御しています。静的変数は初期化後も値を保持するため、次回以降は初期化処理をスキップします。"
+    "input": "Create a program that uses a static variable to initialize a value only once within a function.",
+    "output": "#include <stdio.h>\n\nvoid initializeOnce() {\n    static int initialized = 0; // Static variable\n    if (initialized == 0) {\n        printf(\"Performing initial initialization.\\n\");\n        initialized = 1;\n    } else {\n        printf(\"Already initialized.\\n\");\n    }\n}\n\nint main(void) {\n    initializeOnce();\n    initializeOnce();\n    initializeOnce();\n    return 0;\n}",
+    "description": "This program uses a static variable `initialized` to ensure that the initialization is performed only once in the function. The static variable retains its value across function calls, so subsequent calls skip the initialization step."
   },
   {
     "id": 296,
-    "input": "複数の関数を使用してスコープの変数を操作する基本的なプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 0; // グローバル変数\n\nvoid increment() {\n    globalVar++;\n}\n\nvoid display() {\n    printf(\"グローバル変数の値: %d\\n\", globalVar);\n}\n\nint main(void) {\n    display();\n    increment();\n    display();\n    return 0;\n}",
-    "description": "このプログラムでは、`increment` 関数がグローバル変数 `globalVar` をインクリメントし、`display` 関数がその値を表示します。複数の関数でグローバル変数を共有しています。"
+    "input": "Create a basic program that uses multiple functions to manipulate variables in different scopes.",
+    "output": "#include <stdio.h>\n\nint globalVar = 0; // Global variable\n\nvoid increment() {\n    globalVar++;\n}\n\nvoid display() {\n    printf(\"Global variable value: %d\\n\", globalVar);\n}\n\nint main(void) {\n    display();\n    increment();\n    display();\n    return 0;\n}",
+    "description": "This program demonstrates how multiple functions can share and modify a global variable `globalVar`. The `increment` function modifies the global variable, and the `display` function shows its current value."
   },
   {
     "id": 297,
-    "input": "一時的にグローバル変数を変更して元に戻すプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint globalVar = 5; // グローバル変数\n\nvoid temporaryChange() {\n    int original = globalVar;\n    globalVar = 100;\n    printf(\"関数内の値: %d\\n\", globalVar);\n    globalVar = original;\n}\n\nint main(void) {\n    printf(\"元の値: %d\\n\", globalVar);\n    temporaryChange();\n    printf(\"元に戻った値: %d\\n\", globalVar);\n    return 0;\n}",
-    "description": "このプログラムでは、`temporaryChange` 関数内でグローバル変数を一時的に変更し、関数終了時に元の値を復元しています。"
+    "input": "Create a program that temporarily modifies a global variable and then restores it.",
+    "output": "#include <stdio.h>\n\nint globalVar = 5; // Global variable\n\nvoid temporaryChange() {\n    int original = globalVar;\n    globalVar = 100;\n    printf(\"Value inside function: %d\\n\", globalVar);\n    globalVar = original;\n}\n\nint main(void) {\n    printf(\"Original value: %d\\n\", globalVar);\n    temporaryChange();\n    printf(\"Restored value: %d\\n\", globalVar);\n    return 0;\n}",
+    "description": "This program demonstrates how a global variable can be temporarily modified within a function. The original value is saved, modified, and then restored after the function completes."
   },
   {
     "id": 298,
-    "input": "異なるファイル間でグローバル変数を共有するプログラムを作成してください。",
-    "output": "// ファイル1: main.c\n#include <stdio.h>\n#include \"other.h\"\n\nint globalVar = 10; // グローバル変数の定義\n\nint main(void) {\n    printf(\"main.cでの値: %d\\n\", globalVar);\n    modifyGlobal();\n    printf(\"main.cでの変更後の値: %d\\n\", globalVar);\n    return 0;\n}\n\n// ファイル2: other.c\n#include \"other.h\"\n\nvoid modifyGlobal() {\n    extern int globalVar; // グローバル変数の宣言\n    globalVar += 20;\n}\n\n// ファイル3: other.h\n#ifndef OTHER_H\n#define OTHER_H\n\nextern void modifyGlobal();\n\n#endif",
-    "description": "このプログラムでは、異なるファイル間でグローバル変数 `globalVar` を共有しています。`extern` キーワードを使用してグローバル変数を他のファイルで宣言しています。"
+    "input": "Create a program that shares a global variable between multiple files.",
+    "output": "// File 1: main.c\n#include <stdio.h>\n#include \"other.h\"\n\nint globalVar = 10; // Global variable definition\n\nint main(void) {\n    printf(\"Value in main.c: %d\\n\", globalVar);\n    modifyGlobal();\n    printf(\"Value after modification in main.c: %d\\n\", globalVar);\n    return 0;\n}\n\n// File 2: other.c\n#include \"other.h\"\n\nvoid modifyGlobal() {\n    extern int globalVar; // Global variable declaration\n    globalVar += 20;\n}\n\n// File 3: other.h\n#ifndef OTHER_H\n#define OTHER_H\n\nextern void modifyGlobal();\n\n#endif",
+    "description": "This program demonstrates how a global variable `globalVar` can be shared between multiple files. The `extern` keyword is used to declare the global variable in another file."
   },
   {
     "id": 299,
-    "input": "ローカル静的変数を使用して、関数呼び出し間で値を保持するプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nvoid counter() {\n    static int count = 0;\n    count++;\n    printf(\"呼び出し回数: %d\\n\", count);\n}\n\nint main(void) {\n    counter();\n    counter();\n    counter();\n    return 0;\n}",
-    "description": "このプログラムでは、静的ローカル変数 `count` を使用して、関数の呼び出し間で値を保持し、累積的なカウントを行います。"
+    "input": "Create a program that uses a local static variable to retain a value between function calls.",
+    "output": "#include <stdio.h>\n\nvoid counter() {\n    static int count = 0;\n    count++;\n    printf(\"Call count: %d\\n\", count);\n}\n\nint main(void) {\n    counter();\n    counter();\n    counter();\n    return 0;\n}",
+    "description": "This program uses a static local variable `count` to retain its value between function calls, allowing it to keep track of how many times the function has been called."
   },
   {
     "id": 300,
-    "input": "再帰とスコープを組み合わせた応用的なプログラムを作成してください。",
-    "output": "#include <stdio.h>\n\nint sumToN(int n) {\n    static int sum = 0; // 静的変数\n    if (n > 0) {\n        sum += n;\n        return sumToN(n - 1);\n    }\n    return sum;\n}\n\nint main(void) {\n    int result = sumToN(5);\n    printf(\"1から5の合計: %d\\n\", result);\n    return 0;\n}",
-    "description": "このプログラムでは、再帰と静的変数を組み合わせて、1からnまでの数値の合計を計算します。静的変数 `sum` により、再帰呼び出し間で値が保持されます。"
+    "input": "Create an advanced program that combines recursion and scope.",
+    "output": "#include <stdio.h>\n\nint sumToN(int n) {\n    static int sum = 0; // Static variable\n    if (n > 0) {\n        sum += n;\n        return sumToN(n - 1);\n    }\n    return sum;\n}\n\nint main(void) {\n    int result = sumToN(5);\n    printf(\"Sum from 1 to 5: %d\\n\", result);\n    return 0;\n}",
+    "description": "This program combines recursion and static variables to calculate the sum of numbers from 1 to `n`. The static variable `sum` retains its value across recursive calls."
   }
 ]
