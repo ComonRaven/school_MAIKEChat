@@ -1,0 +1,590 @@
+[
+  {
+    "id": 401,
+    "input": "Write a program that uses a macro to find the square of a number.",
+    "output": "#include <stdio.h>\n\n#define SQUARE(x) ((x) * (x))\n\nint main() {\n    int num = 5;\n    printf(\"The square of %d is: %d\\n\", num, SQUARE(num));\n    return 0;\n}",
+    "description": "This program uses a macro to calculate the square of a number."
+  },
+  {
+    "id": 402,
+    "input": "Write a program that defines a constant using #define and prints its value.",
+    "output": "#include <stdio.h>\n\n#define PI 3.14159\n\nint main() {\n    printf(\"The value of PI is: %f\\n\", PI);\n    return 0;\n}",
+    "description": "This program defines a constant using #define and prints its value."
+  },
+  {
+    "id": 403,
+    "input": "Write a program that uses conditional compilation to print different messages.",
+    "output": "#include <stdio.h>\n\n#define DEBUG 1\n\nint main() {\n    #ifdef DEBUG\n        printf(\"Debug mode is enabled.\\n\");\n    #else\n        printf(\"Debug mode is disabled.\\n\");\n    #endif\n    return 0;\n}",
+    "description": "This program uses conditional compilation to print different messages based on a macro."
+  },
+  {
+    "id": 404,
+    "input": "Write a program that uses #include to include a custom header file.",
+    "output": "#include <stdio.h>\n#include \"custom.h\"\n\nint main() {\n    printf(\"Message from custom header: %s\\n\", MESSAGE);\n    return 0;\n}",
+    "description": "This program demonstrates the use of #include to include a custom header file."
+  },
+  {
+    "id": 405,
+    "input": "Write a program that uses a macro to swap two numbers.",
+    "output": "#include <stdio.h>\n\n#define SWAP(a, b) { int temp = a; a = b; b = temp; }\n\nint main() {\n    int x = 10, y = 20;\n    printf(\"Before swap: x = %d, y = %d\\n\", x, y);\n    SWAP(x, y);\n    printf(\"After swap: x = %d, y = %d\\n\", x, y);\n    return 0;\n}",
+    "description": "This program uses a macro to swap two numbers."
+  },
+  {
+    "id": 406,
+    "input": "Write a program that uses #ifdef and #undef to toggle a feature.",
+    "output": "#include <stdio.h>\n\n#define FEATURE_ENABLED\n\nint main() {\n    #ifdef FEATURE_ENABLED\n        printf(\"Feature is enabled.\\n\");\n        #undef FEATURE_ENABLED\n    #endif\n\n    #ifdef FEATURE_ENABLED\n        printf(\"Feature is still enabled.\\n\");\n    #else\n        printf(\"Feature is now disabled.\\n\");\n    #endif\n\n    return 0;\n}",
+    "description": "This program uses #ifdef and #undef to toggle a feature at compile time."
+  },
+  {
+    "id": 407,
+    "input": "Write a program that uses #pragma to suppress a warning.",
+    "output": "#include <stdio.h>\n\n#pragma GCC diagnostic ignored \"-Wunused-variable\"\n\nint main() {\n    int unusedVar;\n    printf(\"Warning for unused variable is suppressed.\\n\");\n    return 0;\n}",
+    "description": "This program uses #pragma to suppress a specific compiler warning."
+  },
+  {
+    "id": 408,
+    "input": "Write a program that demonstrates the use of #error for invalid conditions.",
+    "output": "#include <stdio.h>\n\n#ifndef REQUIRED_MACRO\n    #error \"REQUIRED_MACRO is not defined. Define it before compiling.\"\n#endif\n\nint main() {\n    printf(\"Program compiled successfully.\\n\");\n    return 0;\n}",
+    "description": "This program demonstrates the use of #error to halt compilation if a required macro is not defined."
+  },
+  {
+    "id": 409,
+    "input": "Write a program that uses #line to change the line number reported by the compiler.",
+    "output": "#include <stdio.h>\n\n#line 100 \"custom_file.c\"\n\nint main() {\n    printf(\"This line is reported as line 100 in custom_file.c.\\n\");\n    return 0;\n}",
+    "description": "This program uses #line to change the line number and file name reported by the compiler."
+  },
+  {
+    "id": 410,
+    "input": "Write a program that demonstrates the use of token pasting operator in macros.",
+    "output": "#include <stdio.h>\n\n#define CONCAT(a, b) a##b\n\nint main() {\n    int xy = 100;\n    printf(\"Value of xy is: %d\\n\", CONCAT(x, y));\n    return 0;\n}",
+    "description": "This program demonstrates the use of the token pasting operator (##) in macros."
+  },
+  {
+    "id": 411,
+    "input": "Write a program that conditionally includes headers based on a macro.",
+    "output": "#include <stdio.h>\n\n#define USE_CUSTOM_HEADER\n\n#ifdef USE_CUSTOM_HEADER\n    #include \"custom_header.h\"\n#else\n    #include <stdlib.h>\n#endif\n\nint main() {\n    #ifdef USE_CUSTOM_HEADER\n        printf(\"Custom header included.\\n\");\n    #else\n        printf(\"Standard header included.\\n\");\n    #endif\n    return 0;\n}",
+    "description": "This program conditionally includes headers based on whether a macro is defined."
+  },
+  {
+    "id": 412,
+    "input": "Write a program that uses recursive macros.",
+    "output": "#include <stdio.h>\n\n#define MULTIPLY(x, y) ((x) * (y))\n#define SQUARE(x) MULTIPLY(x, x)\n\nint main() {\n    int num = 4;\n    printf(\"Square of %d is: %d\\n\", num, SQUARE(num));\n    return 0;\n}",
+    "description": "This program demonstrates recursive macros by using one macro within another."
+  },
+  {
+    "id": 413,
+    "input": "Write a program that demonstrates the use of predefined macros like __FILE__ and __LINE__.",
+    "output": "#include <stdio.h>\n\nint main() {\n    printf(\"This code is in file: %s\\n\", __FILE__);\n    printf(\"This code is at line: %d\\n\", __LINE__);\n    return 0;\n}",
+    "description": "This program uses predefined macros to display the current file name and line number."
+  },
+  {
+    "id": 414,
+    "input": "Write a program that uses variadic macros to print a formatted message.",
+    "output": "#include <stdio.h>\n\n#define LOG(fmt, ...) printf(\"LOG: \" fmt \"\\n\", __VA_ARGS__)\n\nint main() {\n    LOG(\"Value of x: %d\", 42);\n    LOG(\"Hello, %s!\", \"world\");\n    return 0;\n}",
+    "description": "This program uses a variadic macro to print formatted log messages."
+  },
+  {
+    "id": 415,
+    "input": "Write a program that changes the behavior of a macro using #undef and redefines.",
+    "output": "#include <stdio.h>\n\n#define GREETING \"Hello, World!\"\n\nint main() {\n    printf(\"%s\\n\", GREETING);\n    #undef GREETING\n    #define GREETING \"Goodbye, World!\"\n    printf(\"%s\\n\", GREETING);\n    return 0;\n}",
+    "description": "This program redefines a macro using #undef to change its behavior."
+  },
+  {
+    "id": 416,
+    "input": "Write a program that includes a header file multiple times but uses include guards.",
+    "output": "#include <stdio.h>\n#include \"my_header.h\"\n#include \"my_header.h\" // This will not cause multiple inclusion.\n\nint main() {\n    printf(\"Include guards prevent multiple inclusions.\\n\");\n    return 0;\n}",
+    "description": "This program demonstrates the use of include guards to prevent multiple inclusions of the same header file."
+  },
+  {
+    "id": 417,
+    "input": "Write a program that uses #pragma once as an alternative to include guards.",
+    "output": "#include <stdio.h>\n#include \"my_header_once.h\"\n#include \"my_header_once.h\" // This will not cause multiple inclusion.\n\nint main() {\n    printf(\"#pragma once prevents multiple inclusions.\\n\");\n    return 0;\n}",
+    "description": "This program uses #pragma once as an alternative to traditional include guards."
+  },
+  {
+    "id": 418,
+    "input": "Write a program that uses the stringify operator in macros.",
+    "output": "#include <stdio.h>\n\n#define STRINGIFY(x) #x\n\nint main() {\n    printf(\"The macro value is: %s\\n\", STRINGIFY(Hello, World!));\n    return 0;\n}",
+    "description": "This program uses the stringify operator (#) to convert macro arguments to strings."
+  },
+  {
+    "id": 419,
+    "input": "Write a program that uses nested conditional compilation.",
+    "output": "#include <stdio.h>\n\n#define PLATFORM_WINDOWS\n\nint main() {\n    #ifdef PLATFORM_WINDOWS\n        #ifdef DEBUG\n            printf(\"Windows debug mode.\\n\");\n        #else\n            printf(\"Windows release mode.\\n\");\n        #endif\n    #else\n        printf(\"Non-Windows platform.\\n\");\n    #endif\n    return 0;\n}",
+    "description": "This program demonstrates nested conditional compilation using multiple #ifdef directives."
+  },
+  {
+    "id": 420,
+    "input": "Write a program that uses macros to create a simple min function.",
+    "output": "#include <stdio.h>\n\n#define MIN(a, b) ((a) < (b) ? (a) : (b))\n\nint main() {\n    int x = 10, y = 20;\n    printf(\"The minimum value is: %d\\n\", MIN(x, y));\n    return 0;\n}",
+    "description": "This program defines a macro to calculate the minimum of two numbers."
+  },
+  {
+    "id": 421,
+    "input": "Write a program that handles division by zero.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers (dividend and divisor): \");\n    scanf(\"%d %d\", &a, &b);\n    if (b == 0) {\n        printf(\"Error: Division by zero is not allowed.\\n\");\n    } else {\n        printf(\"Result: %d\\n\", a / b);\n    }\n    return 0;\n}",
+    "description": "This program checks for division by zero and prevents the error."
+  },
+  {
+    "id": 422,
+    "input": "Write a program that handles a file not found error.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: File not found.\\n\");\n        return 1;\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program handles the case where a file does not exist."
+  },
+  {
+    "id": 423,
+    "input": "Write a program that checks for invalid input in scanf.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter an integer: \");\n    if (scanf(\"%d\", &num) != 1) {\n        printf(\"Error: Invalid input.\\n\");\n        return 1;\n    }\n    printf(\"You entered: %d\\n\", num);\n    return 0;\n}",
+    "description": "This program validates user input and checks for invalid data types."
+  },
+  {
+    "id": 424,
+    "input": "Write a program that handles memory allocation failure.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *ptr = (int *)malloc(1000000000 * sizeof(int));\n    if (ptr == NULL) {\n        printf(\"Error: Memory allocation failed.\\n\");\n        return 1;\n    }\n    printf(\"Memory allocated successfully.\\n\");\n    free(ptr);\n    return 0;\n}",
+    "description": "This program checks if memory allocation was successful."
+  },
+  {
+    "id": 425,
+    "input": "Write a program that handles array index out of bounds error.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int index;\n    printf(\"Enter an index (0-4): \");\n    scanf(\"%d\", &index);\n    if (index < 0 || index >= 5) {\n        printf(\"Error: Index out of bounds.\\n\");\n    } else {\n        printf(\"Value at index %d: %d\\n\", index, arr[index]);\n    }\n    return 0;\n}",
+    "description": "This program prevents accessing an array out of bounds."
+  },
+  {
+    "id": 426,
+    "input": "Write a program that handles null pointer dereferencing.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int *ptr = NULL;\n    if (ptr == NULL) {\n        printf(\"Error: Null pointer dereference.\\n\");\n        return 1;\n    }\n    *ptr = 10;\n    printf(\"Value: %d\\n\", *ptr);\n    return 0;\n}",
+    "description": "This program checks for null pointers before dereferencing them."
+  },
+  {
+    "id": 427,
+    "input": "Write a program that checks for overflow in integer addition.",
+    "output": "#include <stdio.h>\n#include <limits.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &a, &b);\n    if (a > 0 && b > INT_MAX - a) {\n        printf(\"Error: Integer overflow detected.\\n\");\n    } else {\n        printf(\"Result: %d\\n\", a + b);\n    }\n    return 0;\n}",
+    "description": "This program detects overflow in integer addition."
+  },
+  {
+    "id": 428,
+    "input": "Write a program that handles invalid command line arguments.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(int argc, char *argv[]) {\n    if (argc != 2) {\n        printf(\"Error: Invalid number of arguments. Usage: ./program <number>\\n\");\n        return 1;\n    }\n    int num = atoi(argv[1]);\n    printf(\"You entered: %d\\n\", num);\n    return 0;\n}",
+    "description": "This program checks the number of command line arguments and validates input."
+  },
+  {
+    "id": 429,
+    "input": "Write a program that checks for errors while writing to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error: Unable to open file for writing.\\n\");\n        return 1;\n    }\n    if (fprintf(file, \"Hello, World!\\n\") < 0) {\n        printf(\"Error: Failed to write to file.\\n\");\n        fclose(file);\n        return 1;\n    }\n    fclose(file);\n    printf(\"File written successfully.\\n\");\n    return 0;\n}",
+    "description": "This program checks for errors while writing to a file."
+  },
+  {
+    "id": 430,
+    "input": "Write a program that handles division by zero using floating-point numbers.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double a, b;\n    printf(\"Enter two numbers (dividend and divisor): \");\n    scanf(\"%lf %lf\", &a, &b);\n    if (fabs(b) < 1e-7) {\n        printf(\"Error: Division by zero is not allowed.\\n\");\n    } else {\n        printf(\"Result: %.2f\\n\", a / b);\n    }\n    return 0;\n}",
+    "description": "This program handles division by zero for floating-point numbers."
+  },
+  {
+    "id": 431,
+    "input": "Write a program that retries file opening if it fails initially.",
+    "output": "#include <stdio.h>\n#include <unistd.h>\n\nint main() {\n    FILE *file;\n    int attempts = 0;\n    while ((file = fopen(\"file.txt\", \"r\")) == NULL && attempts < 3) {\n        printf(\"Error opening file. Retrying...\\n\");\n        attempts++;\n        sleep(1);\n    }\n    if (file == NULL) {\n        printf(\"Failed to open file after 3 attempts.\\n\");\n        return 1;\n    }\n    printf(\"File opened successfully.\\n\");\n    fclose(file);\n    return 0;\n}",
+    "description": "This program retries opening a file up to three times before giving up."
+  },
+  {
+    "id": 432,
+    "input": "Write a program that validates a configuration file's format.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    FILE *file = fopen(\"config.cfg\", \"r\");\n    char line[256];\n    int valid = 1;\n\n    if (file == NULL) {\n        printf(\"Error: Configuration file not found.\\n\");\n        return 1;\n    }\n\n    while (fgets(line, sizeof(line), file)) {\n        if (strchr(line, '=') == NULL) {\n            printf(\"Error: Invalid format in line: %s\\n\", line);\n            valid = 0;\n            break;\n        }\n    }\n    fclose(file);\n\n    if (valid) {\n        printf(\"Configuration file is valid.\\n\");\n    } else {\n        printf(\"Configuration file is invalid.\\n\");\n    }\n    return valid ? 0 : 1;\n}",
+    "description": "This program checks if a configuration file has a valid key=value format."
+  },
+  {
+    "id": 433,
+    "input": "Write a program that handles integer underflow and overflow in subtraction.",
+    "output": "#include <stdio.h>\n#include <limits.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers (a and b): \");\n    scanf(\"%d %d\", &a, &b);\n\n    if ((b > 0 && a < INT_MIN + b) || (b < 0 && a > INT_MAX + b)) {\n        printf(\"Error: Integer overflow or underflow in subtraction.\\n\");\n    } else {\n        printf(\"Result: %d\\n\", a - b);\n    }\n\n    return 0;\n}",
+    "description": "This program ensures that integer subtraction does not result in overflow or underflow."
+  },
+  {
+    "id": 434,
+    "input": "Write a program that handles errors while dynamically resizing an array.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = malloc(5 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Error: Initial memory allocation failed.\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < 5; i++) {\n        arr[i] = i + 1;\n    }\n\n    int *temp = realloc(arr, 10 * sizeof(int));\n    if (temp == NULL) {\n        printf(\"Error: Memory reallocation failed.\\n\");\n        free(arr);\n        return 1;\n    }\n    arr = temp;\n\n    for (int i = 5; i < 10; i++) {\n        arr[i] = i + 1;\n    }\n\n    printf(\"Array resized successfully.\\n\");\n    free(arr);\n    return 0;\n}",
+    "description": "This program handles errors that occur during dynamic memory reallocation."
+  },
+  {
+    "id": 435,
+    "input": "Write a program that gracefully handles invalid user commands.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char command[50];\n    printf(\"Enter a command (start/stop/status): \");\n    scanf(\"%s\", command);\n\n    if (strcmp(command, \"start\") == 0) {\n        printf(\"System started.\\n\");\n    } else if (strcmp(command, \"stop\") == 0) {\n        printf(\"System stopped.\\n\");\n    } else if (strcmp(command, \"status\") == 0) {\n        printf(\"System is running.\\n\");\n    } else {\n        printf(\"Error: Invalid command '%s'.\\n\", command);\n    }\n\n    return 0;\n}",
+    "description": "This program validates user input commands and handles invalid entries gracefully."
+  },
+  {
+    "id": 436,
+    "input": "Write a program that calculates the square root of a number using the math library.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double number, result;\n    printf(\"Enter a number: \");\n    scanf(\"%lf\", &number);\n\n    if (number < 0) {\n        printf(\"Error: Cannot calculate the square root of a negative number.\\n\");\n    } else {\n        result = sqrt(number);\n        printf(\"The square root of %.2f is %.2f\\n\", number, result);\n    }\n\n    return 0;\n}",
+    "description": "This program calculates the square root of a given number using the `sqrt` function from the math library."
+  },
+  {
+    "id": 437,
+    "input": "Write a program that calculates the length of a string using the string library.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n\n    printf(\"The length of the string is: %lu\\n\", strlen(str));\n\n    return 0;\n}",
+    "description": "This program calculates the length of a string using the `strlen` function from the string library."
+  },
+  {
+    "id": 438,
+    "input": "Write a program that converts a string to uppercase using the ctype library.",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main() {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        str[i] = toupper(str[i]);\n    }\n\n    printf(\"The uppercase string is: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "This program converts a string to uppercase using the `toupper` function from the ctype library."
+  },
+  {
+    "id": 439,
+    "input": "Write a program that generates a random number using the stdlib library.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    srand(time(0));\n    int random_number = rand();\n    printf(\"The random number is: %d\\n\", random_number);\n\n    return 0;\n}",
+    "description": "This program generates a random number using the `rand` function and seeds it with the current time using `srand`."
+  },
+  {
+    "id": 440,
+    "input": "Write a program that sorts an array of integers using the qsort function.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint compare(const void *a, const void *b) {\n    return (*(int *)a - *(int *)b);\n}\n\nint main() {\n    int arr[] = {5, 3, 8, 6, 2};\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    qsort(arr, n, sizeof(int), compare);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program sorts an array of integers using the `qsort` function from the stdlib library."
+  },
+  {
+    "id": 441,
+    "input": "Write a program that reads and writes to a file using the standard I/O library.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"data.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error opening file for writing.\\n\");\n        return 1;\n    }\n    fprintf(file, \"Hello, file!\\n\");\n    fclose(file);\n\n    file = fopen(\"data.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file for reading.\\n\");\n        return 1;\n    }\n    char buffer[100];\n    while (fgets(buffer, sizeof(buffer), file)) {\n        printf(\"Read: %s\", buffer);\n    }\n    fclose(file);\n\n    return 0;\n}",
+    "description": "This program demonstrates basic file operations like writing and reading using the standard I/O library."
+  },
+  {
+    "id": 442,
+    "input": "Write a program that finds the minimum and maximum values in an array using the math library.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int arr[] = {12, 45, 23, 8, 56};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int min = arr[0], max = arr[0];\n\n    for (int i = 1; i < n; i++) {\n        if (arr[i] < min) {\n            min = arr[i];\n        }\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n\n    printf(\"Minimum value: %d\\n\", min);\n    printf(\"Maximum value: %d\\n\", max);\n\n    return 0;\n}",
+    "description": "This program calculates the minimum and maximum values in an array using standard logic."
+  },
+  {
+    "id": 443,
+    "input": "Write a program that calculates the power of a number using the math library.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double base, exponent, result;\n    printf(\"Enter the base and exponent: \");\n    scanf(\"%lf %lf\", &base, &exponent);\n\n    result = pow(base, exponent);\n    printf(\"%.2f raised to the power %.2f is %.2f\\n\", base, exponent, result);\n\n    return 0;\n}",
+    "description": "This program calculates the power of a number using the `pow` function from the math library."
+  },
+  {
+    "id": 444,
+    "input": "Write a program that checks if a character is a digit using the ctype library.",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main() {\n    char ch;\n    printf(\"Enter a character: \");\n    scanf(\" %c\", &ch);\n\n    if (isdigit(ch)) {\n        printf(\"The character '%c' is a digit.\\n\", ch);\n    } else {\n        printf(\"The character '%c' is not a digit.\\n\", ch);\n    }\n\n    return 0;\n}",
+    "description": "This program checks if a given character is a digit using the `isdigit` function from the ctype library."
+  },
+  {
+    "id": 445,
+    "input": "Write a program that compares two strings using the string library.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str1[50], str2[50];\n    printf(\"Enter the first string: \");\n    scanf(\"%s\", str1);\n    printf(\"Enter the second string: \");\n    scanf(\"%s\", str2);\n\n    if (strcmp(str1, str2) == 0) {\n        printf(\"The strings are equal.\\n\");\n    } else {\n        printf(\"The strings are not equal.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program compares two strings using the `strcmp` function from the string library."
+  },
+  {
+    "id": 446,
+    "input": "Write a program that reads integers from a file and calculates their sum using the standard I/O library.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"numbers.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: Unable to open file.\\n\");\n        return 1;\n    }\n\n    int number, sum = 0;\n    while (fscanf(file, \"%d\", &number) == 1) {\n        sum += number;\n    }\n    fclose(file);\n\n    printf(\"The sum of the numbers is: %d\\n\", sum);\n    return 0;\n}",
+    "description": "This program reads integers from a file and calculates their sum using the standard I/O library."
+  },
+  {
+    "id": 447,
+    "input": "Write a program that calculates the factorial of a number using recursion.",
+    "output": "#include <stdio.h>\n\nlong long factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    if (num < 0) {\n        printf(\"Error: Factorial of a negative number is not defined.\\n\");\n    } else {\n        printf(\"The factorial of %d is: %lld\\n\", num, factorial(num));\n    }\n\n    return 0;\n}",
+    "description": "This program calculates the factorial of a number using recursion."
+  },
+  {
+    "id": 448,
+    "input": "Write a program that uses the standard library to convert a string to a number.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    char str[20];\n    printf(\"Enter a numeric string: \");\n    scanf(\"%s\", str);\n\n    int number = atoi(str);\n    printf(\"The converted number is: %d\\n\", number);\n\n    return 0;\n}",
+    "description": "This program uses the `atoi` function from the standard library to convert a numeric string to an integer."
+  },
+  {
+    "id": 449,
+    "input": "Write a program that reverses a string using the string library.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n\n    int len = strlen(str);\n    for (int i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - i - 1];\n        str[len - i - 1] = temp;\n    }\n\n    printf(\"The reversed string is: %s\\n\", str);\n    return 0;\n}",
+    "description": "This program reverses a string in place using the string library."
+  },
+  {
+    "id": 450,
+    "input": "Write a program that calculates the current date and time using the time library.",
+    "output": "#include <stdio.h>\n#include <time.h>\n\nint main() {\n    time_t t;\n    struct tm *local_time;\n\n    time(&t);\n    local_time = localtime(&t);\n\n    printf(\"Current date and time: %02d-%02d-%04d %02d:%02d:%02d\\n\",\n           local_time->tm_mday, local_time->tm_mon + 1, local_time->tm_year + 1900,\n           local_time->tm_hour, local_time->tm_min, local_time->tm_sec);\n\n    return 0;\n}",
+    "description": "This program calculates and displays the current date and time using the time library."
+  },
+  {
+    "id": 451,
+    "input": "Write a program that implements the Bubble Sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}\n\nint main() {\n    int arr[] = {64, 34, 25, 12, 22, 11, 90};\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    bubbleSort(arr, n);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program sorts an array using the Bubble Sort algorithm."
+  },
+  {
+    "id": 452,
+    "input": "Write a program that implements the Linear Search algorithm.",
+    "output": "#include <stdio.h>\n\nint linearSearch(int arr[], int n, int x) {\n    for (int i = 0; i < n; i++) {\n        if (arr[i] == x) {\n            return i;\n        }\n    }\n    return -1;\n}\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int x = 30;\n\n    int result = linearSearch(arr, n, x);\n    if (result != -1) {\n        printf(\"Element found at index %d\\n\", result);\n    } else {\n        printf(\"Element not found\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program searches for an element in an array using the Linear Search algorithm."
+  },
+  {
+    "id": 453,
+    "input": "Write a program that implements the Binary Search algorithm.",
+    "output": "#include <stdio.h>\n\nint binarySearch(int arr[], int n, int x) {\n    int left = 0, right = n - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (arr[mid] == x) {\n            return mid;\n        } else if (arr[mid] < x) {\n            left = mid + 1;\n        } else {\n            right = mid - 1;\n        }\n    }\n    return -1;\n}\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int x = 30;\n\n    int result = binarySearch(arr, n, x);\n    if (result != -1) {\n        printf(\"Element found at index %d\\n\", result);\n    } else {\n        printf(\"Element not found\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program searches for an element in a sorted array using the Binary Search algorithm."
+  },
+  {
+    "id": 454,
+    "input": "Write a program that implements the Selection Sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid selectionSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        int minIndex = i;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[j] < arr[minIndex]) {\n                minIndex = j;\n            }\n        }\n        int temp = arr[minIndex];\n        arr[minIndex] = arr[i];\n        arr[i] = temp;\n    }\n}\n\nint main() {\n    int arr[] = {64, 25, 12, 22, 11};\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    selectionSort(arr, n);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program sorts an array using the Selection Sort algorithm."
+  },
+  {
+    "id": 455,
+    "input": "Write a program that finds the GCD of two numbers using the Euclidean algorithm.",
+    "output": "#include <stdio.h>\n\nint gcd(int a, int b) {\n    while (b != 0) {\n        int temp = b;\n        b = a % b;\n        a = temp;\n    }\n    return a;\n}\n\nint main() {\n    int a = 56, b = 98;\n    printf(\"The GCD of %d and %d is: %d\\n\", a, b, gcd(a, b));\n    return 0;\n}",
+    "description": "This program calculates the Greatest Common Divisor (GCD) of two numbers using the Euclidean algorithm."
+  },
+  {
+    "id": 456,
+    "input": "Write a program that implements the Insertion Sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid insertionSort(int arr[], int n) {\n    for (int i = 1; i < n; i++) {\n        int key = arr[i];\n        int j = i - 1;\n        while (j >= 0 && arr[j] > key) {\n            arr[j + 1] = arr[j];\n            j--;\n        }\n        arr[j + 1] = key;\n    }\n}\n\nint main() {\n    int arr[] = {12, 11, 13, 5, 6};\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    insertionSort(arr, n);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program sorts an array using the Insertion Sort algorithm."
+  },
+  {
+    "id": 457,
+    "input": "Write a program that finds the Fibonacci sequence up to n terms using iteration.",
+    "output": "#include <stdio.h>\n\nvoid printFibonacci(int n) {\n    int t1 = 0, t2 = 1, nextTerm;\n    printf(\"Fibonacci sequence: %d %d \", t1, t2);\n    for (int i = 3; i <= n; i++) {\n        nextTerm = t1 + t2;\n        printf(\"%d \", nextTerm);\n        t1 = t2;\n        t2 = nextTerm;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    int n = 10;\n    printFibonacci(n);\n    return 0;\n}",
+    "description": "This program generates the Fibonacci sequence up to n terms using iteration."
+  },
+  {
+    "id": 458,
+    "input": "Write a program that checks if a number is prime.",
+    "output": "#include <stdio.h>\n#include <stdbool.h>\n\nbool isPrime(int n) {\n    if (n <= 1) {\n        return false;\n    }\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) {\n            return false;\n        }\n    }\n    return true;\n}\n\nint main() {\n    int n = 29;\n    if (isPrime(n)) {\n        printf(\"%d is a prime number.\\n\", n);\n    } else {\n        printf(\"%d is not a prime number.\\n\", n);\n    }\n    return 0;\n}",
+    "description": "This program checks whether a given number is prime or not."
+  },
+  {
+    "id": 459,
+    "input": "Write a program that finds the sum of digits of a number.",
+    "output": "#include <stdio.h>\n\nint sumOfDigits(int n) {\n    int sum = 0;\n    while (n != 0) {\n        sum += n % 10;\n        n /= 10;\n    }\n    return sum;\n}\n\nint main() {\n    int n = 12345;\n    printf(\"The sum of the digits of %d is: %d\\n\", n, sumOfDigits(n));\n    return 0;\n}",
+    "description": "This program calculates the sum of the digits of a given number."
+  },
+  {
+    "id": 460,
+    "input": "Write a program that reverses a string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nvoid reverseString(char str[]) {\n    int n = strlen(str);\n    for (int i = 0; i < n / 2; i++) {\n        char temp = str[i];\n        str[i] = str[n - i - 1];\n        str[n - i - 1] = temp;\n    }\n}\n\nint main() {\n    char str[] = \"hello\";\n    reverseString(str);\n    printf(\"Reversed string: %s\\n\", str);\n    return 0;\n}",
+    "description": "This program reverses a given string."
+  },
+  {
+    "id": 461,
+    "input": "Write a program that implements the Quick Sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid swap(int *a, int *b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nint partition(int arr[], int low, int high) {\n    int pivot = arr[high];\n    int i = low - 1;\n    for (int j = low; j < high; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            swap(&arr[i], &arr[j]);\n        }\n    }\n    swap(&arr[i + 1], &arr[high]);\n    return i + 1;\n}\n\nvoid quickSort(int arr[], int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n}\n\nint main() {\n    int arr[] = {10, 80, 30, 90, 40, 50, 70};\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    quickSort(arr, 0, n - 1);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program sorts an array using the Quick Sort algorithm."
+  },
+  {
+    "id": 462,
+    "input": "Write a program that finds the shortest path using Dijkstra's algorithm.",
+    "output": "#include <stdio.h>\n#include <limits.h>\n\n#define V 5\n\nint minDistance(int dist[], int visited[]) {\n    int min = INT_MAX, min_index;\n    for (int v = 0; v < V; v++) {\n        if (!visited[v] && dist[v] <= min) {\n            min = dist[v], min_index = v;\n        }\n    }\n    return min_index;\n}\n\nvoid dijkstra(int graph[V][V], int src) {\n    int dist[V], visited[V] = {0};\n    for (int i = 0; i < V; i++) {\n        dist[i] = INT_MAX;\n    }\n    dist[src] = 0;\n\n    for (int count = 0; count < V - 1; count++) {\n        int u = minDistance(dist, visited);\n        visited[u] = 1;\n        for (int v = 0; v < V; v++) {\n            if (!visited[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v]) {\n                dist[v] = dist[u] + graph[u][v];\n            }\n        }\n    }\n\n    printf(\"Vertex Distance from Source\\n\");\n    for (int i = 0; i < V; i++) {\n        printf(\"%d\\t\\t%d\\n\", i, dist[i]);\n    }\n}\n\nint main() {\n    int graph[V][V] = {\n        {0, 10, 0, 0, 5},\n        {0, 0, 1, 0, 2},\n        {0, 0, 0, 4, 0},\n        {7, 0, 6, 0, 0},\n        {0, 3, 9, 2, 0}\n    };\n\n    dijkstra(graph, 0);\n    return 0;\n}",
+    "description": "This program finds the shortest path from a source vertex to all other vertices using Dijkstra's algorithm."
+  },
+  {
+    "id": 463,
+    "input": "Write a program that solves the 0-1 Knapsack problem using dynamic programming.",
+    "output": "#include <stdio.h>\n\nint max(int a, int b) {\n    return (a > b) ? a : b;\n}\n\nint knapsack(int W, int wt[], int val[], int n) {\n    int dp[n + 1][W + 1];\n    for (int i = 0; i <= n; i++) {\n        for (int w = 0; w <= W; w++) {\n            if (i == 0 || w == 0) {\n                dp[i][w] = 0;\n            } else if (wt[i - 1] <= w) {\n                dp[i][w] = max(val[i - 1] + dp[i - 1][w - wt[i - 1]], dp[i - 1][w]);\n            } else {\n                dp[i][w] = dp[i - 1][w];\n            }\n        }\n    }\n    return dp[n][W];\n}\n\nint main() {\n    int val[] = {60, 100, 120};\n    int wt[] = {10, 20, 30};\n    int W = 50;\n    int n = sizeof(val) / sizeof(val[0]);\n\n    printf(\"Maximum value in Knapsack = %d\\n\", knapsack(W, wt, val, n));\n    return 0;\n}",
+    "description": "This program solves the 0-1 Knapsack problem using a dynamic programming approach."
+  },
+  {
+    "id": 464,
+    "input": "Write a program that finds all permutations of a given string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nvoid swap(char *x, char *y) {\n    char temp = *x;\n    *x = *y;\n    *y = temp;\n}\n\nvoid permute(char *str, int l, int r) {\n    if (l == r) {\n        printf(\"%s\\n\", str);\n    } else {\n        for (int i = l; i <= r; i++) {\n            swap(&str[l], &str[i]);\n            permute(str, l + 1, r);\n            swap(&str[l], &str[i]); // backtrack\n        }\n    }\n}\n\nint main() {\n    char str[] = \"ABC\";\n    int n = strlen(str);\n    permute(str, 0, n - 1);\n    return 0;\n}",
+    "description": "This program generates all permutations of a given string using recursion."
+  },
+  {
+    "id": 465,
+    "input": "Write a program that implements the Merge Sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid merge(int arr[], int l, int m, int r) {\n    int n1 = m - l + 1;\n    int n2 = r - m;\n\n    int L[n1], R[n2];\n    for (int i = 0; i < n1; i++) {\n        L[i] = arr[l + i];\n    }\n    for (int i = 0; i < n2; i++) {\n        R[i] = arr[m + 1 + i];\n    }\n\n    int i = 0, j = 0, k = l;\n    while (i < n1 && j < n2) {\n        if (L[i] <= R[j]) {\n            arr[k] = L[i];\n            i++;\n        } else {\n            arr[k] = R[j];\n            j++;\n        }\n        k++;\n    }\n\n    while (i < n1) {\n        arr[k] = L[i];\n        i++;\n        k++;\n    }\n\n    while (j < n2) {\n        arr[k] = R[j];\n        j++;\n        k++;\n    }\n}\n\nvoid mergeSort(int arr[], int l, int r) {\n    if (l < r) {\n        int m = l + (r - l) / 2;\n\n        mergeSort(arr, l, m);\n        mergeSort(arr, m + 1, r);\n\n        merge(arr, l, m, r);\n    }\n}\n\nint main() {\n    int arr[] = {12, 11, 13, 5, 6, 7};\n    int n = sizeof(arr) / sizeof(arr[0]);\n\n    mergeSort(arr, 0, n - 1);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program implements the Merge Sort algorithm to sort an array."
+  },
+  {
+    "id": 466,
+    "input": "Write a program that implements a stack using an array.",
+    "output": "#include <stdio.h>\n\n#define MAX 5\n\nint stack[MAX];\nint top = -1;\n\nvoid push(int value) {\n    if (top < MAX - 1) {\n        stack[++top] = value;\n        printf(\"Pushed %d\\n\", value);\n    } else {\n        printf(\"Stack Overflow\\n\");\n    }\n}\n\nint pop() {\n    if (top >= 0) {\n        return stack[top--];\n    } else {\n        printf(\"Stack Underflow\\n\");\n        return -1;\n    }\n}\n\nint peek() {\n    if (top >= 0) {\n        return stack[top];\n    } else {\n        printf(\"Stack is empty\\n\");\n        return -1;\n    }\n}\n\nint main() {\n    push(10);\n    push(20);\n    push(30);\n    printf(\"Popped: %d\\n\", pop());\n    printf(\"Peek: %d\\n\", peek());\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a stack using an array."
+  },
+  {
+    "id": 467,
+    "input": "Write a program that implements a queue using an array.",
+    "output": "#include <stdio.h>\n\n#define MAX 5\n\nint queue[MAX];\nint front = -1, rear = -1;\n\nvoid enqueue(int value) {\n    if (rear == MAX - 1) {\n        printf(\"Queue Overflow\\n\");\n    } else {\n        if (front == -1) front = 0;\n        queue[++rear] = value;\n        printf(\"Enqueued %d\\n\", value);\n    }\n}\n\nint dequeue() {\n    if (front == -1) {\n        printf(\"Queue Underflow\\n\");\n        return -1;\n    } else {\n        int value = queue[front++];\n        if (front > rear) front = rear = -1;\n        return value;\n    }\n}\n\nint frontElement() {\n    if (front != -1) {\n        return queue[front];\n    } else {\n        printf(\"Queue is empty\\n\");\n        return -1;\n    }\n}\n\nint main() {\n    enqueue(10);\n    enqueue(20);\n    enqueue(30);\n    printf(\"Dequeued: %d\\n\", dequeue());\n    printf(\"Front element: %d\\n\", frontElement());\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a queue using an array."
+  },
+  {
+    "id": 468,
+    "input": "Write a program that implements a linked list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nvoid insert(struct Node** head, int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = *head;\n    *head = newNode;\n}\n\nvoid display(struct Node* head) {\n    struct Node* current = head;\n    while (current != NULL) {\n        printf(\"%d \", current->data);\n        current = current->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Node* head = NULL;\n    insert(&head, 10);\n    insert(&head, 20);\n    insert(&head, 30);\n    display(head);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a singly linked list."
+  },
+  {
+    "id": 469,
+    "input": "Write a program that implements a doubly linked list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n    struct Node* prev;\n};\n\nvoid insert(struct Node** head, int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = *head;\n    newNode->prev = NULL;\n    if (*head != NULL) {\n        (*head)->prev = newNode;\n    }\n    *head = newNode;\n}\n\nvoid display(struct Node* head) {\n    struct Node* current = head;\n    while (current != NULL) {\n        printf(\"%d \", current->data);\n        current = current->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Node* head = NULL;\n    insert(&head, 10);\n    insert(&head, 20);\n    insert(&head, 30);\n    display(head);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a doubly linked list."
+  },
+  {
+    "id": 470,
+    "input": "Write a program that implements a binary search tree.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* left;\n    struct Node* right;\n};\n\nstruct Node* insert(struct Node* root, int value) {\n    if (root == NULL) {\n        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n        newNode->data = value;\n        newNode->left = newNode->right = NULL;\n        return newNode;\n    }\n    if (value < root->data) {\n        root->left = insert(root->left, value);\n    } else {\n        root->right = insert(root->right, value);\n    }\n    return root;\n}\n\nvoid inorder(struct Node* root) {\n    if (root != NULL) {\n        inorder(root->left);\n        printf(\"%d \", root->data);\n        inorder(root->right);\n    }\n}\n\nint main() {\n    struct Node* root = NULL;\n    root = insert(root, 50);\n    insert(root, 30);\n    insert(root, 70);\n    insert(root, 20);\n    insert(root, 40);\n    insert(root, 60);\n    insert(root, 80);\n    inorder(root);\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a binary search tree."
+  },
+  {
+    "id": 471,
+    "input": "Write a program that implements a circular queue.",
+    "output": "#include <stdio.h>\n\n#define MAX 5\n\nint queue[MAX];\nint front = -1, rear = -1;\n\nvoid enqueue(int value) {\n    if ((rear + 1) % MAX == front) {\n        printf(\"Queue Overflow\\n\");\n    } else {\n        if (front == -1) front = 0;\n        rear = (rear + 1) % MAX;\n        queue[rear] = value;\n        printf(\"Enqueued %d\\n\", value);\n    }\n}\n\nint dequeue() {\n    if (front == -1) {\n        printf(\"Queue Underflow\\n\");\n        return -1;\n    } else {\n        int value = queue[front];\n        if (front == rear) {\n            front = rear = -1;\n        } else {\n            front = (front + 1) % MAX;\n        }\n        return value;\n    }\n}\n\nint frontElement() {\n    if (front != -1) {\n        return queue[front];\n    } else {\n        printf(\"Queue is empty\\n\");\n        return -1;\n    }\n}\n\nint main() {\n    enqueue(10);\n    enqueue(20);\n    enqueue(30);\n    printf(\"Dequeued: %d\\n\", dequeue());\n    printf(\"Front element: %d\\n\", frontElement());\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a circular queue."
+  },
+  {
+    "id": 472,
+    "input": "Write a program that implements a hash table.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\n#define SIZE 10\n\nstruct HashTable {\n    int key;\n    int value;\n};\n\nstruct HashTable table[SIZE];\n\nvoid insert(int key, int value) {\n    int index = key % SIZE;\n    table[index].key = key;\n    table[index].value = value;\n}\n\nint search(int key) {\n    int index = key % SIZE;\n    if (table[index].key == key) {\n        return table[index].value;\n    } else {\n        return -1;\n    }\n}\n\nint main() {\n    insert(10, 100);\n    insert(20, 200);\n    insert(30, 300);\n    printf(\"Value at key 20: %d\\n\", search(20));\n    printf(\"Value at key 40: %d\\n\", search(40));\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a basic hash table."
+  },
+  {
+    "id": 473,
+    "input": "Write a program that implements the selection sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid selectionSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        int minIdx = i;\n        for (int j = i + 1; j < n; j++) {\n            if (arr[j] < arr[minIdx]) {\n                minIdx = j;\n            }\n        }\n        if (minIdx != i) {\n            int temp = arr[i];\n            arr[i] = arr[minIdx];\n            arr[minIdx] = temp;\n        }\n    }\n}\n\nint main() {\n    int arr[] = {64, 25, 12, 22, 11};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    selectionSort(arr, n);\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of the selection sort algorithm."
+  },
+  {
+    "id": 474,
+    "input": "Write a program that implements the bubble sort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}\n\nint main() {\n    int arr[] = {64, 34, 25, 12, 22, 11, 90};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    bubbleSort(arr, n);\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of the bubble sort algorithm."
+  },
+  {
+    "id": 475,
+    "input": "Write a program that implements the quicksort algorithm.",
+    "output": "#include <stdio.h>\n\nvoid swap(int* a, int* b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nint partition(int arr[], int low, int high) {\n    int pivot = arr[high];\n    int i = low - 1;\n    for (int j = low; j < high; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            swap(&arr[i], &arr[j]);\n        }\n    }\n    swap(&arr[i + 1], &arr[high]);\n    return i + 1;\n}\n\nvoid quickSort(int arr[], int low, int high) {\n    if (low < high) {\n        int pi = partition(arr, low, high);\n        quickSort(arr, low, pi - 1);\n        quickSort(arr, pi + 1, high);\n    }\n}\n\nint main() {\n    int arr[] = {10, 7, 8, 9, 1, 5};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    quickSort(arr, 0, n - 1);\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of the quicksort algorithm."
+  },
+  {
+    "id": 476,
+    "input": "Write a program that implements a stack using arrays.",
+    "output": "#include <stdio.h>\n#define MAX 10\n\nint stack[MAX];\nint top = -1;\n\nvoid push(int value) {\n    if (top == MAX - 1) {\n        printf(\"Stack overflow\\n\");\n    } else {\n        stack[++top] = value;\n        printf(\"Pushed %d\\n\", value);\n    }\n}\n\nvoid pop() {\n    if (top == -1) {\n        printf(\"Stack underflow\\n\");\n    } else {\n        printf(\"Popped %d\\n\", stack[top--]);\n    }\n}\n\nvoid display() {\n    if (top == -1) {\n        printf(\"Stack is empty\\n\");\n    } else {\n        for (int i = 0; i <= top; i++) {\n            printf(\"%d \", stack[i]);\n        }\n        printf(\"\\n\");\n    }\n}\n\nint main() {\n    push(10);\n    push(20);\n    push(30);\n    display();\n    pop();\n    display();\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a stack using arrays."
+  },
+  {
+    "id": 477,
+    "input": "Write a program that implements a queue using arrays.",
+    "output": "#include <stdio.h>\n#define MAX 10\n\nint queue[MAX];\nint front = -1, rear = -1;\n\nvoid enqueue(int value) {\n    if (rear == MAX - 1) {\n        printf(\"Queue overflow\\n\");\n    } else {\n        if (front == -1) front = 0;\n        queue[++rear] = value;\n        printf(\"Enqueued %d\\n\", value);\n    }\n}\n\nvoid dequeue() {\n    if (front == -1) {\n        printf(\"Queue underflow\\n\");\n    } else {\n        printf(\"Dequeued %d\\n\", queue[front++]);\n        if (front > rear) front = rear = -1;\n    }\n}\n\nvoid display() {\n    if (front == -1) {\n        printf(\"Queue is empty\\n\");\n    } else {\n        for (int i = front; i <= rear; i++) {\n            printf(\"%d \", queue[i]);\n        }\n        printf(\"\\n\");\n    }\n}\n\nint main() {\n    enqueue(10);\n    enqueue(20);\n    enqueue(30);\n    display();\n    dequeue();\n    display();\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a queue using arrays."
+  },
+  {
+    "id": 478,
+    "input": "Write a program that implements a linked list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nvoid append(struct Node** head, int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = NULL;\n    if (*head == NULL) {\n        *head = newNode;\n    } else {\n        struct Node* temp = *head;\n        while (temp->next != NULL) {\n            temp = temp->next;\n        }\n        temp->next = newNode;\n    }\n}\n\nvoid display(struct Node* head) {\n    struct Node* temp = head;\n    while (temp != NULL) {\n        printf(\"%d \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Node* head = NULL;\n    append(&head, 10);\n    append(&head, 20);\n    append(&head, 30);\n    display(head);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a linked list."
+  },
+  {
+    "id": 479,
+    "input": "Write a program that implements a binary search tree (BST).",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* left;\n    struct Node* right;\n};\n\nstruct Node* createNode(int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->left = newNode->right = NULL;\n    return newNode;\n}\n\nstruct Node* insert(struct Node* root, int value) {\n    if (root == NULL) {\n        return createNode(value);\n    }\n    if (value < root->data) {\n        root->left = insert(root->left, value);\n    } else {\n        root->right = insert(root->right, value);\n    }\n    return root;\n}\n\nvoid inorder(struct Node* root) {\n    if (root != NULL) {\n        inorder(root->left);\n        printf(\"%d \", root->data);\n        inorder(root->right);\n    }\n}\n\nint main() {\n    struct Node* root = NULL;\n    root = insert(root, 50);\n    insert(root, 30);\n    insert(root, 20);\n    insert(root, 40);\n    insert(root, 70);\n    inorder(root);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a binary search tree (BST)."
+  },
+  {
+    "id": 480,
+    "input": "Write a program that implements a stack using a linked list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nstruct Stack {\n    struct Node* top;\n};\n\nvoid push(struct Stack* stack, int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = stack->top;\n    stack->top = newNode;\n}\n\nvoid pop(struct Stack* stack) {\n    if (stack->top == NULL) {\n        printf(\"Stack underflow\\n\");\n    } else {\n        struct Node* temp = stack->top;\n        stack->top = stack->top->next;\n        free(temp);\n    }\n}\n\nvoid display(struct Stack* stack) {\n    struct Node* temp = stack->top;\n    while (temp != NULL) {\n        printf(\"%d \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Stack stack = {NULL};\n    push(&stack, 10);\n    push(&stack, 20);\n    push(&stack, 30);\n    display(&stack);\n    pop(&stack);\n    display(&stack);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a stack using a linked list."
+  },
+  {
+    "id": 481,
+    "input": "Write a program that implements a queue using a linked list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nstruct Queue {\n    struct Node* front;\n    struct Node* rear;\n};\n\nvoid enqueue(struct Queue* queue, int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = NULL;\n    if (queue->rear == NULL) {\n        queue->front = queue->rear = newNode;\n    } else {\n        queue->rear->next = newNode;\n        queue->rear = newNode;\n    }\n}\n\nvoid dequeue(struct Queue* queue) {\n    if (queue->front == NULL) {\n        printf(\"Queue underflow\\n\");\n    } else {\n        struct Node* temp = queue->front;\n        queue->front = queue->front->next;\n        if (queue->front == NULL) {\n            queue->rear = NULL;\n        }\n        free(temp);\n    }\n}\n\nvoid display(struct Queue* queue) {\n    struct Node* temp = queue->front;\n    while (temp != NULL) {\n        printf(\"%d \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Queue queue = {NULL, NULL};\n    enqueue(&queue, 10);\n    enqueue(&queue, 20);\n    enqueue(&queue, 30);\n    display(&queue);\n    dequeue(&queue);\n    display(&queue);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a queue using a linked list."
+  },
+  {
+    "id": 482,
+    "input": "Write a program that implements a circular queue using arrays.",
+    "output": "#include <stdio.h>\n#define MAX 5\n\nint queue[MAX];\nint front = -1, rear = -1;\n\nvoid enqueue(int value) {\n    if ((rear + 1) % MAX == front) {\n        printf(\"Queue overflow\\n\");\n    } else {\n        if (front == -1) front = 0;\n        rear = (rear + 1) % MAX;\n        queue[rear] = value;\n    }\n}\n\nvoid dequeue() {\n    if (front == -1) {\n        printf(\"Queue underflow\\n\");\n    } else {\n        printf(\"Dequeued %d\\n\", queue[front]);\n        if (front == rear) {\n            front = rear = -1;\n        } else {\n            front = (front + 1) % MAX;\n        }\n    }\n}\n\nvoid display() {\n    if (front == -1) {\n        printf(\"Queue is empty\\n\");\n    } else {\n        int i = front;\n        while (i != rear) {\n            printf(\"%d \", queue[i]);\n            i = (i + 1) % MAX;\n        }\n        printf(\"%d\\n\", queue[rear]);\n    }\n}\n\nint main() {\n    enqueue(10);\n    enqueue(20);\n    enqueue(30);\n    display();\n    dequeue();\n    display();\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a circular queue using arrays."
+  },
+  {
+    "id": 483,
+    "input": "Write a program that implements a doubly linked list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n    struct Node* prev;\n};\n\nvoid append(struct Node** head, int value) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = NULL;\n    newNode->prev = NULL;\n    if (*head == NULL) {\n        *head = newNode;\n    } else {\n        struct Node* temp = *head;\n        while (temp->next != NULL) {\n            temp = temp->next;\n        }\n        temp->next = newNode;\n        newNode->prev = temp;\n    }\n}\n\nvoid display(struct Node* head) {\n    struct Node* temp = head;\n    while (temp != NULL) {\n        printf(\"%d \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Node* head = NULL;\n    append(&head, 10);\n    append(&head, 20);\n    append(&head, 30);\n    display(head);\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a doubly linked list."
+  },
+  {
+    "id": 484,
+    "input": "Write a program that implements a graph using an adjacency matrix.",
+    "output": "#include <stdio.h>\n#define MAX 5\n\nint graph[MAX][MAX] = {{0, 1, 0, 0, 1},\n                          {1, 0, 1, 0, 0},\n                          {0, 1, 0, 1, 0},\n                          {0, 0, 1, 0, 1},\n                          {1, 0, 0, 1, 0}};\n\nvoid displayGraph() {\n    for (int i = 0; i < MAX; i++) {\n        for (int j = 0; j < MAX; j++) {\n            printf(\"%d \", graph[i][j]);\n        }\n        printf(\"\\n\");\n    }\n}\n\nint main() {\n    displayGraph();\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a graph using an adjacency matrix."
+  },
+  {
+    "id": 485,
+    "input": "Write a program that implements a simple hash table using an array.",
+    "output": "#include <stdio.h>\n#define SIZE 10\n\nint hashTable[SIZE] = {0};\n\nint hash(int key) {\n    return key % SIZE;\n}\n\nvoid insert(int key) {\n    int index = hash(key);\n    if (hashTable[index] != 0) {\n        printf(\"Collision occurred. Could not insert %d\\n\", key);\n    } else {\n        hashTable[index] = key;\n        printf(\"Inserted %d\\n\", key);\n    }\n}\n\nvoid display() {\n    for (int i = 0; i < SIZE; i++) {\n        printf(\"%d: %d\\n\", i, hashTable[i]);\n    }\n}\n\nint main() {\n    insert(10);\n    insert(20);\n    insert(30);\n    display();\n    return 0;\n}",
+    "description": "This program demonstrates the implementation of a simple hash table using an array."
+  },
+  {
+    "id": 486,
+    "input": "Write a program to calculate the solution to the quadratic equation in C.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nvoid input(double *a, double *b, double *c);\nvoid calc(double a, double b, double c, double *root1_real, double *root2_real, double *root_imaginary, int *root_type);\nvoid output(double root1_real, double root2_real, double root_imaginary, int root_type);\n\nint main() {\n    double a, b, c;\n    double root1_real, root2_real;\n    double root_imaginary = 0;\n    int root_type;\n\n    input(&a, &b, &c);\n\n    calc(a, b, c, &root1_real, &root2_real, &root_imaginary, &root_type);\n    output(root1_real, root2_real, root_imaginary, root_type);\n\n    return 0;\n}\n\nvoid input(double *a, double *b, double *c) {\n    printf(\"Enter the coefficient on the quadratic equation ax squared plus bx plus c is equal to 0.\\n\");\n    printf(\"a (coefficient of x^2): \");\n    scanf(\"%lf\", a);\n    printf(\"b (coefficient of x): \");\n    scanf(\"%lf\", b);\n    printf(\"c (Constant terms): \");\n    scanf(\"%lf\", c);\n}\n\nvoid calc(double a, double b, double c, double *root1_real, double *root2_real, double *root_imaginary, int *root_type) {\n    double discriminant = b * b - 4 * a * c;\n\n    if (discriminant > 0) {\n        *root_type = 0;\n        *root1_real = (-b + sqrt(discriminant)) / (2 * a);\n        *root2_real = (-b - sqrt(discriminant)) / (2 * a);\n    } else if (discriminant == 0) {\n        *root_type = 1;\n        *root1_real = *root2_real = -b / (2 * a);\n    } else {\n        *root_type = 2;\n        *root1_real = *root2_real = -b / (2 * a);\n        *root_imaginary = sqrt(-discriminant) / (2 * a);\n    }\n}\n\nvoid output(double root1_real, double root2_real, double root_imaginary, int root_type) {\n    if (root_type == 0) {\n        printf(\"Two different real solutions: \\n\");\n        printf(\"x1 = %.2f\\n\", root1_real);\n        printf(\"x2 = %.2f\\n\", root2_real);\n    } else if (root_type == 1) {\n        printf(\"Multi-solution of real numbers: \\n\");\n        printf(\"x = %.2f\\n\", root1_real);\n    } else if (root_type == 2) {\n        printf(\"One set of conjugated imaginary solutions: \\n\");\n        printf(\"x1 = %.2f + %.2fi\\n\", root1_real, root_imaginary);\n        printf(\"x2 = %.2f - %.2fi\\n\", root2_real, root_imaginary);\n    }\n}",
+    "description": "A program that finds the solution of a quadratic equation. Create a prototype declaration by creating a new function to input the three coefficients of the quadratic equation, a function to calculate, and a new function to output the value. In the input function, a pointer is used to store the value in each variable. In the function to be calculated, the square root is calculated using the sqrt function from the math.h library. Output was performed in the function that outputs according to the value of the discriminant."
+  },
+  {
+    "id": 487,
+    "input": "Write a program to implement a basic bank account system in C.",
+    "output": "#include <stdio.h>\n\nstruct Account {\n    int account_number;\n    char name[50];\n    float balance;\n};\n\nvoid deposit(struct Account *acc, float amount);\nvoid withdraw(struct Account *acc, float amount);\nvoid display(struct Account acc);\n\nint main() {\n    struct Account acc1 = {101, \"John Doe\", 1000.0};\n    int choice;\n    float amount;\n\n    while (1) {\n        printf(\"\\nBank Account System\\n\");\n        printf(\"1. Deposit\\n\");\n        printf(\"2. Withdraw\\n\");\n        printf(\"3. Display Balance\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter deposit amount: \");\n                scanf(\"%f\", &amount);\n                deposit(&acc1, amount);\n                break;\n            case 2:\n                printf(\"Enter withdraw amount: \");\n                scanf(\"%f\", &amount);\n                withdraw(&acc1, amount);\n                break;\n            case 3:\n                display(acc1);\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid deposit(struct Account *acc, float amount) {\n    if (amount > 0) {\n        acc->balance += amount;\n        printf(\"Deposited %.2f to account.\\n\", amount);\n    } else {\n        printf(\"Invalid deposit amount!\\n\");\n    }\n}\n\nvoid withdraw(struct Account *acc, float amount) {\n    if (amount > 0 && amount <= acc->balance) {\n        acc->balance -= amount;\n        printf(\"Withdrew %.2f from account.\\n\", amount);\n    } else if (amount > acc->balance) {\n        printf(\"Insufficient balance!\\n\");\n    } else {\n        printf(\"Invalid withdrawal amount!\\n\");\n    }\n}\n\nvoid display(struct Account acc) {\n    printf(\"\\nAccount Number: %d\\n\", acc.account_number);\n    printf(\"Account Holder: %s\\n\", acc.name);\n    printf(\"Current Balance: %.2f\\n\", acc.balance);\n}",
+    "description": "This program implements a basic bank account system where a user can deposit money into an account, withdraw money from an account, and view the current balance. The program uses a `struct Account` to store the account details, including the account number, the name of the account holder, and the balance. There are three main functions: `deposit` to add money to the account, `withdraw` to remove money (with checks for sufficient balance), and `display` to show the account details. The program runs in a loop, allowing the user to perform operations until they choose to exit."
+  },
+  {
+    "id": 488,
+    "input": "Write a program to implement a simple student management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Student {\n    int student_id;\n    char name[50];\n    float marks[5];\n    float average;\n};\n\nvoid inputStudentData(struct Student *stu);\nvoid calculateAverage(struct Student *stu);\nvoid displayStudentData(struct Student stu);\n\nint main() {\n    struct Student student1;\n\n    inputStudentData(&student1);\n    calculateAverage(&student1);\n    displayStudentData(student1);\n\n    return 0;\n}\n\nvoid inputStudentData(struct Student *stu) {\n    printf(\"Enter student ID: \");\n    scanf(\"%d\", &stu->student_id);\n    printf(\"Enter student name: \");\n    getchar();  // To consume the leftover newline character\n    fgets(stu->name, sizeof(stu->name), stdin);\n    printf(\"Enter marks for 5 subjects: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"Subject %d: \", i + 1);\n        scanf(\"%f\", &stu->marks[i]);\n    }\n}\n\nvoid calculateAverage(struct Student *stu) {\n    float sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += stu->marks[i];\n    }\n    stu->average = sum / 5;\n}\n\nvoid displayStudentData(struct Student stu) {\n    printf(\"\\nStudent ID: %d\\n\", stu.student_id);\n    printf(\"Name: %s\", stu.name);\n    printf(\"Marks: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%.2f \", stu.marks[i]);\n    }\n    printf(\"\\nAverage Marks: %.2f\\n\", stu.average);\n}",
+    "description": "This program implements a simple student management system where user can input a student's ID, name, and marks for five subjects. The program calculates the average of the marks and displays the student's information including their marks and average. The `struct Student` is used to store the student's details, and functions are provided for input, calculation of the average, and display of the data. The program is designed to handle data for a single student but could be easily expanded for multiple students by using arrays or other data structures."
+  },
+  {
+    "id": 489,
+    "input": "Write a program to implement a simple library management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Book {\n    int book_id;\n    char title[50];\n    char author[50];\n    int is_available;\n};\n\nvoid addBook(struct Book *book, int id, const char *title, const char *author);\nvoid displayBook(struct Book book);\nvoid borrowBook(struct Book *book);\nvoid returnBook(struct Book *book);\n\nint main() {\n    struct Book book1;\n    addBook(&book1, 1, \"C Programming\", \"Dennis Ritchie\");\n\n    int choice;\n    while (1) {\n        printf(\"\\nLibrary Management System\\n\");\n        printf(\"1. Display Book\\n\");\n        printf(\"2. Borrow Book\\n\");\n        printf(\"3. Return Book\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                displayBook(book1);\n                break;\n            case 2:\n                borrowBook(&book1);\n                break;\n            case 3:\n                returnBook(&book1);\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid addBook(struct Book *book, int id, const char *title, const char *author) {\n    book->book_id = id;\n    snprintf(book->title, sizeof(book->title), \"%s\", title);\n    snprintf(book->author, sizeof(book->author), \"%s\", author);\n    book->is_available = 1; // Available by default\n}\n\nvoid displayBook(struct Book book) {\n    printf(\"\\nBook ID: %d\\n\", book.book_id);\n    printf(\"Title: %s\\n\", book.title);\n    printf(\"Author: %s\\n\", book.author);\n    printf(\"Status: %s\\n\", book.is_available ? \"Available\" : \"Not Available\");\n}\n\nvoid borrowBook(struct Book *book) {\n    if (book->is_available) {\n        book->is_available = 0;\n        printf(\"You borrowed the book: %s\\n\", book->title);\n    } else {\n        printf(\"Sorry, the book is not available.\\n\");\n    }\n}\n\nvoid returnBook(struct Book *book) {\n    if (!book->is_available) {\n        book->is_available = 1;\n        printf(\"You returned the book: %s\\n\", book->title);\n    } else {\n        printf(\"This book was not borrowed.\\n\");\n    }\n}"
+  },
+  {
+    "id": 490,
+    "input": "Write a program to implement a simple to-do list management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Todo {\n    int task_id;\n    char task[100];\n    int is_completed;\n};\n\nvoid addTask(struct Todo *todo, int id, const char *task);\nvoid displayTasks(struct Todo todos[], int count);\nvoid markAsCompleted(struct Todo *todo);\n\nint main() {\n    struct Todo todos[10];\n    int task_count = 0;\n    int choice;\n\n    while (1) {\n        printf(\"\\nTo-Do List Management\\n\");\n        printf(\"1. Add Task\\n\");\n        printf(\"2. Display Tasks\\n\");\n        printf(\"3. Mark Task as Completed\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                if (task_count < 10) {\n                    char task[100];\n                    printf(\"Enter task description: \");\n                    getchar(); // To consume newline character\n                    fgets(task, sizeof(task), stdin);\n                    addTask(&todos[task_count], task_count + 1, task);\n                    task_count++;\n                } else {\n                    printf(\"Task list is full!\\n\");\n                }\n                break;\n            case 2:\n                displayTasks(todos, task_count);\n                break;\n            case 3:\n                if (task_count > 0) {\n                    int task_id;\n                    printf(\"Enter task ID to mark as completed: \");\n                    scanf(\"%d\", &task_id);\n                    if (task_id > 0 && task_id <= task_count) {\n                        markAsCompleted(&todos[task_id - 1]);\n                    } else {\n                        printf(\"Invalid task ID!\\n\");\n                    }\n                } else {\n                    printf(\"No tasks available!\\n\");\n                }\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid addTask(struct Todo *todo, int id, const char *task) {\n    todo->task_id = id;\n    snprintf(todo->task, sizeof(todo->task), \"%s\", task);\n    todo->is_completed = 0; // Task is not completed initially\n}\n\nvoid displayTasks(struct Todo todos[], int count) {\n    if (count == 0) {\n        printf(\"No tasks available!\\n\");\n    } else {\n        for (int i = 0; i < count; i++) {\n            printf(\"\\nTask ID: %d\\n\", todos[i].task_id);\n            printf(\"Description: %s\\n\", todos[i].task);\n            printf(\"Status: %s\\n\", todos[i].is_completed ? \"Completed\" : \"Pending\");\n        }\n    }\n}\n\nvoid markAsCompleted(struct Todo *todo) {\n    if (todo->is_completed) {\n        printf(\"Task is already completed!\\n\");\n    } else {\n        todo->is_completed = 1;\n        printf(\"Task marked as completed.\\n\");\n    }\n}"
+  },
+  {
+    "id": 491,
+    "input": "Write a program to implement a simple bank account management system in C.",
+    "output": "#include <stdio.h>\n\nstruct BankAccount {\n    int account_number;\n    char account_holder[50];\n    float balance;\n};\n\nvoid deposit(struct BankAccount *account, float amount);\nvoid withdraw(struct BankAccount *account, float amount);\nvoid displayAccount(struct BankAccount account);\n\nint main() {\n    struct BankAccount account = {123456, \"John Doe\", 1000.0};\n    int choice;\n    float amount;\n\n    while (1) {\n        printf(\"\\nBank Account Management\\n\");\n        printf(\"1. Deposit\\n\");\n        printf(\"2. Withdraw\\n\");\n        printf(\"3. Display Account Info\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter deposit amount: \");\n                scanf(\"%f\", &amount);\n                deposit(&account, amount);\n                break;\n            case 2:\n                printf(\"Enter withdrawal amount: \");\n                scanf(\"%f\", &amount);\n                withdraw(&account, amount);\n                break;\n            case 3:\n                displayAccount(account);\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid deposit(struct BankAccount *account, float amount) {\n    account->balance += amount;\n    printf(\"Deposited %.2f. New balance: %.2f\\n\", amount, account->balance);\n}\n\nvoid withdraw(struct BankAccount *account, float amount) {\n    if (account->balance >= amount) {\n        account->balance -= amount;\n        printf(\"Withdrawn %.2f. New balance: %.2f\\n\", amount, account->balance);\n    } else {\n        printf(\"Insufficient funds!\\n\");\n    }\n}\n\nvoid displayAccount(struct BankAccount account) {\n    printf(\"\\nAccount Number: %d\\n\", account.account_number);\n    printf(\"Account Holder: %s\\n\", account.account_holder);\n    printf(\"Balance: %.2f\\n\", account.balance);\n}"
+  },
+  {
+    "id": 492,
+    "input": "Write a program to implement a simple library management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Book {\n    int book_id;\n    char title[100];\n    char author[50];\n    int is_available;\n};\n\nvoid addBook(struct Book *book, int id, const char *title, const char *author);\nvoid displayBooks(struct Book books[], int count);\nvoid borrowBook(struct Book *book);\n\nint main() {\n    struct Book books[10];\n    int book_count = 0, choice;\n\n    while (1) {\n        printf(\"\\nLibrary Management System\\n\");\n        printf(\"1. Add Book\\n\");\n        printf(\"2. Display Books\\n\");\n        printf(\"3. Borrow Book\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                if (book_count < 10) {\n                    char title[100], author[50];\n                    printf(\"Enter book title: \");\n                    getchar();  // To consume newline\n                    fgets(title, sizeof(title), stdin);\n                    printf(\"Enter author name: \");\n                    fgets(author, sizeof(author), stdin);\n                    addBook(&books[book_count], book_count + 1, title, author);\n                    book_count++;\n                } else {\n                    printf(\"Library is full!\\n\");\n                }\n                break;\n            case 2:\n                displayBooks(books, book_count);\n                break;\n            case 3:\n                if (book_count > 0) {\n                    int book_id;\n                    printf(\"Enter book ID to borrow: \");\n                    scanf(\"%d\", &book_id);\n                    if (book_id > 0 && book_id <= book_count) {\n                        borrowBook(&books[book_id - 1]);\n                    } else {\n                        printf(\"Invalid book ID!\\n\");\n                    }\n                } else {\n                    printf(\"No books available!\\n\");\n                }\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid addBook(struct Book *book, int id, const char *title, const char *author) {\n    book->book_id = id;\n    snprintf(book->title, sizeof(book->title), \"%s\", title);\n    snprintf(book->author, sizeof(book->author), \"%s\", author);\n    book->is_available = 1;  // Book is available initially\n}\n\nvoid displayBooks(struct Book books[], int count) {\n    if (count == 0) {\n        printf(\"No books available!\\n\");\n    } else {\n        for (int i = 0; i < count; i++) {\n            printf(\"\\nBook ID: %d\\n\", books[i].book_id);\n            printf(\"Title: %s\\n\", books[i].title);\n            printf(\"Author: %s\\n\", books[i].author);\n            printf(\"Status: %s\\n\", books[i].is_available ? \"Available\" : \"Borrowed\");\n        }\n    }\n}\n\nvoid borrowBook(struct Book *book) {\n    if (book->is_available) {\n        book->is_available = 0;\n        printf(\"Book borrowed successfully.\\n\");\n    } else {\n        printf(\"Book is already borrowed.\\n\");\n    }\n}"
+  },
+  {
+    "id": 493,
+    "input": "Write a program to implement a simple temperature conversion system in C.",
+    "output": "#include <stdio.h>\n\nvoid celsiusToFahrenheit(float celsius);\nvoid fahrenheitToCelsius(float fahrenheit);\n\nint main() {\n    int choice;\n    float temperature;\n\n    while (1) {\n        printf(\"\\nTemperature Conversion System\\n\");\n        printf(\"1. Celsius to Fahrenheit\\n\");\n        printf(\"2. Fahrenheit to Celsius\\n\");\n        printf(\"3. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter temperature in Celsius: \");\n                scanf(\"%f\", &temperature);\n                celsiusToFahrenheit(temperature);\n                break;\n            case 2:\n                printf(\"Enter temperature in Fahrenheit: \");\n                scanf(\"%f\", &temperature);\n                fahrenheitToCelsius(temperature);\n                break;\n            case 3:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid celsiusToFahrenheit(float celsius) {\n    float fahrenheit = (celsius * 9/5) + 32;\n    printf(\"%.2f Celsius = %.2f Fahrenheit\\n\", celsius, fahrenheit);\n}\n\nvoid fahrenheitToCelsius(float fahrenheit) {\n    float celsius = (fahrenheit - 32) * 5/9;\n    printf(\"%.2f Fahrenheit = %.2f Celsius\\n\", fahrenheit, celsius);\n}"
+  },
+  {
+    "id": 494,
+    "input": "Write a program to implement a simple contact management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Contact {\n    char name[50];\n    char phone_number[15];\n    char email[50];\n};\n\nvoid addContact(struct Contact *contact, const char *name, const char *phone, const char *email);\nvoid displayContacts(struct Contact contacts[], int count);\n\nint main() {\n    struct Contact contacts[10];\n    int contact_count = 0, choice;\n\n    while (1) {\n        printf(\"\\nContact Management System\\n\");\n        printf(\"1. Add Contact\\n\");\n        printf(\"2. Display Contacts\\n\");\n        printf(\"3. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                if (contact_count < 10) {\n                    char name[50], phone[15], email[50];\n                    printf(\"Enter contact name: \");\n                    getchar();  // To consume newline\n                    fgets(name, sizeof(name), stdin);\n                    printf(\"Enter phone number: \");\n                    fgets(phone, sizeof(phone), stdin);\n                    printf(\"Enter email address: \");\n                    fgets(email, sizeof(email), stdin);\n                    addContact(&contacts[contact_count], name, phone, email);\n                    contact_count++;\n                } else {\n                    printf(\"Contact list is full!\\n\");\n                }\n                break;\n            case 2:\n                displayContacts(contacts, contact_count);\n                break;\n            case 3:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid addContact(struct Contact *contact, const char *name, const char *phone, const char *email) {\n    snprintf(contact->name, sizeof(contact->name), \"%s\", name);\n    snprintf(contact->phone_number, sizeof(contact->phone_number), \"%s\", phone);\n    snprintf(contact->email, sizeof(contact->email), \"%s\", email);\n}\n\nvoid displayContacts(struct Contact contacts[], int count) {\n    if (count == 0) {\n        printf(\"No contacts available!\\n\");\n    } else {\n        for (int i = 0; i < count; i++) {\n            printf(\"\\nContact Name: %s\\n\", contacts[i].name);\n            printf(\"Phone Number: %s\\n\", contacts[i].phone_number);\n            printf(\"Email: %s\\n\", contacts[i].email);\n        }\n    }\n}"
+  },
+  {
+    "id": 495,
+    "input": "Write a program to implement a simple student grade management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Student {\n    char name[50];\n    int grades[5];\n    float average;\n};\n\nvoid inputGrades(struct Student *student);\nvoid calculateAverage(struct Student *student);\nvoid displayStudent(struct Student student);\n\nint main() {\n    struct Student student;\n    inputGrades(&student);\n    calculateAverage(&student);\n    displayStudent(student);\n\n    return 0;\n}\n\nvoid inputGrades(struct Student *student) {\n    printf(\"Enter student's name: \");\n    getchar(); // To consume leftover newline\n    fgets(student->name, sizeof(student->name), stdin);\n    printf(\"Enter grades for 5 subjects: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"Subject %d: \", i + 1);\n        scanf(\"%d\", &student->grades[i]);\n    }\n}\n\nvoid calculateAverage(struct Student *student) {\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += student->grades[i];\n    }\n    student->average = sum / 5.0;\n}\n\nvoid displayStudent(struct Student student) {\n    printf(\"\\nStudent's Name: %s\", student.name);\n    printf(\"Grades: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", student.grades[i]);\n    }\n    printf(\"\\nAverage Grade: %.2f\\n\", student.average);\n}"
+  },
+  {
+    "id": 496,
+    "input": "Write a program to implement a simple bank account management system in C.",
+    "output": "#include <stdio.h>\n\nstruct BankAccount {\n    char name[50];\n    int accountNumber;\n    float balance;\n};\n\nvoid deposit(struct BankAccount *account, float amount);\nvoid withdraw(struct BankAccount *account, float amount);\nvoid displayAccount(struct BankAccount account);\n\nint main() {\n    struct BankAccount account = {\"John Doe\", 123456, 1000.0};\n    int choice;\n    float amount;\n\n    while (1) {\n        printf(\"\\nBank Account Management\\n\");\n        printf(\"1. Deposit\\n\");\n        printf(\"2. Withdraw\\n\");\n        printf(\"3. Display Account\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter amount to deposit: \");\n                scanf(\"%f\", &amount);\n                deposit(&account, amount);\n                break;\n            case 2:\n                printf(\"Enter amount to withdraw: \");\n                scanf(\"%f\", &amount);\n                withdraw(&account, amount);\n                break;\n            case 3:\n                displayAccount(account);\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid deposit(struct BankAccount *account, float amount) {\n    account->balance += amount;\n    printf(\"Deposited %.2f. New balance: %.2f\\n\", amount, account->balance);\n}\n\nvoid withdraw(struct BankAccount *account, float amount) {\n    if (account->balance >= amount) {\n        account->balance -= amount;\n        printf(\"Withdrew %.2f. New balance: %.2f\\n\", amount, account->balance);\n    } else {\n        printf(\"Insufficient balance!\\n\");\n    }\n}\n\nvoid displayAccount(struct BankAccount account) {\n    printf(\"\\nAccount Number: %d\\n\", account.accountNumber);\n    printf(\"Account Holder: %s\", account.name);\n    printf(\"Balance: %.2f\\n\", account.balance);\n}"
+  },
+  {
+    "id": 497,
+    "input": "Write a program to implement a simple inventory management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Item {\n    int id;\n    char name[50];\n    int quantity;\n    float price;\n};\n\nvoid addItem(struct Item *inventory, int *count, int id, const char *name, int quantity, float price);\nvoid displayInventory(struct Item inventory[], int count);\nvoid updateQuantity(struct Item *item, int quantity);\n\nint main() {\n    struct Item inventory[10];\n    int itemCount = 0, choice, id, quantity;\n    char name[50];\n    float price;\n\n    while (1) {\n        printf(\"\\nInventory Management\\n\");\n        printf(\"1. Add Item\\n\");\n        printf(\"2. Display Inventory\\n\");\n        printf(\"3. Update Item Quantity\\n\");\n        printf(\"4. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter item ID: \");\n                scanf(\"%d\", &id);\n                printf(\"Enter item name: \");\n                getchar(); // To consume newline character\n                fgets(name, sizeof(name), stdin);\n                printf(\"Enter item quantity: \");\n                scanf(\"%d\", &quantity);\n                printf(\"Enter item price: \");\n                scanf(\"%f\", &price);\n                addItem(inventory, &itemCount, id, name, quantity, price);\n                break;\n            case 2:\n                displayInventory(inventory, itemCount);\n                break;\n            case 3:\n                printf(\"Enter item ID to update quantity: \");\n                scanf(\"%d\", &id);\n                printf(\"Enter new quantity: \");\n                scanf(\"%d\", &quantity);\n                updateQuantity(&inventory[id - 1], quantity);\n                break;\n            case 4:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid addItem(struct Item *inventory, int *count, int id, const char *name, int quantity, float price) {\n    inventory[*count].id = id;\n    snprintf(inventory[*count].name, sizeof(inventory[*count].name), \"%s\", name);\n    inventory[*count].quantity = quantity;\n    inventory[*count].price = price;\n    (*count)++;\n}\n\nvoid displayInventory(struct Item inventory[], int count) {\n    if (count == 0) {\n        printf(\"No items in inventory.\\n\");\n    } else {\n        for (int i = 0; i < count; i++) {\n            printf(\"\\nItem ID: %d\\n\", inventory[i].id);\n            printf(\"Item Name: %s\", inventory[i].name);\n            printf(\"Quantity: %d\\n\", inventory[i].quantity);\n            printf(\"Price: %.2f\\n\", inventory[i].price);\n        }\n    }\n}\n\nvoid updateQuantity(struct Item *item, int quantity) {\n    item->quantity = quantity;\n    printf(\"Item quantity updated to: %d\\n\", item->quantity);\n}"
+  },
+  {
+    "id": 498,
+    "input": "Write a program to implement a simple student attendance system in C.",
+    "output": "#include <stdio.h>\n\nstruct Student {\n    char name[50];\n    int rollNumber;\n    int attendance;\n};\n\nvoid markAttendance(struct Student *student);\nvoid displayAttendance(struct Student students[], int count);\n\nint main() {\n    struct Student students[10];\n    int studentCount = 0, choice;\n\n    while (1) {\n        printf(\"\\nStudent Attendance Management\\n\");\n        printf(\"1. Mark Attendance\\n\");\n        printf(\"2. Display Attendance\\n\");\n        printf(\"3. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                if (studentCount < 10) {\n                    char name[50];\n                    printf(\"Enter student name: \");\n                    getchar(); // To consume newline character\n                    fgets(name, sizeof(name), stdin);\n                    printf(\"Enter roll number: \");\n                    scanf(\"%d\", &students[studentCount].rollNumber);\n                    snprintf(students[studentCount].name, sizeof(students[studentCount].name), \"%s\", name);\n                    students[studentCount].attendance = 0; // Initially set to 0\n                    markAttendance(&students[studentCount]);\n                    studentCount++;\n                } else {\n                    printf(\"Student list is full!\\n\");\n                }\n                break;\n            case 2:\n                displayAttendance(students, studentCount);\n                break;\n            case 3:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid markAttendance(struct Student *student) {\n    int present;\n    printf(\"Enter attendance for %s: (1 for present, 0 for absent): \", student->name);\n    scanf(\"%d\", &present);\n    student->attendance = present;\n}\n\nvoid displayAttendance(struct Student students[], int count) {\n    if (count == 0) {\n        printf(\"No students available!\\n\");\n    } else {\n        for (int i = 0; i < count; i++) {\n            printf(\"\\nStudent Roll Number: %d\\n\", students[i].rollNumber);\n            printf(\"Name: %s\", students[i].name);\n            printf(\"Attendance: %s\\n\", students[i].attendance ? \"Present\" : \"Absent\");\n        }\n    }\n}"
+  },
+  {
+    "id": 499,
+    "input": "Write a program to implement a simple contact management system in C.",
+    "output": "#include <stdio.h>\n\nstruct Contact {\n    char name[50];\n    char phoneNumber[15];\n    char email[50];\n};\n\nvoid addContact(struct Contact *contacts, int *count, const char *name, const char *phoneNumber, const char *email);\nvoid displayContacts(struct Contact contacts[], int count);\n\nint main() {\n    struct Contact contacts[10];\n    int contactCount = 0, choice;\n    char name[50], phoneNumber[15], email[50];\n\n    while (1) {\n        printf(\"\\nContact Management\\n\");\n        printf(\"1. Add Contact\\n\");\n        printf(\"2. Display Contacts\\n\");\n        printf(\"3. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter contact name: \");\n                getchar(); // To consume newline character\n                fgets(name, sizeof(name), stdin);\n                printf(\"Enter contact phone number: \");\n                fgets(phoneNumber, sizeof(phoneNumber), stdin);\n                printf(\"Enter contact email: \");\n                fgets(email, sizeof(email), stdin);\n                addContact(contacts, &contactCount, name, phoneNumber, email);\n                break;\n            case 2:\n                displayContacts(contacts, contactCount);\n                break;\n            case 3:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid addContact(struct Contact *contacts, int *count, const char *name, const char *phoneNumber, const char *email) {\n    snprintf(contacts[*count].name, sizeof(contacts[*count].name), \"%s\", name);\n    snprintf(contacts[*count].phoneNumber, sizeof(contacts[*count].phoneNumber), \"%s\", phoneNumber);\n    snprintf(contacts[*count].email, sizeof(contacts[*count].email), \"%s\", email);\n    (*count)++;\n}\n\nvoid displayContacts(struct Contact contacts[], int count) {\n    if (count == 0) {\n        printf(\"No contacts available!\\n\");\n    } else {\n        for (int i = 0; i < count; i++) {\n            printf(\"\\nContact %d:\\n\", i + 1);\n            printf(\"Name: %s\", contacts[i].name);\n            printf(\"Phone Number: %s\", contacts[i].phoneNumber);\n            printf(\"Email: %s\\n\", contacts[i].email);\n        }\n    }\n}"
+  },
+  {
+    "id": 500,
+    "input": "Write a program to implement a simple temperature conversion system in C.",
+    "output": "#include <stdio.h>\n\nvoid celsiusToFahrenheit(float celsius);\nvoid fahrenheitToCelsius(float fahrenheit);\n\nint main() {\n    int choice;\n    float temperature;\n\n    while (1) {\n        printf(\"\\nTemperature Conversion\\n\");\n        printf(\"1. Celsius to Fahrenheit\\n\");\n        printf(\"2. Fahrenheit to Celsius\\n\");\n        printf(\"3. Exit\\n\");\n        printf(\"Enter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1:\n                printf(\"Enter temperature in Celsius: \");\n                scanf(\"%f\", &temperature);\n                celsiusToFahrenheit(temperature);\n                break;\n            case 2:\n                printf(\"Enter temperature in Fahrenheit: \");\n                scanf(\"%f\", &temperature);\n                fahrenheitToCelsius(temperature);\n                break;\n            case 3:\n                printf(\"Exiting program.\\n\");\n                return 0;\n            default:\n                printf(\"Invalid choice!\\n\");\n        }\n    }\n\n    return 0;\n}\n\nvoid celsiusToFahrenheit(float celsius) {\n    float fahrenheit = (celsius * 9 / 5) + 32;\n    printf(\"%.2f Celsius = %.2f Fahrenheit\\n\", celsius, fahrenheit);\n}\n\nvoid fahrenheitToCelsius(float fahrenheit) {\n    float celsius = (fahrenheit - 32) * 5 / 9;\n    printf(\"%.2f Fahrenheit = %.2f Celsius\\n\", fahrenheit, celsius);\n}"
+  }
+]

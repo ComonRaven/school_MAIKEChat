@@ -42,7 +42,7 @@ def generate_code_from_english(input_text):
 
 if __name__ == "__main__":
     # サンプル入力 (日本語で記述)
-    japanese_input = "おはようございます"
+    japanese_input = "pythonでハローワールドを出力するプログラムを書いて"
 
     # 日本語を英語に翻訳
     english_text = translate_to_english(japanese_input)
