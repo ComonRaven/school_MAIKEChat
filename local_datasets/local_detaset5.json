@@ -1,0 +1,1197 @@
+[
+  {
+    "id": 801,
+    "input": "Write a C program that dynamically allocates memory for an array of integers and prints the values.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n = 5;\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        arr[i] = i * 10;\n    }\n\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of integers and prints the values."
+  },
+  {
+    "id": 802,
+    "input": "Write a C program that dynamically allocates memory for a 2D array and sets values.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows = 3, cols = 4;\n    int **arr = (int **)malloc(rows * sizeof(int *));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < rows; i++) {\n        arr[i] = (int *)malloc(cols * sizeof(int));\n        if (arr[i] == NULL) {\n            printf(\"Memory allocation failed!\\n\");\n            return 1;\n        }\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            arr[i][j] = i * j;\n        }\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", arr[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 2D array and sets values."
+  },
+  {
+    "id": 803,
+    "input": "Write a C program that uses dynamic memory allocation to create a string and prints it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    char *str = (char *)malloc(20 * sizeof(char));\n    if (str == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    snprintf(str, 20, \"Hello, dynamic memory!\");\n    printf(\"%s\\n\", str);\n\n    free(str);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string and prints it."
+  },
+  {
+    "id": 804,
+    "input": "Write a C program that dynamically allocates memory for an array of structures and prints their details.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Person {\n    char name[20];\n    int age;\n};\n\nint main() {\n    int n = 3;\n    struct Person *people = (struct Person *)malloc(n * sizeof(struct Person));\n    if (people == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        snprintf(people[i].name, 20, \"Person %d\", i + 1);\n        people[i].age = 20 + i;\n    }\n\n    for (int i = 0; i < n; i++) {\n        printf(\"Name: %s, Age: %d\\n\", people[i].name, people[i].age);\n    }\n\n    free(people);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of structures and prints their details."
+  },
+  {
+    "id": 805,
+    "input": "Write a C program that dynamically allocates memory for a linked list and prints the list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\nint main() {\n    int n = 3;\n    struct Node *head = NULL;\n    struct Node *temp;\n\n    for (int i = 0; i < n; i++) {\n        struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));\n        if (newNode == NULL) {\n            printf(\"Memory allocation failed!\\n\");\n            return 1;\n        }\n        newNode->data = i + 1;\n        newNode->next = NULL;\n\n        if (head == NULL) {\n            head = newNode;\n        } else {\n            temp->next = newNode;\n        }\n        temp = newNode;\n    }\n\n    temp = head;\n    while (temp != NULL) {\n        printf(\"%d -> \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"NULL\\n\");\n\n    temp = head;\n    while (temp != NULL) {\n        struct Node *toFree = temp;\n        temp = temp->next;\n        free(toFree);\n    }\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a linked list and prints the list."
+  },
+  {
+    "id": 806,
+    "input": "Write a C program that dynamically allocates memory for a matrix and performs matrix addition.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows = 3, cols = 3;\n    int **mat1 = (int **)malloc(rows * sizeof(int *));\n    int **mat2 = (int **)malloc(rows * sizeof(int *));\n    int **result = (int **)malloc(rows * sizeof(int *));\n\n    if (mat1 == NULL || mat2 == NULL || result == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < rows; i++) {\n        mat1[i] = (int *)malloc(cols * sizeof(int));\n        mat2[i] = (int *)malloc(cols * sizeof(int));\n        result[i] = (int *)malloc(cols * sizeof(int));\n    }\n\n    // Initializing matrices\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            mat1[i][j] = i + j;\n            mat2[i][j] = i * j;\n        }\n    }\n\n    // Matrix addition\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            result[i][j] = mat1[i][j] + mat2[i][j];\n        }\n    }\n\n    // Printing result\n    printf(\"Matrix 1:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", mat1[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    printf(\"Matrix 2:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", mat2[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    printf(\"Resultant Matrix:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", result[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(mat1[i]);\n        free(mat2[i]);\n        free(result[i]);\n    }\n    free(mat1);\n    free(mat2);\n    free(result);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a matrix and performs matrix addition."
+  },
+  {
+    "id": 807,
+    "input": "Write a C program that dynamically allocates memory for a structure and assigns values to its members.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Student {\n    char name[50];\n    int age;\n};\n\nint main() {\n    struct Student *student = (struct Student *)malloc(sizeof(struct Student));\n    if (student == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    snprintf(student->name, 50, \"John Doe\");\n    student->age = 21;\n\n    printf(\"Name: %s\\n\", student->name);\n    printf(\"Age: %d\\n\", student->age);\n\n    free(student);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a structure and assigns values to its members."
+  },
+  {
+    "id": 808,
+    "input": "Write a C program that dynamically allocates memory for a dynamic array and resizes it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = (int *)malloc(3 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < 3; i++) {\n        arr[i] = i * 2;\n    }\n\n    arr = (int *)realloc(arr, 5 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory reallocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 3; i < 5; i++) {\n        arr[i] = i * 2;\n    }\n\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a dynamic array and resizes it."
+  },
+  {
+    "id": 809,
+    "input": "Write a C program that dynamically allocates memory for an array of floats and calculates their average.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n = 5;\n    float *arr = (float *)malloc(n * sizeof(float));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        arr[i] = i * 2.5;\n    }\n\n    float sum = 0;\n    for (int i = 0; i < n; i++) {\n        sum += arr[i];\n    }\n    float average = sum / n;\n\n    printf(\"Average: %.2f\\n\", average);\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of floats and calculates their average."
+  },
+  {
+    "id": 810,
+    "input": "Write a C program that dynamically allocates memory for a string and copies another string into it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    char *src = \"Hello, world!\";\n    char *dest = (char *)malloc(strlen(src) + 1);\n    if (dest == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    strcpy(dest, src);\n\n    printf(\"Copied string: %s\\n\", dest);\n\n    free(dest);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string and copies another string into it."
+  },
+  {
+    "id": 811,
+    "input": "Write a C program that dynamically allocates memory for a 2D array and calculates the sum of all elements.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows = 3, cols = 3;\n    int **arr = (int **)malloc(rows * sizeof(int *));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n    for (int i = 0; i < rows; i++) {\n        arr[i] = (int *)malloc(cols * sizeof(int));\n        if (arr[i] == NULL) {\n            printf(\"Memory allocation failed!\\n\");\n            return 1;\n        }\n    }\n\n    int sum = 0;\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            arr[i][j] = i + j;\n            sum += arr[i][j];\n        }\n    }\n\n    printf(\"Sum of all elements: %d\\n\", sum);\n\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 2D array and calculates the sum of all elements."
+  },
+  {
+    "id": 812,
+    "input": "Write a C program that dynamically allocates memory for a string and reverses it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    char *str = \"Hello, World!\";\n    char *reversed = (char *)malloc(strlen(str) + 1);\n    if (reversed == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    int len = strlen(str);\n    for (int i = 0; i < len; i++) {\n        reversed[i] = str[len - 1 - i];\n    }\n    reversed[len] = '\\0';\n\n    printf(\"Reversed string: %s\\n\", reversed);\n\n    free(reversed);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string and reverses it."
+  },
+  {
+    "id": 813,
+    "input": "Write a C program that dynamically allocates memory for a 3D array and calculates the product of all elements.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int x = 2, y = 2, z = 2;\n    int ***arr = (int ***)malloc(x * sizeof(int **));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n    for (int i = 0; i < x; i++) {\n        arr[i] = (int **)malloc(y * sizeof(int *));\n        if (arr[i] == NULL) {\n            printf(\"Memory allocation failed!\\n\");\n            return 1;\n        }\n        for (int j = 0; j < y; j++) {\n            arr[i][j] = (int *)malloc(z * sizeof(int));\n            if (arr[i][j] == NULL) {\n                printf(\"Memory allocation failed!\\n\");\n                return 1;\n            }\n        }\n    }\n\n    int product = 1;\n    for (int i = 0; i < x; i++) {\n        for (int j = 0; j < y; j++) {\n            for (int k = 0; k < z; k++) {\n                arr[i][j][k] = (i + 1) * (j + 1) * (k + 1);\n                product *= arr[i][j][k];\n            }\n        }\n    }\n\n    printf(\"Product of all elements: %d\\n\", product);\n\n    for (int i = 0; i < x; i++) {\n        for (int j = 0; j < y; j++) {\n            free(arr[i][j]);\n        }\n        free(arr[i]);\n    }\n    free(arr);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 3D array and calculates the product of all elements."
+  },
+  {
+    "id": 814,
+    "input": "Write a C program that dynamically allocates memory for a 2D array and transposes it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows = 3, cols = 2;\n    int **arr = (int **)malloc(rows * sizeof(int *));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n    for (int i = 0; i < rows; i++) {\n        arr[i] = (int *)malloc(cols * sizeof(int));\n        if (arr[i] == NULL) {\n            printf(\"Memory allocation failed!\\n\");\n            return 1;\n        }\n    }\n\n    int count = 1;\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            arr[i][j] = count++;\n        }\n    }\n\n    printf(\"Original array: \\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", arr[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    int **transposed = (int **)malloc(cols * sizeof(int *));\n    if (transposed == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n    for (int i = 0; i < cols; i++) {\n        transposed[i] = (int *)malloc(rows * sizeof(int));\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            transposed[j][i] = arr[i][j];\n        }\n    }\n\n    printf(\"Transposed array: \\n\");\n    for (int i = 0; i < cols; i++) {\n        for (int j = 0; j < rows; j++) {\n            printf(\"%d \", transposed[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n    for (int i = 0; i < cols; i++) {\n        free(transposed[i]);\n    }\n    free(transposed);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 2D array and transposes it."
+  },
+  {
+    "id": 815,
+    "input": "Write a C program that dynamically allocates memory for an array of integers and finds the largest element.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n = 5;\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        arr[i] = i * 3;\n    }\n\n    int max = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n\n    printf(\"Largest element: %d\\n\", max);\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of integers and finds the largest element."
+  },
+  {
+    "id": 816,
+    "input": "Write a C program that dynamically allocates memory for a linked list and prints all the elements.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\nint main() {\n    struct Node *head = (struct Node *)malloc(sizeof(struct Node));\n    if (head == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    head->data = 10;\n    head->next = (struct Node *)malloc(sizeof(struct Node));\n    if (head->next == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n    head->next->data = 20;\n    head->next->next = NULL;\n\n    struct Node *current = head;\n    while (current != NULL) {\n        printf(\"%d \\n\", current->data);\n        current = current->next;\n    }\n\n    free(head->next);\n    free(head);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a linked list and prints all the elements."
+  },
+  {
+    "id": 817,
+    "input": "Write a C program that dynamically allocates memory for a string and checks if it is a palindrome.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    char *str = \"madam\";\n    int len = strlen(str);\n    char *rev = (char *)malloc(len + 1);\n    if (rev == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < len; i++) {\n        rev[i] = str[len - 1 - i];\n    }\n    rev[len] = '\\0';\n\n    if (strcmp(str, rev) == 0) {\n        printf(\"The string is a palindrome.\\n\");\n    } else {\n        printf(\"The string is not a palindrome.\\n\");\n    }\n\n    free(rev);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string and checks if it is a palindrome."
+  },
+  {
+    "id": 818,
+    "input": "Write a C program that dynamically allocates memory for an array of integers and sorts them in ascending order.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid sort(int *arr, int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = i + 1; j < n; j++) {\n            if (arr[i] > arr[j]) {\n                int temp = arr[i];\n                arr[i] = arr[j];\n                arr[j] = temp;\n            }\n        }\n    }\n}\n\nint main() {\n    int n = 5;\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        arr[i] = n - i;\n    }\n\n    sort(arr, n);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of integers and sorts them in ascending order."
+  },
+  {
+    "id": 819,
+    "input": "Write a C program that dynamically allocates memory for a string and counts the number of vowels in it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint countVowels(char *str) {\n    int count = 0;\n    for (int i = 0; i < strlen(str); i++) {\n        char ch = str[i];\n        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||\n            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {\n            count++;\n        }\n    }\n    return count;\n}\n\nint main() {\n    char *str = \"Hello, World!\";\n    int vowels = countVowels(str);\n    printf(\"Number of vowels: %d\\n\", vowels);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string and counts the number of vowels in it."
+  },
+  {
+    "id": 820,
+    "input": "Write a C program that dynamically allocates memory for an array of integers and finds the sum of even numbers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n = 6;\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        arr[i] = i + 1;\n    }\n\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        if (arr[i] % 2 == 0) {\n            sum += arr[i];\n        }\n    }\n\n    printf(\"Sum of even numbers: %d\\n\", sum);\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of integers and finds the sum of even numbers."
+  },
+  {
+    "id": 821,
+    "input": "Write a C program that dynamically allocates memory for a matrix and performs matrix addition.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows = 2, cols = 2;\n    int **matrix1 = (int **)malloc(rows * sizeof(int *));\n    int **matrix2 = (int **)malloc(rows * sizeof(int *));\n    int **sum = (int **)malloc(rows * sizeof(int *));\n\n    if (matrix1 == NULL || matrix2 == NULL || sum == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < rows; i++) {\n        matrix1[i] = (int *)malloc(cols * sizeof(int));\n        matrix2[i] = (int *)malloc(cols * sizeof(int));\n        sum[i] = (int *)malloc(cols * sizeof(int));\n    }\n\n    printf(\"Enter elements for first matrix:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            scanf(\"%d\", &matrix1[i][j]);\n        }\n    }\n\n    printf(\"Enter elements for second matrix:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            scanf(\"%d\", &matrix2[i][j]);\n        }\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            sum[i][j] = matrix1[i][j] + matrix2[i][j];\n        }\n    }\n\n    printf(\"Sum of matrices:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", sum[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(matrix1[i]);\n        free(matrix2[i]);\n        free(sum[i]);\n    }\n    free(matrix1);\n    free(matrix2);\n    free(sum);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for two matrices and performs matrix addition."
+  },
+  {
+    "id": 822,
+    "input": "Write a C program that dynamically allocates memory for a linked list and reverses the list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\nvoid reverse(struct Node **head) {\n    struct Node *prev = NULL, *current = *head, *next = NULL;\n    while (current != NULL) {\n        next = current->next;\n        current->next = prev;\n        prev = current;\n        current = next;\n    }\n    *head = prev;\n}\n\nint main() {\n    struct Node *head = (struct Node *)malloc(sizeof(struct Node));\n    if (head == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n    head->data = 10;\n    head->next = (struct Node *)malloc(sizeof(struct Node));\n    head->next->data = 20;\n    head->next->next = (struct Node *)malloc(sizeof(struct Node));\n    head->next->next->data = 30;\n    head->next->next->next = NULL;\n\n    printf(\"Original list: \");\n    struct Node *current = head;\n    while (current != NULL) {\n        printf(\"%d \", current->data);\n        current = current->next;\n    }\n    printf(\"\\n\");\n\n    reverse(&head);\n\n    printf(\"Reversed list: \");\n    current = head;\n    while (current != NULL) {\n        printf(\"%d \", current->data);\n        current = current->next;\n    }\n    printf(\"\\n\");\n\n    struct Node *temp;\n    while (head != NULL) {\n        temp = head;\n        head = head->next;\n        free(temp);\n    }\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a linked list and reverses the list."
+  },
+  {
+    "id": 823,
+    "input": "Write a C program that dynamically allocates memory for an array of strings and prints each string.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    int n = 3;\n    char **arr = (char **)malloc(n * sizeof(char *));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    arr[0] = (char *)malloc(10 * sizeof(char));\n    strcpy(arr[0], \"Hello\");\n    arr[1] = (char *)malloc(10 * sizeof(char));\n    strcpy(arr[1], \"World\");\n    arr[2] = (char *)malloc(10 * sizeof(char));\n    strcpy(arr[2], \"C Language\");\n\n    for (int i = 0; i < n; i++) {\n        printf(\"%s\\n\", arr[i]);\n    }\n\n    for (int i = 0; i < n; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of strings and prints each string."
+  },
+  {
+    "id": 824,
+    "input": "Write a C program that dynamically allocates memory for an array of integers, sorts them, and then searches for a specific value using binary search.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid sort(int *arr, int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = i + 1; j < n; j++) {\n            if (arr[i] > arr[j]) {\n                int temp = arr[i];\n                arr[i] = arr[j];\n                arr[j] = temp;\n            }\n        }\n    }\n}\n\nint binarySearch(int *arr, int n, int target) {\n    int left = 0, right = n - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (arr[mid] == target) {\n            return mid;\n        } else if (arr[mid] < target) {\n            left = mid + 1;\n        } else {\n            right = mid - 1;\n        }\n    }\n    return -1;\n}\n\nint main() {\n    int n = 5;\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    arr[0] = 9;\n    arr[1] = 5;\n    arr[2] = 3;\n    arr[3] = 7;\n    arr[4] = 2;\n\n    sort(arr, n);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    int target = 7;\n    int result = binarySearch(arr, n, target);\n    if (result != -1) {\n        printf(\"Element found at index: %d\\n\", result);\n    } else {\n        printf(\"Element not found.\\n\");\n}\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of integers, sorts them, and searches for a specific value using binary search."
+  },
+  {
+    "id": 825,
+    "input": "Write a C program that dynamically allocates memory for a matrix and multiplies two matrices.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows1 = 2, cols1 = 2, rows2 = 2, cols2 = 2;\n    int **matrix1 = (int **)malloc(rows1 * sizeof(int *));\n    int **matrix2 = (int **)malloc(rows2 * sizeof(int *));\n    int **product = (int **)malloc(rows1 * sizeof(int *));\n\n    if (matrix1 == NULL || matrix2 == NULL || product == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < rows1; i++) {\n        matrix1[i] = (int *)malloc(cols1 * sizeof(int));\n        product[i] = (int *)malloc(cols2 * sizeof(int));\n    }\n    for (int i = 0; i < rows2; i++) {\n        matrix2[i] = (int *)malloc(cols2 * sizeof(int));\n    }\n\n    printf(\"Enter elements for first matrix:\\n\");\n    for (int i = 0; i < rows1; i++) {\n        for (int j = 0; j < cols1; j++) {\n            scanf(\"%d\", &matrix1[i][j]);\n        }\n    }\n\n    printf(\"Enter elements for second matrix:\\n\");\n    for (int i = 0; i < rows2; i++) {\n        for (int j = 0; j < cols2; j++) {\n            scanf(\"%d\", &matrix2[i][j]);\n        }\n    }\n\n    for (int i = 0; i < rows1; i++) {\n        for (int j = 0; j < cols2; j++) {\n            product[i][j] = 0;\n            for (int k = 0; k < cols1; k++) {\n                product[i][j] += matrix1[i][k] * matrix2[k][j];\n            }\n        }\n    }\n\n    printf(\"Product of matrices:\\n\");\n    for (int i = 0; i < rows1; i++) {\n        for (int j = 0; j < cols2; j++) {\n            printf(\"%d \", product[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows1; i++) {\n        free(matrix1[i]);\n        free(product[i]);\n    }\n    for (int i = 0; i < rows2; i++) {\n        free(matrix2[i]);\n    }\n\n    free(matrix1);\n    free(matrix2);\n    free(product);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a matrix and performs matrix multiplication."
+  },
+  {
+    "id": 826,
+    "input": "Write a C program that counts the number of words in a given string.",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint countWords(char *str) {\n    int count = 0, inWord = 0;\n    while (*str != '\\0') {\n        if (isspace(*str)) {\n            inWord = 0;\n        } else if (inWord == 0) {\n            inWord = 1;\n            count++;\n        }\n        str++;\n    }\n    return count;\n}\n\nint main() {\n    char str[] = \"This is a sample sentence\";\n    printf(\"Number of words: %d\\n\", countWords(str));\n    return 0;\n}",
+    "description": "This program counts the number of words in a given string."
+  },
+  {
+    "id": 827,
+    "input": "Write a C program that swaps two integers using pointers.",
+    "output": "#include <stdio.h>\n\nvoid swap(int *x, int *y) {\n    int temp = *x;\n    *x = *y;\n    *y = temp;\n}\n\nint main() {\n    int a = 5, b = 10;\n    printf(\"Before swap: a = %d, b = %d\\n\", a, b);\n    swap(&a, &b);\n    printf(\"After swap: a = %d, b = %d\\n\", a, b);\n    return 0;\n}",
+    "description": "This program swaps two integers using pointers."
+  },
+  {
+    "id": 828,
+    "input": "Write a C program that checks if a given number is a prime number.",
+    "output": "#include <stdio.h>\n\nint isPrime(int num) {\n    if (num <= 1) return 0;\n    for (int i = 2; i * i <= num; i++) {\n        if (num % i == 0) return 0;\n    }\n    return 1;\n}\n\nint main() {\n    int num = 11;\n    if (isPrime(num)) {\n        printf(\"%d is a prime number.\\n\", num);\n    } else {\n        printf(\"%d is not a prime number.\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program checks if a given number is prime."
+  },
+  {
+    "id": 829,
+    "input": "Write a C program that calculates the factorial of a number using recursion.",
+    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n\nint main() {\n    int num = 5;\n    printf(\"Factorial of %d is: %d\\n\", num, factorial(num));\n    return 0;\n}",
+    "description": "This program calculates the factorial of a number using recursion."
+  },
+  {
+    "id": 830,
+    "input": "Write a C program that finds the largest element in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[] = {2, 5, 7, 1, 3};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int max = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    printf(\"Largest element is: %d\\n\", max);\n    return 0;\n}",
+    "description": "This program finds the largest element in an array."
+  },
+  {
+    "id": 831,
+    "input": "Write a C program that checks if a number is an Armstrong number.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint isArmstrong(int num) {\n    int sum = 0, temp = num, digits = 0;\n    while (temp != 0) {\n        digits++;\n        temp /= 10;\n    }\n    temp = num;\n    while (temp != 0) {\n        sum += pow(temp % 10, digits);\n        temp /= 10;\n    }\n    return sum == num;\n}\n\nint main() {\n    int num = 153;\n    if (isArmstrong(num)) {\n        printf(\"%d is an Armstrong number.\\n\", num);\n    } else {\n        printf(\"%d is not an Armstrong number.\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program checks if a given number is an Armstrong number."
+  },
+  {
+    "id": 832,
+    "input": "Write a C program that converts a decimal number to binary.",
+    "output": "#include <stdio.h>\n\nvoid decimalToBinary(int n) {\n    if (n > 1) {\n        decimalToBinary(n / 2);\n    }\n    printf(\"%d\", n % 2);\n}\n\nint main() {\n    int num = 10;\n    printf(\"Binary representation of %d is: \", num);\n    decimalToBinary(num);\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program converts a decimal number to binary."
+  },
+  {
+    "id": 833,
+    "input": "Write a C program that reverses a string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nvoid reverseString(char str[]) {\n    int start = 0, end = strlen(str) - 1;\n    while (start < end) {\n        char temp = str[start];\n        str[start] = str[end];\n        str[end] = temp;\n        start++;\n        end--;\n    }\n}\n\nint main() {\n    char str[] = \"Hello, World!\";\n    reverseString(str);\n    printf(\"Reversed string: %s\\n\", str);\n    return 0;\n}",
+    "description": "This program reverses a given string."
+  },
+  {
+    "id": 834,
+    "input": "Write a C program that removes all vowels from a string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nvoid removeVowels(char str[]) {\n    int i, j = 0;\n    for (i = 0; str[i] != '\\0'; i++) {\n        if (str[i] != 'a' && str[i] != 'e' && str[i] != 'i' && str[i] != 'o' && str[i] != 'u' &&\n            str[i] != 'A' && str[i] != 'E' && str[i] != 'I' && str[i] != 'O' && str[i] != 'U') {\n            str[j++] = str[i];\n        }\n    }\n    str[j] = '\\0';\n}\n\nint main() {\n    char str[] = \"Hello, World!\";\n    removeVowels(str);\n    printf(\"String without vowels: %s\\n\", str);\n    return 0;\n}",
+    "description": "This program removes all vowels from a given string."
+  },
+  {
+    "id": 835,
+    "input": "Write a C program that counts the number of digits in a given number.",
+    "output": "#include <stdio.h>\n\nint countDigits(int num) {\n    int count = 0;\n    while (num != 0) {\n        num /= 10;\n        count++;\n    }\n    return count;\n}\n\nint main() {\n    int num = 12345;\n    printf(\"Number of digits: %d\\n\", countDigits(num));\n    return 0;\n}",
+    "description": "This program counts the number of digits in a given number."
+  },
+  {
+    "id": 836,
+    "input": "Write a C program that finds the smallest element in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[] = {2, 5, 7, 1, 3};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int min = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] < min) {\n            min = arr[i];\n        }\n    }\n    printf(\"Smallest element is: %d\\n\", min);\n    return 0;\n}",
+    "description": "This program finds the smallest element in an array."
+  },
+  {
+    "id": 837,
+    "input": "Write a C program that checks if a string is a palindrome.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint isPalindrome(char str[]) {\n    int start = 0, end = strlen(str) - 1;\n    while (start < end) {\n        if (str[start] != str[end]) return 0;\n        start++;\n        end--;\n    }\n    return 1;\n}\n\nint main() {\n    char str[] = \"madam\";\n    if (isPalindrome(str)) {\n        printf(\"%s is a palindrome.\\n\", str);\n    } else {\n        printf(\"%s is not a palindrome.\\n\", str);\n    }\n    return 0;\n}",
+    "description": "This program checks if a given string is a palindrome."
+  },
+  {
+    "id": 838,
+    "input": "Write a C program that merges two sorted arrays into a single sorted array.",
+    "output": "#include <stdio.h>\n\nvoid mergeArrays(int arr1[], int arr2[], int n1, int n2) {\n    int i = 0, j = 0, k = 0;\n    int result[n1 + n2];\n    while (i < n1 && j < n2) {\n        if (arr1[i] < arr2[j]) {\n            result[k++] = arr1[i++];\n        } else {\n            result[k++] = arr2[j++];\n        }\n    }\n    while (i < n1) {\n        result[k++] = arr1[i++];\n    }\n    while (j < n2) {\n        result[k++] = arr2[j++];\n    }\n    printf(\"Merged array: \");\n    for (int i = 0; i < n1 + n2; i++) {\n        printf(\"%d \", result[i]);\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    int arr1[] = {1, 3, 5};\n    int arr2[] = {2, 4, 6};\n    mergeArrays(arr1, arr2, 3, 3);\n    return 0;\n}",
+    "description": "This program merges two sorted arrays into a single sorted array."
+  },
+  {
+    "id": 839,
+    "input": "Write a C program that calculates the power of a number using recursion.",
+    "output": "#include <stdio.h>\n\nint power(int base, int exponent) {\n    if (exponent == 0) return 1;\n    return base * power(base, exponent - 1);\n}\n\nint main() {\n    int base = 2, exponent = 3;\n    printf(\"%d raised to the power of %d is: %d\\n\", base, exponent, power(base, exponent));\n    return 0;\n}",
+    "description": "This program calculates the power of a number using recursion."
+  },
+  {
+    "id": 840,
+    "input": "Write a C program that implements a simple calculator (addition, subtraction, multiplication, division).",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num1, num2;\n    char operator;\n    printf(\"Enter first number: \");\n    scanf(\"%d\", &num1);\n    printf(\"Enter operator (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"Enter second number: \");\n    scanf(\"%d\", &num2);\n\n    switch (operator) {\n        case '+':\n            printf(\"Result: %d\\n\", num1 + num2);\n            break;\n        case '-':\n            printf(\"Result: %d\\n\", num1 - num2);\n            break;\n        case '*':\n            printf(\"Result: %d\\n\", num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0) {\n                printf(\"Result: %.2f\\n\", (float)num1 / num2);\n            } else {\n                printf(\"Error: Division by zero\\n\");\n            }\n            break;\n        default:\n            printf(\"Error: Invalid operator\\n\");\n    }\n    return 0;\n}",
+    "description": "This program implements a simple calculator that performs addition, subtraction, multiplication, and division."
+  },
+  {
+    "id": 841,
+    "input": "Write a C program that dynamically allocates memory for an array of integers and calculates their sum.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    printf(\"Enter number of elements: \");\n    scanf(\"%d\", &n);\n\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    printf(\"Enter %d integers: \", n);\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n        sum += arr[i];\n    }\n\n    printf(\"Sum of elements: %d\\n\", sum);\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array and calculates the sum of its elements."
+  },
+  {
+    "id": 842,
+    "input": "Write a C program that dynamically allocates memory for a 2D array and transposes it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int rows, cols;\n    printf(\"Enter number of rows and columns: \");\n    scanf(\"%d %d\", &rows, &cols);\n\n    int **arr = (int **)malloc(rows * sizeof(int *));\n    for (int i = 0; i < rows; i++) {\n        arr[i] = (int *)malloc(cols * sizeof(int));\n    }\n\n    printf(\"Enter the elements of the array:\\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            scanf(\"%d\", &arr[i][j]);\n        }\n    }\n\n    printf(\"Transposed matrix:\\n\");\n    for (int i = 0; i < cols; i++) {\n        for (int j = 0; j < rows; j++) {\n            printf(\"%d \", arr[j][i]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 2D array and transposes it."
+  },
+  {
+    "id": 843,
+    "input": "Write a C program that dynamically allocates memory for a linked list and inserts nodes at the end.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\nvoid insertEnd(struct Node **head, int value) {\n    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));\n    newNode->data = value;\n    newNode->next = NULL;\n    if (*head == NULL) {\n        *head = newNode;\n    } else {\n        struct Node *temp = *head;\n        while (temp->next != NULL) {\n            temp = temp->next;\n        }\n        temp->next = newNode;\n    }\n}\n\nvoid printList(struct Node *head) {\n    struct Node *temp = head;\n    while (temp != NULL) {\n        printf(\"%d \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Node *head = NULL;\n    insertEnd(&head, 10);\n    insertEnd(&head, 20);\n    insertEnd(&head, 30);\n    printList(head);\n\n    // Free memory\n    struct Node *temp = head;\n    while (temp != NULL) {\n        struct Node *next = temp->next;\n        free(temp);\n        temp = next;\n    }\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a linked list and inserts nodes at the end."
+  },
+  {
+    "id": 844,
+    "input": "Write a C program that dynamically allocates memory for a string and reverses it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nvoid reverseString(char *str) {\n    int start = 0, end = strlen(str) - 1;\n    while (start < end) {\n        char temp = str[start];\n        str[start] = str[end];\n        str[end] = temp;\n        start++;\n        end--;\n    }\n}\n\nint main() {\n    char *str = (char *)malloc(100 * sizeof(char));\n    if (str == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    printf(\"Enter a string: \");\n    fgets(str, 100, stdin);\n    str[strcspn(str, \"\\n\")] = '\\0';  // Remove newline character\n\n    reverseString(str);\n    printf(\"Reversed string: %s\\n\", str);\n\n    free(str);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string and reverses it."
+  },
+  {
+    "id": 845,
+    "input": "Write a C program that dynamically allocates memory for an array of structures and calculates the average age of people.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Person {\n    char name[50];\n    int age;\n};\n\nint main() {\n    int n;\n    printf(\"Enter number of people: \");\n    scanf(\"%d\", &n);\n\n    struct Person *people = (struct Person *)malloc(n * sizeof(struct Person));\n    if (people == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        printf(\"Enter name and age for person %d: \", i + 1);\n        scanf(\"%s %d\", people[i].name, &people[i].age);\n    }\n\n    int totalAge = 0;\n    for (int i = 0; i < n; i++) {\n        totalAge += people[i].age;\n    }\n\n    printf(\"Average age: %.2f\\n\", (float)totalAge / n);\n\n    free(people);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of structures and calculates the average age of people."
+  },
+  {
+    "id": 846,
+    "input": "Write a C program that dynamically allocates memory for a matrix and performs matrix multiplication.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid multiplyMatrices(int **mat1, int **mat2, int **result, int r1, int c1, int r2, int c2) {\n    for (int i = 0; i < r1; i++) {\n        for (int j = 0; j < c2; j++) {\n            result[i][j] = 0;\n            for (int k = 0; k < c1; k++) {\n                result[i][j] += mat1[i][k] * mat2[k][j];\n            }\n        }\n    }\n}\n\nint main() {\n    int r1 = 2, c1 = 3, r2 = 3, c2 = 2;\n    int **mat1 = (int **)malloc(r1 * sizeof(int *));\n    int **mat2 = (int **)malloc(r2 * sizeof(int *));\n    int **result = (int **)malloc(r1 * sizeof(int *));\n    for (int i = 0; i < r1; i++) {\n        mat1[i] = (int *)malloc(c1 * sizeof(int));\n    }\n    for (int i = 0; i < r2; i++) {\n        mat2[i] = (int *)malloc(c2 * sizeof(int));\n    }\n    for (int i = 0; i < r1; i++) {\n        result[i] = (int *)malloc(c2 * sizeof(int));\n    }\n\n    printf(\"Enter elements of first matrix (2x3):\\n\");\n    for (int i = 0; i < r1; i++) {\n        for (int j = 0; j < c1; j++) {\n            scanf(\"%d\", &mat1[i][j]);\n        }\n    }\n\n    printf(\"Enter elements of second matrix (3x2):\\n\");\n    for (int i = 0; i < r2; i++) {\n        for (int j = 0; j < c2; j++) {\n            scanf(\"%d\", &mat2[i][j]);\n        }\n    }\n\n    multiplyMatrices(mat1, mat2, result, r1, c1, r2, c2);\n\n    printf(\"Resultant matrix:\\n\");\n    for (int i = 0; i < r1; i++) {\n        for (int j = 0; j < c2; j++) {\n            printf(\"%d \", result[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < r1; i++) {\n        free(mat1[i]);\n        free(result[i]);\n    }\n    for (int i = 0; i < r2; i++) {\n        free(mat2[i]);\n    }\n    free(mat1);\n    free(mat2);\n    free(result);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for matrices and performs matrix multiplication."
+  },
+  {
+    "id": 847,
+    "input": "Write a C program that dynamically allocates memory for an array of integers and sorts them in ascending order using bubble sort.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid bubbleSort(int *arr, int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}\n\nint main() {\n    int n;\n    printf(\"Enter number of elements: \");\n    scanf(\"%d\", &n);\n\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    printf(\"Enter %d integers: \", n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    bubbleSort(arr, n);\n\n    printf(\"Sorted array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of integers and sorts them using bubble sort."
+  },
+  {
+    "id": 848,
+    "input": "Write a C program that dynamically allocates memory for a stack and performs push and pop operations.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Stack {\n    int *arr;\n    int top;\n    int capacity;\n};\n\nvoid initStack(struct Stack *stack, int capacity) {\n    stack->capacity = capacity;\n    stack->top = -1;\n    stack->arr = (int *)malloc(capacity * sizeof(int));\n}\n\nvoid push(struct Stack *stack, int value) {\n    if (stack->top == stack->capacity - 1) {\n        printf(\"Stack overflow\\n\");\n        return;\n    }\n    stack->arr[++stack->top] = value;\n}\n\nint pop(struct Stack *stack) {\n    if (stack->top == -1) {\n        printf(\"Stack underflow\\n\");\n        return -1;\n    }\n    return stack->arr[stack->top--];\n}\n\nvoid printStack(struct Stack *stack) {\n    for (int i = 0; i <= stack->top; i++) {\n        printf(\"%d \", stack->arr[i]);\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Stack stack;\n    initStack(&stack, 5);\n\n    push(&stack, 10);\n    push(&stack, 20);\n    push(&stack, 30);\n    printf(\"Stack after pushes: \");\n    printStack(&stack);\n\n    pop(&stack);\n    printf(\"Stack after pop: \");\n    printStack(&stack);\n\n    free(stack.arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a stack and performs push and pop operations."
+  },
+  {
+    "id": 849,
+    "input": "Write a C program that dynamically allocates memory for an array and finds the maximum and minimum elements.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    printf(\"Enter number of elements: \");\n    scanf(\"%d\", &n);\n\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    printf(\"Enter %d integers: \", n);\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n\n    int max = arr[0], min = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > max) max = arr[i];\n        if (arr[i] < min) min = arr[i];\n    }\n\n    printf(\"Maximum element: %d\\n\", max);\n    printf(\"Minimum element: %d\\n\", min);\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array and finds the maximum and minimum elements."
+  },
+  {
+    "id": 850,
+    "input": "Write a C program that dynamically allocates memory for a queue and performs enqueue and dequeue operations.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Queue {\n    int *arr;\n    int front, rear, capacity;\n};\n\nvoid initQueue(struct Queue *queue, int capacity) {\n    queue->capacity = capacity;\n    queue->front = 0;\n    queue->rear = 0;\n    queue->arr = (int *)malloc(capacity * sizeof(int));\n}\n\nvoid enqueue(struct Queue *queue, int value) {\n    if (queue->rear == queue->capacity) {\n        printf(\"Queue overflow\\n\");\n        return;\n    }\n    queue->arr[queue->rear++] = value;\n}\n\nint dequeue(struct Queue *queue) {\n    if (queue->front == queue->rear) {\n        printf(\"Queue underflow\\n\");\n        return -1;\n    }\n    return queue->arr[queue->front++];\n}\n\nvoid printQueue(struct Queue *queue) {\n    for (int i = queue->front; i < queue->rear; i++) {\n        printf(\"%d \", queue->arr[i]);\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Queue queue;\n    initQueue(&queue, 5);\n\n    enqueue(&queue, 10);\n    enqueue(&queue, 20);\n    enqueue(&queue, 30);\n    printf(\"Queue after enqueues: \");\n    printQueue(&queue);\n\n    dequeue(&queue);\n    printf(\"Queue after dequeue: \");\n    printQueue(&queue);\n\n    free(queue.arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a queue and performs enqueue and dequeue operations."
+  },
+  {
+    "id": 851,
+    "input": "Write a C program that defines a union for storing different data types and prints the values.",
+    "output": "#include <stdio.h>\n\nunion Data {\n    int i;\n    float f;\n    char str[20];\n};\n\nint main() {\n    union Data data;\n    data.i = 10;\n    printf(\"Data as integer: %d\\n\", data.i);\n\n    data.f = 220.5;\n    printf(\"Data as float: %.2f\\n\", data.f);\n\n    strcpy(data.str, \"Hello World\");\n    printf(\"Data as string: %s\\n\", data.str);\n\n    return 0;\n}",
+    "description": "This program defines a union that can store an integer, a float, and a string, then prints each value."
+  },
+  {
+    "id": 852,
+    "input": "Write a C program that defines a union for a student record containing name, age, and grade, and prints the values.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Student {\n    char name[50];\n    int age;\n    char grade;\n};\n\nint main() {\n    union Student student;\n    strcpy(student.name, \"John Doe\");\n    printf(\"Student Name: %s\\n\", student.name);\n\n    student.age = 21;\n    printf(\"Student Age: %d\\n\", student.age);\n\n    student.grade = 'A';\n    printf(\"Student Grade: %c\\n\", student.grade);\n\n    return 0;\n}",
+    "description": "This program defines a union for storing a student's name, age, and grade, and prints each of the values."
+  },
+  {
+    "id": 853,
+    "input": "Write a C program that defines a union for different shapes (circle, rectangle) and prints the area of the shape.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nunion Shape {\n    float radius; // for circle\n    struct {\n        float length, width;\n    } rectangle; // for rectangle\n};\n\nint main() {\n    union Shape shape;\n    shape.radius = 5.0;\n    printf(\"Area of circle: %.2f\\n\", M_PI * shape.radius * shape.radius);\n\n    shape.rectangle.length = 10.0;\n    shape.rectangle.width = 4.0;\n    printf(\"Area of rectangle: %.2f\\n\", shape.rectangle.length * shape.rectangle.width);\n\n    return 0;\n}",
+    "description": "This program defines a union that stores data for either a circle (radius) or a rectangle (length, width) and calculates their areas."
+  },
+  {
+    "id": 854,
+    "input": "Write a C program that uses a union to store an employee's data (name, ID, and salary), and prints the name.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Employee {\n    char name[50];\n    int id;\n    float salary;\n};\n\nint main() {\n    union Employee employee;\n    strcpy(employee.name, \"Alice Green\");\n    printf(\"Employee Name: %s\\n\", employee.name);\n\n    employee.id = 1001;\n    printf(\"Employee ID: %d\\n\", employee.id);\n\n    employee.salary = 50000.75;\n    printf(\"Employee Salary: %.2f\\n\", employee.salary);\n\n    return 0;\n}",
+    "description": "This program uses a union to store different employee data (name, ID, salary) and prints the name."
+  },
+  {
+    "id": 855,
+    "input": "Write a C program that uses a union to store both an integer and a character, then prints the values.",
+    "output": "#include <stdio.h>\n\nunion Data {\n    int i;\n    char ch;\n};\n\nint main() {\n    union Data data;\n    data.i = 42;\n    printf(\"Integer: %d\\n\", data.i);\n\n    data.ch = 'X';\n    printf(\"Character: %c\\n\", data.ch);\n\n    return 0;\n}",
+    "description": "This program uses a union to store an integer and a character, then prints both."
+  },
+  {
+    "id": 856,
+    "input": "Write a C program that uses a union to store two different types of arrays (int and float) and prints the values.",
+    "output": "#include <stdio.h>\n\nunion Array {\n    int intArray[3];\n    float floatArray[3];\n};\n\nint main() {\n    union Array arr;\n    arr.intArray[0] = 1;\n    arr.intArray[1] = 2;\n    arr.intArray[2] = 3;\n    printf(\"Integer Array: %d %d %d\\n\", arr.intArray[0], arr.intArray[1], arr.intArray[2]);\n\n    arr.floatArray[0] = 1.1f;\n    arr.floatArray[1] = 2.2f;\n    arr.floatArray[2] = 3.3f;\n    printf(\"Float Array: %.1f %.1f %.1f\\n\", arr.floatArray[0], arr.floatArray[1], arr.floatArray[2]);\n\n    return 0;\n}",
+    "description": "This program uses a union to store two different types of arrays (int and float) and prints the values."
+  },
+  {
+    "id": 857,
+    "input": "Write a C program that uses a union to store and print the value of a number in both hexadecimal and decimal formats.",
+    "output": "#include <stdio.h>\n\nunion Number {\n    int decimal;\n    unsigned int hex;\n};\n\nint main() {\n    union Number num;\n    num.decimal = 255;\n    printf(\"Decimal: %d\\n\", num.decimal);\n\n    num.hex = 0xFF;\n    printf(\"Hexadecimal: 0x%X\\n\", num.hex);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a number and print it in both decimal and hexadecimal formats."
+  },
+  {
+    "id": 858,
+    "input": "Write a C program that defines a union for storing both a single character and an array of characters (string), and prints them.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion CharData {\n    char c;\n    char str[20];\n};\n\nint main() {\n    union CharData data;\n    data.c = 'A';\n    printf(\"Character: %c\\n\", data.c);\n\n    strcpy(data.str, \"Hello\");\n    printf(\"String: %s\\n\", data.str);\n\n    return 0;\n}",
+    "description": "This program defines a union to store either a single character or a string and prints both."
+  },
+  {
+    "id": 859,
+    "input": "Write a C program that defines a union for storing two different types of floating-point numbers and prints the values.",
+    "output": "#include <stdio.h>\n\nunion FloatData {\n    float f;\n    double d;\n};\n\nint main() {\n    union FloatData data;\n    data.f = 3.14f;\n    printf(\"Float: %.2f\\n\", data.f);\n\n    data.d = 2.718281828459;\n    printf(\"Double: %.12f\\n\", data.d);\n\n    return 0;\n}",
+    "description": "This program defines a union to store a float and a double and prints both values."
+  },
+  {
+    "id": 860,
+    "input": "Write a C program that defines a union for storing both an integer and a floating-point number, then prints both values.",
+    "output": "#include <stdio.h>\n\nunion Number {\n    int i;\n    float f;\n};\n\nint main() {\n    union Number num;\n    num.i = 42;\n    printf(\"Integer: %d\\n\", num.i);\n\n    num.f = 3.14f;\n    printf(\"Float: %.2f\\n\", num.f);\n\n    return 0;\n}",
+    "description": "This program defines a union that stores an integer and a floating-point number, then prints both values."
+  },
+  {
+    "id": 861,
+    "input": "Write a C program that uses a union to store a number as both a signed and unsigned integer, and prints them.",
+    "output": "#include <stdio.h>\n\nunion Number {\n    int signedNum;\n    unsigned int unsignedNum;\n};\n\nint main() {\n    union Number num;\n    num.signedNum = -100;\n    printf(\"Signed Integer: %d\\n\", num.signedNum);\n\n    num.unsignedNum = 100;\n    printf(\"Unsigned Integer: %u\\n\", num.unsignedNum);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a number as both signed and unsigned integers and prints the values."
+  },
+  {
+    "id": 862,
+    "input": "Write a C program that defines a union for storing a color in RGB format and prints the color values.",
+    "output": "#include <stdio.h>\n\nunion Color {\n    struct {\n        int red, green, blue;\n    } rgb;\n    int hex;\n};\n\nint main() {\n    union Color color;\n    color.rgb.red = 255;\n    color.rgb.green = 0;\n    color.rgb.blue = 0;\n    printf(\"RGB Color: %d %d %d\\n\", color.rgb.red, color.rgb.green, color.rgb.blue);\n\n    color.hex = 0xFF0000;\n    printf(\"Hex Color: 0x%X\\n\", color.hex);\n\n    return 0;\n}",
+    "description": "This program defines a union for storing color in RGB format and hexadecimal format, and prints the values."
+  },
+  {
+    "id": 863,
+    "input": "Write a C program that uses a union to store a book's title, author, and year of publication, and prints them.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Book {\n    char title[50];\n    char author[50];\n    int year;\n};\n\nint main() {\n    union Book book;\n    strcpy(book.title, \"C Programming\");\n    printf(\"Book Title: %s\\n\", book.title);\n\n    strcpy(book.author, \"Dennis Ritchie\");\n    printf(\"Book Author: %s\\n\", book.author);\n\n    book.year = 1978;\n    printf(\"Year of Publication: %d\\n\", book.year);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a book's title, author, and year of publication, and prints them."
+  },
+  {
+    "id": 864,
+    "input": "Write a C program that uses a union to store a number as both an integer and a character, and prints the values.",
+    "output": "#include <stdio.h>\n\nunion Data {\n    int num;\n    char ch;\n};\n\nint main() {\n    union Data data;\n    data.num = 42;\n    printf(\"Integer: %d\\n\", data.num);\n\n    data.ch = 'A';\n    printf(\"Character: %c\\n\", data.ch);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a number as both an integer and a character, and prints the values."
+  },
+  {
+    "id": 865,
+    "input": "Write a C program that uses a union to store the information of a product (name, price, quantity), and prints the values.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Product {\n    char name[50];\n    float price;\n    int quantity;\n};\n\nint main() {\n    union Product product;\n    strcpy(product.name, \"Laptop\");\n    printf(\"Product Name: %s\\n\", product.name);\n\n    product.price = 999.99;\n    printf(\"Product Price: %.2f\\n\", product.price);\n\n    product.quantity = 50;\n    printf(\"Product Quantity: %d\\n\", product.quantity);\n\n    return 0;\n}",
+    "description": "This program uses a union to store the information of a product (name, price, quantity) and prints the values."
+  },
+  {
+    "id": 866,
+    "input": "Write a C program that uses a union to store a number as both an integer and a floating-point value, and prints both.",
+    "output": "#include <stdio.h>\n\nunion Number {\n    int i;\n    float f;\n};\n\nint main() {\n    union Number num;\n    num.i = 100;\n    printf(\"Integer: %d\\n\", num.i);\n\n    num.f = 10.5;\n    printf(\"Float: %.2f\\n\", num.f);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a number as both an integer and a floating-point value, and prints both."
+  },
+  {
+    "id": 867,
+    "input": "Write a C program that defines a union for storing a circle's radius and a rectangle's width and height, and prints them.",
+    "output": "#include <stdio.h>\n\nunion Shape {\n    float radius; // for circle\n    struct {\n        float width, height;\n    } rectangle; // for rectangle\n};\n\nint main() {\n    union Shape shape;\n    shape.radius = 5.0;\n    printf(\"Circle Radius: %.2f\\n\", shape.radius);\n\n    shape.rectangle.width = 10.0;\n    shape.rectangle.height = 4.0;\n    printf(\"Rectangle Width: %.2f, Height: %.2f\\n\", shape.rectangle.width, shape.rectangle.height);\n\n    return 0;\n}",
+    "description": "This program defines a union that can store either a circle's radius or a rectangle's width and height, and prints the values."
+  },
+  {
+    "id": 868,
+    "input": "Write a C program that defines a union for storing a person's name and age, and prints the values.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Person {\n    char name[50];\n    int age;\n};\n\nint main() {\n    union Person person;\n    strcpy(person.name, \"John\");\n    printf(\"Person Name: %s\\n\", person.name);\n\n    person.age = 30;\n    printf(\"Person Age: %d\\n\", person.age);\n\n    return 0;\n}",
+    "description": "This program defines a union for storing a person's name and age, and prints the values."
+  },
+  {
+    "id": 869,
+    "input": "Write a C program that uses a union to store a complex number (real and imaginary parts), and prints the values.",
+    "output": "#include <stdio.h>\n\nunion Complex {\n    struct {\n        float real, imag;\n    } part;\n    float complexNumber[2];\n};\n\nint main() {\n    union Complex number;\n    number.part.real = 3.5;\n    number.part.imag = 4.5;\n    printf(\"Complex Number: %.2f + %.2fi\\n\", number.part.real, number.part.imag);\n\n    number.complexNumber[0] = 2.0;\n    number.complexNumber[1] = 5.0;\n    printf(\"Complex Number: %.2f + %.2fi\\n\", number.complexNumber[0], number.complexNumber[1]);\n\n    return 0;\n}",
+    "description": "This program uses a union to store and print a complex number with real and imaginary parts."
+  },
+  {
+    "id": 870,
+    "input": "Write a C program that defines a union for storing a character and an integer, then prints both values.",
+    "output": "#include <stdio.h>\n\nunion Data {\n    char c;\n    int i;\n};\n\nint main() {\n    union Data data;\n    data.c = 'B';\n    printf(\"Character: %c\\n\", data.c);\n\n    data.i = 1000;\n    printf(\"Integer: %d\\n\", data.i);\n\n    return 0;\n}",
+    "description": "This program defines a union for storing a character and an integer, and prints both values."
+  },
+  {
+    "id": 871,
+    "input": "Write a C program that uses a union to store the details of a student (name, age, GPA) and prints them.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Student {\n    char name[50];\n    int age;\n    float gpa;\n};\n\nint main() {\n    union Student student;\n    strcpy(student.name, \"Alice\");\n    printf(\"Student Name: %s\\n\", student.name);\n\n    student.age = 20;\n    printf(\"Student Age: %d\\n\", student.age);\n\n    student.gpa = 3.85;\n    printf(\"Student GPA: %.2f\\n\", student.gpa);\n\n    return 0;\n}",
+    "description": "This program uses a union to store the details of a student (name, age, GPA) and prints them."
+  },
+  {
+    "id": 872,
+    "input": "Write a C program that uses a union to store a character and a float, and prints both values.",
+    "output": "#include <stdio.h>\n\nunion Data {\n    char ch;\n    float num;\n};\n\nint main() {\n    union Data data;\n    data.ch = 'A';\n    printf(\"Character: %c\\n\", data.ch);\n\n    data.num = 5.75;\n    printf(\"Float: %.2f\\n\", data.num);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a character and a float, and prints both values."
+  },
+  {
+    "id": 873,
+    "input": "Write a C program that uses a union to store a date (day, month, year), and prints the date.",
+    "output": "#include <stdio.h>\n\nunion Date {\n    struct {\n        int day, month, year;\n    } date;\n    int formattedDate;\n};\n\nint main() {\n    union Date d;\n    d.date.day = 25;\n    d.date.month = 12;\n    d.date.year = 2024;\n    printf(\"Date: %d/%d/%d\\n\", d.date.day, d.date.month, d.date.year);\n\n    d.formattedDate = 25122024;\n    printf(\"Formatted Date: %d\\n\", d.formattedDate);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a date (day, month, year) and prints the date."
+  },
+  {
+    "id": 874,
+    "input": "Write a C program that uses a union to store a complex number (real and imaginary parts) as a single float array, and prints the values.",
+    "output": "#include <stdio.h>\n\nunion Complex {\n    float part[2]; // real and imaginary parts\n};\n\nint main() {\n    union Complex number;\n    number.part[0] = 3.5; // real part\n    number.part[1] = 4.5; // imaginary part\n    printf(\"Complex Number: %.2f + %.2fi\\n\", number.part[0], number.part[1]);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a complex number (real and imaginary parts) as a float array and prints the values."
+  },
+  {
+    "id": 875,
+    "input": "Write a C program that uses a union to store a time value (hours, minutes, seconds), and prints the time.",
+    "output": "#include <stdio.h>\n\nunion Time {\n    struct {\n        int hours, minutes, seconds;\n    } time;\n    int totalSeconds;\n};\n\nint main() {\n    union Time t;\n    t.time.hours = 10;\n    t.time.minutes = 30;\n    t.time.seconds = 45;\n    printf(\"Time: %02d:%02d:%02d\\n\", t.time.hours, t.time.minutes, t.time.seconds);\n\n    t.totalSeconds = 37845;\n    printf(\"Total Seconds: %d\\n\", t.totalSeconds);\n\n    return 0;\n}",
+    "description": "This program uses a union to store time (hours, minutes, seconds) and prints the time in both structured and total seconds formats."
+  },
+  {
+    "id": 876,
+    "input": "Write a C program that defines a union for storing a person's height (in feet and inches), and prints the height.",
+    "output": "#include <stdio.h>\n\nunion Height {\n    struct {\n        int feet, inches;\n    } height;\n    float meters;\n};\n\nint main() {\n    union Height h;\n    h.height.feet = 5;\n    h.height.inches = 11;\n    printf(\"Height: %d feet %d inches\\n\", h.height.feet, h.height.inches);\n\n    h.meters = 1.80;\n    printf(\"Height in meters: %.2f\\n\", h.meters);\n\n    return 0;\n}",
+    "description": "This program defines a union for storing a person's height in both feet/inches and meters, and prints the height."
+  },
+  {
+    "id": 877,
+    "input": "Write a C program that uses a union to store an IP address as either a string or as four bytes, and prints both formats.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion IPAddress {\n    char ipString[16];\n    unsigned char ipBytes[4];\n};\n\nint main() {\n    union IPAddress ip;\n    strcpy(ip.ipString, \"192.168.1.1\");\n    printf(\"IP Address as String: %s\\n\", ip.ipString);\n\n    ip.ipBytes[0] = 192;\n    ip.ipBytes[1] = 168;\n    ip.ipBytes[2] = 1;\n    ip.ipBytes[3] = 1;\n    printf(\"IP Address as Bytes: %u.%u.%u.%u\\n\", ip.ipBytes[0], ip.ipBytes[1], ip.ipBytes[2], ip.ipBytes[3]);\n\n    return 0;\n}",
+    "description": "This program uses a union to store an IP address as either a string or as four bytes and prints both formats."
+  },
+  {
+    "id": 878,
+    "input": "Write a C program that uses a union to store a currency value as both integer (cents) and floating-point (dollars), and prints both.",
+    "output": "#include <stdio.h>\n\nunion Currency {\n    int cents;\n    float dollars;\n};\n\nint main() {\n    union Currency currency;\n    currency.cents = 199;\n    printf(\"Currency in cents: %d\\n\", currency.cents);\n\n    currency.dollars = 1.99;\n    printf(\"Currency in dollars: %.2f\\n\", currency.dollars);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a currency value as both integer (cents) and floating-point (dollars), and prints both."
+  },
+  {
+    "id": 879,
+    "input": "Write a C program that defines a union to store a book's title, author, and publication year, and prints them.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Book {\n    char title[50];\n    char author[50];\n    int year;\n};\n\nint main() {\n    union Book book;\n    strcpy(book.title, \"C Programming Basics\");\n    printf(\"Book Title: %s\\n\", book.title);\n\n    strcpy(book.author, \"Bjarne Stroustrup\");\n    printf(\"Book Author: %s\\n\", book.author);\n\n    book.year = 1985;\n    printf(\"Year of Publication: %d\\n\", book.year);\n\n    return 0;\n}",
+    "description": "This program defines a union for storing a book's title, author, and publication year, and prints the values."
+  },
+  {
+    "id": 880,
+    "input": "Write a C program that uses a union to store both a car's make and year of manufacture, and prints both values.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Car {\n    char make[50];\n    int year;\n};\n\nint main() {\n    union Car car;\n    strcpy(car.make, \"Toyota\");\n    printf(\"Car Make: %s\\n\", car.make);\n\n    car.year = 2020;\n    printf(\"Car Year: %d\\n\", car.year);\n\n    return 0;\n}",
+    "description": "This program uses a union to store both a car's make and year of manufacture, and prints both values."
+  },
+  {
+    "id": 881,
+    "input": "Write a C program that uses a union to implement a simple calculator that stores and operates on both integer and float types.",
+    "output": "#include <stdio.h>\n\nunion Calculator {\n    int intValue;\n    float floatValue;\n};\n\nint main() {\n    union Calculator calc;\n    calc.intValue = 10;\n    printf(\"Integer value: %d\\n\", calc.intValue);\n\n    calc.floatValue = 20.5;\n    printf(\"Float value: %.2f\\n\", calc.floatValue);\n\n    printf(\"Sum: %.2f\\n\", calc.intValue + calc.floatValue);\n\n    return 0;\n}",
+    "description": "This program uses a union to implement a simple calculator that stores and operates on both integer and float types."
+  },
+  {
+    "id": 882,
+    "input": "Write a C program that uses a union to store and convert temperature between Celsius and Fahrenheit.",
+    "output": "#include <stdio.h>\n\nunion Temperature {\n    float celsius;\n    float fahrenheit;\n};\n\nint main() {\n    union Temperature temp;\n    temp.celsius = 25;\n    printf(\"Temperature in Celsius: %.2f\\n\", temp.celsius);\n\n    temp.fahrenheit = (temp.celsius * 9/5) + 32;\n    printf(\"Converted to Fahrenheit: %.2f\\n\", temp.fahrenheit);\n\n    return 0;\n}",
+    "description": "This program uses a union to store and convert temperature between Celsius and Fahrenheit."
+  },
+  {
+    "id": 883,
+    "input": "Write a C program that uses a union to store both a floating-point radius and its corresponding area and circumference for a circle.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nunion Circle {\n    float radius;\n    struct {\n        float area;\n        float circumference;\n    } circleProperties;\n};\n\nint main() {\n    union Circle circle;\n    circle.radius = 5.0;\n    circle.circleProperties.area = M_PI * circle.radius * circle.radius;\n    circle.circleProperties.circumference = 2 * M_PI * circle.radius;\n    printf(\"Radius: %.2f\\n\", circle.radius);\n    printf(\"Area: %.2f\\n\", circle.circleProperties.area);\n    printf(\"Circumference: %.2f\\n\", circle.circleProperties.circumference);\n\n    return 0;\n}",
+    "description": "This program uses a union to store both a floating-point radius and its corresponding area and circumference for a circle."
+  },
+  {
+    "id": 884,
+    "input": "Write a C program that uses a union to represent both the integer and binary form of a number.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion Number {\n    int decimal;\n    char binary[32];\n};\n\nvoid intToBinary(int n, char *binary) {\n    for (int i = 31; i >= 0; i--) {\n        binary[i] = (n % 2) + '0';\n        n /= 2;\n    }\n    binary[32] = '\\0';\n}\n\nint main() {\n    union Number num;\n    num.decimal = 10;\n    printf(\"Decimal: %d\\n\", num.decimal);\n    intToBinary(num.decimal, num.binary);\n    printf(\"Binary: %s\\n\", num.binary);\n\n    return 0;\n}",
+    "description": "This program uses a union to represent both the integer and binary form of a number."
+  },
+  {
+    "id": 885,
+    "input": "Write a C program that uses a union to store both a 3x3 matrix and a 1D array of 9 elements.",
+    "output": "#include <stdio.h>\n\nunion Matrix {\n    int matrix[3][3];\n    int array[9];\n};\n\nint main() {\n    union Matrix mat;\n    int counter = 1;\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            mat.matrix[i][j] = counter++;\n        }\n    }\n    printf(\"Matrix (3x3):\\n\");\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            printf(\"%d \", mat.matrix[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    printf(\"1D Array: \\n\");\n    for (int i = 0; i < 9; i++) {\n        printf(\"%d \", mat.array[i]);\n    }\n\n    return 0;\n}",
+    "description": "This program uses a union to store both a 3x3 matrix and a 1D array of 9 elements."
+  },
+  {
+    "id": 886,
+    "input": "Write a C program that uses a union to implement a simple menu system with options for string, integer, and float.",
+    "output": "#include <stdio.h>\n\nunion Menu {\n    char option[50];\n    int num;\n    float decimal;\n};\n\nint main() {\n    union Menu menu;\n    printf(\"Enter option (string): \");\n    scanf(\"%s\", menu.option);\n    printf(\"String option: %s\\n\", menu.option);\n\n    menu.num = 100;\n    printf(\"Integer option: %d\\n\", menu.num);\n\n    menu.decimal = 3.14;\n    printf(\"Float option: %.2f\\n\", menu.decimal);\n\n    return 0;\n}",
+    "description": "This program uses a union to implement a simple menu system with options for string, integer, and float."
+  },
+  {
+    "id": 887,
+    "input": "Write a C program that uses a union to store both a character string and its corresponding ASCII value.",
+    "output": "#include <stdio.h>\n\nunion String {\n    char str[50];\n    int ascii;\n};\n\nint main() {\n    union String s;\n    printf(\"Enter a string: \");\n    scanf(\"%s\", s.str);\n    printf(\"String: %s\\n\", s.str);\n\n    s.ascii = (int)s.str[0];\n    printf(\"ASCII value of first character: %d\\n\", s.ascii);\n\n    return 0;\n}",
+    "description": "This program uses a union to store both a character string and its corresponding ASCII value."
+  },
+  {
+    "id": 888,
+    "input": "Write a C program that uses a union to store a large structure and access its fields using pointers.",
+    "output": "#include <stdio.h>\n\nunion LargeStruct {\n    struct {\n        int id;\n        char name[50];\n        float salary;\n    } employee;\n};\n\nint main() {\n    union LargeStruct emp;\n    emp.employee.id = 1;\n    sprintf(emp.employee.name, \"John Doe\");\n    emp.employee.salary = 50000.50;\n\n    printf(\"Employee ID: %d\\n\", emp.employee.id);\n    printf(\"Employee Name: %s\\n\", emp.employee.name);\n    printf(\"Employee Salary: %.2f\\n\", emp.employee.salary);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a large structure and access its fields using pointers."
+  },
+  {
+    "id": 889,
+    "input": "Write a C program that uses a union to represent both the speed of a vehicle in km/h and mph, and converts between them.",
+    "output": "#include <stdio.h>\n\nunion Speed {\n    float kmph;\n    float mph;\n};\n\nint main() {\n    union Speed vehicleSpeed;\n    vehicleSpeed.kmph = 100.0;\n    vehicleSpeed.mph = vehicleSpeed.kmph * 0.621371;\n    printf(\"Speed in km/h: %.2f\\n\", vehicleSpeed.kmph);\n    printf(\"Converted Speed in mph: %.2f\\n\", vehicleSpeed.mph);\n\n    return 0;\n}",
+    "description": "This program uses a union to represent both the speed of a vehicle in km/h and mph, and converts between them."
+  },
+  {
+    "id": 890,
+    "input": "Write a C program that uses a union to store both a color code in RGB format and its hexadecimal representation.",
+    "output": "#include <stdio.h>\n\nunion Color {\n    struct {\n        int r, g, b;\n    } rgb;\n    unsigned int hex;\n};\n\nint main() {\n    union Color color;\n    color.rgb.r = 255;\n    color.rgb.g = 0;\n    color.rgb.b = 0;\n    printf(\"RGB Color: (%d, %d, %d)\\n\", color.rgb.r, color.rgb.g, color.rgb.b);\n\n    color.hex = (color.rgb.r << 16) | (color.rgb.g << 8) | color.rgb.b;\n    printf(\"Hexadecimal: #%06X\\n\", color.hex);\n\n    return 0;\n}",
+    "description": "This program uses a union to store both a color code in RGB format and its hexadecimal representation."
+  },
+  {
+    "id": 891,
+    "input": "Write a C program that uses a union to represent a point in 2D and 3D space, with an option to calculate the distance from the origin.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nunion Point {\n    struct {\n        float x, y;\n    } point2D;\n    struct {\n        float x, y, z;\n    } point3D;\n};\n\nfloat calculateDistance(float x, float y, float z) {\n    return sqrt(x * x + y * y + z * z);\n}\n\nint main() {\n    union Point p;\n    p.point3D.x = 3.0;\n    p.point3D.y = 4.0;\n    p.point3D.z = 5.0;\n    float distance = calculateDistance(p.point3D.x, p.point3D.y, p.point3D.z);\n    printf(\"Distance from origin (3D): %.2f\\n\", distance);\n\n    return 0;\n}",
+    "description": "This program uses a union to represent a point in 2D and 3D space, with an option to calculate the distance from the origin."
+  },
+  {
+    "id": 892,
+    "input": "Write a C program that uses a union to store and display both a date (day, month, year) and a timestamp (seconds since January 1, 1970).",
+    "output": "#include <stdio.h>\n#include <time.h>\n\nunion DateTimestamp {\n    struct {\n        int day, month, year;\n    } date;\n    time_t timestamp;\n};\n\nint main() {\n    union DateTimestamp dt;\n    dt.date.day = 15;\n    dt.date.month = 12;\n    dt.date.year = 2024;\n    printf(\"Date: %02d/%02d/%04d\\n\", dt.date.day, dt.date.month, dt.date.year);\n\n    dt.timestamp = time(NULL);\n    printf(\"Timestamp: %ld seconds since Jan 1, 1970\\n\", dt.timestamp);\n\n    return 0;\n}",
+    "description": "This program uses a union to store and display both a date (day, month, year) and a timestamp (seconds since January 1, 1970)."
+  },
+  {
+    "id": 893,
+    "input": "Write a C program that uses a union to store a character string and a dynamic array, and display both.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nunion StringArray {\n    char str[50];\n    int *arr;\n};\n\nint main() {\n    union StringArray data;\n    snprintf(data.str, sizeof(data.str), \"Hello, World!\");\n    printf(\"String: %s\\n\", data.str);\n\n    data.arr = (int *)malloc(3 * sizeof(int));\n    data.arr[0] = 1;\n    data.arr[1] = 2;\n    data.arr[2] = 3;\n    printf(\"Array: %d, %d, %d\\n\", data.arr[0], data.arr[1], data.arr[2]);\n\n    free(data.arr);\n    return 0;\n}",
+    "description": "This program uses a union to store a character string and a dynamic array, and display both."
+  },
+  {
+    "id": 894,
+    "input": "Write a C program that uses a union to represent a shape, either a rectangle or a circle, and calculate its area.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nunion Shape {\n    struct {\n        float length, width;\n    } rectangle;\n    struct {\n        float radius;\n    } circle;\n};\n\nfloat calculateArea(union Shape shape, char type) {\n    if (type == 'r') {\n        return shape.rectangle.length * shape.rectangle.width;\n    } else if (type == 'c') {\n        return M_PI * shape.circle.radius * shape.circle.radius;\n    }\n    return 0.0;\n}\n\nint main() {\n    union Shape shape;\n    shape.rectangle.length = 10.0;\n    shape.rectangle.width = 5.0;\n    printf(\"Area of rectangle: %.2f\\n\", calculateArea(shape, 'r'));\n\n    shape.circle.radius = 7.0;\n    printf(\"Area of circle: %.2f\\n\", calculateArea(shape, 'c'));\n\n    return 0;\n}",
+    "description": "This program uses a union to represent a shape, either a rectangle or a circle, and calculate its area."
+  },
+  {
+    "id": 895,
+    "input": "Write a C program that uses a union to store both a name (as a string) and its corresponding hash value (as an integer).",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nunion NameHash {\n    char name[50];\n    int hash;\n};\n\nint generateHash(const char *str) {\n    int hash = 0;\n    while (*str) {\n        hash = (hash << 5) + *str++;\n    }\n    return hash;\n}\n\nint main() {\n    union NameHash nh;\n    strcpy(nh.name, \"Alice\");\n    printf(\"Name: %s\\n\", nh.name);\n    nh.hash = generateHash(nh.name);\n    printf(\"Hash value: %d\\n\", nh.hash);\n\n    return 0;\n}",
+    "description": "This program uses a union to store both a name (as a string) and its corresponding hash value (as an integer)."
+  },
+  {
+    "id": 896,
+    "input": "Write a C program that uses a union to store either a price (float) or a quantity (int) for a product and display both.",
+    "output": "#include <stdio.h>\n\nunion Product {\n    float price;\n    int quantity;\n};\n\nint main() {\n    union Product product;\n    product.price = 19.99;\n    printf(\"Product Price: %.2f\\n\", product.price);\n\n    product.quantity = 10;\n    printf(\"Product Quantity: %d\\n\", product.quantity);\n\n    return 0;\n}",
+    "description": "This program uses a union to store either a price (float) or a quantity (int) for a product and display both."
+  },
+  {
+    "id": 897,
+    "input": "Write a C program that uses a union to store a list of colors as integers and print them in both decimal and hexadecimal formats.",
+    "output": "#include <stdio.h>\n\nunion ColorList {\n    int colors[5];\n    unsigned int hexColors[5];\n};\n\nint main() {\n    union ColorList colors;\n    colors.colors[0] = 255;\n    colors.colors[1] = 128;\n    colors.colors[2] = 64;\n    colors.colors[3] = 32;\n    colors.colors[4] = 0;\n    for (int i = 0; i < 5; i++) {\n        printf(\"Color %d: %d (decimal) - %#X (hex)\\n\", i + 1, colors.colors[i], colors.colors[i]);\n    }\n\n    return 0;\n}",
+    "description": "This program uses a union to store a list of colors as integers and print them in both decimal and hexadecimal formats."
+  },
+  {
+    "id": 898,
+    "input": "Write a C program that uses a union to represent both a rational number (numerator and denominator) and its decimal equivalent.",
+    "output": "#include <stdio.h>\n\nunion Rational {\n    struct {\n        int numerator, denominator;\n    } fraction;\n    float decimal;\n};\n\nfloat calculateDecimal(int numerator, int denominator) {\n    return (float)numerator / denominator;\n}\n\nint main() {\n    union Rational rational;\n    rational.fraction.numerator = 5;\n    rational.fraction.denominator = 2;\n    rational.decimal = calculateDecimal(rational.fraction.numerator, rational.fraction.denominator);\n    printf(\"Rational: %d/%d\\n\", rational.fraction.numerator, rational.fraction.denominator);\n    printf(\"Decimal: %.2f\\n\", rational.decimal);\n\n    return 0;\n}",
+    "description": "This program uses a union to represent both a rational number (numerator and denominator) and its decimal equivalent."
+  },
+  {
+    "id": 899,
+    "input": "Write a C program that uses a union to store a temperature (as a Celsius value) and its corresponding value in Kelvin.",
+    "output": "#include <stdio.h>\n\nunion Temperature {\n    float celsius;\n    float kelvin;\n};\n\nint main() {\n    union Temperature temp;\n    temp.celsius = 25.0;\n    temp.kelvin = temp.celsius + 273.15;\n    printf(\"Temperature: %.2f°C (%.2fK)\\n\", temp.celsius, temp.kelvin);\n\n    return 0;\n}",
+    "description": "This program uses a union to store a temperature (as a Celsius value) and its corresponding value in Kelvin."
+  },
+  {
+    "id": 900,
+    "input": "Write a C program that uses a union to represent a student's score, either as a percentage or a letter grade.",
+    "output": "#include <stdio.h>\n\nunion Score {\n    float percentage;\n    char grade;\n};\n\nchar calculateGrade(float percentage) {\n    if (percentage >= 90) return 'A';\n    if (percentage >= 80) return 'B';\n    if (percentage >= 70) return 'C';\n    if (percentage >= 60) return 'D';\n    return 'F';\n}\n\nint main() {\n    union Score score;\n    score.percentage = 85.5;\n    printf(\"Percentage: %.2f%%\\n\", score.percentage);\n    score.grade = calculateGrade(score.percentage);\n    printf(\"Grade: %c\\n\", score.grade);\n\n    return 0;\n}",
+    "description": "This program uses a union to represent a student's score, either as a percentage or a letter grade."
+  },
+  {
+    "id": 901,
+    "input": "Write a C program that uses the standard library function `strlen` to find the length of a string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[] = \"Hello, World!\";\n    printf(\"Length of string: %lu\\n\", strlen(str));\n    return 0;\n}",
+    "description": "This program uses the standard library function `strlen` to find the length of a string."
+  },
+  {
+    "id": 902,
+    "input": "Write a C program that uses the standard library function `strcpy` to copy one string into another.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char source[] = \"Hello, World!\";\n    char destination[50];\n    strcpy(destination, source);\n    printf(\"Copied string: %s\\n\", destination);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strcpy` to copy one string into another."
+  },
+  {
+    "id": 903,
+    "input": "Write a C program that uses the standard library function `strcmp` to compare two strings.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str1[] = \"Hello\";\n    char str2[] = \"World\";\n    if (strcmp(str1, str2) == 0) {\n        printf(\"Strings are equal.\\n\");\n    } else {\n        printf(\"Strings are not equal.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `strcmp` to compare two strings."
+  },
+  {
+    "id": 904,
+    "input": "Write a C program that uses the standard library function `strcat` to concatenate two strings.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str1[50] = \"Hello, \";\n    char str2[] = \"World!\";\n    strcat(str1, str2);\n    printf(\"Concatenated string: %s\\n\", str1);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strcat` to concatenate two strings."
+  },
+  {
+    "id": 905,
+    "input": "Write a C program that uses the standard library function `toupper` to convert a lowercase character to uppercase.",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main() {\n    char ch = 'a';\n    printf(\"Uppercase: %c\\n\", toupper(ch));\n    return 0;\n}",
+    "description": "This program uses the standard library function `toupper` to convert a lowercase character to uppercase."
+  },
+  {
+    "id": 906,
+    "input": "Write a C program that uses the standard library function `tolower` to convert an uppercase character to lowercase.",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main() {\n    char ch = 'A';\n    printf(\"Lowercase: %c\\n\", tolower(ch));\n    return 0;\n}",
+    "description": "This program uses the standard library function `tolower` to convert an uppercase character to lowercase."
+  },
+  {
+    "id": 907,
+    "input": "Write a C program that uses the standard library function `malloc` to dynamically allocate memory for an integer array.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = (int *)malloc(5 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    for (int i = 0; i < 5; i++) {\n        arr[i] = i + 1;\n    }\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program uses the standard library function `malloc` to dynamically allocate memory for an integer array."
+  },
+  {
+    "id": 908,
+    "input": "Write a C program that uses the standard library function `free` to deallocate memory that was dynamically allocated using `malloc`.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = (int *)malloc(5 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    for (int i = 0; i < 5; i++) {\n        arr[i] = i + 1;\n    }\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program uses the standard library function `free` to deallocate memory that was dynamically allocated using `malloc`."
+  },
+  {
+    "id": 909,
+    "input": "Write a C program that uses the standard library function `rand` to generate a random number between 1 and 100.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    srand(time(NULL));\n    int random_number = rand() % 100 + 1;\n    printf(\"Random number between 1 and 100: %d\\n\", random_number);\n    return 0;\n}",
+    "description": "This program uses the standard library function `rand` to generate a random number between 1 and 100."
+  },
+  {
+    "id": 910,
+    "input": "Write a C program that uses the standard library function `time` to get the current system time.",
+    "output": "#include <stdio.h>\n#include <time.h>\n\nint main() {\n    time_t current_time = time(NULL);\n    printf(\"Current time: %s\\n\", ctime(&current_time));\n    return 0;\n}",
+    "description": "This program uses the standard library function `time` to get the current system time."
+  },
+  {
+    "id": 911,
+    "input": "Write a C program that uses the standard library function `fopen` to open a file in read mode.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"File not found.\\n\");\n        return 1;\n    }\n    printf(\"File opened successfully.\\n\");\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fopen` to open a file in read mode."
+  },
+  {
+    "id": 912,
+    "input": "Write a C program that uses the standard library function `fputs` to write a string to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"File could not be opened.\\n\");\n        return 1;\n    }\n    fputs(\"Hello, file!\\n\", file);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fputs` to write a string to a file."
+  },
+  {
+    "id": 913,
+    "input": "Write a C program that uses the standard library function `fgets` to read a string from a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"File not found.\\n\");\n        return 1;\n    }\n    char buffer[100];\n    fgets(buffer, 100, file);\n    printf(\"Read from file: %s\\n\", buffer);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fgets` to read a string from a file."
+  },
+  {
+    "id": 914,
+    "input": "Write a C program that uses the standard library function `fprintf` to write formatted data to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"File could not be opened.\\n\");\n        return 1;\n    }\n    int num = 42;\n    fprintf(file, \"The number is %d.\\n\", num);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fprintf` to write formatted data to a file."
+  },
+  {
+    "id": 915,
+    "input": "Write a C program that uses the standard library function `fscanf` to read formatted data from a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"File not found.\\n\");\n        return 1;\n    }\n    int num;\n    fscanf(file, \"The number is %d.\", &num);\n    printf(\"Read from file: The number is %d.\\n\", num);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fscanf` to read formatted data from a file."
+  },
+  {
+    "id": 916,
+    "input": "Write a C program that uses the standard library function `remove` to delete a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    if (remove(\"example.txt\") == 0) {\n        printf(\"File deleted successfully.\\n\");\n    } else {\n        printf(\"File deletion failed.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `remove` to delete a file."
+  },
+  {
+    "id": 917,
+    "input": "Write a C program that uses the standard library function `rename` to rename a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    if (rename(\"oldfile.txt\", \"newfile.txt\") == 0) {\n        printf(\"File renamed successfully.\\n\");\n    } else {\n        printf(\"File renaming failed.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `rename` to rename a file."
+  },
+  {
+    "id": 918,
+    "input": "Write a C program that uses the standard library function `exit` to terminate the program with a status code.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    printf(\"Exiting the program.\\n\");\n    exit(0);\n    return 0;\n}",
+    "description": "This program uses the standard library function `exit` to terminate the program with a status code."
+  },
+  {
+    "id": 919,
+    "input": "Write a C program that uses the standard library function `system` to execute a system command.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    system(\"echo Hello, World!\");\n    return 0;\n}",
+    "description": "This program uses the standard library function `system` to execute a system command."
+  },
+  {
+    "id": 920,
+    "input": "Write a C program that uses the standard library function `atof` to convert a string to a floating-point number.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    char str[] = \"123.45\";\n    float num = atof(str);\n    printf(\"Converted number: %.2f\\n\", num);\n    return 0;\n}",
+    "description": "This program uses the standard library function `atof` to convert a string to a floating-point number."
+  },
+  {
+    "id": 921,
+    "input": "Write a C program that uses the standard library function `abs` to compute the absolute value of an integer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int num = -42;\n    int absValue = abs(num);\n    printf(\"The absolute value of %d is %d.\\n\", num, absValue);\n    return 0;\n}",
+    "description": "This program uses the standard library function `abs` to compute the absolute value of an integer."
+  },
+  {
+    "id": 922,
+    "input": "Write a C program that uses the standard library function `sqrt` to calculate the square root of a number.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double num = 25.0;\n    double result = sqrt(num);\n    printf(\"The square root of %.2f is %.2f.\\n\", num, result);\n    return 0;\n}",
+    "description": "This program uses the standard library function `sqrt` to calculate the square root of a number."
+  },
+  {
+    "id": 923,
+    "input": "Write a C program that uses the standard library function `pow` to calculate the power of a number.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double base = 2.0, exponent = 3.0;\n    double result = pow(base, exponent);\n    printf(\"%.2f raised to the power of %.2f is %.2f.\\n\", base, exponent, result);\n    return 0;\n}",
+    "description": "This program uses the standard library function `pow` to calculate the power of a number."
+  },
+  {
+    "id": 924,
+    "input": "Write a C program that uses the standard library function `rand` to generate a random number.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    srand(time(0));\n    int randomNumber = rand();\n    printf(\"Random number: %d\\n\", randomNumber);\n    return 0;\n}",
+    "description": "This program uses the standard library function `rand` to generate a random number."
+  },
+  {
+    "id": 925,
+    "input": "Write a C program that uses the standard library function `malloc` to dynamically allocate memory for an array of integers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = (int *)malloc(5 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    for (int i = 0; i < 5; i++) {\n        arr[i] = i * 2;\n    }\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program uses the standard library function `malloc` to dynamically allocate memory for an array of integers."
+  },
+  {
+    "id": 926,
+    "input": "Write a C program that uses the standard library function `free` to release dynamically allocated memory.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = (int *)malloc(5 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    free(arr);\n    printf(\"Memory released.\\n\");\n    return 0;\n}",
+    "description": "This program uses the standard library function `free` to release dynamically allocated memory."
+  },
+  {
+    "id": 927,
+    "input": "Write a C program that uses the standard library function `strlen` to find the length of a string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[] = \"Hello, World!\";\n    int length = strlen(str);\n    printf(\"The length of the string is %d.\\n\", length);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strlen` to find the length of a string."
+  },
+  {
+    "id": 928,
+    "input": "Write a C program that uses the standard library function `strcmp` to compare two strings.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str1[] = \"apple\";\n    char str2[] = \"banana\";\n    int result = strcmp(str1, str2);\n    if (result < 0) {\n        printf(\"'%s' is less than '%s'.\\n\", str1, str2);\n    } else if (result > 0) {\n        printf(\"'%s' is greater than '%s'.\\n\", str1, str2);\n    } else {\n        printf(\"'%s' is equal to '%s'.\\n\", str1, str2);\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `strcmp` to compare two strings."
+  },
+  {
+    "id": 929,
+    "input": "Write a C program that uses the standard library function `strcpy` to copy one string to another.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char source[] = \"Hello\";\n    char destination[10];\n    strcpy(destination, source);\n    printf(\"Destination string: %s\\n\", destination);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strcpy` to copy one string to another."
+  },
+  {
+    "id": 930,
+    "input": "Write a C program that uses the standard library function `strcat` to concatenate two strings.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str1[20] = \"Hello, \";\n    char str2[] = \"World!\";\n    strcat(str1, str2);\n    printf(\"Concatenated string: %s\\n\", str1);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strcat` to concatenate two strings."
+  },
+  {
+    "id": 931,
+    "input": "Write a C program that uses the standard library functions `fopen`, `fprintf`, and `fclose` to write data to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fprintf(file, \"This is a test file\\n\");\n    fclose(file);\n    printf(\"Data written to file successfully.\\n\");\n    return 0;\n}",
+    "description": "This program uses the standard library functions `fopen`, `fprintf`, and `fclose` to write data to a file."
+  },
+  {
+    "id": 932,
+    "input": "Write a C program that uses the standard library functions `fopen`, `fscanf`, and `fclose` to read data from a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"input.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    char str[100];\n    fscanf(file, \"%s\", str);\n    printf(\"Read from file: %s\\n\", str);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library functions `fopen`, `fscanf`, and `fclose` to read data from a file."
+  },
+  {
+    "id": 933,
+    "input": "Write a C program that uses the standard library function `qsort` to sort an array of integers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint compare(const void *a, const void *b) {\n    return (*(int *)a - *(int *)b);\n}\n\nint main() {\n    int arr[] = {5, 2, 8, 1, 3};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    qsort(arr, size, sizeof(int), compare);\n    printf(\"Sorted array: \");\n    for (int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program uses the standard library function `qsort` to sort an array of integers."
+  },
+  {
+    "id": 934,
+    "input": "Write a C program that uses the standard library function `bsearch` to perform a binary search on a sorted array.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint compare(const void *a, const void *b) {\n    return (*(int *)a - *(int *)b);\n}\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int target = 3;\n    int *result = (int *)bsearch(&target, arr, size, sizeof(int), compare);\n    if (result != NULL) {\n        printf(\"Element found: %d\\n\", *result);\n    } else {\n        printf(\"Element not found\\n\");\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `bsearch` to perform a binary search on a sorted array."
+  },
+  {
+    "id": 935,
+    "input": "Write a C program that uses the standard library function `strtok` to tokenize a string by a delimiter.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[] = \"apple,banana,orange\";\n    char *token = strtok(str, \",\");\n    while (token != NULL) {\n        printf(\"%s\\n\", token);\n        token = strtok(NULL, \",\");\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `strtok` to tokenize a string by a delimiter."
+  },
+  {
+    "id": 936,
+    "input": "Write a C program that uses the standard library function `memcpy` to copy a block of memory from one location to another.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char source[] = \"Hello, World!\";\n    char destination[50];\n    memcpy(destination, source, strlen(source) + 1);\n    printf(\"Destination: %s\\n\", destination);\n    return 0;\n}",
+    "description": "This program uses the standard library function `memcpy` to copy a block of memory from one location to another."
+  },
+  {
+    "id": 937,
+    "input": "Write a C program that uses the standard library function `strstr` to find the first occurrence of a substring in a string.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[] = \"Hello, World!\";\n    char substr[] = \"World\";\n    char *result = strstr(str, substr);\n    if (result != NULL) {\n        printf(\"Substring found: %s\\n\", result);\n    } else {\n        printf(\"Substring not found\\n\");\n    }\n    return 0;\n}",
+    "description": "This program uses the standard library function `strstr` to find the first occurrence of a substring in a string."
+  },
+  {
+    "id": 938,
+    "input": "Write a C program that uses the standard library function `fseek` to move the file pointer to a specific position in a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fseek(file, 5, SEEK_SET);\n    char ch = fgetc(file);\n    printf(\"Character at position 5: %c\\n\", ch);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fseek` to move the file pointer to a specific position in a file."
+  },
+  {
+    "id": 939,
+    "input": "Write a C program that uses the standard library function `ftell` to get the current position of the file pointer.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fseek(file, 0, SEEK_SET);\n    long position = ftell(file);\n    printf(\"Current position: %ld\\n\", position);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the standard library function `ftell` to get the current position of the file pointer."
+  },
+  {
+    "id": 940,
+    "input": "Write a C program that uses the standard library function `localtime` to get the current time and format it into a readable string.",
+    "output": "#include <stdio.h>\n#include <time.h>\n\nint main() {\n    time_t t = time(NULL);\n    struct tm *tm_info = localtime(&t);\n    char buffer[26];\n    strftime(buffer, 26, \"%Y-%m-%d %H:%M:%S\", tm_info);\n    printf(\"Current time: %s\\n\", buffer);\n    return 0;\n}",
+    "description": "This program uses the standard library function `localtime` to get the current time and format it into a readable string."
+  },
+  {
+    "id": 941,
+    "input": "Write a C program that uses the standard library function `atoi` to convert a string to an integer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    char str[] = \"12345\";\n    int num = atoi(str);\n    printf(\"Converted number: %d\\n\", num);\n    return 0;\n}",
+    "description": "This program uses the standard library function `atoi` to convert a string to an integer."
+  },
+  {
+    "id": 942,
+    "input": "Write a C program that uses the standard library function `atof` to convert a string to a float.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    char str[] = \"123.45\";\n    float num = atof(str);\n    printf(\"Converted number: %.2f\\n\", num);\n    return 0;\n}",
+    "description": "This program uses the standard library function `atof` to convert a string to a float."
+  },
+  {
+    "id": 943,
+    "input": "Write a C program that uses the standard library function `strtol` to convert a string to a long integer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    char str[] = \"123456789\";\n    long num = strtol(str, NULL, 10);\n    printf(\"Converted number: %ld\\n\", num);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strtol` to convert a string to a long integer."
+  },
+  {
+    "id": 944,
+    "input": "Write a C program that uses the standard library function `rand` to generate a random number.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    srand(time(NULL));\n    int num = rand();\n    printf(\"Random number: %d\\n\", num);\n    return 0;\n}",
+    "description": "This program uses the standard library function `rand` to generate a random number."
+  },
+  {
+    "id": 945,
+    "input": "Write a C program that uses the standard library function `srand` to seed the random number generator.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    srand(time(NULL));\n    int num = rand() % 100;  // Random number between 0 and 99\n    printf(\"Random number between 0 and 99: %d\\n\", num);\n    return 0;\n}",
+    "description": "This program uses the standard library function `srand` to seed the random number generator."
+  },
+  {
+    "id": 946,
+    "input": "Write a C program that uses the standard library function `strftime` to format the current date and time.",
+    "output": "#include <stdio.h>\n#include <time.h>\n\nint main() {\n    time_t t = time(NULL);\n    struct tm *tm_info = localtime(&t);\n    char buffer[80];\n    strftime(buffer, sizeof(buffer), \"%Y-%m-%d %H:%M:%S\", tm_info);\n    printf(\"Formatted time: %s\\n\", buffer);\n    return 0;\n}",
+    "description": "This program uses the standard library function `strftime` to format the current date and time."
+  },
+  {
+    "id": 947,
+    "input": "Write a C program that uses the standard library function `fmod` to find the remainder of the division of two floating-point numbers.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double num1 = 5.5, num2 = 2.0;\n    double result = fmod(num1, num2);\n    printf(\"Remainder: %.2f\\n\", result);\n    return 0;\n}",
+    "description": "This program uses the standard library function `fmod` to find the remainder of the division of two floating-point numbers."
+  },
+  {
+    "id": 948,
+    "input": "Write a C program that uses the standard library function `ceil` to round a floating-point number up to the nearest integer.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double num = 3.14;\n    double result = ceil(num);\n    printf(\"Ceiling value: %.2f\\n\", result);\n    return 0;\n}",
+    "description": "This program uses the standard library function `ceil` to round a floating-point number up to the nearest integer."
+  },
+  {
+    "id": 949,
+    "input": "Write a C program that uses the standard library function `floor` to round a floating-point number down to the nearest integer.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double num = 3.14;\n    double result = floor(num);\n    printf(\"Floor value: %.2f\\n\", result);\n    return 0;\n}",
+    "description": "This program uses the standard library function `floor` to round a floating-point number down to the nearest integer."
+  },
+  {
+    "id": 950,
+    "input": "Write a C program that uses the standard library function `abs` to find the absolute value of an integer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int num = -10;\n    int result = abs(num);\n    printf(\"Absolute value: %d\\n\", result);\n    return 0;\n}",
+    "description": "This program uses the standard library function `abs` to find the absolute value of an integer."
+  },
+  {
+    "id": 951,
+    "input": "Write a C program to implement a simple guessing game where the user has to guess a number between 1 and 100.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    srand(time(0));\n    int number = rand() % 100 + 1;\n    int guess;\n    int attempts = 0;\n\n    printf(\"Guess the number between 1 and 100: \");\n\n    do {\n        scanf(\"%d\", &guess);\n        attempts++;\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"Congratulations! You guessed the number in %d attempts.\\n\", attempts);\n        }\n    } while (guess != number);\n\n    return 0;\n}",
+    "description": "This program implements a simple guessing game where the user has to guess a number between 1 and 100."
+  },
+  {
+    "id": 952,
+    "input": "Write a C program to implement a rock-paper-scissors game against the computer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    char choice;\n    int computerChoice, userChoice;\n    srand(time(0));\n\n    printf(\"Enter your choice (r for rock, p for paper, s for scissors): \");\n    scanf(\"%c\", &choice);\n\n    computerChoice = rand() % 3;\n\n    if (choice == 'r') userChoice = 0;\n    else if (choice == 'p') userChoice = 1;\n    else if (choice == 's') userChoice = 2;\n    else { printf(\"Invalid choice.\\n\"); return 0; }\n\n    printf(\"Computer chose: \");\n    if (computerChoice == 0) printf(\"rock\\n\");\n    else if (computerChoice == 1) printf(\"paper\\n\");\n    else printf(\"scissors\\n\");\n\n    if (userChoice == computerChoice) printf(\"It's a tie!\\n\");\n    else if ((userChoice == 0 && computerChoice == 2) || (userChoice == 1 && computerChoice == 0) || (userChoice == 2 && computerChoice == 1))\n        printf(\"You win!\\n\");\n    else\n        printf(\"You lose!\\n\");\n\n    return 0;\n}",
+    "description": "This program implements a rock-paper-scissors game where the user plays against the computer."
+  },
+  {
+    "id": 953,
+    "input": "Write a C program to implement a simple number-guessing game where the user has to guess a number within a specified range.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int lower = 1, upper = 10, guess, number;\n    srand(time(0));\n    number = rand() % (upper - lower + 1) + lower;\n\n    printf(\"Guess the number between %d and %d: \", lower, upper);\n\n    do {\n        scanf(\"%d\", &guess);\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"You guessed the number!\\n\");\n        }\n    } while (guess != number);\n\n    return 0;\n}",
+    "description": "This program implements a simple number-guessing game where the user has to guess a number within a specified range."
+  },
+  {
+    "id": 954,
+    "input": "Write a C program to implement a simple dice rolling game where the user rolls a dice and the computer rolls a dice, and the higher roll wins.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int userRoll, computerRoll;\n    srand(time(0));\n\n    userRoll = rand() % 6 + 1;\n    computerRoll = rand() % 6 + 1;\n\n    printf(\"You rolled: %d\\n\", userRoll);\n    printf(\"Computer rolled: %d\\n\", computerRoll);\n\n    if (userRoll > computerRoll) {\n        printf(\"You win!\\n\");\n    } else if (userRoll < computerRoll) {\n        printf(\"You lose!\\n\");\n    } else {\n        printf(\"It's a tie!\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple dice-rolling game where the user and the computer roll a dice, and the higher roll wins."
+  },
+  {
+    "id": 955,
+    "input": "Write a C program to implement a simple number-guessing game with a limited number of attempts.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int number, guess, attempts = 0, maxAttempts = 5;\n    srand(time(0));\n    number = rand() % 100 + 1;\n\n    printf(\"Guess the number between 1 and 100. You have %d attempts: \", maxAttempts);\n\n    while (attempts < maxAttempts) {\n        scanf(\"%d\", &guess);\n        attempts++;\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"Congratulations! You guessed the number in %d attempts.\\n\", attempts);\n            return 0;\n        }\n    }\n\n    printf(\"Sorry! You've used all your attempts. The correct number was %d.\\n\", number);\n\n    return 0;\n}",
+    "description": "This program implements a number-guessing game where the user has a limited number of attempts to guess the correct number."
+  },
+  {
+    "id": 956,
+    "input": "Write a C program to implement a simple coin flip game where the user guesses heads or tails and the computer flips a coin.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int userChoice, coinFlip;\n\n    printf(\"Enter 0 for Heads or 1 for Tails: \");\n    scanf(\"%d\", &userChoice);\n\n    srand(time(0));\n    coinFlip = rand() % 2;\n\n    if (coinFlip == 0) printf(\"Coin flipped: Heads\\n\");\n    else printf(\"Coin flipped: Tails\\n\");\n\n    if (userChoice == coinFlip) printf(\"You guessed correctly!\\n\");\n    else printf(\"You guessed incorrectly.\\n\");\n\n    return 0;\n}",
+    "description": "This program implements a simple coin flip game where the user guesses heads or tails and the computer flips a coin."
+  },
+  {
+    "id": 957,
+    "input": "Write a C program to implement a simple even or odd number guessing game.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int number, guess;\n\n    srand(time(0));\n    number = rand() % 100 + 1;\n\n    printf(\"Is the number even or odd? Enter 0 for even and 1 for odd: \");\n    scanf(\"%d\", &guess);\n\n    if ((number % 2 == 0 && guess == 0) || (number % 2 != 0 && guess == 1)) {\n        printf(\"You guessed correctly! The number was %d.\\n\", number);\n    } else {\n        printf(\"You guessed incorrectly. The number was %d.\\n\", number);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple even or odd number guessing game where the user guesses if the number is even or odd."
+  },
+  {
+    "id": 958,
+    "input": "Write a C program to implement a simple number-guessing game with a range provided by the user.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int lower, upper, number, guess;\n    printf(\"Enter the lower range: \");\n    scanf(\"%d\", &lower);\n    printf(\"Enter the upper range: \");\n    scanf(\"%d\", &upper);\n\n    srand(time(0));\n    number = rand() % (upper - lower + 1) + lower;\n\n    printf(\"Guess the number between %d and %d: \", lower, upper);\n\n    do {\n        scanf(\"%d\", &guess);\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"You guessed the number!\\n\");\n        }\n    } while (guess != number);\n\n    return 0;\n}",
+    "description": "This program implements a number-guessing game where the user provides the range and guesses a number within that range."
+  },
+  {
+    "id": 959,
+    "input": "Write a C program to implement a simple 'higher or lower' game where the user has to guess if the next number is higher or lower than the current one.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int currentNumber, nextNumber, guess;\n    srand(time(0));\n\n    currentNumber = rand() % 100 + 1;\n\n    printf(\"Current number: %d\\n\", currentNumber);\n    printf(\"Is the next number higher or lower than %d? Enter 1 for higher and 0 for lower: \", currentNumber);\n    scanf(\"%d\", &guess);\n\n    nextNumber = rand() % 100 + 1;\n    printf(\"Next number: %d\\n\", nextNumber);\n\n    if ((nextNumber > currentNumber && guess == 1) || (nextNumber < currentNumber && guess == 0)) {\n        printf(\"You guessed correctly!\\n\");\n    } else {\n        printf(\"You guessed incorrectly.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'higher or lower' game where the user guesses if the next number is higher or lower than the current one."
+  },
+  {
+    "id": 960,
+    "input": "Write a C program to implement a simple countdown timer that counts down from a specified number of seconds.",
+    "output": "#include <stdio.h>\n#include <unistd.h>\n\nint main() {\n    int seconds;\n    printf(\"Enter the number of seconds for the countdown: \");\n    scanf(\"%d\", &seconds);\n\n    while (seconds > 0) {\n        printf(\"%d\\n\", seconds);\n        sleep(1);\n        seconds--;\n    }\n\n    printf(\"Time's up!\\n\");\n    return 0;\n}",
+    "description": "This program implements a simple countdown timer that counts down from a specified number of seconds."
+  },
+  {
+    "id": 961,
+    "input": "Write a C program to implement a simple guessing game where the user has to guess a number between 1 and 50.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int number, guess;\n\n    srand(time(0));\n    number = rand() % 50 + 1;\n\n    printf(\"Guess the number between 1 and 50: \");\n    do {\n        scanf(\"%d\", &guess);\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"You guessed the number!\\n\");\n        }\n    } while (guess != number);\n\n    return 0;\n}",
+    "description": "This program implements a simple number guessing game where the user guesses a number between 1 and 50."
+  },
+  {
+    "id": 962,
+    "input": "Write a C program to implement a simple rock-paper-scissors game.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int userChoice, computerChoice;\n    const char *choices[] = {\"Rock\", \"Paper\", \"Scissors\"};\n\n    srand(time(0));\n    computerChoice = rand() % 3;\n\n    printf(\"Enter 0 for Rock, 1 for Paper, or 2 for Scissors: \");\n    scanf(\"%d\", &userChoice);\n\n    printf(\"You chose: %s\\n\", choices[userChoice]);\n    printf(\"Computer chose: %s\\n\", choices[computerChoice]);\n\n    if (userChoice == computerChoice) {\n        printf(\"It's a tie!\\n\");\n    } else if ((userChoice == 0 && computerChoice == 2) ||\n               (userChoice == 1 && computerChoice == 0) ||\n               (userChoice == 2 && computerChoice == 1)) {\n        printf(\"You win!\\n\");\n    } else {\n        printf(\"You lose!\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple rock-paper-scissors game where the user plays against the computer."
+  },
+  {
+    "id": 963,
+    "input": "Write a C program to implement a simple 'guess the word' game where the user has to guess a predefined word.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char word[] = \"apple\";\n    char guess[20];\n\n    printf(\"Guess the word: \");\n    do {\n        scanf(\"%s\", guess);\n        if (strcmp(guess, word) == 0) {\n            printf(\"You guessed the word correctly!\\n\");\n        } else {\n            printf(\"Wrong guess! Try again: \");\n        }\n    } while (strcmp(guess, word) != 0);\n\n    return 0;\n}",
+    "description": "This program implements a simple word guessing game where the user guesses a predefined word."
+  },
+  {
+    "id": 964,
+    "input": "Write a C program to implement a simple countdown from 10 game, where the user has to press 'Enter' to decrease the count.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n\nint main() {\n    int count = 10;\n    char ch;\n\n    printf(\"Countdown starting from 10: Press 'Enter' to countdown\\n\");\n    while (count > 0) {\n        ch = getchar();\n        if (ch == '\\n') {\n            printf(\"%d\\n\", count);\n            count--;\n        }\n    }\n\n    printf(\"Countdown finished!\\n\");\n    return 0;\n}",
+    "description": "This program implements a simple countdown game where the user presses 'Enter' to decrease the count from 10."
+  },
+  {
+    "id": 965,
+    "input": "Write a C program to implement a simple quiz game where the user answers yes/no questions.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char answer;\n\n    printf(\"Question 1: Is the sky blue? (y/n): \");\n    scanf(\"%c\", &answer);\n    if (answer == 'y' || answer == 'Y') {\n        printf(\"Correct!\\n\");\n    } else {\n        printf(\"Incorrect.\\n\");\n    }\n\n    printf(\"Question 2: Is the grass green? (y/n): \");\n    getchar();\n    scanf(\"%c\", &answer);\n    if (answer == 'y' || answer == 'Y') {\n        printf(\"Correct!\\n\");\n    } else {\n        printf(\"Incorrect.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple quiz game where the user answers yes/no questions."
+  },
+  {
+    "id": 966,
+    "input": "Write a C program to implement a simple 'odd or even' number guessing game where the user guesses whether the number is odd or even.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int number, guess;\n\n    srand(time(0));\n    number = rand() % 100 + 1;\n\n    printf(\"Is the number odd or even? Enter 0 for even and 1 for odd: \");\n    scanf(\"%d\", &guess);\n\n    if ((number % 2 == 0 && guess == 0) || (number % 2 != 0 && guess == 1)) {\n        printf(\"You guessed correctly! The number was %d.\\n\", number);\n    } else {\n        printf(\"You guessed incorrectly. The number was %d.\\n\", number);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'odd or even' number guessing game where the user guesses whether the number is odd or even."
+  },
+  {
+    "id": 967,
+    "input": "Write a C program to implement a simple number guessing game where the user has to guess a number between 1 and 10.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int number, guess;\n\n    srand(time(0));\n    number = rand() % 10 + 1;\n\n    printf(\"Guess the number between 1 and 10: \");\n    do {\n        scanf(\"%d\", &guess);\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"You guessed the number!\\n\");\n        }\n    } while (guess != number);\n\n    return 0;\n}",
+    "description": "This program implements a number guessing game where the user guesses a number between 1 and 10."
+  },
+  {
+    "id": 968,
+    "input": "Write a C program to implement a simple 'find the largest number' game where the user compares three numbers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a, b, c;\n    printf(\"Enter three numbers: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a > b && a > c) {\n        printf(\"The largest number is %d.\\n\", a);\n} else if (b > a && b > c) {\n        printf(\"The largest number is %d.\\n\", b);\n} else {\n        printf(\"The largest number is %d.\\n\", c);\n}\n\n    return 0;\n}",
+    "description": "This program implements a simple 'find the largest number' game where the user compares three numbers."
+  },
+  {
+    "id": 969,
+    "input": "Write a C program to implement a simple dice rolling game where the user guesses the number that will appear on the dice.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int guess, diceRoll;\n\n    srand(time(0));\n    diceRoll = rand() % 6 + 1;\n\n    printf(\"Guess the number on the dice (1 to 6): \");\n    scanf(\"%d\", &guess);\n\n    if (guess == diceRoll) {\n        printf(\"You guessed correctly! The dice showed %d.\\n\", diceRoll);\n    } else {\n        printf(\"You guessed incorrectly. The dice showed %d.\\n\", diceRoll);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple dice rolling game where the user guesses the number that will appear on the dice."
+  },
+  {
+    "id": 970,
+    "input": "Write a C program to implement a simple coin flip game where the user guesses if the coin will land on heads or tails.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int guess, coinFlip;\n\n    srand(time(0));\n    coinFlip = rand() % 2;\n\n    printf(\"Guess the coin flip: 0 for Heads, 1 for Tails: \");\n    scanf(\"%d\", &guess);\n\n    if (guess == coinFlip) {\n        printf(\"You guessed correctly! The coin landed on %s.\\n\", coinFlip == 0 ? \"Heads\" : \"Tails\");\n    } else {\n        printf(\"You guessed incorrectly. The coin landed on %s.\\n\", coinFlip == 0 ? \"Heads\" : \"Tails\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple coin flip game where the user guesses if the coin will land on heads or tails."
+  },
+  {
+    "id": 971,
+    "input": "Write a C program to implement a simple 'number in a range' game where the user has to guess a number between 10 and 100.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int number, guess;\n\n    srand(time(0));\n    number = rand() % 91 + 10;\n\n    printf(\"Guess the number between 10 and 100: \");\n    do {\n        scanf(\"%d\", &guess);\n        if (guess < number) {\n            printf(\"Too low! Try again: \");\n        } else if (guess > number) {\n            printf(\"Too high! Try again: \");\n        } else {\n            printf(\"You guessed the number!\\n\");\n        }\n    } while (guess != number);\n\n    return 0;\n}",
+    "description": "This program implements a simple number guessing game where the user guesses a number between 10 and 100."
+  },
+  {
+    "id": 972,
+    "input": "Write a C program to implement a simple 'guess the color' game where the user guesses the color of an object.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char color[] = \"blue\";\n    char guess[20];\n\n    printf(\"Guess the color: \");\n    do {\n        scanf(\"%s\", guess);\n        if (strcmp(guess, color) == 0) {\n            printf(\"Correct! You guessed the color.\\n\");\n        } else {\n            printf(\"Wrong guess! Try again: \");\n        }\n    } while (strcmp(guess, color) != 0);\n\n    return 0;\n}",
+    "description": "This program implements a simple color guessing game where the user guesses the color of an object."
+  },
+  {
+    "id": 973,
+    "input": "Write a C program to implement a simple 'memory game' where the user has to remember a sequence of numbers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int sequence[5], guess[5], i;\n\n    srand(time(0));\n    for (i = 0; i < 5; i++) {\n        sequence[i] = rand() % 10;\n        printf(\"%d \", sequence[i]);\n    }\n\n    printf(\"\\nMemorize the sequence and press 'Enter' to continue...\");\n    getchar();\n\n    printf(\"Now, enter the sequence: \");\n    for (i = 0; i < 5; i++) {\n        scanf(\"%d\", &guess[i]);\n    }\n\n    for (i = 0; i < 5; i++) {\n        if (sequence[i] != guess[i]) {\n            printf(\"Incorrect!\\n\");\n            return 0;\n        }\n    }\n\n    printf(\"You remembered the sequence correctly!\\n\");\n    return 0;\n}",
+    "description": "This program implements a simple memory game where the user has to remember and input a sequence of numbers."
+  },
+  {
+    "id": 974,
+    "input": "Write a C program to implement a simple 'higher or lower' guessing game where the user guesses whether the next number is higher or lower than the current one.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int current, next, guess;\n\n    srand(time(0));\n    current = rand() % 100 + 1;\n    next = rand() % 100 + 1;\n\n    printf(\"Current number: %d\\n\", current);\n    printf(\"Is the next number higher or lower? Enter 1 for higher, 0 for lower: \");\n    scanf(\"%d\", &guess);\n\n    if ((next > current && guess == 1) || (next < current && guess == 0)) {\n        printf(\"Correct! The next number was %d.\\n\", next);\n    } else {\n        printf(\"Incorrect. The next number was %d.\\n\", next);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'higher or lower' game where the user guesses if the next number is higher or lower."
+  },
+  {
+    "id": 975,
+    "input": "Write a C program to implement a simple 'coin toss' game where the user guesses whether the coin will land on heads or tails.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int guess, coinFlip;\n\n    srand(time(0));\n    coinFlip = rand() % 2;\n\n    printf(\"Guess the coin flip: 0 for Heads, 1 for Tails: \");\n    scanf(\"%d\", &guess);\n\n    if (guess == coinFlip) {\n        printf(\"You guessed correctly! The coin landed on %s.\\n\", coinFlip == 0 ? \"Heads\" : \"Tails\");\n    } else {\n        printf(\"You guessed incorrectly. The coin landed on %s.\\n\", coinFlip == 0 ? \"Heads\" : \"Tails\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple coin toss game where the user guesses if the coin will land on heads or tails."
+  },
+  {
+    "id": 976,
+    "input": "Write a C program to implement a simple 'dice roll' game where the user guesses the result of rolling a six-sided dice.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int guess, diceRoll;\n\n    srand(time(0));\n    diceRoll = rand() % 6 + 1;\n\n    printf(\"Guess the dice roll (1 to 6): \");\n    scanf(\"%d\", &guess);\n\n    if (guess == diceRoll) {\n        printf(\"You guessed correctly! The dice showed %d.\\n\", diceRoll);\n    } else {\n        printf(\"You guessed incorrectly. The dice showed %d.\\n\", diceRoll);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple dice roll game where the user guesses the result of rolling a six-sided dice."
+  },
+  {
+    "id": 977,
+    "input": "Write a C program to implement a simple 'guess the time' game where the user guesses the time in seconds.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int guess;\n    time_t start, end;\n\n    time(&start);\n    printf(\"Press Enter when you are ready.\\n\");\n    getchar();\n    time(&end);\n\n    printf(\"Guess the time in seconds: \");\n    scanf(\"%d\", &guess);\n\n    printf(\"Elapsed time: %ld seconds\\n\", (end - start));\n\n    if (guess == (end - start)) {\n        printf(\"Correct!\\n\");\n    } else {\n        printf(\"Incorrect. Try again.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'guess the time' game where the user guesses how many seconds have passed between two time points."
+  },
+  {
+    "id": 978,
+    "input": "Write a C program to implement a simple 'countdown' game where the user has to type a word correctly before the countdown reaches zero.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <unistd.h>\n\nint main() {\n    char word[] = \"hello\";\n    char input[20];\n    int count = 5;\n\n    printf(\"Type the word 'hello' before the countdown reaches zero!\\n\");\n    while (count > 0) {\n        printf(\"%d\\n\", count);\n        sleep(1);\n        count--;\n        if (count == 0) {\n            printf(\"Time's up! You lost.\\n\");\n            break;\n        }\n        printf(\"Enter the word: \");\n        scanf(\"%s\", input);\n        if (strcmp(input, word) == 0) {\n            printf(\"You typed the word correctly!\\n\");\n            break;\n        }\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple countdown game where the user has to type the word 'hello' before the countdown reaches zero."
+  },
+  {
+    "id": 979,
+    "input": "Write a C program to implement a simple 'flip the card' game where the user guesses if the drawn card is higher or lower than the previous one.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int current, next, guess;\n\n    srand(time(0));\n    current = rand() % 13 + 1;\n\n    printf(\"The current card is: %d\\n\", current);\n    printf(\"Will the next card be higher or lower? Enter 1 for higher, 0 for lower: \");\n    scanf(\"%d\", &guess);\n\n    next = rand() % 13 + 1;\n    printf(\"The next card is: %d\\n\", next);\n\n    if ((next > current && guess == 1) || (next < current && guess == 0)) {\n        printf(\"You guessed correctly!\\n\");\n    } else {\n        printf(\"You guessed incorrectly.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'flip the card' game where the user guesses whether the next card is higher or lower than the current one."
+  },
+  {
+    "id": 980,
+    "input": "Write a C program to implement a simple 'guess the pattern' game where the user guesses the next number in a given arithmetic sequence.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int sequence[] = {2, 4, 6, 8, 10};\n    int guess, next = sequence[4] + 2;\n\n    printf(\"Guess the next number in the sequence: 2, 4, 6, 8, 10\\n\");\n    scanf(\"%d\", &guess);\n\n    if (guess == next) {\n        printf(\"Correct! The next number is %d.\\n\", next);\n    } else {\n        printf(\"Incorrect. The next number is %d.\\n\", next);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'guess the pattern' game where the user guesses the next number in a given arithmetic sequence."
+  },
+  {
+    "id": 981,
+    "input": "Write a C program to implement a simple 'rock, paper, scissors' game where the user plays against the computer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int userChoice, computerChoice;\n\n    srand(time(0));\n    computerChoice = rand() % 3;\n\n    printf(\"Enter 0 for Rock, 1 for Paper, 2 for Scissors: \");\n    scanf(\"%d\", &userChoice);\n\n    printf(\"Computer chose: \");\n    if (computerChoice == 0) printf(\"Rock\\n\");\n    if (computerChoice == 1) printf(\"Paper\\n\");\n    if (computerChoice == 2) printf(\"Scissors\\n\");\n\n    if (userChoice == computerChoice) {\n        printf(\"It's a tie!\\n\");\n    } else if ((userChoice == 0 && computerChoice == 2) || (userChoice == 1 && computerChoice == 0) || (userChoice == 2 && computerChoice == 1)) {\n        printf(\"You win!\\n\");\n    } else {\n        printf(\"You lose!\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'rock, paper, scissors' game where the user plays against the computer."
+  },
+  {
+    "id": 982,
+    "input": "Write a C program to implement a simple 'word guess' game where the user has to guess a word by entering one letter at a time.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char word[] = \"programming\";\n    char guess[20];\n    int correct = 0;\n\n    printf(\"Guess the word: \");\n    while (correct < strlen(word)) {\n        char letter;\n        printf(\"Enter a letter: \");\n        scanf(\"%c\", &letter);\n\n        for (int i = 0; i < strlen(word); i++) {\n            if (word[i] == letter) {\n                printf(\"Correct letter!\\n\");\n                correct++;\n                break;\n            }\n        }\n    }\n\n    printf(\"You guessed the word!\\n\");\n    return 0;\n}",
+    "description": "This program implements a simple 'word guess' game where the user has to guess a word by entering one letter at a time."
+  },
+  {
+    "id": 983,
+    "input": "Write a C program to implement a simple 'memory match' game where the user has to match pairs of numbers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int board[4][4] = {{1, 2, 3, 4}, {4, 3, 2, 1}, {1, 2, 3, 4}, {4, 3, 2, 1}};\n    int guess1, guess2, row1, col1, row2, col2;\n\n    srand(time(0));\n    printf(\"Welcome to Memory Match!\\n\");\n\n    do {\n        printf(\"Enter first guess (row col): \");\n        scanf(\"%d %d\", &row1, &col1);\n        printf(\"Enter second guess (row col): \");\n        scanf(\"%d %d\", &row2, &col2);\n\n        if (board[row1][col1] == board[row2][col2]) {\n            printf(\"It's a match!\\n\");\n        } else {\n            printf(\"Not a match. Try again.\\n\");\n        }\n    } while (1);\n\n    return 0;\n}",
+    "description": "This program implements a simple memory match game where the user has to match pairs of numbers."
+  },
+  {
+    "id": 984,
+    "input": "Write a C program to implement a simple 'number trivia' game where the user is asked a series of trivia questions and gets a score.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int score = 0;\n    int answer;\n\n    printf(\"What is 5 + 3? \\n\");\n    printf(\"1) 7  2) 8  3) 9\\n\");\n    scanf(\"%d\", &answer);\n    if (answer == 2) score++;\n\n    printf(\"What is 12 / 4? \\n\");\n    printf(\"1) 2  2) 3  3) 4\\n\");\n    scanf(\"%d\", &answer);\n    if (answer == 1) score++;\n\n    printf(\"What is 9 * 3? \\n\");\n    printf(\"1) 26  2) 27  3) 28\\n\");\n    scanf(\"%d\", &answer);\n    if (answer == 2) score++;\n\n    printf(\"Your score is: %d/3\\n\", score);\n\n    return 0;\n}",
+    "description": "This program implements a simple number trivia game where the user is asked a series of trivia questions and gets a score."
+  },
+  {
+    "id": 985,
+    "input": "Write a C program to implement a simple 'guess the animal' game where the user has to guess the name of an animal from a set of clues.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char animal[] = \"elephant\";\n    char guess[20];\n\n    printf(\"I am a large animal with big ears. Guess my name: \");\n    do {\n        scanf(\"%s\", guess);\n        if (strcmp(guess, animal) == 0) {\n            printf(\"Correct!\\n\");\n        } else {\n            printf(\"Incorrect! Try again: \");\n        }\n    } while (strcmp(guess, animal) != 0);\n\n    return 0;\n}",
+    "description": "This program implements a simple 'guess the animal' game where the user has to guess the name of an animal from a set of clues."
+  },
+  {
+    "id": 986,
+    "input": "Write a C program to implement a simple 'alphabet guessing' game where the user has to guess the correct letter in the alphabet.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    char alphabet[] = \"abcdefghijklmnopqrstuvwxyz\";\n    char guess;\n    int index;\n\n    srand(time(0));\n    index = rand() % 26;\n\n    printf(\"Guess the letter in the alphabet: \");\n    do {\n        scanf(\"%c\", &guess);\n        if (guess == alphabet[index]) {\n            printf(\"Correct!\\n\");\n        } else {\n            printf(\"Incorrect! Try again: \");\n        }\n    } while (guess != alphabet[index]);\n\n    return 0;\n}",
+    "description": "This program implements a simple 'alphabet guessing' game where the user has to guess the correct letter in the alphabet."
+  },
+  {
+    "id": 987,
+    "input": "Write a C program to implement a simple 'number cruncher' game where the user needs to perform basic arithmetic operations to match a target number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int target = 25, guess;\n\n    printf(\"Target number is: 25\\n\");\n    printf(\"Guess the result of 5 + 10 = ?\\n\");\n    scanf(\"%d\", &guess);\n    if (guess == 5 + 10) {\n        printf(\"Correct!\\n\");\n    } else {\n        printf(\"Incorrect. Try again.\\n\");\n    }\n\n    printf(\"Guess the result of 15 - 5 = ?\\n\");\n    scanf(\"%d\", &guess);\n    if (guess == 15 - 5) {\n        printf(\"Correct!\\n\");\n    } else {\n        printf(\"Incorrect. Try again.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'number cruncher' game where the user needs to perform basic arithmetic operations to match a target number."
+  },
+  {
+    "id": 988,
+    "input": "Write a C program to implement a simple 'bouncing ball' simulation where the ball bounces inside a rectangular area.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n\nint main() {\n    int x = 10, y = 5, dx = 1, dy = 1, width = 20, height = 10;\n\n    while (1) {\n        system(\"cls\");\n        for (int i = 0; i < height; i++) {\n            for (int j = 0; j < width; j++) {\n                if (i == y && j == x) printf(\"O\");\n                else printf(\".\");\n            }\n            printf(\"\\n\");\n        }\n\n        x += dx;\n        y += dy;\n\n        if (x == 0 || x == width - 1) dx = -dx;\n        if (y == 0 || y == height - 1) dy = -dy;\n\n        _sleep(100);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'bouncing ball' simulation where the ball bounces inside a rectangular area."
+  },
+  {
+    "id": 989,
+    "input": "Write a C program to implement a simple 'guess the temperature' game where the user guesses the current temperature.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int temperature, guess;\n\n    srand(time(0));\n    temperature = rand() % 51; // Random temperature between 0 and 50\n\n    printf(\"Guess the temperature: \");\n    scanf(\"%d\", &guess);\n\n    if (guess == temperature) {\n        printf(\"Correct! The temperature is %d°C.\\n\", temperature);\n    } else {\n        printf(\"Incorrect. The temperature is %d°C.\\n\", temperature);\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'guess the temperature' game where the user guesses the current temperature."
+  },
+  {
+    "id": 990,
+    "input": "Write a C program to implement a simple 'rock-paper-scissors-lizard-Spock' game where the user plays against the computer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main() {\n    int userChoice, computerChoice;\n\n    srand(time(0));\n    computerChoice = rand() % 5;\n\n    printf(\"Enter 0 for Rock, 1 for Paper, 2 for Scissors, 3 for Lizard, 4 for Spock: \");\n    scanf(\"%d\", &userChoice);\n\n    printf(\"Computer chose: \");\n    if (computerChoice == 0) printf(\"Rock\\n\");\n    if (computerChoice == 1) printf(\"Paper\\n\");\n    if (computerChoice == 2) printf(\"Scissors\\n\");\n    if (computerChoice == 3) printf(\"Lizard\\n\");\n    if (computerChoice == 4) printf(\"Spock\\n\");\n\n    if ((userChoice == computerChoice)) {\n        printf(\"It's a tie!\\n\");\n    } else if ((userChoice == 0 && (computerChoice == 2 || computerChoice == 3)) ||\n               (userChoice == 1 && (computerChoice == 0 || computerChoice == 4)) ||\n               (userChoice == 2 && (computerChoice == 1 || computerChoice == 3)) ||\n               (userChoice == 3 && (computerChoice == 1 || computerChoice == 4)) ||\n               (userChoice == 4 && (computerChoice == 0 || computerChoice == 2))) {\n        printf(\"You win!\\n\");\n    } else {\n        printf(\"You lose!\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program implements a simple 'rock-paper-scissors-lizard-Spock' game where the user plays against the computer."
+  },
+  {
+    "id": 991,
+    "input": "Write a C program to implement a 'snake' game where the player controls a snake to collect food and grow longer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n#include <windows.h>\n\n#define WIDTH 20\n#define HEIGHT 20\n#define MAX_LENGTH 100\n\nint x, y, foodX, foodY, score;\nint tailX[MAX_LENGTH], tailY[MAX_LENGTH];\nint nTail;\nint gameOver;\n\nvoid setup() {\n    gameOver = 0;\n    x = WIDTH / 2;\n    y = HEIGHT / 2;\n    foodX = rand() % WIDTH;\n    foodY = rand() % HEIGHT;\n    score = 0;\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int i = 0; i < WIDTH + 2; i++)\n        printf(\"#\");\n    printf(\"\\n\");\n    for (int i = 0; i < HEIGHT; i++) {\n        for (int j = 0; j < WIDTH; j++) {\n            if (j == 0)\n                printf(\"#\");\n            else if (j == x && i == y)\n                printf(\"O\");\n            else if (j == foodX && i == foodY)\n                printf(\"*\");\n            else {\n                int isPrint = 0;\n                for (int k = 0; k < nTail; k++) {\n                    if (tailX[k] == j && tailY[k] == i) {\n                        printf(\"o\");\n                        isPrint = 1;\n                    }\n                }\n                if (!isPrint) printf(\" \");\n            }\n            if (j == WIDTH - 1) printf(\"#\");\n        }\n        printf(\"\\n\");\n    }\n    for (int i = 0; i < WIDTH + 2; i++)\n        printf(\"#\");\n    printf(\"\\n\");\n    printf(\"Score: %d\\n\", score);\n}\n\nvoid input() {\n    if (_kbhit()) {\n        switch (_getch()) {\n            case 'a': x--; break;\n            case 'd': x++; break;\n            case 'w': y--; break;\n            case 's': y++; break;\n            case 'x': gameOver = 1; break;\n        }\n    }\n}\n\nvoid logic() {\n    int prevX = tailX[0];\n    int prevY = tailY[0];\n    int prev2X, prev2Y;\n    tailX[0] = x;\n    tailY[0] = y;\n    for (int i = 1; i < nTail; i++) {\n        prev2X = tailX[i];\n        prev2Y = tailY[i];\n        tailX[i] = prevX;\n        tailY[i] = prevY;\n        prevX = prev2X;\n        prevY = prev2Y;\n    }\n    if (x == foodX && y == foodY) {\n        score += 10;\n        foodX = rand() % WIDTH;\n        foodY = rand() % HEIGHT;\n        nTail++;\n    }\n    if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)\n        gameOver = 1;\n    for (int i = 0; i < nTail; i++) {\n        if (tailX[i] == x && tailY[i] == y)\n            gameOver = 1;\n    }\n}\n\nvoid systemSleep() {\n    Sleep(100);\n}\n\nint main() {\n    setup();\n    while (!gameOver) {\n        draw();\n        input();\n        logic();\n        systemSleep();\n    }\n    printf(\"Game Over!\\n\");\n    return 0;\n}",
+    "description": "This program implements a simple snake game where the player controls a snake to collect food and grow longer."
+  },
+  {
+    "id": 992,
+    "input": "Write a C program to implement a simple 'Tetris' game where blocks fall and the player must rotate and place them.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n\n#define WIDTH 10\n#define HEIGHT 20\n\nint field[HEIGHT][WIDTH] = {0};\nint currentPiece[4][2], currentPieceType;\n\nvoid setup() {\n    for (int i = 0; i < 4; i++) {\n        for (int j = 0; j < 2; j++) {\n            currentPiece[i][j] = 0;\n        }\n    }\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int y = 0; y < HEIGHT; y++) {\n        for (int x = 0; x < WIDTH; x++) {\n            if (field[y][x])\n                printf(\"#\");\n            else\n                printf(\".\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nvoid rotatePiece() {\n    int temp[4][2];\n    for (int i = 0; i < 4; i++) {\n        temp[i][0] = -currentPiece[i][1];\n        temp[i][1] = currentPiece[i][0];\n    }\n    for (int i = 0; i < 4; i++) {\n        currentPiece[i][0] = temp[i][0];\n        currentPiece[i][1] = temp[i][1];\n    }\n}\n\nvoid movePiece(int dx, int dy) {\n    for (int i = 0; i < 4; i++) {\n        currentPiece[i][0] += dx;\n        currentPiece[i][1] += dy;\n    }\n}\n\nint checkCollision() {\n    for (int i = 0; i < 4; i++) {\n        if (currentPiece[i][0] < 0 || currentPiece[i][0] >= WIDTH ||\n            currentPiece[i][1] < 0 || currentPiece[i][1] >= HEIGHT)\n            return 1;\n        if (field[currentPiece[i][1]][currentPiece[i][0]])\n            return 1;\n    }\n    return 0;\n}\n\nvoid dropPiece() {\n    for (int i = 0; i < 4; i++) {\n        field[currentPiece[i][1]][currentPiece[i][0]] = 1;\n    }\n}\n\nint main() {\n    setup();\n    while (1) {\n        draw();\n        if (_kbhit()) {\n            char ch = _getch();\n            if (ch == 'a') movePiece(-1, 0);\n            if (ch == 'd') movePiece(1, 0);\n            if (ch == 'w') rotatePiece();\n        }\n        movePiece(0, 1);\n        if (checkCollision()) {\n            dropPiece();\n            setup();\n        }\n        Sleep(100);\n    }\n    return 0;\n}",
+    "description": "This program implements a simple Tetris game where blocks fall and the player must rotate and place them."
+  },
+  {
+    "id": 993,
+    "input": "Write a C program to implement a 'Space Invaders' style game where the player shoots enemies that are moving downwards.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n#include <windows.h>\n\n#define WIDTH 20\n#define HEIGHT 10\n#define MAX_ENEMIES 5\n\nint playerX = WIDTH / 2, playerY = HEIGHT - 1;\nint bulletX = -1, bulletY = -1;\nint enemies[MAX_ENEMIES][2];\nint score = 0;\n\nvoid setup() {\n    for (int i = 0; i < MAX_ENEMIES; i++) {\n        enemies[i][0] = rand() % WIDTH;\n        enemies[i][1] = rand() % (HEIGHT / 2);\n    }\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int y = 0; y < HEIGHT; y++) {\n        for (int x = 0; x < WIDTH; x++) {\n            if (x == playerX && y == playerY) printf(\"A\");\n            else if (x == bulletX && y == bulletY) printf(\"|\");\n            else {\n                int isEnemy = 0;\n                for (int i = 0; i < MAX_ENEMIES; i++) {\n                    if (enemies[i][0] == x && enemies[i][1] == y) {\n                        printf(\"E\");\n                        isEnemy = 1;\n                    }\n                }\n                if (!isEnemy) printf(\" \");\n            }\n        }\n        printf(\"\\n\");\n    }\n    printf(\"Score: %d\\n\", score);\n}\n\nvoid input() {\n    if (_kbhit()) {\n        switch (_getch()) {\n            case 'a': if (playerX > 0) playerX--; break;\n            case 'd': if (playerX < WIDTH - 1) playerX++; break;\n            case 'w': if (bulletY == -1) {\n                bulletX = playerX;\n                bulletY = playerY - 1;\n            } break;\n        }\n    }\n}\n\nvoid logic() {\n    if (bulletY > -1) bulletY--;\n    if (bulletY < 0) bulletX = -1;\n    for (int i = 0; i < MAX_ENEMIES; i++) {\n        if (enemies[i][0] == bulletX && enemies[i][1] == bulletY) {\n            enemies[i][0] = rand() % WIDTH;\n            enemies[i][1] = rand() % (HEIGHT / 2);\n            score += 10;\n            bulletY = -1;\n            break;\n        }\n    }\n    for (int i = 0; i < MAX_ENEMIES; i++) {\n        if (enemies[i][1] == HEIGHT - 1) {\n            printf(\"Game Over!\\n\");\n            exit(0);\n        }\n        enemies[i][1]++;\n    }\n}\n\nint main() {\n    setup();\n    while (1) {\n        draw();\n        input();\n        logic();\n        Sleep(100);\n    }\n    return 0;\n}",
+    "description": "This program implements a Space Invaders style game where the player shoots enemies moving downwards."
+  },
+  {
+    "id": 994,
+    "input": "Write a C program to implement a simple 'pong' game where the player controls a paddle and bounces the ball back.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n#include <windows.h>\n\n#define WIDTH 30\n#define HEIGHT 10\n\nint ballX, ballY, ballDX, ballDY, paddleX, paddleWidth;\n\nvoid setup() {\n    ballX = WIDTH / 2;\n    ballY = HEIGHT / 2;\n    ballDX = 1;\n    ballDY = 1;\n    paddleX = WIDTH / 2 - 2;\n    paddleWidth = 5;\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int y = 0; y < HEIGHT; y++) {\n        for (int x = 0; x < WIDTH; x++) {\n            if (y == ballY && x == ballX) printf(\"O\");\n            else if (y == HEIGHT - 1 && x >= paddleX && x < paddleX + paddleWidth) printf(\"#\");\n            else printf(\" \");\n        }\n        printf(\"\\n\");\n    }\n}\n\nvoid input() {\n    if (_kbhit()) {\n        switch (_getch()) {\n            case 'a': if (paddleX > 0) paddleX--; break;\n            case 'd': if (paddleX + paddleWidth < WIDTH) paddleX++; break;\n        }\n    }\n}\n\nvoid logic() {\n    ballX += ballDX;\n    ballY += ballDY;\n    if (ballX == 0 || ballX == WIDTH - 1) ballDX = -ballDX;\n    if (ballY == 0) ballDY = -ballDY;\n    if (ballY == HEIGHT - 1 && ballX >= paddleX && ballX < paddleX + paddleWidth) ballDY = -ballDY;\n    if (ballY == HEIGHT) exit(0);\n}\n\nint main() {\n    setup();\n    while (1) {\n        draw();\n        input();\n        logic();\n        Sleep(100);\n    }\n    return 0;\n}",
+    "description": "This program implements a simple pong game where the player controls a paddle and bounces the ball back."
+  },
+  {
+    "id": 995,
+    "input": "Write a C program to implement a simple 'breakout' game where the player controls a paddle and destroys bricks with a bouncing ball.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n#include <windows.h>\n\n#define WIDTH 30\n#define HEIGHT 15\n#define BRICK_ROWS 5\n#define BRICK_COLS 10\n\nint ballX, ballY, ballDX, ballDY, paddleX, paddleWidth;\nint bricks[BRICK_ROWS][BRICK_COLS];\n\nvoid setup() {\n    ballX = WIDTH / 2;\n    ballY = HEIGHT / 2;\n    ballDX = 1;\n    ballDY = 1;\n    paddleX = WIDTH / 2 - 2;\n    paddleWidth = 5;\n    for (int i = 0; i < BRICK_ROWS; i++) {\n        for (int j = 0; j < BRICK_COLS; j++) {\n            bricks[i][j] = 1;\n        }\n    }\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int y = 0; y < HEIGHT; y++) {\n        for (int x = 0; x < WIDTH; x++) {\n            if (y == ballY && x == ballX) printf(\"O\");\n            else if (y == HEIGHT - 1 && x >= paddleX && x < paddleX + paddleWidth) printf(\"#\");\n            else if (y < BRICK_ROWS && bricks[y][x]) printf(\"#\");\n            else printf(\" \");\n        }\n        printf(\"\\n\");\n    }\n}\n\nvoid input() {\n    if (_kbhit()) {\n        switch (_getch()) {\n            case 'a': if (paddleX > 0) paddleX--; break;\n            case 'd': if (paddleX + paddleWidth < WIDTH) paddleX++; break;\n        }\n    }\n}\n\nvoid logic() {\n    ballX += ballDX;\n    ballY += ballDY;\n    if (ballX == 0 || ballX == WIDTH - 1) ballDX = -ballDX;\n    if (ballY == 0) ballDY = -ballDY;\n    if (ballY == HEIGHT - 1 && ballX >= paddleX && ballX < paddleX + paddleWidth) ballDY = -ballDY;\n    if (ballY < BRICK_ROWS) {\n        if (bricks[ballY][ballX]) {\n            bricks[ballY][ballX] = 0;\n            ballDY = -ballDY;\n        }\n    }\n    if (ballY == HEIGHT) exit(0);\n}\n\nint main() {\n    setup();\n    while (1) {\n        draw();\n        input();\n        logic();\n        Sleep(100);\n    }\n    return 0;\n}",
+    "description": "This program implements a simple breakout game where the player controls a paddle and destroys bricks with a bouncing ball."
+  },
+  {
+    "id": 996,
+    "input": "Write a C program to implement a simple 'snake' game where the player controls a snake to eat food and grow while avoiding collisions with the walls and itself.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n#include <windows.h>\n\n#define WIDTH 30\n#define HEIGHT 15\n\nint x, y, fruitX, fruitY, score, gameover;\nint tailX[100], tailY[100];\nint nTail;\nchar dir;\n\nvoid setup() {\n    gameover = 0;\n    dir = '0';\n    x = WIDTH / 2;\n    y = HEIGHT / 2;\n    fruitX = rand() % WIDTH;\n    fruitY = rand() % HEIGHT;\n    score = 0;\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int i = 0; i < WIDTH + 2; i++) printf(\"#\");\n    printf(\"\\n\");\n\n    for (int i = 0; i < HEIGHT; i++) {\n        for (int j = 0; j < WIDTH; j++) {\n            if (j == 0) printf(\"#\");\n            if (i == y && j == x) printf(\"O\");\n            else if (i == fruitY && j == fruitX) printf(\"*\");\n            else {\n                int print = 0;\n                for (int k = 0; k < nTail; k++) {\n                    if (tailX[k] == j && tailY[k] == i) {\n                        printf(\"o\");\n                        print = 1;\n                    }\n                }\n                if (print == 0) printf(\" \");\n            }\n            if (j == WIDTH - 1) printf(\"#\");\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < WIDTH + 2; i++) printf(\"#\");\n    printf(\"\\n\");\n    printf(\"Score: %d\\n\", score);\n}\n\nvoid input() {\n    if (_kbhit()) {\n        switch (_getch()) {\n            case 'a': dir = 'L'; break;\n            case 'd': dir = 'R'; break;\n            case 'w': dir = 'U'; break;\n            case 's': dir = 'D'; break;\n        }\n    }\n}\n\nvoid logic() {\n    int prevX = tailX[0];\n    int prevY = tailY[0];\n    int prev2X, prev2Y;\n    tailX[0] = x;\n    tailY[0] = y;\n    for (int i = 1; i < nTail; i++) {\n        prev2X = tailX[i];\n        prev2Y = tailY[i];\n        tailX[i] = prevX;\n        tailY[i] = prevY;\n        prevX = prev2X;\n        prevY = prev2Y;\n    }\n\n    switch (dir) {\n        case 'U': y--; break;\n        case 'D': y++; break;\n        case 'L': x--; break;\n        case 'R': x++; break;\n    }\n\n    if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) gameover = 1;\n\n    for (int i = 0; i < nTail; i++) {\n        if (tailX[i] == x && tailY[i] == y) gameover = 1;\n    }\n\n    if (x == fruitX && y == fruitY) {\n        score += 10;\n        fruitX = rand() % WIDTH;\n        fruitY = rand() % HEIGHT;\n        nTail++;\n    }\n}\n\nint main() {\n    setup();\n    while (!gameover) {\n        draw();\n        input();\n        logic();\n        Sleep(10);\n    }\n    return 0;\n}"
+  },
+  {
+    "id": 997,
+    "input": "Write a C program to implement a simple 'pong' game where two players control paddles and try to score by bouncing a ball back and forth.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <conio.h>\n#include <windows.h>\n\n#define WIDTH 30\n#define HEIGHT 15\n\nint ballX, ballY, ballDX, ballDY, paddle1Y, paddle2Y;\nint player1Score, player2Score;\n\nvoid setup() {\n    ballX = WIDTH / 2;\n    ballY = HEIGHT / 2;\n    ballDX = 1;\n    ballDY = 1;\n    paddle1Y = HEIGHT / 2 - 2;\n    paddle2Y = HEIGHT / 2 - 2;\n    player1Score = 0;\n    player2Score = 0;\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int i = 0; i < WIDTH + 2; i++) printf(\"#\");\n    printf(\"\\n\");\n\n    for (int y = 0; y < HEIGHT; y++) {\n        for (int x = 0; x < WIDTH; x++) {\n            if (x == ballX && y == ballY) printf(\"O\");\n            else if (x == 0 && y >= paddle1Y && y < paddle1Y + 3) printf(\"|\");\n            else if (x == WIDTH - 1 && y >= paddle2Y && y < paddle2Y + 3) printf(\"|\");\n            else printf(\" \");\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < WIDTH + 2; i++) printf(\"#\");\n    printf(\"\\n\");\n    printf(\"Player 1: %d  Player 2: %d\\n\", player1Score, player2Score);\n}\n\nvoid input() {\n    if (_kbhit()) {\n        switch (_getch()) {\n            case 'w': if (paddle1Y > 0) paddle1Y--; break;\n            case 's': if (paddle1Y < HEIGHT - 3) paddle1Y++; break;\n            case 'i': if (paddle2Y > 0) paddle2Y--; break;\n            case 'k': if (paddle2Y < HEIGHT - 3) paddle2Y++; break;\n        }\n    }\n}\n\nvoid logic() {\n    ballX += ballDX;\n    ballY += ballDY;\n\n    if (ballY == 0 || ballY == HEIGHT - 1) ballDY = -ballDY;\n    if (ballX == 0) {\n        if (ballY >= paddle1Y && ballY < paddle1Y + 3) ballDX = -ballDX;\n        else { player2Score++; ballX = WIDTH / 2; ballY = HEIGHT / 2; }\n    }\n    if (ballX == WIDTH - 1) {\n        if (ballY >= paddle2Y && ballY < paddle2Y + 3) ballDX = -ballDX;\n        else { player1Score++; ballX = WIDTH / 2; ballY = HEIGHT / 2; }\n    }\n}\n\nint main() {\n    setup();\n    while (1) {\n        draw();\n        input();\n        logic();\n        Sleep(10);\n    }\n    return 0;\n}"
+  },
+  {
+    "id": 998,
+    "input": "Write a C program to implement a simple 'tic-tac-toe' game where two players take turns marking cells on a 3x3 grid.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nchar board[3][3];\nint row, col;\nchar player = 'X';\n\nvoid setup() {\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            board[i][j] = ' ';\n        }\n    }\n}\n\nvoid draw() {\n    system(\"cls\");\n    printf(\"Tic-Tac-Toe Game\\n\");\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            printf(\"|%c\", board[i][j]);\n        }\n        printf(\"|\\n\");\n    }\n    printf(\"\\n\");\n}\n\nint checkWin() {\n    for (int i = 0; i < 3; i++) {\n        if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') return 1;\n        if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ') return 1;\n    }\n    if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') return 1;\n    if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') return 1;\n    return 0;\n}\n\nvoid input() {\n    printf(\"Player %c, enter row and column (0-2): \", player);\n    scanf(\"%d %d\", &row, &col);\n    if (board[row][col] == ' ') {\n        board[row][col] = player;\n    } else {\n        printf(\"Invalid move! Try again.\\n\");\n        input();\n    }\n}\n\nvoid switchPlayer() {\n    if (player == 'X') player = 'O';\n    else player = 'X';\n}\n\nint main() {\n    setup();\n    while (1) {\n        draw();\n        input();\n        if (checkWin()) {\n            draw();\n            printf(\"Player %c wins!\\n\", player);\n            break;\n        }\n        switchPlayer();\n    }\n    return 0;\n}"
+  },
+  {
+    "id": 999,
+    "input": "Write a C program to implement a simple 'hangman' game where the player tries to guess a word by entering one letter at a time.",
+    "output": "#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nchar word[] = \"programming\";\nchar guessed[50];\nint tries = 6;\n\nvoid displayWord() {\n    for (int i = 0; i < strlen(word); i++) {\n        if (guessed[i] != 0) printf(\"%c \", guessed[i]);\n        else printf(\"_ \");\n    }\n    printf(\"\\n\");\n}\n\nint checkGuess(char guess) {\n    int correct = 0;\n    for (int i = 0; i < strlen(word); i++) {\n        if (word[i] == guess) {\n            guessed[i] = guess;\n            correct = 1;\n        }\n    }\n    return correct;\n}\n\nint main() {\n    for (int i = 0; i < strlen(word); i++) guessed[i] = 0;\n    while (tries > 0) {\n        printf(\"Word: \");\n        displayWord();\n        printf(\"Tries left: %d\\n\", tries);\n        printf(\"Guess a letter: \");\n        char guess = getchar();\n        getchar();\n\n        if (!checkGuess(guess)) tries--;\n        int complete = 1;\n        for (int i = 0; i < strlen(word); i++) {\n            if (guessed[i] == 0) complete = 0;\n        }\n        if (complete) {\n            printf(\"Congratulations! You guessed the word!\\n\");\n            break;\n        }\n    }\n    if (tries == 0) printf(\"Game Over! The word was: %s\\n\", word);\n    return 0;\n}"
+  },
+  {
+    "id": 1000,
+    "input": "Write a C program to implement a simple 'memory match' game where the player has to match pairs of cards by flipping them one at a time.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\n#define SIZE 4\n\nchar board[SIZE][SIZE], revealed[SIZE][SIZE];\n\nvoid setup() {\n    char symbols[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};\n    int k = 0;\n    for (int i = 0; i < SIZE; i++) {\n        for (int j = 0; j < SIZE; j++) {\n            board[i][j] = symbols[k / 2];\n            revealed[i][j] = 0;\n            k++;\n        }\n    }\n}\n\nvoid draw() {\n    system(\"cls\");\n    for (int i = 0; i < SIZE; i++) {\n        for (int j = 0; j < SIZE; j++) {\n            if (revealed[i][j]) printf(\"%c \", board[i][j]);\n            else printf(\"* \");\n        }\n        printf(\"\\n\");\n    }\n}\n\nint main() {\n    srand(time(NULL));\n    setup();\n    int x1, y1, x2, y2;\n    int matches = 0;\n\n    while (matches < SIZE * SIZE / 2) {\n        draw();\n        printf(\"Enter the coordinates of the first card (row col): \");\n        scanf(\"%d %d\", &x1, &y1);\n        revealed[x1][y1] = 1;\n        draw();\n\n        printf(\"Enter the coordinates of the second card (row col): \");\n        scanf(\"%d %d\", &x2, &y2);\n        revealed[x2][y2] = 1;\n        draw();\n\n        if (board[x1][y1] == board[x2][y2]) {\n            printf(\"It's a match!\\n\");\n            matches++;\n        } else {\n            printf(\"Not a match. Try again.\\n\");\n            revealed[x1][y1] = revealed[x2][y2] = 0;\n        }\n        getchar();\n        getchar();\n    }\n    printf(\"Congratulations, you won!\\n\");\n    return 0;\n}"
+  }  
+]
