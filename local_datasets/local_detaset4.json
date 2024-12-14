@@ -1,0 +1,602 @@
+[
+  {
+    "id": 601,
+    "input": "Write a C program that handles division by zero error.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &a, &b);\n    if (b == 0) {\n        printf(\"Error: Division by zero is not allowed.\\n\");\n    } else {\n        printf(\"Result: %d\\n\", a / b);\n    }\n    return 0;\n}",
+    "description": "This program handles division by zero error."
+  },
+  {
+    "id": 602,
+    "input": "Write a C program that checks for invalid input when reading an integer.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter an integer: \");\n    if (scanf(\"%d\", &num) != 1) {\n        printf(\"Error: Invalid input. Please enter a valid integer.\\n\");\n    } else {\n        printf(\"You entered: %d\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program checks for invalid input when reading an integer."
+  },
+  {
+    "id": 603,
+    "input": "Write a C program that checks if a file exists before opening it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file;\n    char filename[100];\n    printf(\"Enter the filename to open: \");\n    scanf(\"%s\", filename);\n    file = fopen(filename, \"r\");\n    if (file == NULL) {\n        printf(\"Error: File does not exist.\\n\");\n    } else {\n        printf(\"File opened successfully.\\n\");\n        fclose(file);\n    }\n    return 0;\n}",
+    "description": "This program checks if a file exists before opening it."
+  },
+  {
+    "id": 604,
+    "input": "Write a C program that handles memory allocation failure.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr;\n    arr = (int *)malloc(10 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Error: Memory allocation failed.\\n\");\n        return 1;\n    }\n    printf(\"Memory allocation successful.\\n\");\n    free(arr);\n    return 0;\n}",
+    "description": "This program handles memory allocation failure."
+  },
+  {
+    "id": 605,
+    "input": "Write a C program that checks if an array index is out of bounds.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int index;\n    printf(\"Enter an index: \");\n    scanf(\"%d\", &index);\n    if (index < 0 || index >= 5) {\n        printf(\"Error: Index out of bounds.\\n\");\n    } else {\n        printf(\"Array element at index %d: %d\\n\", index, arr[index]);\n    }\n    return 0;\n}",
+    "description": "This program checks if an array index is out of bounds."
+  },
+  {
+    "id": 606,
+    "input": "Write a C program that checks for file read errors.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file;\n    char ch;\n    file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: File could not be opened.\\n\");\n        return 1;\n    }\n    if (fgetc(file) == EOF) {\n        printf(\"Error: Could not read from file.\\n\");\n    } else {\n        printf(\"File read successfully.\\n\");\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program checks for file read errors."
+  },
+  {
+    "id": 607,
+    "input": "Write a C program that handles invalid input when reading a float.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float num;\n    printf(\"Enter a float number: \");\n    if (scanf(\"%f\", &num) != 1) {\n        printf(\"Error: Invalid input. Please enter a valid float number.\\n\");\n    } else {\n        printf(\"You entered: %.2f\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program handles invalid input when reading a float."
+  },
+  {
+    "id": 608,
+    "input": "Write a C program that handles invalid memory access.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int *ptr = NULL;\n    if (ptr == NULL) {\n        printf(\"Error: Attempt to access null pointer.\\n\");\n    } else {\n        printf(\"Pointer value: %d\\n\", *ptr);\n    }\n    return 0;\n}",
+    "description": "This program handles invalid memory access."
+  },
+  {
+    "id": 609,
+    "input": "Write a C program that catches a negative number when calculating the square root.",
+    "output": "#include <stdio.h>\n    #include <math.h>\n\nint main() {\n    double num, result;\n    printf(\"Enter a number: \");\n    scanf(\"%lf\", &num);\n    if (num < 0) {\n        printf(\"Error: Cannot calculate square root of a negative number.\\n\");\n    } else {\n        result = sqrt(num);\n        printf(\"The square root is: %.2f\\n\", result);\n    }\n    return 0;\n}",
+    "description": "This program handles errors when calculating the square root of a negative number."
+  },
+  {
+    "id": 610,
+    "input": "Write a C program that handles a file write error.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file;\n    file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error: Could not open file for writing.\\n\");\n        return 1;\n    }\n    fprintf(file, \"Hello, file!\");\n    if (ferror(file)) {\n        printf(\"Error: Write failed.\\n\");\n    } else {\n        printf(\"Data written successfully.\\n\");\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program handles file write errors."
+  },
+  {
+    "id": 611,
+    "input": "Write a C program that checks for file close errors.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file;\n    file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: File could not be opened.\\n\");\n        return 1;\n    }\n    printf(\"File opened successfully.\\n\");\n    if (fclose(file) != 0) {\n        printf(\"Error: File close failed.\\n\");\n    } else {\n        printf(\"File closed successfully.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks for file close errors."
+  },
+  {
+    "id": 612,
+    "input": "Write a C program that handles a negative array size.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int size;\n    printf(\"Enter the size of the array: \");\n    scanf(\"%d\", &size);\n    if (size < 0) {\n        printf(\"Error: Array size cannot be negative.\\n\");\n    } else {\n        int *arr = (int *)malloc(size * sizeof(int));\n        if (arr == NULL) {\n            printf(\"Error: Memory allocation failed.\\n\");\n        } else {\n            printf(\"Array created successfully.\\n\");\n            free(arr);\n        }\n    }\n    return 0;\n}",
+    "description": "This program handles a negative array size error."
+  },
+  {
+    "id": 613,
+    "input": "Write a C program that handles division by zero in floating-point calculations.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float a, b;\n    printf(\"Enter two floating-point numbers: \");\n    scanf(\"%f %f\", &a, &b);\n    if (b == 0.0) {\n        printf(\"Error: Division by zero is not allowed.\\n\");\n    } else {\n        printf(\"Result: %.2f\\n\", a / b);\n    }\n    return 0;\n}",
+    "description": "This program handles division by zero in floating-point calculations."
+  },
+  {
+    "id": 614,
+    "input": "Write a C program that checks for invalid pointer dereferencing.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int *ptr = NULL;\n    if (ptr == NULL) {\n        printf(\"Error: Null pointer dereferencing.\\n\");\n    } else {\n        printf(\"Pointer value: %d\\n\", *ptr);\n    }\n    return 0;\n}",
+    "description": "This program checks for invalid pointer dereferencing."
+  },
+  {
+    "id": 615,
+    "input": "Write a C program that handles invalid memory freeing.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *ptr = NULL;\n    free(ptr);\n    printf(\"Memory freed successfully.\\n\");\n    return 0;\n}",
+    "description": "This program handles invalid memory freeing (freeing a NULL pointer)."
+  },
+  {
+    "id": 616,
+    "input": "Write a C program that checks if a user inputs a negative value when calculating the square root.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    double num, result;\n    printf(\"Enter a number: \");\n    scanf(\"%lf\", &num);\n    if (num < 0) {\n        printf(\"Error: Cannot calculate square root of a negative number.\\n\");\n    } else {\n        result = sqrt(num);\n        printf(\"The square root is: %.2f\\n\", result);\n    }\n    return 0;\n}",
+    "description": "This program checks for negative values when calculating the square root."
+  },
+  {
+    "id": 617,
+    "input": "Write a C program that handles invalid file format error when opening a file.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file;\n    file = fopen(\"invalid_file.xyz\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: Invalid file format or file does not exist.\\n\");\n    } else {\n        printf(\"File opened successfully.\\n\");\n        fclose(file);\n    }\n    return 0;\n}",
+    "description": "This program handles invalid file format errors when opening a file."
+  },
+  {
+    "id": 618,
+    "input": "Write a C program that handles memory allocation failure when allocating a large array.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr;\n    arr = (int *)malloc(100000000 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Error: Memory allocation failed for large array.\\n\");\n    } else {\n        printf(\"Memory allocated successfully for large array.\\n\");\n        free(arr);\n    }\n    return 0;\n}",
+    "description": "This program handles memory allocation failure when allocating a large array."
+  },
+  {
+    "id": 619,
+    "input": "Write a C program that handles a failed attempt to write to a file.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file;\n    file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error: Could not open file for writing.\\n\");\n        return 1;\n    }\n    if (fprintf(file, \"This is a test.\") < 0) {\n        printf(\"Error: Failed to write to file.\\n\");\n    } else {\n        printf(\"Data written successfully.\\n\");\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program handles a failed attempt to write to a file."
+  },
+  {
+    "id": 620,
+    "input": "Write a C program that checks for an out-of-range value when using `scanf`.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter an integer: \");\n    if (scanf(\"%d\", &num) != 1 || num < 0) {\n        printf(\"Error: Invalid or out-of-range input.\\n\");\n    } else {\n        printf(\"You entered: %d\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program checks for out-of-range values when using `scanf`."
+  },
+  {
+    "id": 621,
+    "input": "Write a C program that handles multiple file operations (open, read, write, close) with error handling in functions.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint open_file(FILE **file, const char *filename) {\n    *file = fopen(filename, \"r\");\n    if (*file == NULL) {\n        return -1;\n    }\n    return 0;\n}\n\nint read_file(FILE *file) {\n    char ch;\n    while ((ch = fgetc(file)) != EOF) {\n        putchar(ch);\n    }\n    if (ferror(file)) {\n        return -1;\n    }\n    return 0;\n}\n\nint close_file(FILE *file) {\n    if (fclose(file) != 0) {\n        return -1;\n    }\n    return 0;\n}\n\nint main() {\n    FILE *file;\n    if (open_file(&file, \"example.txt\") != 0) {\n        printf(\"Error: Could not open file.\\n\");\n        return 1;\n    }\n    if (read_file(file) != 0) {\n        printf(\"Error: Failed to read file.\\n\");\n        close_file(file);\n        return 1;\n    }\n    if (close_file(file) != 0) {\n        printf(\"Error: Failed to close file.\\n\");\n        return 1;\n    }\n    return 0;\n}",
+    "description": "This program uses functions for opening, reading, and closing a file with error handling."
+  },
+  {
+    "id": 622,
+    "input": "Write a C program that performs dynamic memory allocation for a 2D array with error handling in functions.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint allocate_array(int ***arr, int rows, int cols) {\n    *arr = (int **)malloc(rows * sizeof(int *));\n    if (*arr == NULL) {\n        return -1;\n    }\n    for (int i = 0; i < rows; i++) {\n        (*arr)[i] = (int *)malloc(cols * sizeof(int));\n        if ((*arr)[i] == NULL) {\n            return -1;\n        }\n    }\n    return 0;\n}\n\nvoid free_array(int **arr, int rows) {\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n}\n\nint main() {\n    int **array;\n    int rows = 3, cols = 4;\n    if (allocate_array(&array, rows, cols) != 0) {\n        printf(\"Error: Memory allocation failed.\\n\");\n        return 1;\n    }\n    printf(\"Memory allocation successful.\\n\");\n    free_array(array, rows);\n    return 0;\n}",
+    "description": "This program handles dynamic memory allocation for a 2D array with error handling in functions."
+  },
+  {
+    "id": 623,
+    "input": "Write a C program that handles file I/O errors with custom error codes and a separate error-handling function.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\n#define FILE_OPEN_ERROR 1\n#define FILE_READ_ERROR 2\n#define FILE_WRITE_ERROR 3\n#define FILE_CLOSE_ERROR 4\n\nvoid handle_error(int error_code) {\n    switch (error_code) {\n        case FILE_OPEN_ERROR: printf(\"Error: Unable to open file.\\n\"); break;\n        case FILE_READ_ERROR: printf(\"Error: Failed to read from file.\\n\"); break;\n        case FILE_WRITE_ERROR: printf(\"Error: Failed to write to file.\\n\"); break;\n        case FILE_CLOSE_ERROR: printf(\"Error: Failed to close file.\\n\"); break;\n        default: printf(\"Error: Unknown error occurred.\\n\");\n    }\n}\n\nint main() {\n    FILE *file = fopen(\"example.txt\", \"r\");\n    if (file == NULL) {\n        handle_error(FILE_OPEN_ERROR);\n        return 1;\n    }\n    char ch;\n    if (fread(&ch, sizeof(char), 1, file) != 1) {\n        handle_error(FILE_READ_ERROR);\n        fclose(file);\n        return 1;\n    }\n    printf(\"Read character: %c\\n\", ch);\n    if (fclose(file) != 0) {\n        handle_error(FILE_CLOSE_ERROR);\n        return 1;\n    }\n    return 0;\n}",
+    "description": "This program uses custom error codes and a separate error-handling function to manage file I/O errors."
+  },
+  {
+    "id": 624,
+    "input": "Write a C program that handles invalid input using a function and a return code.",
+    "output": "#include <stdio.h>\n\nint get_integer(int *num) {\n    if (scanf(\"%d\", num) != 1) {\n        return -1;\n    }\n    return 0;\n}\n\nint main() {\n    int number;\n    printf(\"Enter an integer: \");\n    if (get_integer(&number) != 0) {\n        printf(\"Error: Invalid input.\\n\");\n        return 1;\n    }\n    printf(\"You entered: %d\\n\", number);\n    return 0;\n}",
+    "description": "This program uses a function to handle invalid input with a return code."
+  },
+  {
+    "id": 625,
+    "input": "Write a C program that performs array bounds checking inside a function.",
+    "output": "#include <stdio.h>\n\nint access_element(int *arr, int index, int size) {\n    if (index < 0 || index >= size) {\n        return -1;\n    }\n    return arr[index];\n}\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int index = 6;\n    int value = access_element(arr, index, size);\n    if (value == -1) {\n        printf(\"Error: Index out of bounds.\\n\");\n        return 1;\n    }\n    printf(\"Element at index %d is %d\\n\", index, value);\n    return 0;\n}",
+    "description": "This program performs array bounds checking inside a function."
+  },
+  {
+    "id": 626,
+    "input": "Write a C program that checks for invalid memory access using a pointer.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *ptr = NULL;\n    if (ptr == NULL) {\n        printf(\"Error: Attempted to dereference a NULL pointer.\\n\");\n        return 1;\n    }\n    *ptr = 42;\n    printf(\"Pointer value: %d\\n\", *ptr);\n    return 0;\n}",
+    "description": "This program checks for invalid memory access using a NULL pointer."
+  },
+  {
+    "id": 627,
+    "input": "Write a C program that handles an invalid division operation using a function.",
+    "output": "#include <stdio.h>\n\nint divide(int a, int b, float *result) {\n    if (b == 0) {\n        return -1;\n    }\n    *result = (float)a / b;\n    return 0;\n}\n\nint main() {\n    int a = 10, b = 0;\n    float result;\n    if (divide(a, b, &result) != 0) {\n        printf(\"Error: Division by zero.\\n\");\n        return 1;\n    }\n    printf(\"Result: %.2f\\n\", result);\n    return 0;\n}",
+    "description": "This program handles division by zero using a function."
+  },
+  {
+    "id": 628,
+    "input": "Write a C program that checks for a failed allocation of a large structure.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct LargeStructure {\n    int data[10000];\n};\n\nint main() {\n    struct LargeStructure *ptr = (struct LargeStructure *)malloc(sizeof(struct LargeStructure));\n    if (ptr == NULL) {\n        printf(\"Error: Memory allocation for structure failed.\\n\");\n        return 1;\n    }\n    printf(\"Memory allocation successful.\\n\");\n    free(ptr);\n    return 0;\n}",
+    "description": "This program checks for a failed allocation of a large structure."
+  },
+  {
+    "id": 629,
+    "input": "Write a C program that handles file writing with error checking for write failures.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint write_to_file(FILE *file, const char *data) {\n    if (fputs(data, file) == EOF) {\n        return -1;\n    }\n    return 0;\n}\n\nint main() {\n    FILE *file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error: Could not open file for writing.\\n\");\n        return 1;\n    }\n    const char *data = \"Hello, world!\";\n    if (write_to_file(file, data) != 0) {\n        printf(\"Error: Failed to write to file.\\n\");\n        fclose(file);\n        return 1;\n    }\n    printf(\"Data written successfully.\\n\");\n    fclose(file);\n    return 0;\n}",
+    "description": "This program handles file writing with error checking for write failures."
+  },
+  {
+    "id": 630,
+    "input": "Write a C program that uses a function to check for invalid string input (non-numeric input).",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <ctype.h>\n\nint is_valid_integer(const char *str) {\n    while (*str) {\n        if (!isdigit(*str)) {\n            return 0;\n        }\n        str++;\n    }\n    return 1;\n}\n\nint main() {\n    char input[20];\n    printf(\"Enter an integer: \");\n    fgets(input, sizeof(input), stdin);\n    if (!is_valid_integer(input)) {\n        printf(\"Error: Invalid input, please enter a valid integer.\\n\");\n        return 1;\n    }\n    printf(\"You entered: %s\\n\", input);\n    return 0;\n}",
+    "description": "This program checks for invalid string input (non-numeric input) using a function."
+  },
+  {
+    "id": 631,
+    "input": "Write a C program using <errno.h> to handle file I/O errors with predefined error codes.",
+    "output": "#include <stdio.h>\n#include <errno.h>\n#include <string.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: %s\\n\", strerror(errno));\n        return 1;\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the `errno.h` library to handle file I/O errors and display the corresponding error message using `strerror`."
+  },
+  {
+    "id": 632,
+    "input": "Write a C program that handles memory allocation errors using `malloc` and checks the allocated memory with `errno`.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <errno.h>\n#include <string.h>\n\nint main() {\n    int *arr = (int *)malloc(1000000000 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed: %s\\n\", strerror(errno));\n        return 1;\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program handles memory allocation errors using `malloc` and checks for errors with `errno`."
+  },
+  {
+    "id": 633,
+    "input": "Write a C program that uses `setjmp` and `longjmp` for error handling and jumps back to the error handler in case of memory allocation failure.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <setjmp.h>\n\njmp_buf env;\n\nvoid allocate_memory() {\n    int *arr = (int *)malloc(1000000000 * sizeof(int));\n    if (arr == NULL) {\n        longjmp(env, 1);\n    }\n    free(arr);\n}\n\nint main() {\n    if (setjmp(env) != 0) {\n        printf(\"Error: Memory allocation failed!\\n\");\n        return 1;\n    }\n    allocate_memory();\n    printf(\"Memory allocation successful.\\n\");\n    return 0;\n}",
+    "description": "This program uses `setjmp` and `longjmp` for error handling, where `longjmp` is used to jump back to the error handler on memory allocation failure."
+  },
+  {
+    "id": 634,
+    "input": "Write a C program that uses the `assert` macro to handle invalid conditions and stop the execution of the program.",
+    "output": "#include <stdio.h>\n#include <assert.h>\n\nint divide(int a, int b) {\n    assert(b != 0);  // Ensure no division by zero\n    return a / b;\n}\n\nint main() {\n    int a = 10, b = 0;\n    printf(\"Result: %d\\n\", divide(a, b));\n    return 0;\n}",
+    "description": "This program uses the `assert` macro to handle invalid conditions (e.g., division by zero) and terminates the program with an error message."
+  },
+  {
+    "id": 635,
+    "input": "Write a C program using a custom error handling function and logging errors to a file.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid log_error(const char *message) {\n    FILE *log_file = fopen(\"error_log.txt\", \"a\");\n    if (log_file == NULL) {\n        printf(\"Error: Could not open log file.\\n\");\n        return;\n    }\n    fprintf(log_file, \"%s\\n\", message);\n    fclose(log_file);\n}\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        log_error(\"Error: Could not open file.\");\n        return 1;\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses a custom `log_error` function to log errors into a file."
+  },
+  {
+    "id": 636,
+    "input": "Write a C program that uses the `perror` function to handle standard library errors.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        perror(\"File open error\");\n        return 1;\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses the `perror` function to print a descriptive error message based on the most recent library error."
+  },
+  {
+    "id": 637,
+    "input": "Write a C program that uses a custom error code system with predefined constants for file and memory errors.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\n#define FILE_ERROR 1\n#define MEMORY_ERROR 2\n\nvoid handle_error(int error_code) {\n    switch (error_code) {\n        case FILE_ERROR: printf(\"File error occurred.\\n\"); break;\n        case MEMORY_ERROR: printf(\"Memory allocation failed.\\n\"); break;\n        default: printf(\"Unknown error occurred.\\n\");\n    }\n}\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        handle_error(FILE_ERROR);\n        return 1;\n    }\n    fclose(file);\n    int *arr = (int *)malloc(1000000000 * sizeof(int));\n    if (arr == NULL) {\n        handle_error(MEMORY_ERROR);\n        return 1;\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program uses a custom error code system to handle file and memory errors."
+  },
+  {
+    "id": 638,
+    "input": "Write a C program that uses `ferror` to check if an error occurred during file operations.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: Unable to open file.\\n\");\n        return 1;\n    }\n    char buffer[100];\n    if (fread(buffer, sizeof(char), 100, file) != 100 && ferror(file)) {\n        printf(\"Error: File read failed.\\n\");\n        fclose(file);\n        return 1;\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses `ferror` to check if an error occurred during a file read operation."
+  },
+  {
+    "id": 639,
+    "input": "Write a C program that uses `strerror` to handle invalid system calls.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <errno.h>\n\nint main() {\n    if (remove(\"nonexistent.txt\") != 0) {\n        printf(\"Error: %s\\n\", strerror(errno));\n        return 1;\n    }\n    return 0;\n}",
+    "description": "This program uses `strerror` to handle system call errors like file removal and display the corresponding error message."
+  },
+  {
+    "id": 640,
+    "input": "Write a C program using a custom error handling library that logs errors to a file and terminates the program.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n// Custom error handling functions\nvoid log_error(const char *message) {\n    FILE *file = fopen(\"error.log\", \"a\");\n    if (file != NULL) {\n        fprintf(file, \"%s\\n\", message);\n        fclose(file);\n    }\n}\n\nvoid terminate_program(const char *message) {\n    log_error(message);\n    printf(\"Error: %s\\n\", message);\n    exit(1);\n}\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        terminate_program(\"File could not be opened.\");\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses a custom error handling library that logs errors to a file and terminates the program."
+  },
+  {
+    "id": 641,
+    "input": "Write a C program that handles file read errors using `ferror` and logs the error message.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: Unable to open file.\\n\");\n        return 1;\n    }\n    char buffer[100];\n    if (fread(buffer, sizeof(char), 100, file) != 100 && ferror(file)) {\n        printf(\"Error: File read failed.\\n\");\n        fclose(file);\n        return 1;\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program handles file read errors using `ferror` and prints an error message if the read operation fails."
+  },
+  {
+    "id": 642,
+    "input": "Write a C program that handles file opening and memory allocation errors using a custom error handler.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid handle_error(const char *message) {\n    fprintf(stderr, \"Error: %s\\n\", message);\n    exit(1);\n}\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        handle_error(\"Failed to open file.\");\n    }\n    int *arr = malloc(sizeof(int) * 100);  // Simulating memory allocation failure\n    if (arr == NULL) {\n        handle_error(\"Memory allocation failed.\");\n    }\n    fclose(file);\n    free(arr);\n    return 0;\n}",
+    "description": "This program uses a custom error handler to deal with file opening and memory allocation failures."
+  },
+  {
+    "id": 643,
+    "input": "Write a C program that uses `longjmp` and `setjmp` to handle a division by zero error.",
+    "output": "#include <stdio.h>\n#include <setjmp.h>\n\njmp_buf env;\n\nint divide(int a, int b) {\n    if (b == 0) {\n        longjmp(env, 1);  // Jump to error handler\n    }\n    return a / b;\n}\n\nint main() {\n    if (setjmp(env) != 0) {\n        printf(\"Error: Division by zero.\\n\");\n        return 1;\n    }\n    int result = divide(10, 0);\n    printf(\"Result: %d\\n\", result);\n    return 0;\n}",
+    "description": "This program uses `setjmp` and `longjmp` to handle division by zero errors, jumping to an error handler."
+  },
+  {
+    "id": 644,
+    "input": "Write a C program that handles invalid file access using `perror` and terminates the program.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        perror(\"File open error\");\n        exit(1);\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses `perror` to print a descriptive error message and terminate the program if file access fails."
+  },
+  {
+    "id": 645,
+    "input": "Write a C program that uses `assert` to check array bounds before accessing an element.",
+    "output": "#include <stdio.h>\n#include <assert.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int index = 6;\n    assert(index >= 0 && index < 5);  // Ensure index is within bounds\n    printf(\"Element at index %d: %d\\n\", index, arr[index]);\n    return 0;\n}",
+    "description": "This program uses `assert` to ensure that an array index is within bounds before accessing the element."
+  },
+  {
+    "id": 646,
+    "input": "Write a C program that uses a custom error handler to manage invalid input from the user.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid handle_error(const char *message) {\n    fprintf(stderr, \"Error: %s\\n\", message);\n    exit(1);\n}\n\nint main() {\n    int num;\n    printf(\"Enter an integer: \");\n    if (scanf(\"%d\", &num) != 1) {\n        handle_error(\"Invalid input. Please enter an integer.\");\n    }\n    printf(\"You entered: %d\\n\", num);\n    return 0;\n}",
+    "description": "This program uses a custom error handler to manage invalid user input and terminate the program if the input is not an integer."
+  },
+  {
+    "id": 647,
+    "input": "Write a C program that uses `ferror` to check if an error occurred during a file operation and logs the error.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error: Unable to open file.\\n\");\n        return 1;\n    }\n    char buffer[100];\n    if (fread(buffer, sizeof(char), 100, file) != 100) {\n        if (ferror(file)) {\n            printf(\"Error: File read failed.\\n\");\n            fclose(file);\n            return 1;\n        }\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program uses `ferror` to check if an error occurred during a file operation and logs the error if necessary."
+  },
+  {
+    "id": 648,
+    "input": "Write a C program that uses `malloc` to allocate memory and checks if the allocation was successful using `errno`.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <errno.h>\n#include <string.h>\n\nint main() {\n    int *arr = (int *)malloc(1000000000 * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Error: Memory allocation failed. %s\\n\", strerror(errno));\n        return 1;\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program uses `malloc` to allocate memory and checks for failure using `errno`."
+  },
+  {
+    "id": 649,
+    "input": "Write a C program that handles a custom error by using `longjmp` for non-fatal errors and `exit` for fatal errors.",
+    "output": "#include <stdio.h>\n#include <setjmp.h>\n#include <stdlib.h>\n\njmp_buf env;\n\nvoid handle_error(int fatal) {\n    if (fatal) {\n        printf(\"Fatal error: Exiting program.\\n\");\n        exit(1);\n    }\n    longjmp(env, 1);  // Non-fatal error handling\n}\n\nint main() {\n    if (setjmp(env) != 0) {\n        printf(\"Error occurred, but continuing...\\n\");\n        return 1;\n    }\n    int x = 10, y = 0;\n    if (y == 0) {\n        handle_error(0);  // Non-fatal error\n    }\n    printf(\"Result: %d\\n\", x / y);\n    return 0;\n}",
+    "description": "This program uses both `longjmp` and `exit` for different error handling strategies, depending on whether the error is fatal or non-fatal."
+  },
+  {
+    "id": 650,
+    "input": "Write a C program that uses `fopen` with error handling for various modes (read, write) and checks for errors.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    FILE *file = fopen(\"nonexistent.txt\", \"r\");\n    if (file == NULL) {\n        perror(\"Error opening file for reading\");\n        return 1;\n    }\n    fclose(file);\n\n    file = fopen(\"readonly.txt\", \"w\");\n    if (file == NULL) {\n        perror(\"Error opening file for writing\");\n        return 1;\n    }\n    fclose(file);\n\n    return 0;\n}",
+    "description": "This program handles errors for both reading and writing files by checking the file pointer and using `perror` to display descriptive error messages."
+  },
+  {
+    "id": 651,
+    "input": "Write a C program that declares an integer array of size 5 and assigns values to each element.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program declares an integer array of size 5 and prints the values of each element using a loop."
+  },
+  {
+    "id": 652,
+    "input": "Write a C program that initializes an array with values input by the user and prints them.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5];\n    printf(\"Enter 5 integers: \");\n    for (int i = 0; i < 5; i++) {\n        scanf(\"%d\", &arr[i]);\n    }\n    printf(\"You entered: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program accepts 5 integers from the user, stores them in an array, and then prints them."
+  },
+  {
+    "id": 653,
+    "input": "Write a C program that finds the largest element in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {3, 7, 2, 8, 5};\n    int max = arr[0];\n    for (int i = 1; i < 5; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    printf(\"The largest element is %d\\n\", max);\n    return 0;\n}",
+    "description": "This program finds and prints the largest element in a statically initialized array of 5 integers."
+  },
+  {
+    "id": 654,
+    "input": "Write a C program that sums all elements of an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += arr[i];\n    }\n    printf(\"The sum of the array elements is %d\\n\", sum);\n    return 0;\n}",
+    "description": "This program calculates and prints the sum of all elements in an array."
+  },
+  {
+    "id": 655,
+    "input": "Write a C program that reverses the elements of an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int temp;\n    for (int i = 0; i < 2; i++) {\n        temp = arr[i];\n        arr[i] = arr[4 - i];\n        arr[4 - i] = temp;\n    }\n    printf(\"Reversed array: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program reverses the elements of an array in place and prints the reversed array."
+  },
+  {
+    "id": 656,
+    "input": "Write a C program that copies elements from one array to another.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr1[5] = {1, 2, 3, 4, 5};\n    int arr2[5];\n    for (int i = 0; i < 5; i++) {\n        arr2[i] = arr1[i];\n    }\n    printf(\"Elements of arr2: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr2[i]);\n    }\n    return 0;\n}",
+    "description": "This program copies the elements from one array to another and prints the copied elements."
+  },
+  {
+    "id": 657,
+    "input": "Write a C program that searches for a specific value in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {10, 20, 30, 40, 50};\n    int value = 30;\n    int found = 0;\n    for (int i = 0; i < 5; i++) {\n        if (arr[i] == value) {\n            printf(\"Value %d found at index %d\\n\", value, i);\n            found = 1;\n            break;\n        }\n    }\n    if (!found) {\n        printf(\"Value not found in the array.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program searches for a specific value in an array and reports its index if found."
+  },
+  {
+    "id": 658,
+    "input": "Write a C program that counts the number of even numbers in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int even_count = 0;\n    for (int i = 0; i < 5; i++) {\n        if (arr[i] % 2 == 0) {\n            even_count++;\n        }\n    }\n    printf(\"Number of even numbers: %d\\n\", even_count);\n    return 0;\n}",
+    "description": "This program counts and prints the number of even numbers in an array."
+  },
+  {
+    "id": 659,
+    "input": "Write a C program that finds the average of elements in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += arr[i];\n    }\n    float average = (float)sum / 5;\n    printf(\"The average of the array elements is %.2f\\n\", average);\n    return 0;\n}",
+    "description": "This program calculates and prints the average of elements in an array."
+  },
+  {
+    "id": 660,
+    "input": "Write a C program that checks if an array is sorted in ascending order.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int sorted = 1;\n    for (int i = 0; i < 4; i++) {\n        if (arr[i] > arr[i + 1]) {\n            sorted = 0;\n            break;\n        }\n    }\n    if (sorted) {\n        printf(\"Array is sorted in ascending order.\\n\");\n    } else {\n        printf(\"Array is not sorted in ascending order.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks if an array is sorted in ascending order and prints the result."
+  },
+  {
+    "id": 661,
+    "input": "Write a C program that finds the smallest element in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {10, 3, 7, 2, 8};\n    int min = arr[0];\n    for (int i = 1; i < 5; i++) {\n        if (arr[i] < min) {\n            min = arr[i];\n        }\n    }\n    printf(\"The smallest element is %d\\n\", min);\n    return 0;\n}",
+    "description": "This program finds and prints the smallest element in a statically initialized array of 5 integers."
+  },
+  {
+    "id": 662,
+    "input": "Write a C program that doubles the elements of an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    for (int i = 0; i < 5; i++) {\n        arr[i] = arr[i] * 2;\n    }\n    printf(\"Doubled array: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program doubles each element of an array and prints the updated array."
+  },
+  {
+    "id": 663,
+    "input": "Write a C program that multiplies each element of an array by a constant value.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int factor = 3;\n    for (int i = 0; i < 5; i++) {\n        arr[i] *= factor;\n    }\n    printf(\"Array after multiplication by %d: \", factor);\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program multiplies each element of an array by a constant factor and prints the result."
+  },
+  {
+    "id": 664,
+    "input": "Write a C program that counts the number of odd numbers in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int odd_count = 0;\n    for (int i = 0; i < 5; i++) {\n        if (arr[i] % 2 != 0) {\n            odd_count++;\n        }\n    }\n    printf(\"Number of odd numbers: %d\\n\", odd_count);\n    return 0;\n}",
+    "description": "This program counts and prints the number of odd numbers in an array."
+  },
+  {
+    "id": 665,
+    "input": "Write a C program that creates a new array by adding the corresponding elements of two arrays.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr1[5] = {1, 2, 3, 4, 5};\n    int arr2[5] = {5, 4, 3, 2, 1};\n    int sum_arr[5];\n    for (int i = 0; i < 5; i++) {\n        sum_arr[i] = arr1[i] + arr2[i];\n    }\n    printf(\"Sum of arrays: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", sum_arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program adds the corresponding elements of two arrays and stores the result in a new array."
+  },
+  {
+    "id": 666,
+    "input": "Write a C program that finds the second largest element in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {10, 20, 30, 40, 50};\n    int largest = arr[0], second_largest = arr[0];\n    for (int i = 1; i < 5; i++) {\n        if (arr[i] > largest) {\n            second_largest = largest;\n            largest = arr[i];\n        } else if (arr[i] > second_largest) {\n            second_largest = arr[i];\n        }\n    }\n    printf(\"The second largest element is %d\\n\", second_largest);\n    return 0;\n}",
+    "description": "This program finds and prints the second largest element in an array."
+  },
+  {
+    "id": 667,
+    "input": "Write a C program that checks if two arrays are equal (have the same elements in the same order).",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr1[5] = {1, 2, 3, 4, 5};\n    int arr2[5] = {1, 2, 3, 4, 5};\n    int equal = 1;\n    for (int i = 0; i < 5; i++) {\n        if (arr1[i] != arr2[i]) {\n            equal = 0;\n            break;\n        }\n    }\n    if (equal) {\n        printf(\"Arrays are equal.\\n\");\n    } else {\n        printf(\"Arrays are not equal.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks if two arrays have the same elements in the same order."
+  },
+  {
+    "id": 668,
+    "input": "Write a C program that shifts the elements of an array to the right by one position.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int last = arr[4];\n    for (int i = 3; i >= 0; i--) {\n        arr[i + 1] = arr[i];\n    }\n    arr[0] = last;\n    printf(\"Array after right shift: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program shifts the elements of an array to the right by one position."
+  },
+  {
+    "id": 669,
+    "input": "Write a C program that removes duplicate elements from an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[6] = {1, 2, 3, 2, 4, 1};\n    int new_arr[6];\n    int k = 0;\n    for (int i = 0; i < 6; i++) {\n        int flag = 0;\n        for (int j = 0; j < k; j++) {\n            if (arr[i] == new_arr[j]) {\n                flag = 1;\n                break;\n            }\n        }\n        if (!flag) {\n            new_arr[k++] = arr[i];\n        }\n    }\n    printf(\"Array without duplicates: \");\n    for (int i = 0; i < k; i++) {\n        printf(\"%d \", new_arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program removes duplicates from an array and prints the result."
+  },
+  {
+    "id": 670,
+    "input": "Write a C program that concatenates two arrays into a third array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr1[3] = {1, 2, 3};\n    int arr2[3] = {4, 5, 6};\n    int arr3[6];\n    for (int i = 0; i < 3; i++) {\n        arr3[i] = arr1[i];\n    }\n    for (int i = 0; i < 3; i++) {\n        arr3[i + 3] = arr2[i];\n    }\n    printf(\"Concatenated array: \");\n    for (int i = 0; i < 6; i++) {\n        printf(\"%d \", arr3[i]);\n    }\n    return 0;\n}",
+    "description": "This program concatenates two arrays into a third array and prints the concatenated array."
+  },
+  {
+    "id": 671,
+    "input": "Write a C program that initializes an array with 5 numbers and prints them.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program initializes an array with 5 integers and prints them one by one."
+  },
+  {
+    "id": 672,
+    "input": "Write a C program that takes 5 integers from the user and stores them in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5];\n    for (int i = 0; i < 5; i++) {\n        printf(\"Enter number %d: \", i + 1);\n        scanf(\"%d\", &arr[i]);\n    }\n    printf(\"Entered numbers: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program takes 5 integer inputs from the user and stores them in an array."
+  },
+  {
+    "id": 673,
+    "input": "Write a C program that calculates the sum of the elements in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += arr[i];\n    }\n    printf(\"Sum of array elements: %d\\n\", sum);\n    return 0;\n}",
+    "description": "This program calculates the sum of the elements of an array and prints it."
+  },
+  {
+    "id": 674,
+    "input": "Write a C program that calculates the average of the elements in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += arr[i];\n    }\n    float average = sum / 5.0;\n    printf(\"Average of array elements: %.2f\\n\", average);\n    return 0;\n}",
+    "description": "This program calculates the average of the elements of an array and prints it."
+  },
+  {
+    "id": 675,
+    "input": "Write a C program that initializes an array with 5 numbers and finds their product.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int product = 1;\n    for (int i = 0; i < 5; i++) {\n        product *= arr[i];\n    }\n    printf(\"Product of array elements: %d\\n\", product);\n    return 0;\n}",
+    "description": "This program calculates the product of all elements in an array and prints the result."
+  },
+  {
+    "id": 676,
+    "input": "Write a C program that checks if all elements in an array are positive.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int all_positive = 1;\n    for (int i = 0; i < 5; i++) {\n        if (arr[i] <= 0) {\n            all_positive = 0;\n            break;\n        }\n    }\n    if (all_positive) {\n        printf(\"All elements are positive.\\n\");\n    } else {\n        printf(\"Not all elements are positive.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks if all the elements in an array are positive and prints the result."
+  },
+  {
+    "id": 677,
+    "input": "Write a C program that reverses an array of 5 integers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int temp;\n    for (int i = 0; i < 2; i++) {\n        temp = arr[i];\n        arr[i] = arr[4 - i];\n        arr[4 - i] = temp;\n    }\n    printf(\"Reversed array: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program reverses the elements of an array and prints the reversed array."
+  },
+  {
+    "id": 678,
+    "input": "Write a C program that finds the largest element in an array of 5 integers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int max = arr[0];\n    for (int i = 1; i < 5; i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    printf(\"Largest element is %d\\n\", max);\n    return 0;\n}",
+    "description": "This program finds the largest element in an array and prints it."
+  },
+  {
+    "id": 679,
+    "input": "Write a C program that stores and prints the squares of the first 5 integers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5];\n    for (int i = 0; i < 5; i++) {\n        arr[i] = (i + 1) * (i + 1);\n    }\n    printf(\"Squares of first 5 integers: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program stores the squares of the first 5 integers in an array and prints them."
+  },
+  {
+    "id": 680,
+    "input": "Write a C program that stores and prints the Fibonacci series of 5 numbers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {0, 1, 1, 2, 3};\n    printf(\"Fibonacci series: \");\n    for (int i = 0; i < 5; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    return 0;\n}",
+    "description": "This program stores the first 5 Fibonacci numbers in an array and prints them."
+  },
+  {
+    "id": 681,
+    "input": "Write a C program that stores 10 numbers in an array and finds the sum of even numbers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};\n    int sum = 0;\n    for (int i = 0; i < 10; i++) {\n        if (arr[i] % 2 == 0) {\n            sum += arr[i];\n        }\n    }\n    printf(\"Sum of even numbers: %d\\n\", sum);\n    return 0;\n}",
+    "description": "This program finds the sum of all even numbers in an array and prints the result."
+  },
+  {
+    "id": 682,
+    "input": "Write a C program that stores 6 numbers in an array and prints the numbers that are greater than 5.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[6] = {1, 2, 3, 4, 5, 6};\n    printf(\"Numbers greater than 5: \");\n    for (int i = 0; i < 6; i++) {\n        if (arr[i] > 5) {\n            printf(\"%d \", arr[i]);\n        }\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program prints the numbers in the array that are greater than 5."
+  },
+  {
+    "id": 683,
+    "input": "Write a C program that stores 5 numbers and calculates the product of all the numbers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    int product = 1;\n    for (int i = 0; i < 5; i++) {\n        product *= arr[i];\n    }\n    printf(\"Product of array elements: %d\\n\", product);\n    return 0;\n}",
+    "description": "This program calculates and prints the product of all elements in the array."
+  },
+  {
+    "id": 684,
+    "input": "Write a C program that stores the ages of 4 people in an array and prints the oldest age.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[4] = {25, 30, 35, 40};\n    int max_age = arr[0];\n    for (int i = 1; i < 4; i++) {\n        if (arr[i] > max_age) {\n            max_age = arr[i];\n        }\n    }\n    printf(\"Oldest age: %d\\n\", max_age);\n    return 0;\n}",
+    "description": "This program finds and prints the oldest age from an array of ages."
+  },
+  {
+    "id": 685,
+    "input": "Write a C program that stores the names of 3 people in an array and prints each name in reverse order.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char* names[3] = {\"Alice\", \"Bob\", \"Charlie\"};\n    printf(\"Names in reverse order: \");\n    for (int i = 2; i >= 0; i--) {\n        printf(\"%s \", names[i]);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program prints the names from the array in reverse order."
+  },
+  {
+    "id": 686,
+    "input": "Write a C program that stores the first 10 integers in an array and prints whether each number is odd or even.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[10];\n    for (int i = 0; i < 10; i++) {\n        arr[i] = i + 1;\n        if (arr[i] % 2 == 0) {\n            printf(\"%d is even\\n\", arr[i]);\n        } else {\n            printf(\"%d is odd\\n\", arr[i]);\n        }\n    }\n    return 0;\n}",
+    "description": "This program prints whether each number in an array of the first 10 integers is odd or even."
+  },
+  {
+    "id": 687,
+    "input": "Write a C program that stores 5 random numbers in an array and prints the smallest number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[5] = {15, 9, 22, 8, 7};\n    int min = arr[0];\n    for (int i = 1; i < 5; i++) {\n        if (arr[i] < min) {\n            min = arr[i];\n        }\n    }\n    printf(\"Smallest number: %d\\n\", min);\n    return 0;\n}",
+    "description": "This program finds and prints the smallest number from an array of 5 numbers."
+  },
+  {
+    "id": 688,
+    "input": "Write a C program that stores 4 floating point numbers in an array and prints the average of the numbers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float arr[4] = {1.2, 2.5, 3.7, 4.1};\n    float sum = 0;\n    for (int i = 0; i < 4; i++) {\n        sum += arr[i];\n    }\n    float average = sum / 4;\n    printf(\"Average of the numbers: %.2f\\n\", average);\n    return 0;\n}",
+    "description": "This program calculates and prints the average of the elements in an array of floating-point numbers."
+  },
+  {
+    "id": 689,
+    "input": "Write a C program that stores 6 numbers in an array and counts how many numbers are greater than 3.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[6] = {1, 2, 3, 4, 5, 6};\n    int count = 0;\n    for (int i = 0; i < 6; i++) {\n        if (arr[i] > 3) {\n            count++;\n        }\n    }\n    printf(\"Count of numbers greater than 3: %d\\n\", count);\n    return 0;\n}",
+    "description": "This program counts how many numbers in an array are greater than 3 and prints the count."
+  },
+  {
+    "id": 690,
+    "input": "Write a C program that stores 4 integers and finds the second largest number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[4] = {10, 20, 15, 25};\n    int largest = arr[0], second_largest = arr[0];\n    for (int i = 1; i < 4; i++) {\n        if (arr[i] > largest) {\n            second_largest = largest;\n            largest = arr[i];\n        } else if (arr[i] > second_largest && arr[i] != largest) {\n            second_largest = arr[i];\n        }\n    }\n    printf(\"Second largest number: %d\\n\", second_largest);\n    return 0;\n}",
+    "description": "This program finds the second largest number in an array and prints it."
+  },
+  {
+    "id": 691,
+    "input": "Write a C program that stores a 2D array and prints its transpose.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};\n    int transpose[3][2];\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 3; j++) {\n            transpose[j][i] = arr[i][j];\n        }\n    }\n\n    printf(\"Transpose of the matrix: \\n\");\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 2; j++) {\n            printf(\"%d \", transpose[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "This program prints the transpose of a 2D array."
+  },
+  {
+    "id": 692,
+    "input": "Write a C program that multiplies two 2D arrays.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a[2][2] = {{1, 2}, {3, 4}};\n    int b[2][2] = {{5, 6}, {7, 8}};\n    int result[2][2] = {{0, 0}, {0, 0}};\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            for (int k = 0; k < 2; k++) {\n                result[i][j] += a[i][k] * b[k][j];\n            }\n        }\n    }\n\n    printf(\"Multiplication result: \\n\");\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            printf(\"%d \", result[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "This program multiplies two 2D arrays and prints the result."
+  },
+  {
+    "id": 693,
+    "input": "Write a C program that stores a 3D array and prints its elements.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[2][2][2] = {{{1, 2}, {3, 4}}, {{5, 6}, {7, 8}}};\n\n    printf(\"Elements of the 3D array: \\n\");\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            for (int k = 0; k < 2; k++) {\n                printf(\"%d \", arr[i][j][k]);\n            }\n            printf(\"\\n\");\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "This program stores a 3D array and prints its elements."
+  },
+  {
+    "id": 694,
+    "input": "Write a C program that stores a 2D array and calculates the sum of all its elements.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\n    int sum = 0;\n\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            sum += arr[i][j];\n        }\n    }\n\n    printf(\"Sum of all elements: %d\\n\", sum);\n    return 0;\n}",
+    "description": "This program calculates and prints the sum of all elements in a 2D array."
+  },
+  {
+    "id": 695,
+    "input": "Write a C program that stores a 2D array and finds the row with the maximum sum of elements.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\n    int row_sum[3] = {0, 0, 0};\n    int max_row = 0;\n\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            row_sum[i] += arr[i][j];\n        }\n    }\n\n    for (int i = 1; i < 3; i++) {\n        if (row_sum[i] > row_sum[max_row]) {\n            max_row = i;\n        }\n    }\n\n    printf(\"Row with the maximum sum: %d\\n\", max_row);\n    return 0;\n}",
+    "description": "This program finds the row with the maximum sum of elements in a 2D array."
+  },
+  {
+    "id": 696,
+    "input": "Write a C program that multiplies two 3D arrays and prints the result.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a[2][2][2] = {{{1, 2}, {3, 4}}, {{5, 6}, {7, 8}}};\n    int b[2][2][2] = {{{1, 1}, {1, 1}}, {{1, 1}, {1, 1}}};\n    int result[2][2][2] = {{{0, 0}, {0, 0}}, {{0, 0}, {0, 0}}};\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            for (int k = 0; k < 2; k++) {\n                for (int l = 0; l < 2; l++) {\n                    result[i][j][k] += a[i][j][l] * b[l][k][j];\n                }\n            }\n        }\n    }\n\n    printf(\"Multiplication result of 3D arrays: \\n\");\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            for (int k = 0; k < 2; k++) {\n                printf(\"%d \", result[i][j][k]);\n            }\n            printf(\"\\n\");\n        }\n    }\n    return 0;\n}",
+    "description": "This program multiplies two 3D arrays and prints the result."
+  },
+  {
+    "id": 697,
+    "input": "Write a C program that stores a 3D array and finds the largest element.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[2][2][2] = {{{1, 2}, {3, 4}}, {{5, 6}, {7, 8}}};\n    int max = arr[0][0][0];\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            for (int k = 0; k < 2; k++) {\n                if (arr[i][j][k] > max) {\n                    max = arr[i][j][k];\n                }\n            }\n        }\n    }\n\n    printf(\"Largest element: %d\\n\", max);\n    return 0;\n}",
+    "description": "This program finds and prints the largest element in a 3D array."
+  },
+  {
+    "id": 698,
+    "input": "Write a C program that stores a 2D array and rotates it 90 degrees clockwise.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};\n    int rotated[3][3];\n\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            rotated[j][2 - i] = arr[i][j];\n        }\n    }\n\n    printf(\"Rotated 90 degrees: \\n\");\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            printf(\"%d \", rotated[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "This program rotates a 2D array 90 degrees clockwise and prints the result."
+  },
+  {
+    "id": 699,
+    "input": "Write a C program that stores a 3D array and sums the elements along each dimension.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int arr[2][2][2] = {{{1, 2}, {3, 4}}, {{5, 6}, {7, 8}}};\n    int sum_i = 0, sum_j = 0, sum_k = 0;\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            for (int k = 0; k < 2; k++) {\n                sum_i += arr[i][j][k];\n                sum_j += arr[i][j][k];\n                sum_k += arr[i][j][k];\n            }\n        }\n    }\n\n    printf(\"Sum along dimension i: %d\\n\", sum_i);\n    printf(\"Sum along dimension j: %d\\n\", sum_j);\n    printf(\"Sum along dimension k: %d\\n\", sum_k);\n    return 0;\n}",
+    "description": "This program sums the elements along each dimension in a 3D array."
+  },
+  {
+    "id": 700,
+    "input": "Write a C program that stores a 2D array and sorts its elements in ascending order.",
+    "output": "#include <stdio.h>\n\nvoid sort(int arr[3][3]) {\n    int temp;\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3 - 1; j++) {\n            for (int k = 0; k < 3 - j - 1; k++) {\n                if (arr[i][k] > arr[i][k + 1]) {\n                    temp = arr[i][k];\n                    arr[i][k] = arr[i][k + 1];\n                    arr[i][k + 1] = temp;\n                }\n            }\n        }\n    }\n}\n\nint main() {\n    int arr[3][3] = {{9, 7, 8}, {6, 5, 4}, {3, 1, 2}};\n    sort(arr);\n\n    printf(\"Sorted array: \\n\");\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < 3; j++) {\n            printf(\"%d \", arr[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+    "description": "This program sorts the elements of a 2D array in ascending order."
+  }
+]
