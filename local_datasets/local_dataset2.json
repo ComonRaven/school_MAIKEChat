@@ -598,5 +598,605 @@
     "input": "Create an advanced program that combines recursion and scope.",
     "output": "#include <stdio.h>\n\nint sumToN(int n) {\n    static int sum = 0; // Static variable\n    if (n > 0) {\n        sum += n;\n        return sumToN(n - 1);\n    }\n    return sum;\n}\n\nint main(void) {\n    int result = sumToN(5);\n    printf(\"Sum from 1 to 5: %d\\n\", result);\n    return 0;\n}",
     "description": "This program combines recursion and static variables to calculate the sum of numbers from 1 to `n`. The static variable `sum` retains its value across recursive calls."
+  },
+  {
+    "id": 301,
+    "input": "Create a basic program to demonstrate the use of pointers in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int value = 42;      // Normal integer variable\n    int *ptr = &value;  // Pointer to the integer variable\n\n    printf(\"Value: %d\\n\", value);\n    printf(\"Address of value: %p\\n\", (void*)&value);\n    printf(\"Pointer (ptr): %p\\n\", (void*)ptr);\n    printf(\"Value via pointer: %d\\n\", *ptr);\n\n    *ptr = 99; // Modify value through the pointer\n    printf(\"Modified value: %d\\n\", value);\n\n    return 0;\n}",
+    "description": "This program demonstrates basic pointer usage in C. It declares an integer variable `value` and a pointer `ptr` that stores the address of `value`. It shows how to access and modify the value of the variable using the pointer."
+  },
+  {
+    "id": 302,
+    "input": "Write a program to demonstrate pointer arithmetic in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {10, 20, 30, 40};\n    int *ptr = arr; // Pointer to the first element of the array\n\n    printf(\"Initial pointer points to: %d\\n\", *ptr);\n    ptr++; // Move pointer to the next element\n    printf(\"After increment, pointer points to: %d\\n\", *ptr);\n\n    ptr += 2; // Move pointer two positions forward\n    printf(\"After moving forward, pointer points to: %d\\n\", *ptr);\n\n    ptr--; // Move pointer one position back\n    printf(\"After decrement, pointer points to: %d\\n\", *ptr);\n\n    return 0;\n}",
+    "description": "This program demonstrates pointer arithmetic by using a pointer to traverse through an integer array. It shows how to increment and decrement pointers to access different elements of the array."
+  },
+  {
+    "id": 303,
+    "input": "Create a program to swap two numbers using pointers.",
+    "output": "#include <stdio.h>\n\nvoid swap(int *a, int *b) {\n    int temp = *a;\n    *a = *b;\n    *b = temp;\n}\n\nint main(void) {\n    int x = 5, y = 10;\n\n    printf(\"Before swap: x = %d, y = %d\\n\", x, y);\n    swap(&x, &y);\n    printf(\"After swap: x = %d, y = %d\\n\", x, y);\n\n    return 0;\n}",
+    "description": "This program demonstrates swapping two integers using pointers. The `swap` function takes the addresses of two integers as arguments and swaps their values using a temporary variable."
+  },
+  {
+    "id": 304,
+    "input": "Write a program to demonstrate a pointer to a pointer in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int value = 50;\n    int *ptr = &value;\n    int **ptrToPtr = &ptr;\n\n    printf(\"Value: %d\\n\", value);\n    printf(\"Pointer (ptr) points to value: %d\\n\", *ptr);\n    printf(\"Pointer to pointer (ptrToPtr) points to ptr: %p\\n\", (void*)*ptrToPtr);\n    printf(\"Value via pointer to pointer: %d\\n\", **ptrToPtr);\n\n    return 0;\n}",
+    "description": "This program demonstrates a pointer to a pointer. It declares an integer variable, a pointer to that variable, and another pointer that stores the address of the first pointer. It shows how to access the original value through multiple levels of indirection."
+  },
+  {
+    "id": 305,
+    "input": "Write a program to dynamically allocate memory using malloc in C.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *ptr;\n    int n = 5;\n\n    ptr = (int *)malloc(n * sizeof(int)); // Dynamically allocate memory for 5 integers\n\n    if (ptr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < n; i++) {\n        ptr[i] = i + 1; // Initialize allocated memory\n    }\n\n    printf(\"Dynamically allocated array: \");\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", ptr[i]);\n    }\n    printf(\"\\n\");\n\n    free(ptr); // Free allocated memory\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation using `malloc`. It allocates memory for an integer array, initializes the elements, and then frees the memory to prevent memory leaks."
+  },
+  {
+    "id": 306,
+    "input": "Write a program to pass an array to a function using pointers.",
+    "output": "#include <stdio.h>\n\nvoid printArray(int *arr, int size) {\n    for (int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n}\n\nint main(void) {\n    int numbers[] = {1, 2, 3, 4, 5};\n    int size = sizeof(numbers) / sizeof(numbers[0]);\n\n    printArray(numbers, size);\n\n    return 0;\n}",
+    "description": "This program demonstrates how to pass an array to a function using a pointer. The `printArray` function accepts a pointer to the array and its size, then iterates through the array to print its elements."
+  },
+  {
+    "id": 307,
+    "input": "Create a program to demonstrate the use of void pointers.",
+    "output": "#include <stdio.h>\n\nvoid printValue(void *ptr, char type) {\n    switch (type) {\n        case 'i':\n            printf(\"Integer: %d\\n\", *(int *)ptr);\n            break;\n        case 'f':\n            printf(\"Float: %f\\n\", *(float *)ptr);\n            break;\n        case 'c':\n            printf(\"Character: %c\\n\", *(char *)ptr);\n            break;\n    }\n}\n\nint main(void) {\n    int i = 10;\n    float f = 3.14;\n    char c = 'A';\n\n    printValue(&i, 'i');\n    printValue(&f, 'f');\n    printValue(&c, 'c');\n\n    return 0;\n}",
+    "description": "This program demonstrates the use of void pointers to handle different data types. The `printValue` function takes a void pointer and a type identifier to print the value accordingly after casting the pointer to the correct type."
+  },
+  {
+    "id": 308,
+    "input": "Write a program to create and access a 2D array using pointers.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[2][2] = {{1, 2}, {3, 4}};\n    int (*ptr)[2] = arr; // Pointer to an array of 2 integers\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 2; j++) {\n            printf(\"%d \", ptr[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program demonstrates how to use a pointer to access elements of a 2D array. A pointer to an array is used to traverse and print the elements of the 2D array."
+  },
+  {
+    "id": 309,
+    "input": "Write a program to use pointers with strings in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[] = \"Hello, World!\";\n    char *ptr = str;\n\n    printf(\"String: %s\\n\", ptr);\n    printf(\"Characters: \");\n    while (*ptr != '\\0') {\n        printf(\"%c \", *ptr);\n        ptr++;\n    }\n    printf(\"\\n\");\n\n    return 0;\n}",
+    "description": "This program demonstrates using pointers with strings. A pointer to the string is used to traverse and print the characters until the null terminator is encountered."
+  },
+  {
+    "id": 310,
+    "input": "Write a program to demonstrate pointer comparison in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {10, 20, 30};\n    int *ptr1 = &arr[0];\n    int *ptr2 = &arr[2];\n\n    if (ptr1 < ptr2) {\n        printf(\"ptr1 points to an earlier position than ptr2.\\n\");\n    }\n\n    ptr1 += 2;\n    if (ptr1 == ptr2) {\n        printf(\"ptr1 now points to the same position as ptr2.\\n\");\n    }\n\n    return 0;\n}",
+    "description": "This program demonstrates pointer comparison in C. It compares two pointers pointing to elements of the same array and shows how pointer arithmetic can modify the comparison results."
+  },
+  {
+    "id": 311,
+    "input": "Create a program to demonstrate passing a pointer to a function.",
+    "output": "#include <stdio.h>\n\nvoid increment(int *num) {\n    (*num)++;\n}\n\nint main(void) {\n    int value = 10;\n    printf(\"Before increment: %d\\n\", value);\n    increment(&value);\n    printf(\"After increment: %d\\n\", value);\n\n    return 0;\n}",
+    "description": "This program demonstrates passing a pointer to a function. The `increment` function takes a pointer to an integer and increments its value directly, showing how changes made via the pointer affect the original variable."
+  },
+  {
+    "id": 312,
+    "input": "Write a program to find the largest element in an array using pointers.",
+    "output": "#include <stdio.h>\n\nint findLargest(int *arr, int size) {\n    int largest = *arr;\n    for (int i = 1; i < size; i++) {\n        if (*(arr + i) > largest) {\n            largest = *(arr + i);\n        }\n    }\n    return largest;\n}\n\nint main(void) {\n    int numbers[] = {5, 12, 7, 3, 9};\n    int size = sizeof(numbers) / sizeof(numbers[0]);\n\n    int largest = findLargest(numbers, size);\n    printf(\"The largest element is: %d\\n\", largest);\n\n    return 0;\n}",
+    "description": "This program finds the largest element in an array using pointers. The function `findLargest` iterates through the array using pointer arithmetic and compares elements to determine the largest value."
+  },
+  {
+    "id": 313,
+    "input": "Write a program to reverse a string using pointers.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nvoid reverseString(char *str) {\n    char *start = str;\n    char *end = str + strlen(str) - 1;\n    char temp;\n\n    while (start < end) {\n        temp = *start;\n        *start = *end;\n        *end = temp;\n\n        start++;\n        end--;\n    }\n}\n\nint main(void) {\n    char str[] = \"hello\";\n    printf(\"Original string: %s\\n\", str);\n    reverseString(str);\n    printf(\"Reversed string: %s\\n\", str);\n\n    return 0;\n}",
+    "description": "This program reverses a string in-place using pointers. The `reverseString` function uses two pointers, `start` and `end`, to swap characters until the entire string is reversed."
+  },
+  {
+    "id": 314,
+    "input": "Create a program to demonstrate the use of const pointers in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int value1 = 10, value2 = 20;\n    const int *ptr = &value1; // Pointer to a constant integer\n\n    printf(\"Value: %d\\n\", *ptr);\n\n    ptr = &value2; // Allowed: Changing the address stored in the pointer\n    printf(\"New value: %d\\n\", *ptr);\n\n    // *ptr = 30; // Error: Cannot modify the value through the pointer\n\n    return 0;\n}",
+    "description": "This program demonstrates the use of a pointer to a constant. The pointer `ptr` can point to different variables, but it cannot modify the value of the variable it points to."
+  },
+  {
+    "id": 315,
+    "input": "Write a program to demonstrate the use of a constant pointer in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int value1 = 10, value2 = 20;\n    int *const ptr = &value1; // Constant pointer to an integer\n\n    printf(\"Value: %d\\n\", *ptr);\n\n    *ptr = 30; // Allowed: Modifying the value through the pointer\n    printf(\"Modified value: %d\\n\", *ptr);\n\n    // ptr = &value2; // Error: Cannot change the address stored in the pointer\n\n    return 0;\n}",
+    "description": "This program demonstrates the use of a constant pointer. The pointer `ptr` cannot be assigned to a different address, but it can modify the value of the variable it points to."
+  },
+  {
+    "id": 316,
+    "input": "Create a program to demonstrate function pointers in C.",
+    "output": "#include <stdio.h>\n\nvoid greet() {\n    printf(\"Hello, World!\\n\");\n}\n\nvoid farewell() {\n    printf(\"Goodbye, World!\\n\");\n}\n\nint main(void) {\n    void (*funcPtr)(); // Function pointer declaration\n\n    funcPtr = greet;\n    funcPtr(); // Call greet through the function pointer\n\n    funcPtr = farewell;\n    funcPtr(); // Call farewell through the function pointer\n\n    return 0;\n}",
+    "description": "This program demonstrates the use of function pointers. The function pointer `funcPtr` is used to store the addresses of `greet` and `farewell`, allowing the functions to be called indirectly."
+  },
+  {
+    "id": 317,
+    "input": "Write a program to allocate and free a 2D array dynamically in C.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int rows = 3, cols = 4;\n    int **arr;\n\n    arr = (int **)malloc(rows * sizeof(int *));\n    for (int i = 0; i < rows; i++) {\n        arr[i] = (int *)malloc(cols * sizeof(int));\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            arr[i][j] = i * cols + j;\n            printf(\"%d \", arr[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 2D array using pointers. It initializes the array elements and then frees the allocated memory to prevent memory leaks."
+  },
+  {
+    "id": 318,
+    "input": "Write a program to demonstrate pointer usage with structures in C.",
+    "output": "#include <stdio.h>\n\nstruct Point {\n    int x;\n    int y;\n};\n\nint main(void) {\n    struct Point p = {10, 20};\n    struct Point *ptr = &p;\n\n    printf(\"Point coordinates: (%d, %d)\\n\", ptr->x, ptr->y);\n\n    ptr->x = 30;\n    ptr->y = 40;\n    printf(\"Modified coordinates: (%d, %d)\\n\", ptr->x, ptr->y);\n\n    return 0;\n}",
+    "description": "This program demonstrates pointer usage with structures. A pointer to a structure is used to access and modify the fields of the structure using the `->` operator."
+  },
+  {
+    "id": 319,
+    "input": "Create a program to demonstrate pointers to arrays in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    int (*ptr)[3] = &arr;\n\n    for (int i = 0; i < 3; i++) {\n        printf(\"Element %d: %d\\n\", i, (*ptr)[i]);\n    }\n\n    return 0;\n}",
+    "description": "This program demonstrates pointers to arrays. The pointer `ptr` points to the entire array, and the elements are accessed using the dereference operator combined with array indexing."
+  },
+  {
+    "id": 320,
+    "input": "Write a program to demonstrate the use of NULL pointers in C.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int *ptr = NULL; // Null pointer\n\n    if (ptr == NULL) {\n        printf(\"The pointer is NULL.\\n\");\n    }\n\n    int value = 100;\n    ptr = &value; // Assign a valid address to the pointer\n    printf(\"The pointer now points to value: %d\\n\", *ptr);\n\n    return 0;\n}",
+    "description": "This program demonstrates the use of NULL pointers. It initializes a pointer to NULL, checks its state, and later assigns a valid address to use the pointer."
+  },
+  {
+    "id": 321,
+    "input": "Write a program to demonstrate dynamic memory allocation for a string and calculate its length.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void) {\n    char *str;\n    int length;\n\n    printf(\"Enter the length of the string: \");\n    scanf(\"%d\", &length);\n\n    str = (char *)malloc((length + 1) * sizeof(char));\n    if (str == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n\n    printf(\"Enter the string: \");\n    scanf(\"%s\", str);\n\n    printf(\"The string is: %s\\n\", str);\n    printf(\"The length of the string is: %zu\\n\", strlen(str));\n\n    free(str);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string based on user input. It then calculates the length of the string using the `strlen` function and releases the allocated memory."
+  },
+  {
+    "id": 322,
+    "input": "Create a program to copy the contents of one file to another using pointers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    FILE *source, *target;\n    char sourceFile[100], targetFile[100];\n    char ch;\n\n    printf(\"Enter the source file name: \");\n    scanf(\"%s\", sourceFile);\n\n    printf(\"Enter the target file name: \");\n    scanf(\"%s\", targetFile);\n\n    source = fopen(sourceFile, \"r\");\n    if (source == NULL) {\n        printf(\"Source file not found.\\n\");\n        return 1;\n    }\n\n    target = fopen(targetFile, \"w\");\n    if (target == NULL) {\n        fclose(source);\n        printf(\"Cannot open target file.\\n\");\n        return 1;\n    }\n\n    while ((ch = fgetc(source)) != EOF) {\n        fputc(ch, target);\n    }\n\n    printf(\"File copied successfully.\\n\");\n\n    fclose(source);\n    fclose(target);\n    return 0;\n}",
+    "description": "This program copies the contents of one file to another using file pointers. It reads the source file character by character and writes each character to the target file."
+  },
+  {
+    "id": 323,
+    "input": "Write a program to demonstrate pointer arithmetic with multidimensional arrays.",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};\n    int (*ptr)[3] = matrix;\n\n    for (int i = 0; i < 2; i++) {\n        for (int j = 0; j < 3; j++) {\n            printf(\"Element [%d][%d]: %d\\n\", i, j, *(*(ptr + i) + j));\n        }\n    }\n\n    return 0;\n}",
+    "description": "This program demonstrates pointer arithmetic with multidimensional arrays. A pointer to an array is used to access elements of a 2D array using pointer arithmetic."
+  },
+  {
+    "id": 324,
+    "input": "Create a program to count the frequency of characters in a string using an array and pointers.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100];\n    int freq[256] = {0}; // ASCII character set size\n\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n\n    for (char *ptr = str; *ptr != '\\0'; ptr++) {\n        freq[(int)*ptr]++;\n    }\n\n    printf(\"Character frequencies:\\n\");\n    for (int i = 0; i < 256; i++) {\n        if (freq[i] > 0) {\n            printf(\"%c: %d\\n\", i, freq[i]);\n        }\n    }\n\n    return 0;\n}",
+    "description": "This program counts the frequency of characters in a string using an array to store counts and a pointer to iterate through the string."
+  },
+  {
+    "id": 325,
+    "input": "Write a program to implement a simple linked list using pointers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct Node {\n    int data;\n    struct Node *next;\n} Node;\n\nNode *createNode(int data) {\n    Node *newNode = (Node *)malloc(sizeof(Node));\n    newNode->data = data;\n    newNode->next = NULL;\n    return newNode;\n}\n\nvoid printList(Node *head) {\n    Node *temp = head;\n    while (temp != NULL) {\n        printf(\"%d -> \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"NULL\\n\");\n}\n\nint main(void) {\n    Node *head = createNode(10);\n    head->next = createNode(20);\n    head->next->next = createNode(30);\n\n    printf(\"Linked list: \");\n    printList(head);\n\n    return 0;\n}",
+    "description": "This program implements a simple linked list using pointers. It dynamically creates nodes, links them, and prints the list."
+  },
+  {
+    "id": 326,
+    "input": "Create a program to swap two numbers using pointers and bitwise XOR.",
+    "output": "#include <stdio.h>\n\nvoid swap(int *a, int *b) {\n    *a = *a ^ *b;\n    *b = *a ^ *b;\n    *a = *a ^ *b;\n}\n\nint main(void) {\n    int x = 5, y = 10;\n\n    printf(\"Before swap: x = %d, y = %d\\n\", x, y);\n    swap(&x, &y);\n    printf(\"After swap: x = %d, y = %d\\n\", x, y);\n\n    return 0;\n}",
+    "description": "This program swaps two numbers using pointers and the bitwise XOR operation, avoiding the use of temporary variables."
+  },
+  {
+    "id": 327,
+    "input": "Write a program to create a dynamic stack using pointers.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct Stack {\n    int data;\n    struct Stack *next;\n} Stack;\n\nStack *push(Stack *top, int data) {\n    Stack *newNode = (Stack *)malloc(sizeof(Stack));\n    newNode->data = data;\n    newNode->next = top;\n    return newNode;\n}\n\nStack *pop(Stack *top, int *data) {\n    if (top == NULL) {\n        printf(\"Stack is empty.\\n\");\n        return NULL;\n    }\n    *data = top->data;\n    Stack *temp = top;\n    top = top->next;\n    free(temp);\n    return top;\n}\n\nvoid printStack(Stack *top) {\n    while (top != NULL) {\n        printf(\"%d -> \", top->data);\n        top = top->next;\n    }\n    printf(\"NULL\\n\");\n}\n\nint main(void) {\n    Stack *stack = NULL;\n    int poppedData;\n\n    stack = push(stack, 10);\n    stack = push(stack, 20);\n    stack = push(stack, 30);\n\n    printf(\"Stack: \");\n    printStack(stack);\n\n    stack = pop(stack, &poppedData);\n    printf(\"Popped: %d\\n\", poppedData);\n\n    printf(\"Stack after pop: \");\n    printStack(stack);\n\n    return 0;\n}",
+    "description": "This program implements a dynamic stack using pointers. It supports `push` and `pop` operations and displays the stack contents."
+  },
+  {
+    "id": 328,
+    "input": "Create a program to perform matrix multiplication using dynamic memory allocation.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int r1, c1, r2, c2;\n    printf(\"Enter dimensions of matrix 1 (rows columns): \");\n    scanf(\"%d %d\", &r1, &c1);\n    printf(\"Enter dimensions of matrix 2 (rows columns): \");\n    scanf(\"%d %d\", &r2, &c2);\n\n    if (c1 != r2) {\n        printf(\"Matrix multiplication not possible.\\n\");\n        return 1;\n    }\n\n    int **mat1 = malloc(r1 * sizeof(int *));\n    int **mat2 = malloc(r2 * sizeof(int *));\n    int **result = malloc(r1 * sizeof(int *));\n\n    for (int i = 0; i < r1; i++) mat1[i] = malloc(c1 * sizeof(int));\n    for (int i = 0; i < r2; i++) mat2[i] = malloc(c2 * sizeof(int));\n    for (int i = 0; i < r1; i++) result[i] = malloc(c2 * sizeof(int));\n\n    printf(\"Enter elements of matrix 1:\\n\");\n    for (int i = 0; i < r1; i++)\n        for (int j = 0; j < c1; j++)\n            scanf(\"%d\", &mat1[i][j]);\n\n    printf(\"Enter elements of matrix 2:\\n\");\n    for (int i = 0; i < r2; i++)\n        for (int j = 0; j < c2; j++)\n            scanf(\"%d\", &mat2[i][j]);\n\n    for (int i = 0; i < r1; i++) {\n        for (int j = 0; j < c2; j++) {\n            result[i][j] = 0;\n            for (int k = 0; k < c1; k++)\n                result[i][j] += mat1[i][k] * mat2[k][j];\n        }\n    }\n\n    printf(\"Resultant matrix:\\n\");\n    for (int i = 0; i < r1; i++) {\n        for (int j = 0; j < c2; j++)\n            printf(\"%d \", result[i][j]);\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < r1; i++) free(mat1[i]);\n    for (int i = 0; i < r2; i++) free(mat2[i]);\n    for (int i = 0; i < r1; i++) free(result[i]);\n    free(mat1);\n    free(mat2);\n    free(result);\n\n    return 0;\n}",
+    "description": "This program performs matrix multiplication using dynamic memory allocation. It checks compatibility, calculates the result, and frees allocated memory."
+  },
+  {
+    "id": 329,
+    "input": "Write a program to tokenize a string using strtok and pointers.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[100], delim[10];\n\n    printf(\"Enter the string: \");\n    scanf(\"%s\", str);\n\n    printf(\"Enter the delimiters: \");\n    scanf(\"%s\", delim);\n\n    char *token = strtok(str, delim);\n    while (token != NULL) {\n        printf(\"%s\\n\", token);\n        token = strtok(NULL, delim);\n    }\n\n    return 0;\n}",
+    "description": "This program tokenizes a string based on user-provided delimiters using `strtok` and prints each token."
+  },
+  {
+    "id": 330,
+    "input": "Create a program to find the sum of digits of a number using recursion.",
+    "output": "#include <stdio.h>\n\nint sumOfDigits(int n) {\n    if (n == 0)\n        return 0;\n    return (n % 10) + sumOfDigits(n / 10);\n}\n\nint main(void) {\n    int num;\n\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    printf(\"The sum of digits of %d is %d\\n\", num, sumOfDigits(num));\n\n    return 0;\n}",
+    "description": "This program calculates the sum of the digits of a number using recursion. It repeatedly reduces the number by removing the last digit and adds it to the sum."
+  },
+  {
+    "id": 331,
+    "input": "Create a program to dynamically allocate memory for an array of floating point numbers and compute the average.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int n;\n    printf(\"Enter the number of elements: \");\n    scanf(\"%d\", &n);\n    float *arr = (float *)malloc(n * sizeof(float));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    float sum = 0.0;\n    for (int i = 0; i < n; i++) {\n        printf(\"Enter element %d: \", i + 1);\n        scanf(\"%f\", &arr[i]);\n        sum += arr[i];\n    }\n    printf(\"Average: %.2f\\n\", sum / n);\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of floating point numbers, calculates the sum, and computes the average."
+  },
+  {
+    "id": 332,
+    "input": "Create a program to dynamically allocate memory for a structure representing a point in 2D space.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Point {\n    int x;\n    int y;\n};\n\nint main(void) {\n    struct Point *pt = (struct Point *)malloc(sizeof(struct Point));\n    if (pt == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    pt->x = 10;\n    pt->y = 20;\n    printf(\"Point: (%d, %d)\\n\", pt->x, pt->y);\n    free(pt);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a structure representing a point in 2D space and initializes it."
+  },
+  {
+    "id": 333,
+    "input": "Create a program to dynamically allocate memory for a 2D array and initialize it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int rows, cols;\n    printf(\"Enter number of rows and columns: \");\n    scanf(\"%d %d\", &rows, &cols);\n    int **arr = (int **)malloc(rows * sizeof(int *));\n    for (int i = 0; i < rows; i++) {\n        arr[i] = (int *)malloc(cols * sizeof(int));\n    }\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            arr[i][j] = i + j;\n        }\n    }\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", arr[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    for (int i = 0; i < rows; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 2D array, initializes it, and prints the values."
+  },
+  {
+    "id": 334,
+    "input": "Create a program that dynamically allocates memory for a linked list and displays the list.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node *next;\n};\n\nint main(void) {\n    struct Node *head = NULL;\n    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));\n    if (temp == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    temp->data = 10;\n    temp->next = NULL;\n    head = temp;\n    printf(\"List: %d\\n\", head->data);\n    free(head);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a node in a linked list, assigns data, and prints the value."
+  },
+  {
+    "id": 335,
+    "input": "Create a program to dynamically allocate memory for a string and copy a user-input string into it.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void) {\n    char input[100];\n    printf(\"Enter a string: \");\n    fgets(input, sizeof(input), stdin);\n    char *str = (char *)malloc(strlen(input) + 1);\n    if (str == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    strcpy(str, input);\n    printf(\"Copied string: %s\\n\", str);\n    free(str);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a string, copies a user-input string into it, and then prints it."
+  },
+  {
+    "id": 336,
+    "input": "Create a program to dynamically allocate memory for an array of structures and free the memory.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Student {\n    char name[50];\n    int age;\n};\n\nint main(void) {\n    int n;\n    printf(\"Enter number of students: \");\n    scanf(\"%d\", &n);\n    struct Student *students = (struct Student *)malloc(n * sizeof(struct Student));\n    if (students == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    for (int i = 0; i < n; i++) {\n        printf(\"Enter name for student %d: \", i + 1);\n        scanf(\"%s\", students[i].name);\n        printf(\"Enter age for student %d: \", i + 1);\n        scanf(\"%d\", &students[i].age);\n    }\n    for (int i = 0; i < n; i++) {\n        printf(\"Student %d: %s, Age: %d\\n\", i + 1, students[i].name, students[i].age);\n    }\n    free(students);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for an array of structures, stores information about students, and frees the memory."
+  },
+  {
+    "id": 337,
+    "input": "Create a program to dynamically allocate memory for a 3D array and print its elements.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int x, y, z;\n    printf(\"Enter dimensions for the 3D array (x, y, z): \");\n    scanf(\"%d %d %d\", &x, &y, &z);\n    int ***arr = (int ***)malloc(x * sizeof(int **));\n    for (int i = 0; i < x; i++) {\n        arr[i] = (int **)malloc(y * sizeof(int *));\n        for (int j = 0; j < y; j++) {\n            arr[i][j] = (int *)malloc(z * sizeof(int));\n        }\n    }\n    for (int i = 0; i < x; i++) {\n        for (int j = 0; j < y; j++) {\n            for (int k = 0; k < z; k++) {\n                arr[i][j][k] = i + j + k;\n                printf(\"arr[%d][%d][%d] = %d\\n\", i, j, k, arr[i][j][k]);\n            }\n        }\n    }\n    for (int i = 0; i < x; i++) {\n        for (int j = 0; j < y; j++) {\n            free(arr[i][j]);\n        }\n        free(arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a 3D array, fills it with values, and prints each element."
+  },
+  {
+    "id": 338,
+    "input": "Create a program that dynamically allocates memory for a buffer, reads data into it, and displays the content.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int n;\n    printf(\"Enter the size of the buffer: \");\n    scanf(\"%d\", &n);\n    char *buffer = (char *)malloc(n * sizeof(char));\n    if (buffer == NULL) {\n        printf(\"Memory allocation failed.\\n\");\n        return 1;\n    }\n    printf(\"Enter data: \");\n    fgets(buffer, n, stdin);\n    printf(\"Buffer contents: %s\\n\", buffer);\n    free(buffer);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a buffer, reads input data into it, and displays the content."
+  },
+  {
+    "id": 339,
+    "input": "Create a program to dynamically allocate memory for a matrix and perform matrix multiplication.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int n;\n    printf(\"Enter size of the matrix (n x n): \");\n    scanf(\"%d\", &n);\n    int **matrix1 = (int **)malloc(n * sizeof(int *));\n    int **matrix2 = (int **)malloc(n * sizeof(int *));\n    int **result = (int **)malloc(n * sizeof(int *));\n    for (int i = 0; i < n; i++) {\n        matrix1[i] = (int *)malloc(n * sizeof(int));\n        matrix2[i] = (int *)malloc(n * sizeof(int));\n        result[i] = (int *)malloc(n * sizeof(int));\n    }\n    printf(\"Enter elements for matrix 1: \");\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            scanf(\"%d\", &matrix1[i][j]);\n        }\n    }\n    printf(\"Enter elements for matrix 2: \");\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            scanf(\"%d\", &matrix2[i][j]);\n        }\n    }\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            result[i][j] = 0;\n            for (int k = 0; k < n; k++) {\n                result[i][j] += matrix1[i][k] * matrix2[k][j];\n            }\n        }\n    }\n    printf(\"Resultant matrix: \");\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < n; j++) {\n            printf(\"%d \", result[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    for (int i = 0; i < n; i++) {\n        free(matrix1[i]);\n        free(matrix2[i]);\n        free(result[i]);\n    }\n    free(matrix1);\n    free(matrix2);\n    free(result);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for two matrices, performs matrix multiplication, and displays the result."
+  },
+  {
+    "id": 340,
+    "input": "Create a program that dynamically allocates memory for a stack structure and performs basic stack operations.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Stack {\n    int *arr;\n    int top;\n    int capacity;\n};\n\nstruct Stack* createStack(int capacity) {\n    struct Stack *stack = (struct Stack *)malloc(sizeof(struct Stack));\n    stack->capacity = capacity;\n    stack->top = -1;\n    stack->arr = (int *)malloc(capacity * sizeof(int));\n    return stack;\n}\n\nint isFull(struct Stack *stack) {\n    return stack->top == stack->capacity - 1;\n}\n\nint isEmpty(struct Stack *stack) {\n    return stack->top == -1;\n}\n\nvoid push(struct Stack *stack, int value) {\n    if (isFull(stack)) {\n        printf(\"Stack overflow.\\n\");\n        return;\n    }\n    stack->arr[++stack->top] = value;\n}\n\nint pop(struct Stack *stack) {\n    if (isEmpty(stack)) {\n        printf(\"Stack underflow.\\n\");\n        return -1;\n    }\n    return stack->arr[stack->top--];\n}\n\nint main(void) {\n    struct Stack *stack = createStack(5);\n    push(stack, 10);\n    push(stack, 20);\n    printf(\"Popped: %d\\n\", pop(stack));\n    free(stack->arr);\n    free(stack);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for a stack, implements basic stack operations such as push and pop, and displays the results."
+  },
+  {
+    "id": 341,
+    "input": "Create a program that dynamically allocates memory for a linked list and performs basic operations like insertion and deletion.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Node {\n    int data;\n    struct Node* next;\n};\n\nstruct Node* createNode(int data) {\n    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));\n    if (!newNode) {\n        printf(\"Memory allocation failed!\\n\");\n        return NULL;\n    }\n    newNode->data = data;\n    newNode->next = NULL;\n    return newNode;\n}\n\nvoid insert(struct Node** head, int data) {\n    struct Node* newNode = createNode(data);\n    newNode->next = *head;\n    *head = newNode;\n}\n\nvoid delete(struct Node** head, int data) {\n    struct Node* temp = *head, *prev = NULL;\n    if (temp != NULL && temp->data == data) {\n        *head = temp->next;\n        free(temp);\n        return;\n    }\n    while (temp != NULL && temp->data != data) {\n        prev = temp;\n        temp = temp->next;\n    }\n    if (temp == NULL) return;\n    prev->next = temp->next;\n    free(temp);\n}\n\nvoid printList(struct Node* head) {\n    while (head != NULL) {\n        printf(\"%d \", head->data);\n        head = head->next;\n    }\n    printf(\"\\n\");\n}\n\nint main() {\n    struct Node* head = NULL;\n    insert(&head, 10);\n    insert(&head, 20);\n    insert(&head, 30);\n    printList(head);\n    delete(&head, 20);\n    printList(head);\n    return 0;\n}",
+    "description": "This program demonstrates how to dynamically allocate memory for a linked list, perform insertion and deletion operations, and print the list."
+  },
+  {
+    "id": 342,
+    "input": "Create a program that dynamically allocates memory for an array and resizes it when needed.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int initialSize = 5;\n    int *arr = (int *)malloc(initialSize * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < initialSize; i++) {\n        arr[i] = i * 10;\n    }\n\n    printf(\"Initial array: \");\n    for (int i = 0; i < initialSize; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    // Resize the array\n    int newSize = 10;\n    arr = (int *)realloc(arr, newSize * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory reallocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = initialSize; i < newSize; i++) {\n        arr[i] = i * 5;\n    }\n\n    printf(\"Resized array: \");\n    for (int i = 0; i < newSize; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for an array and how to resize it using realloc."
+  },
+  {
+    "id": 343,
+    "input": "Create a program that allocates memory dynamically for a matrix and performs matrix addition.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid addMatrices(int **A, int **B, int **C, int rows, int cols) {\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            C[i][j] = A[i][j] + B[i][j];\n        }\n    }\n}\n\nint main() {\n    int rows = 3, cols = 3;\n    int **A = (int **)malloc(rows * sizeof(int *));\n    int **B = (int **)malloc(rows * sizeof(int *));\n    int **C = (int **)malloc(rows * sizeof(int *));\n    for (int i = 0; i < rows; i++) {\n        A[i] = (int *)malloc(cols * sizeof(int));\n        B[i] = (int *)malloc(cols * sizeof(int));\n        C[i] = (int *)malloc(cols * sizeof(int));\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            A[i][j] = i + j;\n            B[i][j] = (i + j) * 2;\n        }\n    }\n\n    addMatrices(A, B, C, rows, cols);\n\n    printf(\"Result of matrix addition: \\n\");\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            printf(\"%d \", C[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rows; i++) {\n        free(A[i]);\n        free(B[i]);\n        free(C[i]);\n    }\n    free(A);\n    free(B);\n    free(C);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for matrices and performs matrix addition."
+  },
+  {
+    "id": 344,
+    "input": "Create a program that dynamically allocates memory for a string and performs string concatenation.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    char *str1 = (char *)malloc(20 * sizeof(char));\n    char *str2 = (char *)malloc(20 * sizeof(char));\n\n    if (str1 == NULL || str2 == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    strcpy(str1, \"Hello, \");\n    strcpy(str2, \"World!\");\n\n    char *result = (char *)malloc(strlen(str1) + strlen(str2) + 1);\n    if (result == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    strcpy(result, str1);\n    strcat(result, str2);\n    printf(\"Concatenated string: %s\\n\", result);\n\n    free(str1);\n    free(str2);\n    free(result);\n    return 0;\n}",
+    "description": "This program dynamically allocates memory for strings and concatenates two strings using malloc and strcat."
+  },
+  {
+    "id": 345,
+    "input": "Create a program that dynamically allocates memory for a stack data structure using a dynamic array.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nstruct Stack {\n    int *arr;\n    int top;\n    int capacity;\n};\n\nstruct Stack* createStack(int capacity) {\n    struct Stack *stack = (struct Stack *)malloc(sizeof(struct Stack));\n    stack->capacity = capacity;\n    stack->top = -1;\n    stack->arr = (int *)malloc(capacity * sizeof(int));\n    return stack;\n}\n\nvoid push(struct Stack *stack, int value) {\n    if (stack->top == stack->capacity - 1) {\n        stack->capacity *= 2;\n        stack->arr = (int *)realloc(stack->arr, stack->capacity * sizeof(int));\n    }\n    stack->arr[++stack->top] = value;\n}\n\nint pop(struct Stack *stack) {\n    if (stack->top == -1) {\n        printf(\"Stack is empty!\\n\");\n        return -1;\n    }\n    return stack->arr[stack->top--];\n}\n\nint main() {\n    struct Stack *stack = createStack(2);\n    push(stack, 10);\n    push(stack, 20);\n    push(stack, 30);\n    printf(\"Popped: %d\\n\", pop(stack));\n    free(stack->arr);\n    free(stack);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for a stack with automatic resizing using realloc."
+  },
+  {
+    "id": 346,
+    "input": "Create a program that uses dynamic memory allocation to implement a dynamic array and implements insertion and deletion operations.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int *arr = NULL;\n    int size = 0, capacity = 2;\n    arr = (int *)malloc(capacity * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    for (int i = 0; i < 5; i++) {\n        if (size == capacity) {\n            capacity *= 2;\n            arr = (int *)realloc(arr, capacity * sizeof(int));\n        }\n        arr[size++] = i * 10;\n    }\n\n    printf(\"Array after insertion: \");\n    for (int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    // Deletion operation\n    size--;\n    printf(\"Array after deletion: \");\n    for (int i = 0; i < size; i++) {\n        printf(\"%d \", arr[i]);\n    }\n    printf(\"\\n\");\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for a dynamic array with insertion and deletion operations."
+  },
+  {
+    "id": 347,
+    "input": "Create a program that uses dynamic memory allocation to store and print a list of strings.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    int numStrings = 3;\n    char **arr = (char **)malloc(numStrings * sizeof(char *));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed!\\n\");\n        return 1;\n    }\n\n    arr[0] = (char *)malloc(10 * sizeof(char));\n    strcpy(arr[0], \"Hello\");\n    arr[1] = (char *)malloc(10 * sizeof(char));\n    strcpy(arr[1], \"World\");\n    arr[2] = (char *)malloc(10 * sizeof(char));\n    strcpy(arr[2], \"C Lang\");\n\n    printf(\"List of strings: \\n\");\n    for (int i = 0; i < numStrings; i++) {\n        printf(\"%s\\n\", arr[i]);\n    }\n\n    for (int i = 0; i < numStrings; i++) {\n        free(arr[i]);\n    }\n    free(arr);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation to store and print a list of strings."
+  },
+  {
+    "id": 348,
+    "input": "Create a program that dynamically allocates memory for a 2D array and performs matrix multiplication.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid multiplyMatrices(int **A, int **B, int **C, int rowsA, int colsA, int rowsB, int colsB) {\n    for (int i = 0; i < rowsA; i++) {\n        for (int j = 0; j < colsB; j++) {\n            C[i][j] = 0;\n            for (int k = 0; k < colsA; k++) {\n                C[i][j] += A[i][k] * B[k][j];\n            }\n        }\n    }\n}\n\nint main() {\n    int rowsA = 2, colsA = 3, rowsB = 3, colsB = 2;\n    int **A = (int **)malloc(rowsA * sizeof(int *));\n    int **B = (int **)malloc(rowsB * sizeof(int *));\n    int **C = (int **)malloc(rowsA * sizeof(int *));\n    for (int i = 0; i < rowsA; i++) {\n        A[i] = (int *)malloc(colsA * sizeof(int));\n        C[i] = (int *)malloc(colsB * sizeof(int));\n    }\n    for (int i = 0; i < rowsB; i++) {\n        B[i] = (int *)malloc(colsB * sizeof(int));\n    }\n\n    // Initialize matrices A and B\n    A[0][0] = 1; A[0][1] = 2; A[0][2] = 3;\n    A[1][0] = 4; A[1][1] = 5; A[1][2] = 6;\n    B[0][0] = 7; B[0][1] = 8;\n    B[1][0] = 9; B[1][1] = 10;\n    B[2][0] = 11; B[2][1] = 12;\n\n    multiplyMatrices(A, B, C, rowsA, colsA, rowsB, colsB);\n\n    printf(\"Result of matrix multiplication: \\n\");\n    for (int i = 0; i < rowsA; i++) {\n        for (int j = 0; j < colsB; j++) {\n            printf(\"%d \", C[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < rowsA; i++) {\n        free(A[i]);\n        free(C[i]);\n    }\n    for (int i = 0; i < rowsB; i++) {\n        free(B[i]);\n    }\n    free(A);\n    free(B);\n    free(C);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for a 2D array and performs matrix multiplication."
+  },
+  {
+    "id": 349,
+    "input": "Write a program to dynamically allocate memory for an array and calculate the sum of the elements.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    printf(\"Enter the number of elements: \");\n    scanf(\"%d\", &n);\n\n    int *arr = (int *)malloc(n * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    printf(\"Enter the elements: \\n\");\n    int sum = 0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &arr[i]);\n        sum += arr[i];\n    }\n\n    printf(\"The sum of the elements is: %d\\n\", sum);\n\n    free(arr);\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for an array and calculates the sum of its elements."
+  },
+  {
+    "id": 350,
+    "input": "Create a program that dynamically allocates memory for a 2D array and transposes the matrix.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nvoid transposeMatrix(int **matrix, int rows, int cols) {\n    int **transposed = (int **)malloc(cols * sizeof(int *));\n    for (int i = 0; i < cols; i++) {\n        transposed[i] = (int *)malloc(rows * sizeof(int));\n    }\n\n    for (int i = 0; i < rows; i++) {\n        for (int j = 0; j < cols; j++) {\n            transposed[j][i] = matrix[i][j];\n        }\n    }\n\n    printf(\"Transposed matrix:\\n\");\n    for (int i = 0; i < cols; i++) {\n        for (int j = 0; j < rows; j++) {\n            printf(\"%d \", transposed[i][j]);\n        }\n        printf(\"\\n\");\n    }\n\n    for (int i = 0; i < cols; i++) {\n        free(transposed[i]);\n    }\n    free(transposed);\n}\n\nint main() {\n    int rows = 2, cols = 3;\n    int **matrix = (int **)malloc(rows * sizeof(int *));\n    for (int i = 0; i < rows; i++) {\n        matrix[i] = (int *)malloc(cols * sizeof(int));\n    }\n\n    // Initialize matrix\n    matrix[0][0] = 1; matrix[0][1] = 2; matrix[0][2] = 3;\n    matrix[1][0] = 4; matrix[1][1] = 5; matrix[1][2] = 6;\n\n    transposeMatrix(matrix, rows, cols);\n\n    for (int i = 0; i < rows; i++) {\n        free(matrix[i]);\n    }\n    free(matrix);\n\n    return 0;\n}",
+    "description": "This program demonstrates dynamic memory allocation for a 2D array and performs matrix transposition."
+  },
+  {
+    "id": 351,
+    "input": "Write a program that asks the user for their name and prints a greeting message.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char name[50];\n    printf(\"Enter your name: \");\n    scanf(\"%s\", name);\n    printf(\"Hello, %s!\\n\", name);\n    return 0;\n}",
+    "description": "This program prompts the user to input their name and then prints a greeting message."
+  },
+  {
+    "id": 352,
+    "input": "Create a program that reads two integers and prints their sum.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two integers: \");\n    scanf(\"%d %d\", &a, &b);\n    printf(\"Sum: %d\\n\", a + b);\n    return 0;\n}",
+    "description": "This program reads two integers from the user and prints their sum."
+  },
+  {
+    "id": 353,
+    "input": "Create a program that asks the user for a number and prints whether it is even or odd.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    if (num % 2 == 0) {\n        printf(\"The number is even.\\n\");\n    } else {\n        printf(\"The number is odd.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program prompts the user for a number and determines if it is even or odd."
+  },
+  {
+    "id": 354,
+    "input": "Write a program that reads a floating point number and prints it formatted to two decimal places.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float num;\n    printf(\"Enter a floating point number: \");\n    scanf(\"%f\", &num);\n    printf(\"Formatted number: %.2f\\n\", num);\n    return 0;\n}",
+    "description": "This program reads a floating-point number and prints it formatted to two decimal places."
+  },
+  {
+    "id": 355,
+    "input": "Create a program that reads a character from the user and prints whether it is a vowel or consonant.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char ch;\n    printf(\"Enter a character: \");\n    scanf(\"%c\", &ch);\n    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||\n        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {\n        printf(\"The character is a vowel.\\n\");\n    } else {\n        printf(\"The character is a consonant.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program asks the user for a character and prints whether it is a vowel or consonant."
+  },
+  {
+    "id": 356,
+    "input": "Create a program that asks the user for an integer and prints the multiplication table for that number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    for (int i = 1; i <= 10; i++) {\n        printf(\"%d x %d = %d\\n\", num, i, num * i);\n    }\n    return 0;\n}",
+    "description": "This program asks the user for a number and prints the multiplication table for that number."
+  },
+  {
+    "id": 357,
+    "input": "Write a program that reads an integer and prints the factorial of that number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num, factorial = 1;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    for (int i = 1; i <= num; i++) {\n        factorial *= i;\n    }\n    printf(\"Factorial of %d is: %d\\n\", num, factorial);\n    return 0;\n}",
+    "description": "This program reads an integer and calculates its factorial."
+  },
+  {
+    "id": 358,
+    "input": "Write a program that asks the user for a number and prints its square and cube.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    printf(\"Square: %d, Cube: %d\\n\", num * num, num * num * num);\n    return 0;\n}",
+    "description": "This program reads a number from the user and prints its square and cube."
+  },
+  {
+    "id": 359,
+    "input": "Create a program that reads an integer and checks if it is a prime number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num, isPrime = 1;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    for (int i = 2; i <= num / 2; i++) {\n        if (num % i == 0) {\n            isPrime = 0;\n            break;\n        }\n    }\n    if (isPrime) {\n        printf(\"The number is prime.\\n\");\n    } else {\n        printf(\"The number is not prime.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks whether the given number is prime."
+  },
+  {
+    "id": 360,
+    "input": "Create a program that asks the user for two numbers and prints the larger one.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int a, b;\n    printf(\"Enter two numbers: \");\n    scanf(\"%d %d\", &a, &b);\n    if (a > b) {\n        printf(\"The larger number is: %d\\n\", a);\n    } else {\n        printf(\"The larger number is: %d\\n\", b);\n    }\n    return 0;\n}",
+    "description": "This program reads two numbers from the user and prints the larger one."
+  },
+  {
+    "id": 361,
+    "input": "Create a program that reads a number and prints whether it's positive, negative, or zero.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    if (num > 0) {\n        printf(\"The number is positive.\\n\");\n    } else if (num < 0) {\n        printf(\"The number is negative.\\n\");\n    } else {\n        printf(\"The number is zero.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks if a number is positive, negative, or zero."
+  },
+  {
+    "id": 362,
+    "input": "Write a program that reads a floating-point number and checks if it is greater than 100.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float num;\n    printf(\"Enter a number: \");\n    scanf(\"%f\", &num);\n    if (num > 100) {\n        printf(\"The number is greater than 100.\\n\");\n    } else {\n        printf(\"The number is not greater than 100.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks if a floating-point number is greater than 100."
+  },
+  {
+    "id": 363,
+    "input": "Create a program that reads the user's age and prints if they are eligible to vote.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int age;\n    printf(\"Enter your age: \");\n    scanf(\"%d\", &age);\n    if (age >= 18) {\n        printf(\"You are eligible to vote.\\n\");\n    } else {\n        printf(\"You are not eligible to vote.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks if the user is eligible to vote based on their age."
+  },
+  {
+    "id": 364,
+    "input": "Create a program that reads a number and prints the reverse of that number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num, reverse = 0;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    while (num != 0) {\n        reverse = reverse * 10 + num % 10;\n        num /= 10;\n    }\n    printf(\"Reversed number: %d\\n\", reverse);\n    return 0;\n}",
+    "description": "This program reads a number from the user and prints its reverse."
+  },
+  {
+    "id": 365,
+    "input": "Write a program that calculates the area of a rectangle based on user input.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float length, width;\n    printf(\"Enter the length and width of the rectangle: \");\n    scanf(\"%f %f\", &length, &width);\n    printf(\"Area of rectangle: %.2f\\n\", length * width);\n    return 0;\n}",
+    "description": "This program calculates and prints the area of a rectangle based on user input."
+  },
+  {
+    "id": 366,
+    "input": "Create a program that reads an integer and prints its square root.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    printf(\"Square root: %.2f\\n\", sqrt(num));\n    return 0;\n}",
+    "description": "This program reads a number from the user and prints its square root."
+  },
+  {
+    "id": 367,
+    "input": "Write a program that takes the user's age and prints the number of years they have been alive in months.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int age;\n    printf(\"Enter your age: \");\n    scanf(\"%d\", &age);\n    printf(\"You have lived for %d months.\\n\", age * 12);\n    return 0;\n}",
+    "description": "This program calculates and prints the number of months the user has lived based on their age."
+  },
+  {
+    "id": 368,
+    "input": "Create a program that reads a number and prints its absolute value.",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    printf(\"Absolute value: %d\\n\", abs(num));\n    return 0;\n}",
+    "description": "This program calculates and prints the absolute value of a given number."
+  },
+  {
+    "id": 369,
+    "input": "Write a program that converts a temperature from Celsius to Fahrenheit.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float celsius, fahrenheit;\n    printf(\"Enter temperature in Celsius: \");\n    scanf(\"%f\", &celsius);\n    fahrenheit = (celsius * 9 / 5) + 32;\n    printf(\"Temperature in Fahrenheit: %.2f\\n\", fahrenheit);\n    return 0;\n}",
+    "description": "This program converts a temperature from Celsius to Fahrenheit."
+  },
+  {
+    "id": 370,
+    "input": "Create a program that reads a character and prints its ASCII value.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char ch;\n    printf(\"Enter a character: \");\n    scanf(\"%c\", &ch);\n    printf(\"The ASCII value of '%c' is: %d\\n\", ch, ch);\n    return 0;\n}",
+    "description": "This program reads a character from the user and prints its ASCII value."
+  },
+  {
+    "id": 371,
+    "input": "Create a program that reads multiple numbers and calculates their average.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int n;\n    float sum = 0.0, average;\n    printf(\"Enter the number of elements: \");\n    scanf(\"%d\", &n);\n    float numbers[n];\n    for (int i = 0; i < n; i++) {\n        printf(\"Enter number %d: \", i + 1);\n        scanf(\"%f\", &numbers[i]);\n        sum += numbers[i];\n    }\n    average = sum / n;\n    printf(\"Average: %.2f\\n\", average);\n    return 0;\n}",
+    "description": "This program calculates the average of multiple numbers entered by the user."
+  },
+  {
+    "id": 372,
+    "input": "Write a program that converts a number from decimal to binary.",
+    "output": "#include <stdio.h>\n\nvoid decimalToBinary(int n) {\n    if (n == 0) return;\n    decimalToBinary(n / 2);\n    printf(\"%d\", n % 2);\n}\n\nint main() {\n    int num;\n    printf(\"Enter a decimal number: \");\n    scanf(\"%d\", &num);\n    printf(\"Binary representation: \");\n    if (num == 0) printf(\"0\");\n    else decimalToBinary(num);\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program converts a decimal number to its binary equivalent."
+  },
+  {
+    "id": 373,
+    "input": "Write a program that checks if a string is a palindrome.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[100];\n    printf(\"Enter a string: \");\n    scanf(\"%s\", str);\n    int len = strlen(str), isPalindrome = 1;\n    for (int i = 0; i < len / 2; i++) {\n        if (str[i] != str[len - i - 1]) {\n            isPalindrome = 0;\n            break;\n        }\n    }\n    if (isPalindrome) {\n        printf(\"The string is a palindrome.\\n\");\n    } else {\n        printf(\"The string is not a palindrome.\\n\");\n    }\n    return 0;\n}",
+    "description": "This program checks whether a given string is a palindrome."
+  },
+  {
+    "id": 374,
+    "input": "Create a program that reads a sentence and counts the number of words.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char sentence[200];\n    printf(\"Enter a sentence: \");\n    fgets(sentence, sizeof(sentence), stdin);\n    int wordCount = 0;\n    char *token = strtok(sentence, \" \t\\n\");\n    while (token != NULL) {\n        wordCount++;\n        token = strtok(NULL, \" \t\\n\");\n    }\n    printf(\"Number of words: %d\\n\", wordCount);\n    return 0;\n}",
+    "description": "This program counts the number of words in a given sentence."
+  },
+  {
+    "id": 375,
+    "input": "Create a program that prints a multiplication table for a given number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    for (int i = 1; i <= 10; i++) {\n        printf(\"%d x %d = %d\\n\", num, i, num * i);\n    }\n    return 0;\n}",
+    "description": "This program prints a multiplication table for the number provided by the user."
+  },
+  {
+    "id": 376,
+    "input": "Write a program that calculates the factorial of a number using recursion.",
+    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    printf(\"Factorial of %d is %d\\n\", num, factorial(num));\n    return 0;\n}",
+    "description": "This program calculates the factorial of a number using recursion."
+  },
+  {
+    "id": 377,
+    "input": "Create a program that takes a number and determines if it is prime.",
+    "output": "#include <stdio.h>\n\nint isPrime(int n) {\n    if (n <= 1) return 0;\n    for (int i = 2; i * i <= n; i++) {\n        if (n % i == 0) return 0;\n    }\n    return 1;\n}\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    if (isPrime(num)) {\n        printf(\"%d is a prime number.\\n\", num);\n    } else {\n        printf(\"%d is not a prime number.\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program checks if a number is prime."
+  },
+  {
+    "id": 378,
+    "input": "Write a program that prints all even numbers from 1 to a given number.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    printf(\"Even numbers from 1 to %d: \", num);\n    for (int i = 2; i <= num; i += 2) {\n        printf(\"%d \", i);\n    }\n    printf(\"\\n\");\n    return 0;\n}",
+    "description": "This program prints all even numbers from 1 to the number entered by the user."
+  },
+  {
+    "id": 379,
+    "input": "Create a program that reads a number and prints if it is an Armstrong number.",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int num, sum = 0, original, remainder, digits = 0;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    original = num;\n    while (original != 0) {\n        original /= 10;\n        digits++;\n    }\n    original = num;\n    while (original != 0) {\n        remainder = original % 10;\n        sum += pow(remainder, digits);\n        original /= 10;\n    }\n    if (sum == num) {\n        printf(\"%d is an Armstrong number.\\n\", num);\n    } else {\n        printf(\"%d is not an Armstrong number.\\n\", num);\n    }\n    return 0;\n}",
+    "description": "This program checks if a number is an Armstrong number."
+  },
+  {
+    "id": 380,
+    "input": "Write a program that finds the largest number in an array.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int n, largest;\n    printf(\"Enter the number of elements: \");\n    scanf(\"%d\", &n);\n    int arr[n];\n    for (int i = 0; i < n; i++) {\n        printf(\"Enter number %d: \", i + 1);\n        scanf(\"%d\", &arr[i]);\n    }\n    largest = arr[0];\n    for (int i = 1; i < n; i++) {\n        if (arr[i] > largest) {\n            largest = arr[i];\n        }\n    }\n    printf(\"The largest number is: %d\\n\", largest);\n    return 0;\n}",
+    "description": "This program finds and prints the largest number in an array."
+  },
+  {
+    "id": 381,
+    "input": "Write a program that writes a string to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fprintf(file, \"Hello, World!\\n\");\n    fclose(file);\n    printf(\"Data written to file.\\n\");\n    return 0;\n}",
+    "description": "This program writes a string to a file named 'output.txt'."
+  },
+  {
+    "id": 382,
+    "input": "Write a program that reads a string from a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char str[100];\n    FILE *file = fopen(\"input.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fgets(str, sizeof(str), file);\n    fclose(file);\n    printf(\"Read from file: %s\\n\", str);\n    return 0;\n}",
+    "description": "This program reads a string from a file named 'input.txt'."
+  },
+  {
+    "id": 383,
+    "input": "Create a program that appends text to an existing file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"output.txt\", \"a\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fprintf(file, \"Appending this line to the file.\\n\");\n    fclose(file);\n    printf(\"Data appended to file.\\n\");\n    return 0;\n}",
+    "description": "This program appends text to an existing file named 'output.txt'."
+  },
+  {
+    "id": 384,
+    "input": "Create a program that writes multiple numbers to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"numbers.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    for (int i = 1; i <= 5; i++) {\n        fprintf(file, \"%d\\n\", i);\n    }\n    fclose(file);\n    printf(\"Numbers written to file.\\n\");\n    return 0;\n}",
+    "description": "This program writes the numbers from 1 to 5 to a file named 'numbers.txt'."
+  },
+  {
+    "id": 385,
+    "input": "Create a program that reads multiple numbers from a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    FILE *file = fopen(\"numbers.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    while (fscanf(file, \"%d\", &num) != EOF) {\n        printf(\"%d\\n\", num);\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program reads and prints the numbers from a file named 'numbers.txt'."
+  },
+  {
+    "id": 386,
+    "input": "Write a program that reads and writes a number from/to a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int num;\n    FILE *file = fopen(\"number.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    fprintf(file, \"%d\\n\", num);\n    fclose(file);\n    file = fopen(\"number.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fscanf(file, \"%d\", &num);\n    printf(\"Number read from file: %d\\n\", num);\n    fclose(file);\n    return 0;\n}",
+    "description": "This program writes a number to a file and then reads it back from the same file."
+  },
+  {
+    "id": 387,
+    "input": "Create a program that counts the number of lines in a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char ch;\n    int lineCount = 0;\n    FILE *file = fopen(\"textfile.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    while ((ch = fgetc(file)) != EOF) {\n        if (ch == '\\n') {\n            lineCount++;\n        }\n    }\n    fclose(file);\n    printf(\"Number of lines: %d\\n\", lineCount);\n    return 0;\n}",
+    "description": "This program counts the number of lines in a file named 'textfile.txt'."
+  },
+  {
+    "id": 388,
+    "input": "Create a program that copies the content of one file to another.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *source, *destination;\n    char ch;\n    source = fopen(\"source.txt\", \"r\");\n    if (source == NULL) {\n        printf(\"Error opening source file\\n\");\n        return 1;\n    }\n    destination = fopen(\"destination.txt\", \"w\");\n    if (destination == NULL) {\n        printf(\"Error opening destination file\\n\");\n        fclose(source);\n        return 1;\n    }\n    while ((ch = fgetc(source)) != EOF) {\n        fputc(ch, destination);\n    }\n    fclose(source);\n    fclose(destination);\n    printf(\"File copied successfully.\\n\");\n    return 0;\n}",
+    "description": "This program copies the content from 'source.txt' to 'destination.txt'."
+  },
+  {
+    "id": 389,
+    "input": "Create a program that reads and prints the content of a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    char ch;\n    FILE *file = fopen(\"file.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    while ((ch = fgetc(file)) != EOF) {\n        printf(\"%c\", ch);\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program reads and prints the content of a file named 'file.txt'."
+  },
+  {
+    "id": 390,
+    "input": "Create a program that finds the length of a file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    FILE *file = fopen(\"file.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fseek(file, 0, SEEK_END);\n    long length = ftell(file);\n    fclose(file);\n    printf(\"The length of the file is: %ld bytes\\n\", length);\n    return 0;\n}",
+    "description": "This program calculates the length of a file in bytes."
+  },
+  {
+    "id": 391,
+    "input": "Write a program that reads a CSV file and prints the data in a tabular format.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    FILE *file = fopen(\"data.csv\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    char line[1024];\n    while (fgets(line, sizeof(line), file)) {\n        char *token = strtok(line, \",\");\n        while (token != NULL) {\n            printf(\"%s\t\", token);\n            token = strtok(NULL, \",\");\n        }\n        printf(\"\\n\");\n    }\n    fclose(file);\n    return 0;\n}",
+    "description": "This program reads data from a CSV file and prints it in a tabular format."
+  },
+  {
+    "id": 392,
+    "input": "Write a program that writes a list of structures to a binary file.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nstruct Student {\n    char name[50];\n    int age;\n};\n\nint main() {\n    struct Student students[] = { {\"Alice\", 20}, {\"Bob\", 22}, {\"Charlie\", 21} };\n    FILE *file = fopen(\"students.dat\", \"wb\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fwrite(students, sizeof(struct Student), 3, file);\n    fclose(file);\n    printf(\"Data written to binary file.\\n\");\n    return 0;\n}",
+    "description": "This program writes a list of structures to a binary file."
+  },
+  {
+    "id": 393,
+    "input": "Write a program that reads and prints the contents of a binary file.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nstruct Student {\n    char name[50];\n    int age;\n};\n\nint main() {\n    struct Student students[3];\n    FILE *file = fopen(\"students.dat\", \"rb\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fread(students, sizeof(struct Student), 3, file);\n    fclose(file);\n    for (int i = 0; i < 3; i++) {\n        printf(\"Name: %s, Age: %d\\n\", students[i].name, students[i].age);\n    }\n    return 0;\n}",
+    "description": "This program reads a binary file and prints the contents stored in structures."
+  },
+  {
+    "id": 394,
+    "input": "Write a program that creates a file and writes a list of integers to it.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int numbers[] = {1, 2, 3, 4, 5};\n    FILE *file = fopen(\"numbers.bin\", \"wb\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fwrite(numbers, sizeof(int), 5, file);\n    fclose(file);\n    printf(\"Integers written to file.\\n\");\n    return 0;\n}",
+    "description": "This program creates a file and writes a list of integers to it in binary format."
+  },
+  {
+    "id": 395,
+    "input": "Write a program that reads integers from a binary file and calculates their sum.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int numbers[5], sum = 0;\n    FILE *file = fopen(\"numbers.bin\", \"rb\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fread(numbers, sizeof(int), 5, file);\n    fclose(file);\n    for (int i = 0; i < 5; i++) {\n        sum += numbers[i];\n    }\n    printf(\"The sum of the numbers is: %d\\n\", sum);\n    return 0;\n}",
+    "description": "This program reads integers from a binary file and calculates their sum."
+  },
+  {
+    "id": 396,
+    "input": "Write a program that appends data to an existing binary file.",
+    "output": "#include <stdio.h>\n\nint main() {\n    int newNumbers[] = {6, 7, 8};\n    FILE *file = fopen(\"numbers.bin\", \"ab\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fwrite(newNumbers, sizeof(int), 3, file);\n    fclose(file);\n    printf(\"Data appended to binary file.\\n\");\n    return 0;\n}",
+    "description": "This program appends data to an existing binary file."
+  },
+  {
+    "id": 397,
+    "input": "Write a program that creates a file and stores a list of floating-point numbers.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float numbers[] = {3.14, 2.71, 1.41};\n    FILE *file = fopen(\"floats.bin\", \"wb\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fwrite(numbers, sizeof(float), 3, file);\n    fclose(file);\n    printf(\"Floating-point numbers written to file.\\n\");\n    return 0;\n}",
+    "description": "This program creates a file and writes a list of floating-point numbers to it."
+  },
+  {
+    "id": 398,
+    "input": "Write a program that reads floating-point numbers from a binary file and prints them.",
+    "output": "#include <stdio.h>\n\nint main() {\n    float numbers[3];\n    FILE *file = fopen(\"floats.bin\", \"rb\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    fread(numbers, sizeof(float), 3, file);\n    fclose(file);\n    for (int i = 0; i < 3; i++) {\n        printf(\"%f\\n\", numbers[i]);\n    }\n    return 0;\n}",
+    "description": "This program reads floating-point numbers from a binary file and prints them."
+  },
+  {
+    "id": 399,
+    "input": "Write a program that searches for a string in a text file and prints its line number.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char line[256], searchString[] = \"Hello\";\n    int lineNumber = 0, found = 0;\n    FILE *file = fopen(\"file.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    while (fgets(line, sizeof(line), file)) {\n        lineNumber++;\n        if (strstr(line, searchString)) {\n            printf(\"Found '%s' at line %d\\n\", searchString, lineNumber);\n            found = 1;\n            break;\n        }\n    }\n    fclose(file);\n    if (!found) {\n        printf(\"'%s' not found in the file.\\n\", searchString);\n    }\n    return 0;\n}",
+    "description": "This program searches for a string in a text file and prints the line number where it was found."
+  },
+  {
+    "id": 400,
+    "input": "Write a program that reads a file and counts the occurrences of a specific word.",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char word[50], line[256];\n    int count = 0;\n    FILE *file = fopen(\"file.txt\", \"r\");\n    if (file == NULL) {\n        printf(\"Error opening file\\n\");\n        return 1;\n    }\n    printf(\"Enter the word to search for: \");\n    scanf(\"%s\", word);\n    while (fgets(line, sizeof(line), file)) {\n        if (strstr(line, word)) {\n            count++;\n        }\n    }\n    fclose(file);\n    printf(\"The word '%s' appears %d times in the file.\\n\", word, count);\n    return 0;\n}",
+    "description": "This program reads a file and counts the occurrences of a specific word."
   }
 ]

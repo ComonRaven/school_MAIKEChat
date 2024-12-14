@@ -9,7 +9,7 @@ model = MarianMTModel.from_pretrained(model_name)
 
 # 翻訳したい日本語テキスト
 japanese_texts = [
-    "こんにちは、元気ですか？",
+    "2次方程式 ax^2 + bx + c = 0 の係数を入力してください。",
     "このモデルは日本語を英語に翻訳します。",
     "わかなちゃんはとても可愛いです。",
 ]

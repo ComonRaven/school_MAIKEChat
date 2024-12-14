@@ -28,20 +28,5 @@ UI...山本瑞貴 <br>
 <br>
 使用検討中モデル <br>
 ・gpt2-small // コード生成に特化したLLM <br>
-<br>
-データセット <br>
-json形式でデータセットを作成 <br>
-id,input,output,descriptionで設定する <br>
-<br>
 学習済みモデルの準備 <br>
 Hugging Face Transformersを使用してモデルを読み込む <br>
-<br>
-データセットの前処理 <br>
-<br>
-モデルの微調整 <br>
-Trainerを使用 <br>
-<br>
-モデルの推論 <br>
-<br>
-フロンんととの接続 <br>
-Eelを使って接続
