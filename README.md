@@ -12,21 +12,6 @@ UI...山本瑞貴 <br>
 
 # 直近のタスク
 ・UI作成 <br>
-・データセットを大量に作成
-
-# AIに何をさせたいか？（メモ用：随時更新）
-・コード補完 <br>
-・コードエラーチェック <br>
-・最適化 <br>
-
-# memo
-主に使用するライブラリ <br>
-・Hugging Face Transformers // 事前学習モデルを使用 <br>
-・PyTorch or TensorFlow // モデルの微調整に使用 <br>
-・Scikit-learn // データの前処理や評価に活用 <br>
-・Detasets(Hugging Face) // データセットの管理 <br>
+・データセットを大量に作成(python -> c) <br>
 <br>
-使用検討中モデル <br>
-・gpt2-small // コード生成に特化したLLM <br>
-学習済みモデルの準備 <br>
-Hugging Face Transformersを使用してモデルを読み込む <br>
+コード類はGoogle Colabに置いている。
