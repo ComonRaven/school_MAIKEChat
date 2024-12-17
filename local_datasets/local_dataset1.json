@@ -511,243 +511,203 @@
   },
   {
     "id": 101,
-    "input": "Write a program in C using a switch statement that takes a day of the week as input and outputs the corresponding weekday name.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Please enter a number representing a day of the week (1-7): \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday\\n\"); break;\n        case 2: printf(\"Tuesday\\n\"); break;\n        case 3: printf(\"Wednesday\\n\"); break;\n        case 4: printf(\"Thursday\\n\"); break;\n        case 5: printf(\"Friday\\n\"); break;\n        case 6: printf(\"Saturday\\n\"); break;\n        case 7: printf(\"Sunday\\n\"); break;\n        default: printf(\"Invalid input.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "The program takes an input number (1-7) and outputs the corresponding weekday name using a `switch` statement. If an invalid value is entered, the `default` case is executed."
+    "input": "num = int(input('Enter a number: '))\nif num % 2 == 0:\n    print('Even')\nelse:\n    print('Odd')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    if (num % 2 == 0) {\n        printf(\"Even\\n\");\n    } else {\n        printf(\"Odd\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 102,
-    "input": "Write a simple calculator program in C using a switch statement.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char operator;\n    double num1, num2;\n\n    printf(\"Please enter an operator (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"Please enter two numbers: \");\n    scanf(\"%lf %lf\", &num1, &num2);\n\n    switch (operator) {\n        case '+':\n            printf(\"Result: %.2lf\\n\", num1 + num2);\n            break;\n        case '-':\n            printf(\"Result: %.2lf\\n\", num1 - num2);\n            break;\n        case '*':\n            printf(\"Result: %.2lf\\n\", num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0) {\n                printf(\"Result: %.2lf\\n\", num1 / num2);\n            } else {\n                printf(\"Cannot divide by zero.\\n\");\n            }\n            break;\n        default:\n            printf(\"Invalid operator.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This is a simple calculator program where the user enters an operator and two numbers. The program executes the corresponding calculation based on the entered operator. It also handles division by zero."
+    "input": "n = int(input('Enter a number: '))\nfactorial = 1\nfor i in range(1, n + 1):\n    factorial *= i\nprint(f'Factorial: {factorial}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int n, factorial = 1;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &n);\n\n    for (int i = 1; i <= n; i++) {\n        factorial *= i;\n    }\n\n    printf(\"Factorial: %d\\n\", factorial);\n    return 0;\n}"
   },
   {
     "id": 103,
-    "input": "Write a program in C using a switch statement that determines the season based on the month entered.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"Please enter a month (1-12): \");\n    scanf(\"%d\", &month);\n\n    switch (month) {\n        case 12:\n        case 1:\n        case 2:\n            printf(\"It is winter.\\n\");\n            break;\n        case 3:\n        case 4:\n        case 5:\n            printf(\"It is spring.\\n\");\n            break;\n        case 6:\n        case 7:\n        case 8:\n            printf(\"It is summer.\\n\");\n            break;\n        case 9:\n        case 10:\n        case 11:\n            printf(\"It is autumn.\\n\");\n            break;\n        default:\n            printf(\"Invalid month.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "The program determines the season based on the entered month (1-12). The `switch` statement groups multiple cases together to show the corresponding season. If an invalid month is entered, an error message is displayed."
+    "input": "nums = list(map(int, input('Enter numbers separated by space: ').split()))\nprint(f'Sum: {sum(nums)}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int nums[100], sum = 0, num, count = 0;\n    printf(\"Enter numbers separated by space (press Ctrl+D to end): \");\n\n    while (scanf(\"%d\", &num) != EOF) {\n        nums[count++] = num;\n        sum += num;\n    }\n\n    printf(\"Sum: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 104,
-    "input": "Write a program in C using a switch statement to determine whether an entered character is a vowel or a consonant.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char ch;\n    printf(\"Please enter a character: \");\n    scanf(\" %c\", &ch);\n\n    switch (ch) {\n        case 'a':\n        case 'e':\n        case 'i':\n        case 'o':\n        case 'u':\n        case 'A':\n        case 'E':\n        case 'I':\n        case 'O':\n        case 'U':\n            printf(\"%c is a vowel.\\n\", ch);\n            break;\n        default:\n            printf(\"%c is a consonant.\\n\", ch);\n    }\n\n    return 0;\n}",
-    "description": "The program checks whether the entered character is a vowel or consonant. If the character matches any of the listed vowels, it outputs that the character is a vowel; otherwise, it is a consonant."
+    "input": "word = input('Enter a word: ')\nif word == word[::-1]:\n    print('Palindrome')\nelse:\n    print('Not a Palindrome')",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char word[100], reversed[100];\n    printf(\"Enter a word: \");\n    scanf(\"%s\", word);\n\n    strcpy(reversed, word);\n    strrev(reversed);\n\n    if (strcmp(word, reversed) == 0) {\n        printf(\"Palindrome\\n\");\n    } else {\n        printf(\"Not a Palindrome\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 105,
-    "input": "Write a program in C using a switch statement that outputs a color corresponding to an entered number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int colorCode;\n    printf(\"Please enter a color code (1-5): \");\n    scanf(\"%d\", &colorCode);\n\n    switch (colorCode) {\n        case 1: printf(\"Red\\n\"); break;\n        case 2: printf(\"Blue\\n\"); break;\n        case 3: printf(\"Green\\n\"); break;\n        case 4: printf(\"Yellow\\n\"); break;\n        case 5: printf(\"Purple\\n\"); break;\n        default: printf(\"Invalid color code.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program outputs a color based on the entered number (1-5). The color is defined using a `switch` statement. If an invalid number is entered, an error message is displayed."
+    "input": "x = int(input('Enter the base: '))\ny = int(input('Enter the exponent: '))\nprint(f'Result: {x ** y}')",
+    "output": "#include <stdio.h>\n#include <math.h>\n\nint main(void) {\n    int base, exponent;\n    printf(\"Enter the base: \");\n    scanf(\"%d\", &base);\n    printf(\"Enter the exponent: \");\n    scanf(\"%d\", &exponent);\n\n    printf(\"Result: %.0lf\\n\", pow(base, exponent));\n    return 0;\n}"
   },
   {
     "id": 106,
-    "input": "Write a program in C using a switch statement that determines whether a user-entered integer is a positive even number, a positive odd number, a negative even number, or a negative odd number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n\n    switch (num > 0) {\n        case 1:\n            switch (num % 2 == 0) {\n                case 1: printf(\"Positive even number\\n\"); break;\n                case 0: printf(\"Positive odd number\\n\"); break;\n            }\n            break;\n        case 0:\n            switch (num % 2 == 0) {\n                case 1: printf(\"Negative even number\\n\"); break;\n                case 0: printf(\"Negative odd number\\n\"); break;\n            }\n            break;\n    }\n\n    return 0;\n}",
-    "description": "This program uses nested `switch` statements to determine whether the entered integer is a positive even, positive odd, negative even, or negative odd number. The outer `switch` checks if the number is positive or negative, and the inner `switch` checks if it's even or odd."
+    "input": "n = int(input('Enter a number: '))\nif n > 1:\n    for i in range(2, n):\n        if n % i == 0:\n            print('Not Prime')\n            break\n    else:\n        print('Prime')\nelse:\n    print('Not Prime')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int n, is_prime = 1;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &n);\n\n    if (n > 1) {\n        for (int i = 2; i < n; i++) {\n            if (n % i == 0) {\n                is_prime = 0;\n                break;\n            }\n        }\n        if (is_prime) {\n            printf(\"Prime\\n\");\n        } else {\n            printf(\"Not Prime\\n\");\n        }\n    } else {\n        printf(\"Not Prime\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 107,
-    "input": "Write a program in C using a switch statement that takes a number from 1 to 10 and displays the multiples of that number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Please enter a number from 1 to 10: \");\n    scanf(\"%d\", &num);\n\n    switch (num) {\n        case 1: printf(\"Multiples of 1 are all integers.\\n\"); break;\n        case 2: printf(\"Multiples of 2 are 2, 4, 6, 8, 10.\\n\"); break;\n        case 3: printf(\"Multiples of 3 are 3, 6, 9.\\n\"); break;\n        case 4: printf(\"Multiples of 4 are 4, 8.\\n\"); break;\n        case 5: printf(\"Multiples of 5 are 5, 10.\\n\"); break;\n        case 6: printf(\"Multiples of 6 are 6.\\n\"); break;\n        case 7: printf(\"Multiples of 7 are 7.\\n\"); break;\n        case 8: printf(\"Multiples of 8 are 8.\\n\"); break;\n        case 9: printf(\"Multiples of 9 are 9.\\n\"); break;\n        case 10: printf(\"Multiples of 10 are 10.\\n\"); break;\n        default: printf(\"Invalid input.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program takes an input number between 1 and 10 and displays its multiples (up to 10). If the user enters an invalid number, an error message is displayed."
+    "input": "n = int(input('Enter the number of terms: '))\na, b = 0, 1\nfor _ in range(n):\n    print(a, end=' ')\n    a, b = b, a + b",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int n, a = 0, b = 1, temp;\n    printf(\"Enter the number of terms: \");\n    scanf(\"%d\", &n);\n\n    for (int i = 0; i < n; i++) {\n        printf(\"%d \", a);\n        temp = a + b;\n        a = b;\n        b = temp;\n    }\n\n    printf(\"\\n\");\n    return 0;\n}"
   },
   {
     "id": 108,
-    "input": "Write a program in C using a switch statement that asks for the user's favorite fruit and responds with a message based on the entered fruit.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int fruit;\n    printf(\"Please enter your favorite fruit (1-5): \\n\");\n    printf(\"1. Apple\\n2. Banana\\n3. Orange\\n4. Mango\\n5. Grape\\n\");\n    scanf(\"%d\", &fruit);\n\n    switch (fruit) {\n        case 1: printf(\"You chose Apple.\\n\"); break;\n        case 2: printf(\"You chose Banana.\\n\"); break;\n        case 3: printf(\"You chose Orange.\\n\"); break;\n        case 4: printf(\"You chose Mango.\\n\"); break;\n        case 5: printf(\"You chose Grape.\\n\"); break;\n        default: printf(\"Invalid selection.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "The program prompts the user to choose their favorite fruit by entering a number (1-5). It then outputs a message based on the fruit chosen. If an invalid number is entered, an error message is displayed."
+    "input": "temp_c = float(input('Enter temperature in Celsius: '))\ntemp_f = (temp_c * 9/5) + 32\nprint(f'Temperature in Fahrenheit: {temp_f}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    float temp_c, temp_f;\n    printf(\"Enter temperature in Celsius: \");\n    scanf(\"%f\", &temp_c);\n\n    temp_f = (temp_c * 9 / 5) + 32;\n    printf(\"Temperature in Fahrenheit: %.2f\\n\", temp_f);\n\n    return 0;\n}"
   },
   {
     "id": 109,
-    "input": "Write a program in C that uses a switch statement to display the day of the week based on a number entered by the user.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Please enter a number from 1 to 7: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday\\n\"); break;\n        case 2: printf(\"Tuesday\\n\"); break;\n        case 3: printf(\"Wednesday\\n\"); break;\n        case 4: printf(\"Thursday\\n\"); break;\n        case 5: printf(\"Friday\\n\"); break;\n        case 6: printf(\"Saturday\\n\"); break;\n        case 7: printf(\"Sunday\\n\"); break;\n        default: printf(\"Invalid input.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "The program prompts the user to enter a number between 1 and 7 and displays the corresponding day of the week based on the input number."
+    "input": "nums = [int(x) for x in input('Enter numbers separated by space: ').split()]\nprint(f'Maximum number: {max(nums)}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int nums[100], count = 0, num, max;\n    printf(\"Enter numbers separated by space (press Ctrl+D to end): \");\n\n    while (scanf(\"%d\", &num) != EOF) {\n        nums[count++] = num;\n    }\n\n    max = nums[0];\n    for (int i = 1; i < count; i++) {\n        if (nums[i] > max) {\n            max = nums[i];\n        }\n    }\n\n    printf(\"Maximum number: %d\\n\", max);\n    return 0;\n}"
   },
   {
     "id": 110,
-    "input": "Write a program in C using a switch statement to display a message based on the number entered.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Please enter a number: \");\n    scanf(\"%d\", &num);\n\n    switch (num) {\n        case 1: printf(\"You entered one.\\n\"); break;\n        case 2: printf(\"You entered two.\\n\"); break;\n        case 3: printf(\"You entered three.\\n\"); break;\n        default: printf(\"Invalid input.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "The program asks the user to enter a number and then displays a message corresponding to the entered number using a `switch` statement. If an invalid number is entered, it will output an error message."
+    "input": "num = int(input('Enter a number: '))\nif num > 0:\n    print('Positive')\nelif num < 0:\n    print('Negative')\nelse:\n    print('Zero')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"Positive\\n\");\n    } else if (num < 0) {\n        printf(\"Negative\\n\");\n    } else {\n        printf(\"Zero\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 111,
-    "input": "Write a program in C that combines for loop and if statement to display numbers between 1 and 100 that are multiples of both 3 and 5.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0 && i % 5 == 0) {\n            printf(\"%d is a multiple of both 3 and 5.\\n\", i);\n        }\n    }\n    return 0;\n}",
-    "description": "This program uses a `for` loop to iterate over numbers from 1 to 100, and checks using an `if` statement if the number is divisible by both 3 and 5. If so, it displays the number."
+    "input": "for i in range(1, 101):\n    if i % 3 == 0 and i % 5 == 0:\n        print(f\"{i} is a multiple of both 3 and 5.\")",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0 && i % 5 == 0) {\n            printf(\"%d is a multiple of both 3 and 5.\\n\", i);\n        }\n    }\n    return 0;\n}"
   },
   {
     "id": 112,
-    "input": "Write a program in C that uses a while loop and if statement to determine if an entered integer is even or odd, and display the result.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    while (1) {\n        printf(\"Please enter an integer (0 to exit): \");\n        scanf(\"%d\", &num);\n\n        if (num == 0) break;\n\n        if (num % 2 == 0) {\n            printf(\"%d is even.\\n\", num);\n        } else {\n            printf(\"%d is odd.\\n\", num);\n        }\n    }\n\n    return 0;\n}",
-    "description": "This program uses a `while` loop to repeatedly ask for an integer input and check if it is even or odd using an `if` statement. It continues until 0 is entered."
+    "input": "while True:\n    num = int(input(\"Please enter an integer (0 to exit): \"))\n    if num == 0:\n        break\n    if num % 2 == 0:\n        print(f\"{num} is even.\")\n    else:\n        print(f\"{num} is odd.\")",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    while (1) {\n        printf(\"Please enter an integer (0 to exit): \");\n        scanf(\"%d\", &num);\n\n        if (num == 0) break;\n\n        if (num % 2 == 0) {\n            printf(\"%d is even.\\n\", num);\n        } else {\n            printf(\"%d is odd.\\n\", num);\n        }\n    }\n\n    return 0;\n}"
   },
   {
     "id": 113,
-    "input": "Write a program in C that combines a do-while loop and a switch statement to execute a selected operation from a menu.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int choice;\n    do {\n        printf(\"Menu:\\n1. Calculation\\n2. Exit\\nEnter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1: printf(\"Executing calculation operation.\\n\"); break;\n            case 2: printf(\"Exiting the program.\\n\"); break;\n            default: printf(\"Invalid choice.\\n\");\n        }\n    } while (choice != 2);\n\n    return 0;\n}",
-    "description": "This program displays a menu and uses a `do-while` loop to repeatedly ask for a choice. It executes different operations based on the selected choice using a `switch` statement."
+    "input": "while True:\n    print(\"Menu:\\n1. Calculation\\n2. Exit\")\n    choice = int(input(\"Enter your choice: \"))\n    match choice:\n        case 1:\n            print(\"Executing calculation operation.\")\n        case 2:\n            print(\"Exiting the program.\")\n            break\n        case _:\n            print(\"Invalid choice.\")",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int choice;\n    do {\n        printf(\"Menu:\\n1. Calculation\\n2. Exit\\nEnter your choice: \");\n        scanf(\"%d\", &choice);\n\n        switch (choice) {\n            case 1: printf(\"Executing calculation operation.\\n\"); break;\n            case 2: printf(\"Exiting the program.\\n\"); break;\n            default: printf(\"Invalid choice.\\n\");\n        }\n    } while (choice != 2);\n\n    return 0;\n}"
   },
   {
     "id": 114,
-    "input": "Write a program in C that combines an if-else statement and a switch statement to determine if an entered number is positive, negative, or zero, and then displays multiples of the number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"It is a positive number.\\n\");\n        switch (num) {\n            case 1: printf(\"Multiples of 1 are all integers.\\n\"); break;\n            case 2: printf(\"Multiples of 2 are 2, 4, 6, 8, 10.\\n\"); break;\n            default: printf(\"Multiples of this number are not supported yet.\\n\");\n        }\n    } else if (num < 0) {\n        printf(\"It is a negative number.\\n\");\n    } else {\n        printf(\"It is zero.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program determines if the entered number is positive, negative, or zero using an `if-else` statement. If positive, it uses a `switch` statement to display multiples of the number."
+    "input": "num = int(input(\"Please enter an integer: \"))\nif num > 0:\n    print(f\"It is a positive number.\")\nswitch num:\n    case 1:\n        print(\"Multiples of 1 are all integers.\")\n    case 2:\n        print(\"Multiples of 2 are 2, 4, 6, 8, 10.\")\n    case _:\n        print(\"Multiples of this number are not supported yet.\")",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Please enter an integer: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"It is a positive number.\\n\");\n        switch (num) {\n            case 1: printf(\"Multiples of 1 are all integers.\\n\"); break;\n            case 2: printf(\"Multiples of 2 are 2, 4, 6, 8, 10.\\n\"); break;\n            default: printf(\"Multiples of this number are not supported yet.\\n\");\n        }\n    } else if (num < 0) {\n        printf(\"It is a negative number.\\n\");\n    } else {\n        printf(\"It is zero.\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 115,
-    "input": "Write a program in C that uses a for loop and an if statement to display prime numbers between 1 and 50.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i, j, is_prime;\n    for (i = 2; i <= 50; i++) {\n        is_prime = 1;  // Flag to check if the number is prime\n        for (j = 2; j <= i / 2; j++) {\n            if (i % j == 0) {\n                is_prime = 0;  // Not prime\n                break;\n            }\n        }\n        if (is_prime == 1) {\n            printf(\"%d is a prime number.\\n\", i);\n        }\n    }\n\n    return 0;\n}",
-    "description": "This program checks if numbers between 1 and 50 are prime. It uses a `for` loop to iterate through the numbers, and an inner `for` loop to check divisibility."
+    "input": "for i in range(2, 51):\n    is_prime = True\n    for j in range(2, i // 2 + 1):\n        if i % j == 0:\n            is_prime = False\n            break\n    if is_prime:\n        print(f\"{i} is a prime number.\")",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i, j, is_prime;\n    for (i = 2; i <= 50; i++) {\n        is_prime = 1;  // Flag to check if the number is prime\n        for (j = 2; j <= i / 2; j++) {\n            if (i % j == 0) {\n                is_prime = 0;  // Not prime\n                break;\n            }\n        }\n        if (is_prime == 1) {\n            printf(\"%d is a prime number.\\n\", i);\n        }\n    }\n\n    return 0;\n}"
   },
   {
     "id": 116,
-    "input": "Write a program in C that uses an if-else statement and a while loop to calculate the factorial of a positive integer entered by the user.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, factorial = 1;\n    printf(\"Please enter a positive integer: \");\n    scanf(\"%d\", &num);\n\n    if (num < 0) {\n        printf(\"Factorial is not defined for negative numbers.\\n\");\n    } else {\n        while (num > 1) {\n            factorial *= num;\n            num--;\n        }\n        printf(\"The factorial is %d.\\n\", factorial);\n    }\n\n    return 0;\n}",
-    "description": "This program calculates the factorial of a positive integer entered by the user. It checks for negative numbers using an `if-else` statement, and uses a `while` loop to calculate the factorial for positive integers."
+    "input": "def factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    else:\n        return n * factorial(n - 1)\n\nprint(factorial(5))",
+    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0 || n == 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main(void) {\n    printf(\"Factorial of 5 is: %d\\n\", factorial(5));\n    return 0;\n}"
   },
   {
     "id": 117,
-    "input": "Write a program in C that uses a do-while loop and an if statement to display the numbers from 1 to 10, and display 'EVEN' for even numbers and 'ODD' for odd numbers.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n    do {\n        if (i % 2 == 0) {\n            printf(\"%d is EVEN.\\n\", i);\n        } else {\n            printf(\"%d is ODD.\\n\", i);\n        }\n        i++;\n    } while (i <= 10);\n\n    return 0;\n}",
-    "description": "This program displays the numbers from 1 to 10 and determines whether each number is even or odd using a `do-while` loop and an `if` statement."
+    "input": "def fibonacci(n):\n    if n <= 1:\n        return n\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\nprint(fibonacci(6))",
+    "output": "#include <stdio.h>\n\nint fibonacci(int n) {\n    if (n <= 1) {\n        return n;\n    } else {\n        return fibonacci(n - 1) + fibonacci(n - 2);\n    }\n}\n\nint main(void) {\n    printf(\"Fibonacci of 6 is: %d\\n\", fibonacci(6));\n    return 0;\n}"
   },
   {
     "id": 118,
-    "input": "Write a program in C that uses a switch statement and an if-else statement to display the day of the week corresponding to a number entered by the user.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Please enter a number from 1 to 7: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday.\\n\"); break;\n        case 2: printf(\"Tuesday.\\n\"); break;\n        case 3: printf(\"Wednesday.\\n\"); break;\n        case 4: printf(\"Thursday.\\n\"); break;\n        case 5: printf(\"Friday.\\n\"); break;\n        case 6: printf(\"Saturday.\\n\"); break;\n        case 7: printf(\"Sunday.\\n\"); break;\n        default: printf(\"Invalid input.\\n\"); break;\n    }\n\n    return 0;\n}",
-    "description": "This program displays the day of the week corresponding to a number between 1 and 7 entered by the user. It uses a `switch` statement to determine the day, and displays an error message using the `default` case for invalid inputs."
+    "input": "numbers = [1, 2, 3, 4, 5]\nprint(sum(numbers))",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int numbers[] = {1, 2, 3, 4, 5};\n    int sum = 0;\n    for (int i = 0; i < 5; i++) {\n        sum += numbers[i];\n    }\n    printf(\"Sum of numbers is: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 119,
-    "input": "Write a program in C that uses a for loop and an if statement to distinguish and display multiples of 3, 5, and 15 among the numbers from 1 to 30.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 30; i++) {\n        if (i % 15 == 0) {\n            printf(\"%d is a multiple of 15.\\n\", i);\n        } else if (i % 3 == 0) {\n            printf(\"%d is a multiple of 3.\\n\", i);\n        } else if (i % 5 == 0) {\n            printf(\"%d is a multiple of 5.\\n\", i);\n        }\n    }\n\n    return 0;\n}",
-    "description": "This program displays multiples of 3, 5, and 15 among the numbers from 1 to 30 using a `for` loop and `if` statements. It prioritizes multiples of 15."
+    "input": "def is_palindrome(s):\n    return s == s[::-1]\n\nprint(is_palindrome(\"madam\"))",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint is_palindrome(char s[]) {\n    int len = strlen(s);\n    for (int i = 0; i < len / 2; i++) {\n        if (s[i] != s[len - i - 1]) {\n            return 0;\n        }\n    }\n    return 1;\n}\n\nint main(void) {\n    char str[] = \"madam\";\n    if (is_palindrome(str)) {\n        printf(\"%s is a palindrome.\\n\", str);\n    } else {\n        printf(\"%s is not a palindrome.\\n\", str);\n    }\n    return 0;\n}"
   },
   {
     "id": 120,
-    "input": "Write a program in C that uses an if-else statement and a switch statement to display the name of the month corresponding to a number (1 to 12) entered by the user.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int month;\n    printf(\"Please enter a month number (1 to 12): \");\n    scanf(\"%d\", &month);\n\n    if (month < 1 || month > 12) {\n        printf(\"Invalid month number.\\n\");\n    } else {\n        switch (month) {\n            case 1: printf(\"January.\\n\"); break;\n            case 2: printf(\"February.\\n\"); break;\n            case 3: printf(\"March.\\n\"); break;\n            case 4: printf(\"April.\\n\"); break;\n            case 5: printf(\"May.\\n\"); break;\n            case 6: printf(\"June.\\n\"); break;\n            case 7: printf(\"July.\\n\"); break;\n            case 8: printf(\"August.\\n\"); break;\n            case 9: printf(\"September.\\n\"); break;\n            case 10: printf(\"October.\\n\"); break;\n            case 11: printf(\"November.\\n\"); break;\n            case 12: printf(\"December.\\n\"); break;\n        }\n    }\n\n    return 0;\n}",
-    "description": "This program displays the name of the month corresponding to the number entered by the user (1 to 12). It uses an `if-else` statement to check for valid input, and a `switch` statement to display the month name."
+    "input": "def count_occurrences(lst, value):\n    return lst.count(value)\n\nprint(count_occurrences([1, 2, 3, 1, 1], 1))",
+    "output": "#include <stdio.h>\n\nint count_occurrences(int lst[], int size, int value) {\n    int count = 0;\n    for (int i = 0; i < size; i++) {\n        if (lst[i] == value) {\n            count++;\n        }\n    }\n    return count;\n}\n\nint main(void) {\n    int lst[] = {1, 2, 3, 1, 1};\n    int size = sizeof(lst) / sizeof(lst[0]);\n    printf(\"Occurrences of 1: %d\\n\", count_occurrences(lst, size, 1));\n    return 0;\n}"
   },
   {
     "id": 121,
-    "input": "Write a program in C using if statement and for loop to display only even numbers from 1 to 50.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 50; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}",
-    "description": "This program loops through numbers from 1 to 50, and only even numbers are displayed by checking them with an `if` statement.\nEven numbers are determined by checking if the remainder when divided by 2 is 0."
+    "input": "for i in range(1, 51):\n    if i % 2 == 0:\n        print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 50; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}"
   },
   {
     "id": 122,
-    "input": "Write a program in C using switch statement to display the day of the week corresponding to the user's input (1 to 7).",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Enter a number between 1 and 7: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday\\n\"); break;\n        case 2: printf(\"Tuesday\\n\"); break;\n        case 3: printf(\"Wednesday\\n\"); break;\n        case 4: printf(\"Thursday\\n\"); break;\n        case 5: printf(\"Friday\\n\"); break;\n        case 6: printf(\"Saturday\\n\"); break;\n        case 7: printf(\"Sunday\\n\"); break;\n        default: printf(\"Invalid input.\\n\"); break;\n    }\n\n    return 0;\n}",
-    "description": "This program takes a number from 1 to 7 and displays the corresponding day of the week.\nThe `switch` statement is used to print the day based on the input, and an error message is shown for invalid input using the `default` case."
+    "input": "day = int(input('Enter a number between 1 and 7: '))\nif day == 1:\n    print('Monday')\nelif day == 2:\n    print('Tuesday')\nelif day == 3:\n    print('Wednesday')\nelif day == 4:\n    print('Thursday')\nelif day == 5:\n    print('Friday')\nelif day == 6:\n    print('Saturday')\nelif day == 7:\n    print('Sunday')\nelse:\n    print('Invalid input.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Enter a number between 1 and 7: \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday\\n\"); break;\n        case 2: printf(\"Tuesday\\n\"); break;\n        case 3: printf(\"Wednesday\\n\"); break;\n        case 4: printf(\"Thursday\\n\"); break;\n        case 5: printf(\"Friday\\n\"); break;\n        case 6: printf(\"Saturday\\n\"); break;\n        case 7: printf(\"Sunday\\n\"); break;\n        default: printf(\"Invalid input.\\n\"); break;\n    }\n\n    return 0;\n}"
   },
   {
     "id": 123,
-    "input": "Write a program in C using while loop to display multiples of 3 from 1 to 100.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n    while (i <= 100) {\n        if (i % 3 == 0) {\n            printf(\"%d\\n\", i);\n        }\n        i++;\n    }\n    return 0;\n}",
-    "description": "This program loops through numbers from 1 to 100 and displays multiples of 3 by checking each number using an `if` statement.\nThe `while` loop is used to iterate through the numbers, incrementing the variable `i`."
+    "input": "i = 1\nwhile i <= 100:\n    if i % 3 == 0:\n        print(i)\n    i += 1",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n    while (i <= 100) {\n        if (i % 3 == 0) {\n            printf(\"%d\\n\", i);\n        }\n        i++;\n    }\n    return 0;\n}"
   },
   {
     "id": 124,
-    "input": "Write a program in C using do-while loop that keeps asking the user to enter numbers until a negative number is entered, then displays the sum.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, sum = 0;\n    do {\n        printf(\"Enter a number (negative number to stop): \");\n        scanf(\"%d\", &num);\n        if (num >= 0) {\n            sum += num;\n        }\n    } while (num >= 0);\n\n    printf(\"Total: %d\\n\", sum);\n    return 0;\n}",
-    "description": "This program asks the user to input numbers until a negative number is entered, and calculates the sum of all non-negative numbers.\nThe `do-while` loop ensures that the user is prompted for input at least once, and valid numbers are added to the sum."
+    "input": "sum = 0\nwhile True:\n    num = int(input('Enter a number (negative number to stop): '))\n    if num < 0:\n        break\n    sum += num\nprint('Total:', sum)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, sum = 0;\n    do {\n        printf(\"Enter a number (negative number to stop): \");\n        scanf(\"%d\", &num);\n        if (num >= 0) {\n            sum += num;\n        }\n    } while (num >= 0);\n\n    printf(\"Total: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 125,
-    "input": "Write a program in C using if and switch statements to display a message according to the grade (A to F).",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char grade;\n    printf(\"Enter a grade (A to F): \");\n    scanf(\" %c\", &grade);\n\n    if (grade >= 'A' && grade <= 'F') {\n        switch (grade) {\n            case 'A': printf(\"Excellent!\\n\"); break;\n            case 'B': printf(\"Well done!\\n\"); break;\n            case 'C': printf(\"Good.\\n\"); break;\n            case 'D': printf(\"Try harder.\\n\"); break;\n            case 'F': printf(\"You need to try again.\\n\"); break;\n        }\n    } else {\n        printf(\"Invalid grade.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program takes a grade as input and displays an appropriate message based on the grade.\nThe `if` statement checks if the grade is valid (A to F), and the `switch` statement outputs a message for each grade. Invalid input results in an error message."
+    "input": "grade = input('Enter a grade (A to F): ')\nif grade == 'A':\n    print('Excellent!')\nelif grade == 'B':\n    print('Well done!')\nelif grade == 'C':\n    print('Good.')\nelif grade == 'D':\n    print('Try harder.')\nelif grade == 'F':\n    print('You need to try again.')\nelse:\n    print('Invalid grade.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char grade;\n    printf(\"Enter a grade (A to F): \");\n    scanf(\" %c\", &grade);\n\n    if (grade >= 'A' && grade <= 'F') {\n        switch (grade) {\n            case 'A': printf(\"Excellent!\\n\"); break;\n            case 'B': printf(\"Well done!\\n\"); break;\n            case 'C': printf(\"Good.\\n\"); break;\n            case 'D': printf(\"Try harder.\\n\"); break;\n            case 'F': printf(\"You need to try again.\\n\"); break;\n        }\n    } else {\n        printf(\"Invalid grade.\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 126,
-    "input": "Write a program in C using for loop to display all odd numbers up to the number entered by the user.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int limit;\n    printf(\"Enter the maximum number to display: \");\n    scanf(\"%d\", &limit);\n\n    for (int i = 1; i <= limit; i++) {\n        if (i % 2 != 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n\n    return 0;\n}",
-    "description": "This program displays all odd numbers from 1 up to the number entered by the user.\nA `for` loop is used to iterate from 1 to the input value, and the `if` statement checks for odd numbers before displaying them."
+    "input": "limit = int(input('Enter the maximum number to display: '))\nfor i in range(1, limit + 1):\n    if i % 2 != 0:\n        print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int limit;\n    printf(\"Enter the maximum number to display: \");\n    scanf(\"%d\", &limit);\n\n    for (int i = 1; i <= limit; i++) {\n        if (i % 2 != 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n\n    return 0;\n}"
   },
   {
     "id": 127,
-    "input": "Write a program in C using if-else statement to check if the year entered by the user is a leap year.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"Enter the year: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d is a leap year.\\n\", year);\n    } else {\n        printf(\"%d is not a leap year.\\n\", year);\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the year entered by the user is a leap year.\nThe `if-else` statement evaluates the leap year conditions (divisible by 4 but not by 100, or divisible by 400) and displays the result."
+    "input": "year = int(input('Enter the year: '))\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print(year, 'is a leap year.')\nelse:\n    print(year, 'is not a leap year.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"Enter the year: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d is a leap year.\\n\", year);\n    } else {\n        printf(\"%d is not a leap year.\\n\", year);\n    }\n\n    return 0;\n}"
   },
   {
     "id": 128,
-    "input": "Write a program in C using switch statement to perform calculations based on the operator (+, -, *, /) entered by the user for two numbers.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char operator;\n    double num1, num2;\n\n    printf(\"Enter an operator (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"Enter the first number: \");\n    scanf(\"%lf\", &num1);\n    printf(\"Enter the second number: \");\n    scanf(\"%lf\", &num2);\n\n    switch (operator) {\n        case '+':\n            printf(\"Result: %.2lf\\n\", num1 + num2);\n            break;\n        case '-':\n            printf(\"Result: %.2lf\\n\", num1 - num2);\n            break;\n        case '*':\n            printf(\"Result: %.2lf\\n\", num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0) {\n                printf(\"Result: %.2lf\\n\", num1 / num2);\n            } else {\n                printf(\"Cannot divide by zero.\\n\");\n            }\n            break;\n        default:\n            printf(\"Invalid operator.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program performs a calculation based on the operator entered by the user (+, -, *, /) for two numbers.\nThe `switch` statement is used to handle different operations, and a check is added to prevent division by zero."
+    "input": "operator = input('Enter an operator (+, -, *, /): ')\nnum1 = float(input('Enter the first number: '))\nnum2 = float(input('Enter the second number: '))\nif operator == '+':\n    print('Result:', num1 + num2)\nelif operator == '-':\n    print('Result:', num1 - num2)\nelif operator == '*':\n    print('Result:', num1 * num2)\nelif operator == '/':\n    if num2 != 0:\n        print('Result:', num1 / num2)\n    else:\n        print('Cannot divide by zero.')\nelse:\n    print('Invalid operator.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char operator;\n    double num1, num2;\n\n    printf(\"Enter an operator (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"Enter the first number: \");\n    scanf(\"%lf\", &num1);\n    printf(\"Enter the second number: \");\n    scanf(\"%lf\", &num2);\n\n    switch (operator) {\n        case '+':\n            printf(\"Result: %.2lf\\n\", num1 + num2);\n            break;\n        case '-':\n            printf(\"Result: %.2lf\\n\", num1 - num2);\n            break;\n        case '*':\n            printf(\"Result: %.2lf\\n\", num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0) {\n                printf(\"Result: %.2lf\\n\", num1 / num2);\n            } else {\n                printf(\"Cannot divide by zero.\\n\");\n            }\n            break;\n        default:\n            printf(\"Invalid operator.\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 129,
-    "input": "Write a program in C using while loop to double the number entered by the user until 0 is entered, then displays the result.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    printf(\"Enter a number (0 to stop): \");\n    scanf(\"%d\", &num);\n\n    while (num != 0) {\n        printf(\"Doubled: %d\\n\", num * 2);\n        printf(\"Enter the next number (0 to stop): \");\n        scanf(\"%d\", &num);\n    }\n\n    printf(\"Exiting program.\\n\");\n    return 0;\n}",
-    "description": "This program doubles the number entered by the user and displays the result until 0 is entered.\nThe `while` loop continues asking for input and processing the number until 0 is entered."
+    "input": "num = int(input('Enter a number (0 to stop): '))\nwhile num != 0:\n    print('Doubled:', num * 2)\n    num = int(input('Enter the next number (0 to stop): '))\nprint('Exiting program.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    printf(\"Enter a number (0 to stop): \");\n    scanf(\"%d\", &num);\n\n    while (num != 0) {\n        printf(\"Doubled: %d\\n\", num * 2);\n        printf(\"Enter the next number (0 to stop): \");\n        scanf(\"%d\", &num);\n    }\n\n    printf(\"Exiting program.\\n\");\n    return 0;\n}"
   },
   {
     "id": 130,
-    "input": "Write a program in C using if statement to find and display the largest of three numbers entered by the user.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n\n    printf(\"Enter three numbers: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a >= b && a >= c) {\n        printf(\"The largest number is: %d\\n\", a);\n    } else if (b >= a && b >= c) {\n        printf(\"The largest number is: %d\\n\", b);\n    } else {\n        printf(\"The largest number is: %d\\n\", c);\n    }\n\n    return 0;\n}",
-    "description": "This program checks the largest of three numbers entered by the user.\nThe `if` statement compares the three numbers and displays the largest one."
+    "input": "a, b, c = map(int, input('Enter three numbers: ').split())\nif a >= b and a >= c:\n    print('The largest number is:', a)\nelif b >= a and b >= c:\n    print('The largest number is:', b)\nelse:\n    print('The largest number is:', c)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n\n    printf(\"Enter three numbers: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a >= b && a >= c) {\n        printf(\"The largest number is: %d\\n\", a);\n    } else if (b >= a && b >= c) {\n        printf(\"The largest number is: %d\\n\", b);\n    } else {\n        printf(\"The largest number is: %d\\n\", c);\n    }\n\n    return 0;\n}"
   },
   {
     "id": 131,
-    "input": "Write a program in C that uses an if statement to determine whether the entered year is a leap year.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"Enter a year: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d is a leap year.\\n\", year);\n    } else {\n        printf(\"%d is not a leap year.\\n\", year);\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the entered year is a leap year. The conditions for a leap year are: divisible by 4 but not by 100, or divisible by 400."
+    "input": "year = int(input('Enter a year: '))\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print(f'{year} is a leap year.')\nelse:\n    print(f'{year} is not a leap year.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"Enter a year: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {\n        printf(\"%d is a leap year.\\n\", year);\n    } else {\n        printf(\"%d is not a leap year.\\n\", year);\n    }\n\n    return 0;\n}"
   },
   {
     "id": 132,
-    "input": "Write a program in C using a for loop to display the multiples of 3 between 1 and 100.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0) {\n            printf(\"%d \\n\", i);\n        }\n    }\n    return 0;\n}",
-    "description": "This program uses a `for` loop to display multiples of 3 between 1 and 100. It checks if a number is divisible by 3 with an `if` statement."
+    "input": "for i in range(1, 101):\n    if i % 3 == 0:\n        print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 3 == 0) {\n            printf(\"%d \\n\", i);\n        }\n    }\n    return 0;\n}"
   },
   {
     "id": 133,
-    "input": "Write a program in C using a switch statement to display the name of the day corresponding to the entered number (1-7).",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Enter a number representing a day (1-7): \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday\\n\"); break;\n        case 2: printf(\"Tuesday\\n\"); break;\n        case 3: printf(\"Wednesday\\n\"); break;\n        case 4: printf(\"Thursday\\n\"); break;\n        case 5: printf(\"Friday\\n\"); break;\n        case 6: printf(\"Saturday\\n\"); break;\n        case 7: printf(\"Sunday\\n\"); break;\n        default: printf(\"Invalid day number.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program displays the day of the week corresponding to the entered day number (1-7). It uses a `switch` statement, and shows an error message for invalid numbers."
+    "input": "day = int(input('Enter a number representing a day (1-7): '))\nif day == 1:\n    print('Monday')\nelif day == 2:\n    print('Tuesday')\nelif day == 3:\n    print('Wednesday')\nelif day == 4:\n    print('Thursday')\nelif day == 5:\n    print('Friday')\nelif day == 6:\n    print('Saturday')\nelif day == 7:\n    print('Sunday')\nelse:\n    print('Invalid day number.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int day;\n    printf(\"Enter a number representing a day (1-7): \");\n    scanf(\"%d\", &day);\n\n    switch (day) {\n        case 1: printf(\"Monday\\n\"); break;\n        case 2: printf(\"Tuesday\\n\"); break;\n        case 3: printf(\"Wednesday\\n\"); break;\n        case 4: printf(\"Thursday\\n\"); break;\n        case 5: printf(\"Friday\\n\"); break;\n        case 6: printf(\"Saturday\\n\"); break;\n        case 7: printf(\"Sunday\\n\"); break;\n        default: printf(\"Invalid day number.\\n\");\n    }\n\n    return 0;\n}"
   },
   {
     "id": 134,
-    "input": "Write a program in C using a for loop and an if statement to display the even numbers between 1 and 100.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}",
-    "description": "This program displays the even numbers between 1 and 100. It uses a `for` loop and an `if` statement to check for even numbers."
+    "input": "for i in range(1, 101):\n    if i % 2 == 0:\n        print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 100; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}"
   },
   {
     "id": 135,
-    "input": "Write a program in C using a while loop to calculate the sum of numbers from 1 to 100.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1, sum = 0;\n\n    while (i <= 100) {\n        sum += i;\n        i++;\n    }\n\n    printf(\"The sum of numbers from 1 to 100 is: %d\\n\", sum);\n    return 0;\n}",
-    "description": "This program calculates the sum of numbers from 1 to 100 using a `while` loop and displays the result."
+    "input": "sum = 0\nfor i in range(1, 101):\n    sum += i\nprint(f'The sum of numbers from 1 to 100 is: {sum}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1, sum = 0;\n\n    while (i <= 100) {\n        sum += i;\n        i++;\n    }\n\n    printf(\"The sum of numbers from 1 to 100 is: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 136,
-    "input": "Write a program in C using an if statement to determine whether a number is positive, negative, or zero.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"%d is positive.\\n\", num);\n    } else if (num < 0) {\n        printf(\"%d is negative.\\n\", num);\n    } else {\n        printf(\"%d is zero.\\n\", num);\n    }\n\n    return 0;\n}",
-    "description": "This program checks whether the entered number is positive, negative, or zero using an `if-else` statement."
+    "input": "num = int(input('Enter a number: '))\nif num > 0:\n    print(f'{num} is positive.')\nelif num < 0:\n    print(f'{num} is negative.')\nelse:\n    print(f'{num} is zero.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"%d is positive.\\n\", num);\n    } else if (num < 0) {\n        printf(\"%d is negative.\\n\", num);\n    } else {\n        printf(\"%d is zero.\\n\", num);\n    }\n\n    return 0;\n}"
   },
   {
     "id": 137,
-    "input": "Write a program in C using a for loop to distinguish between multiples of 2 and 3 between 1 and 20.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 20; i++) {\n        if (i % 6 == 0) {\n            printf(\"%d is a multiple of both 2 and 3.\\n\", i);\n        } else if (i % 2 == 0) {\n            printf(\"%d is a multiple of 2.\\n\", i);\n        } else if (i % 3 == 0) {\n            printf(\"%d is a multiple of 3.\\n\", i);\n        }\n    }\n    return 0;\n}",
-    "description": "This program distinguishes between multiples of 2 and 3 between 1 and 20. It uses a `for` loop and `if` statements to check for multiples."
+    "input": "for i in range(1, 21):\n    if i % 6 == 0:\n        print(f'{i} is a multiple of both 2 and 3.')\nelif i % 2 == 0:\n    print(f'{i} is a multiple of 2.')\nelif i % 3 == 0:\n    print(f'{i} is a multiple of 3.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 20; i++) {\n        if (i % 6 == 0) {\n            printf(\"%d is a multiple of both 2 and 3.\\n\", i);\n        } else if (i % 2 == 0) {\n            printf(\"%d is a multiple of 2.\\n\", i);\n        } else if (i % 3 == 0) {\n            printf(\"%d is a multiple of 3.\\n\", i);\n        }\n    }\n    return 0;\n}"
   },
   {
     "id": 138,
-    "input": "Write a program in C using a switch statement to determine whether the entered character is an alphabet letter or a digit.",
-    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char ch;\n    printf(\"Enter a character: \");\n    scanf(\"%c\", &ch);\n\n    switch (ch) {\n        case 'a' ... 'z':\n        case 'A' ... 'Z':\n            printf(\"%c is a letter.\\n\", ch);\n            break;\n        case '0' ... '9':\n            printf(\"%c is a digit.\\n\", ch);\n            break;\n        default:\n            printf(\"%c is neither a letter nor a digit.\\n\", ch);\n    }\n\n    return 0;\n}",
-    "description": "This program determines whether the entered character is an alphabet letter or a digit using a `switch` statement."
+    "input": "ch = input('Enter a character: ')\nif ch.isalpha():\n    print(f'{ch} is a letter.')\nelif ch.isdigit():\n    print(f'{ch} is a digit.')\nelse:\n    print(f'{ch} is neither a letter nor a digit.')",
+    "output": "#include <stdio.h>\n#include <ctype.h>\n\nint main(void) {\n    char ch;\n    printf(\"Enter a character: \");\n    scanf(\"%c\", &ch);\n\n    switch (ch) {\n        case 'a' ... 'z':\n        case 'A' ... 'Z':\n            printf(\"%c is a letter.\\n\", ch);\n            break;\n        case '0' ... '9':\n            printf(\"%c is a digit.\\n\", ch);\n            break;\n        default:\n            printf(\"%c is neither a letter nor a digit.\\n\", ch);\n    }\n\n    return 0;\n}"
   },
   {
     "id": 139,
-    "input": "Write a program in C using an if statement to display the larger of two numbers.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two numbers: \");\n    scanf(\"%d %d\", &num1, &num2);\n\n    if (num1 > num2) {\n        printf(\"%d is larger.\\n\", num1);\n    } else {\n        printf(\"%d is larger.\\n\", num2);\n    }\n\n    return 0;\n}",
-    "description": "This program compares two numbers and displays the larger number using an `if-else` statement."
+    "input": "num1, num2 = map(int, input('Enter two numbers: ').split())\nif num1 > num2:\n    print(f'{num1} is larger.')\nelse:\n    print(f'{num2} is larger.')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num1, num2;\n    printf(\"Enter two numbers: \");\n    scanf(\"%d %d\", &num1, &num2);\n\n    if (num1 > num2) {\n        printf(\"%d is larger.\\n\", num1);\n    } else {\n        printf(\"%d is larger.\\n\", num2);\n    }\n\n    return 0;\n}"
   },
   {
     "id": 140,
-    "input": "Write a program in C using a for loop to display numbers in reverse order from 10 to 1.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 10; i >= 1; i--) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}",
-    "description": "This program uses a `for` loop to display numbers from 10 to 1 in reverse order."
+    "input": "for i in range(10, 0, -1):\n    print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 10; i >= 1; i--) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}"
   },
   {
     "id": 141,
