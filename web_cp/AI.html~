@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>MAIkeChat</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="Inoutput.js"></script>
+  </head>
+  <body>
+    <p>rogo</p>
+    <input type="button" class="newchat" value="newchat" onclick="">
+    <br>
+    <textarea id="question" placeholder="" class="question"></textarea>
+    <textarea id="output" placeholder="" class="output"></textarea>
+    <p class="space">
+      <textarea id="into" placeholder="入力" class="into"></textarea>
+    <input type="submit" value="送信" size="10" onclick="write_Trans">
+    </p>
+  </body>
+</html>

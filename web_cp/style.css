@@ -1,0 +1,18 @@
+.newchat{
+    color:#ff0000;
+}
+.question{
+    width: 800px;
+    height: 200px;
+}
+.output{
+    width: 1000px;
+    height: 550px;
+}
+.space{
+    line-height: 10;
+}
+.into{
+    width: 1000px;
+    height: 80px;
+}
