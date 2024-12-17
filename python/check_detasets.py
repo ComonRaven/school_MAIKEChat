@@ -40,4 +40,3 @@ if data:
     print(f"ID: {data['id']}")
     print(f"Input: {data['input']}")
     print(f"Output: {data['output']}")
-    print(f"Description: {data['description']}")
