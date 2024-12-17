@@ -1,603 +1,513 @@
 [
   {
     "id": 1,
-    "input": "Write a program that displays 'Hello, World!' on the screen",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello, World!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
   },
   {
     "id": 2,
-    "input": "Write a program that outputs 'Hello, World!'",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello, Python!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, Python!\\n\");\n    return 0;\n}"
   },
   {
     "id": 3,
-    "input": "Write a program that outputs 'Hello, World!' on the screen",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello, C language!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, C language!\\n\");\n    return 0;\n}"
   },
   {
     "id": 4,
-    "input": "Write a program in C that displays 'Hello, World!' on the screen",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello, Java!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, Java!\\n\");\n    return 0;\n}"
   },
   {
     "id": 5,
-    "input": "Write 'Hello World' in C language",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello C++!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, C++!\\n\");\n    return 0;\n}"
   },
   {
     "id": 6,
-    "input": "Write a program that outputs 'Hello, World!' in C language",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello, COBOL!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, COBOL!\\n\");\n    return 0;\n}"
   },
   {
     "id": 7,
-    "input": "Write a C program that prints 'Hello, World!' to the screen using printf.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}",
-    "description": "A basic program in C language that displays 'Hello, World!' on the screen."
+    "input": "print('Hello, Swift!')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello, Swift!\\n\");\n    return 0;\n}"
   },
   {
     "id": 8,
-    "input": "Write a program in C that outputs 2",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 2;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}",
-    "description": "A program in C language that outputs 2."
+    "input": "print(2)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 2;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}"
   },
   {
     "id": 9,
-    "input": "Write a program in C that outputs 10",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 10;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}",
-    "description": "A program in C language that outputs 10."
+    "input": "print(10)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 10;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}"
   },
   {
     "id": 10,
-    "input": "Write a program in C that outputs 2",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 2;\n\n    printf(\"%d\\n\" num);\n\n    return 0;\n}",
-    "description": "A program in C language that outputs 2."
+    "input": "print(26)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 26;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}"
   },
   {
     "id": 11,
-    "input": "Write a C program that outputs 10",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 10;\n\n    printf(\"%d\\n\" num);\n\n    return 0;\n}",
-    "description": "A C program that outputs 10."
+    "input": "print(1000)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 1000;\n\n    printf(\"%d\\n\", num);\n\n    return 0;\n}"
   },
   {
     "id": 12,
-    "input": "Write a C program that outputs 2",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"%d\\n\", 2);\n\n    return 0;\n}",
-    "description": "A C program that outputs 2."
+    "input": "print(654)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"%d\\n\", 654re);\n\n    return 0;\n}"
   },
   {
     "id": 13,
-    "input": "Write a C program that outputs 10",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"%d\\n\", 10);\n\n    return 0;\n}",
-    "description": "A C program that outputs 10."
+    "input": "print(344444444)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"%d\\n\", 344444444);\n\n    return 0;\n}"
   },
   {
     "id": 14,
-    "input": "Write a C program that outputs the inputted number",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    printf(\"Please enter an integer to display: \");\n    scanf(\"%d\", &num);\n\n    printf(\"Inputted integer: %d\\n\", num);\n\n    return 0;\n}",
-    "description": "A C program that outputs the number inputted by the user."
+    "input": "num = int(input('Please enter an integer to display: '))\nprint('Inputted integer:', num)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    printf(\"Please enter an integer to display: \");\n    scanf(\"%d\", &num);\n\n    printf(\"Inputted integer: %d\\n\", num);\n\n    return 0;\n}"
   },
   {
     "id": 15,
-    "input": "Write a C program that declares an integer variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    return 0;\n}",
-    "description": "A C program that simply declares an integer variable."
+    "input": "num = 0",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 0;\n\n    return 0;\n}"
   },
   {
     "id": 16,
-    "input": "Write a C program that declares a character variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char str;\n\n    return 0;\n}",
-    "description": "A C program that simply declares a character variable."
+    "input": "char str = 'a'",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str = 'a;\n\n    return 0;\n}"
   },
   {
     "id": 17,
-    "input": "Write a C program that outputs the inputted string",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[256];\n\n    fgets(str, sizeof(str), stdin);\n\n    // Output\n    printf(\"%s\\n\", str);\n\n    return 0;\n}",
-    "description": "A C program that outputs the string inputted by the user."
+    "input": "str = input('Enter a string: ')\nprint(str)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[256];\n\n    fgets(str, sizeof(str), stdin);\n\n    // Output\n    printf(\"%s\\n\", str);\n\n    return 0;\n}"
   },
   {
     "id": 18,
-    "input": "Create a C program that does nothing",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    return 0;\n}",
-    "description": "A C program that does nothing and simply returns 0 to indicate normal termination."
+    "input": "pass",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    return 0;\n}"
   },
   {
     "id": 19,
-    "input": "Create a C program that displays age",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int age = 25;\n    printf(\"Age: %d\\n\", age);\n    return 0;\n}",
-    "description": "A C program that outputs the age. It stores the value 25 in the integer variable 'age' and displays it using printf."
+    "input": "age = 25\nprint('Age:', age)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int age = 25;\n    printf(\"Age: %d\\n\", age);\n    return 0;\n}"
   },
   {
     "id": 20,
-    "input": "Create a C program that outputs the inputted age",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int age; // Declare the 'age' variable to store the age as an integer\n    scanf(\"%d\", &age); // Use scanf to store the inputted age into the 'age' variable\n    printf(\"Age: %d\\n\", age); // Output the 'age' variable using printf\n    return 0;\n}",
-    "description": "A C program that outputs the age inputted by the user. It declares an integer variable 'age', stores the inputted value using scanf, and then outputs it using printf."
+    "input": "age = int(input('Enter your age: '))\nprint('Age:', age)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int age; // Declare the 'age' variable to store the age as an integer\n    scanf(\"%d\", &age); // Use scanf to store the inputted age into the 'age' variable\n    printf(\"Age: %d\\n\", age); // Output the 'age' variable using printf\n    return 0;\n}"
   },
   {
     "id": 21,
-    "input": "Write a C program to output the character 'A'",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"A\\n\"); // Output A using printf function\n return 0;\n}",
-    "description": "A C program that outputs the character 'A'.\nIt directly outputs 'A' using the printf function."
+    "input": "print('A')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    printf(\"A\\n\"); // Output A using printf function\n return 0;\n}"
   },
   {
     "id": 22,
-    "input": "Write a C program to output the character 'A'",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char ace = 'A'; // Store the character 'A' in a variable ace of type char\n    printf(\"%c\\n\", ace); // Output A\n    return 0;\n}",
-    "description": "A C program that outputs the character 'A'.\nStores 'A' in a char variable ace.\nOutputs ace using the printf function. Uses %c for a single character."
+    "input": "ace = 'A'\nprint(ace)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char ace = 'A'; // Store the character 'A' in a variable ace of type char\n    printf(\"%c\\n\", ace); // Output A\n    return 0;\n}"
   },
   {
     "id": 23,
-    "input": "Write a C program to output a character entered by the user",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char character; // Declare a character variable\n    scanf(\"%c\", &character); // Store the entered character in the variable\n    printf(\"%c\\n\", character); // Output the entered character\n    return 0;\n}",
-    "description": "A C program to output a character entered by the user.\nDeclares a char variable 'character'.\nUses scanf to store the entered character in 'character'. Outputs the value of 'character' using printf."
+    "input": "character = input('Enter a character: ')\nprint(character)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char character; // Declare a character variable\n    scanf(\"%c\", &character); // Store the entered character in the variable\n    printf(\"%c\\n\", character); // Output the entered character\n    return 0;\n}"
   },
   {
     "id": 24,
-    "input": "Write a C program to output a floating point number",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    float num = 2.56; // Initialize a float variable num with a floating point value\n    printf(\"%.2f\\n\", num); // Output the value of num\n    return 0;\n}",
-    "description": "A C program to output a floating point number.\nInitializes a float variable 'num' with the value 2.56.\nOutputs 'num' using printf with %.2f to display two decimal places."
+    "input": "num = 2.56\nprint(f'{num:.2f}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    float num = 2.56; // Initialize a float variable num with a floating point value\n    printf(\"%.2f\\n\", num); // Output the value of num\n    return 0;\n}"
   },
   {
     "id": 25,
-    "input": "Write a C program to assign a value to an integer variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    printf(\"%d\\n\", num);\n    return 0;\n}",
-    "description": "A C program that assigns the value 5 to an integer variable 'num' and outputs it."
+    "input": "num = 5\nprint(num)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    printf(\"%d\\n\", num);\n    return 0;\n}"
   },
   {
     "id": 26,
-    "input": "Write a C program to assign a value to a floating point variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    float num = 3.14;\n    printf(\"%.2f\\n\", num);\n    return 0;\n}",
-    "description": "A C program that assigns the value 3.14 to a floating point variable 'num' and outputs it."
+    "input": "num = 3.14\nprint(f'{num:.2f}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    float num = 3.14;\n    printf(\"%.2f\\n\", num);\n    return 0;\n}"
   },
   {
     "id": 27,
-    "input": "Write a C program to assign a character to a character variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char letter = 'A';\n    printf(\"%c\\n\", letter);\n    return 0;\n}",
-    "description": "A C program that assigns the character 'A' to a character variable 'letter' and outputs it."
+    "input": "letter = 'A'\nprint(letter)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char letter = 'A';\n    printf(\"%c\\n\", letter);\n    return 0;\n}"
   },
   {
     "id": 28,
-    "input": "Write a C program to assign a string to a string variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    printf(\"%s\\n\", str);\n    return 0;\n}",
-    "description": "A C program that assigns the string \"Hello\" to a string variable 'str' and outputs it."
+    "input": "str = 'Hello'\nprint(str)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    printf(\"%s\\n\", str);\n    return 0;\n}"
   },
   {
     "id": 29,
-    "input": "Write a C program to declare and use multiple variables",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num1 = 10, num2 = 20;\n    printf(\"%d, %d\\n\", num1, num2);\n    return 0;\n}",
-    "description": "A C program that declares two variables 'num1' and 'num2' and outputs their values."
+    "input": "num1, num2 = 10, 20\nprint(num1, num2)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num1 = 10, num2 = 20;\n    printf(\"%d, %d\\n\", num1, num2);\n    return 0;\n}"
   },
   {
     "id": 30,
-    "input": "Write a C program to declare and use an array",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    printf(\"%d, %d, %d\\n\", arr[0], arr[1], arr[2]);\n    return 0;\n}",
-    "description": "A C program that declares an integer array 'arr' with 3 elements and outputs the values of those elements."
-  },  
+    "input": "arr = [1, 2, 3]\nprint(*arr)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    printf(\"%d, %d, %d\\n\", arr[0], arr[1], arr[2]);\n    return 0;\n}"
+  },
   {
     "id": 31,
-    "input": "Write a C program to declare and use a structure",
-    "output": "#include <stdio.h>\n\nstruct Person {\n    int age;\n    char name[20];\n};\n\nint main(void) {\n    struct Person person = {25, \"Alice\"};\n    printf(\"Name: %s, Age: %d\\n\", person.name, person.age);\n    return 0;\n}",
-    "description": "A program that declares a structure 'Person' and stores 'name' and 'age', then outputs them."
+    "input": "a = 25\nname = 'Alice'\nprint(f'Name: {name}, Age: {a}')",
+    "output": "#include <stdio.h>\n\nstruct Person {\n    int age;\n    char name[20];\n};\n\nint main(void) {\n    struct Person person = {25, \"Alice\"};\n    printf(\"Name: %s, Age: %d\\n\", person.name, person.age);\n    return 0;\n}"
   },
   {
     "id": 32,
-    "input": "Write a C program to declare and use a pointer",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int *ptr = &num;\n    printf(\"%d\\n\", *ptr);\n    return 0;\n}",
-    "description": "A program that uses a pointer 'ptr' to output the value of the variable 'num'."
+    "input": "num = 5\nptr = num\nprint(ptr)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int *ptr = &num;\n    printf(\"%d\\n\", *ptr);\n    return 0;\n}"
   },
   {
     "id": 33,
-    "input": "Write a C program to use a pointer to modify the values of an array",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    int *ptr = arr;\n    ptr[1] = 10;\n    printf(\"%d, %d, %d\\n\", arr[0], arr[1], arr[2]);\n    return 0;\n}",
-    "description": "A program that uses a pointer to modify the second element of an array and then outputs the array."
+    "input": "arr = [1, 2, 3]\narr[1] = 10\nprint(arr)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[3] = {1, 2, 3};\n    int *ptr = arr;\n    ptr[1] = 10;\n    printf(\"%d, %d, %d\\n\", arr[0], arr[1], arr[2]);\n    return 0;\n}"
   },
   {
     "id": 34,
-    "input": "Write a C program to perform dynamic memory allocation",
-    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *ptr = (int *)malloc(sizeof(int));\n    *ptr = 100;\n    printf(\"%d\\n\", *ptr);\n    free(ptr);\n    return 0;\n}",
-    "description": "A program that dynamically allocates memory using malloc, outputs the value, and then frees the memory."
+    "input": "import ctypes\nptr = ctypes.pointer(ctypes.c_int(100))\nprint(ptr.contents.value)",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *ptr = (int *)malloc(sizeof(int));\n    *ptr = 100;\n    printf(\"%d\\n\", *ptr);\n    free(ptr);\n    return 0;\n}"
   },
   {
     "id": 35,
-    "input": "Write a C program to use logical operators",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 1, b = 0;\n    if (a && b) {\n        printf(\"True\\n\");\n    } else {\n        printf(\"False\\n\");\n    }\n    return 0;\n}",
-    "description": "An example of using the logical AND operator in a conditional statement."
+    "input": "a = 1\nb = 0\nprint(a and b)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 1, b = 0;\n    if (a && b) {\n        printf(\"True\\n\");\n    } else {\n        printf(\"False\\n\");\n    }\n    return 0;\n}"
   },
   {
     "id": 36,
-    "input": "Write a C program to use comparison operators",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 5, b = 10;\n    if (a < b) {\n        printf(\"a is less than b\\n\");\n    }\n    return 0;\n}",
-    "description": "A program that uses the '<' comparison operator to evaluate a condition and output the result."
+    "input": "a = 5\nb = 10\nif a < b:\n    print('a is less than b')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 5, b = 10;\n    if (a < b) {\n        printf(\"a is less than b\\n\");\n    }\n    return 0;\n}"
   },
   {
     "id": 37,
-    "input": "Write a C program to get the length of a string",
-    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    int length = strlen(str);\n    printf(\"String length: %d\\n\", length);\n    return 0;\n}",
-    "description": "A program that uses the strlen function to get the length of a string."
+    "input": "string = 'Hello'\nprint(len(string))",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    int length = strlen(str);\n    printf(\"String length: %d\\n\", length);\n    return 0;\n}"
   },
   {
     "id": 38,
-    "input": "Write a C program to concatenate strings",
-    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[50] = \"Hello\";\n    char str2[] = \" World\";\n    strcat(str1, str2);\n    printf(\"%s\\n\", str1);\n    return 0;\n}",
-    "description": "A program that concatenates two strings using the strcat function."
+    "input": "str1 = 'Hello'\nstr2 = ' World'\nprint(str1 + str2)",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[50] = \"Hello\";\n    char str2[] = \" World\";\n    strcat(str1, str2);\n    printf(\"%s\\n\", str1);\n    return 0;\n}"
   },
   {
     "id": 39,
-    "input": "Write a C program to display an array of integers in reverse order",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int i;\n    for (i = 4; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n    return 0;\n}",
-    "description": "A program that displays the elements of an array in reverse order."
+    "input": "arr = [1, 2, 3, 4, 5]\narr.reverse()\nprint(arr)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int i;\n    for (i = 4; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n    return 0;\n}"
   },
   {
     "id": 40,
-    "input": "Write a C program to assign a value to an integer variable and output it",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 15;\n    int y = x + 5;\n    printf(\"y = %d\\n\", y);\n    return 0;\n}",
-    "description": "A program that assigns a value to an integer variable and outputs it."
+    "input": "x = 15\ny = x + 5\nprint(f'y = {y}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 15;\n    int y = x + 5;\n    printf(\"y = %d\\n\", y);\n    return 0;\n}"
   },
   {
     "id": 41,
-    "input": "Write a program in C that declares an int type variable, initializes it with a value, and outputs it",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize an int type variable\n    int num = 42;\n\n    // Output the value of the variable\n    printf(\"Integer value: %d\\n\", num);\n\n    return 0;\n}",
-    "description": "A program that declares an int type variable `num` and initializes it with the value 42, then outputs the value using the `%d` format specifier in `printf`."
+    "input": "num = 42\nprint(f'Integer value: {num}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 42;\n    printf(\"Integer value: %d\\n\", num);\n    return 0;\n}"
   },
   {
     "id": 42,
-    "input": "Write a program in C that uses float type variables to perform calculations",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize float type variables\n    float a = 5.5, b = 2.2;\n\n    // Perform addition\n    float result = a + b;\n\n    // Output the result\n    printf(\"%.2f + %.2f = %.2f\\n\", a, b, result);\n\n    return 0;\n}",
-    "description": "A program that initializes float type variables `a` and `b` with values 5.5 and 2.2, performs addition, and outputs the result. The `printf` function uses `%.2f` to display the result with two decimal places."
+    "input": "a = 5.5\nb = 2.2\nresult = a + b\nprint(f'{a} + {b} = {result}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    float a = 5.5, b = 2.2;\n    float result = a + b;\n    printf(\"%.2f + %.2f = %.2f\\n\", a, b, result);\n    return 0;\n}"
   },
   {
     "id": 43,
-    "input": "Write a program in C that declares multiple char type variables and uses them",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare multiple char type variables\n    char first = 'C';\n    char second = 'L';\n\n    // Output the values of the variables\n    printf(\"1st character: %c, 2nd character: %c\\n\", first, second);\n\n    return 0;\n}",
-    "description": "A program that declares char type variables `first` and `second`, initializes them with 'C' and 'L', and outputs them using the `%c` format specifier in `printf`."
+    "input": "first = 'C'\nsecond = 'L'\nprint(f'1st character: {first}, 2nd character: {second}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    char first = 'C';\n    char second = 'L';\n    printf(\"1st character: %c, 2nd character: %c\\n\", first, second);\n    return 0;\n}"
   },
   {
     "id": 44,
-    "input": "Write a program in C that performs arithmetic operations using int type variables",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize int type variables\n    int x = 10, y = 3;\n\n    // Perform arithmetic operations and output the results\n    printf(\"%d + %d = %d\\n\", x, y, x + y);\n    printf(\"%d - %d = %d\\n\", x, y, x - y);\n    printf(\"%d * %d = %d\\n\", x, y, x * y);\n    printf(\"%d / %d = %d\\n\", x, y, x / y);\n\n    return 0;\n}",
-    "description": "A program that declares `int` type variables `x` and `y` with values 10 and 3, respectively, and performs addition, subtraction, multiplication, and division operations, outputting the results using `%d` in `printf`. Division returns the integer quotient."
+    "input": "x = 10\ny = 3\nprint(f'{x} + {y} = {x + y}')\nprint(f'{x} - {y} = {x - y}')\nprint(f'{x} * {y} = {x * y}')\nprint(f'{x} / {y} = {x // y}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int x = 10, y = 3;\n    printf(\"%d + %d = %d\\n\", x, y, x + y);\n    printf(\"%d - %d = %d\\n\", x, y, x - y);\n    printf(\"%d * %d = %d\\n\", x, y, x * y);\n    printf(\"%d / %d = %d\\n\", x, y, x / y);\n    return 0;\n}"
   },
   {
     "id": 45,
-    "input": "Write a program in C that declares a double type variable and initializes it",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize a double type variable\n    double pi = 3.141592653589793;\n\n    // Output the value of the variable\n    printf(\"Pi: %.15f\\n\", pi);\n\n    return 0;\n}",
-    "description": "A program that declares a `double` type variable `pi` and initializes it with the value of Pi, then outputs it with 15 decimal places using `%.15f` in `printf`."
+    "input": "pi = 3.141592653589793\nprint(f'Pi: {pi:.15f}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    double pi = 3.141592653589793;\n    printf(\"Pi: %.15f\\n\", pi);\n    return 0;\n}"
   },
   {
     "id": 46,
-    "input": "Write a program in C that uses an unsigned type variable to output a non-negative value",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize an unsigned int type variable\n    unsigned int count = 500;\n\n    // Output the value of the variable\n    printf(\"Non-negative integer: %u\\n\", count);\n\n    return 0;\n}",
-    "description": "A program that declares an `unsigned int` type variable `count` with the value 500, and outputs it using the `%u` format specifier in `printf`. The `unsigned` type can only handle non-negative values."
+    "input": "count = 500\nprint(f'Non-negative integer: {count}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    unsigned int count = 500;\n    printf(\"Non-negative integer: %u\\n\", count);\n    return 0;\n}"
   },
   {
     "id": 47,
-    "input": "Write a program in C that declares a short type variable and assigns a value to it",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize a short type variable\n    short age = 25;\n\n    // Output the value of the variable\n    printf(\"Age: %d\\n\", age);\n\n    return 0;\n}",
-    "description": "A program that declares a `short` type variable `age` and initializes it with the value 25, then outputs it using `%d` in `printf`. The `short` type uses less memory than `int`."
+    "input": "age = 25\nprint(f'Age: {age}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    short age = 25;\n    printf(\"Age: %d\\n\", age);\n    return 0;\n}"
   },
   {
     "id": 48,
-    "input": "Write a program in C that declares a long type variable and assigns a value to it",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize a long type variable\n    long population = 7800000000;\n\n    // Output the value of the variable\n    printf(\"World population: %ld\\n\", population);\n\n    return 0;\n}",
-    "description": "A program that declares a `long` type variable `population` and initializes it with the world population, then outputs it using `%ld` in `printf`. The `long` type can store larger integers than `int`."
+    "input": "population = 7800000000\nprint(f'World population: {population}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    long population = 7800000000;\n    printf(\"World population: %ld\\n\", population);\n    return 0;\n}"
   },
   {
     "id": 49,
-    "input": "Write a program in C that uses a bool type variable",
-    "output": "#include <stdio.h>\n#include <stdbool.h>\n\nint main(void) {\n    // Declare and initialize a bool type variable\n    bool isEven = true;\n\n    // Output the value of the variable\n    if (isEven) {\n        printf(\"The number is even\\n\");\n    } else {\n        printf(\"The number is odd\\n\");\n    }\n\n    return 0;\n}",
-    "description": "A program that includes `stdbool.h`, declares a `bool` type variable `isEven`, and initializes it with `true`. It uses a conditional statement to output 'even' if `isEven` is true."
+    "input": "is_even = True\nif is_even:\n    print('The number is even')\nelse:\n    print('The number is odd')",
+    "output": "#include <stdio.h>\n#include <stdbool.h>\n\nint main(void) {\n    bool isEven = true;\n    if (isEven) {\n        printf(\"The number is even\\n\");\n    } else {\n        printf(\"The number is odd\\n\");\n    }\n    return 0;\n}"
   },
   {
     "id": 50,
-    "input": "Write a program in C that infers the variable type automatically",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Use auto type (this is not C but C++ style type inference)\n    int a = 10;\n    float b = 3.5;\n    \n    // Perform operations assuming inferred types\n    printf(\"Used %d and %.1f\\n\", a, b);\n    return 0;\n}",
-    "description": "A program that assigns values to `int` and `float` type variables `a` and `b` and simulates type inference. C does not have automatic type inference, unlike C++."
+    "input": "a = 10\nb = 3.5\nprint(f'Used {a} and {b}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 10;\n    float b = 3.5;\n    printf(\"Used %d and %.1f\\n\", a, b);\n    return 0;\n}"
   },
   {
     "id": 51,
-    "input": "Write a program in C to calculate the sum using an array",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize an int array\n    int numbers[] = {1, 2, 3, 4, 5};\n    int size = sizeof(numbers) / sizeof(numbers[0]);\n\n    // Calculate the sum\n    int sum = 0;\n    for (int i = 0; i < size; i++) {\n        sum += numbers[i];\n    }\n\n    // Output the result\n    printf(\"Sum of the array: %d\\n\", sum);\n\n    return 0;\n}",
-    "description": "An int array 'numbers' stores 5 integers, and the sum is calculated by adding each element using a for loop.\nThe size of the array is dynamically calculated using 'sizeof'."
+    "input": "def calculate_sum():\n    numbers = [1, 2, 3, 4, 5]\n    return sum(numbers)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare and initialize an int array\n    int numbers[] = {1, 2, 3, 4, 5};\n    int size = sizeof(numbers) / sizeof(numbers[0]);\n\n    // Calculate the sum\n    int sum = 0;\n    for (int i = 0; i < size; i++) {\n        sum += numbers[i];\n    }\n\n    // Output the result\n    printf(\"Sum of the array: %d\\n\", sum);\n\n    return 0;\n}"
   },
   {
     "id": 52,
-    "input": "Write a C program using structures to manage student information",
-    "output": "#include <stdio.h>\n#include <string.h>\n\nstruct Student {\n    int id;\n    char name[50];\n    float grade;\n};\n\nint main(void) {\n    // Declare and initialize a structure variable\n    struct Student student1;\n    student1.id = 101;\n    strcpy(student1.name, \"Alice\");\n    student1.grade = 95.5;\n\n    // Output the results\n    printf(\"Student ID: %d\\n\", student1.id);\n    printf(\"Name: %s\\n\", student1.name);\n    printf(\"Grade: %.2f\\n\", student1.grade);\n\n    return 0;\n}",
-    "description": "Defines a structure 'Student' to store student ID, name, and grade. 'strcpy' is used to assign a string to the structure's member, and the values are then printed."
+    "input": "class Student:\n    def __init__(self, id, name, grade):\n        self.id = id\n        self.name = name\n        self.grade = grade\n\nstudent1 = Student(101, 'Alice', 95.5)\nprint(student1.id, student1.name, student1.grade)",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nstruct Student {\n    int id;\n    char name[50];\n    float grade;\n};\n\nint main(void) {\n    // Declare and initialize a structure variable\n    struct Student student1;\n    student1.id = 101;\n    strcpy(student1.name, \"Alice\");\n    student1.grade = 95.5;\n\n    // Output the results\n    printf(\"Student ID: %d\\n\", student1.id);\n    printf(\"Name: %s\\n\", student1.name);\n    printf(\"Grade: %.2f\\n\", student1.grade);\n\n    return 0;\n}"
   },
   {
     "id": 53,
-    "input": "Write a C program using pointers to change the value of a variable",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare an int variable\n    int x = 10;\n    int *ptr = &x;\n\n    // Change the value using the pointer\n    *ptr = 20;\n\n    // Output the result\n    printf(\"New value of x: %d\\n\", x);\n\n    return 0;\n}",
-    "description": "The address of the int variable 'x' is assigned to the pointer 'ptr'. The pointer is used to change the value of 'x', and the new value is printed."
+    "input": "def modify_value():\n    x = 10\n    x = 20\n    return x\nprint(modify_value())",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare an int variable\n    int x = 10;\n    int *ptr = &x;\n\n    // Change the value using the pointer\n    *ptr = 20;\n\n    // Output the result\n    printf(\"New value of x: %d\\n\", x);\n\n    return 0;\n}"
   },
   {
     "id": 54,
-    "input": "Write a C program using arrays and pointers for data manipulation",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare an int array\n    int arr[] = {10, 20, 30, 40, 50};\n    int *ptr = arr; // Assign the array's starting address to the pointer\n\n    // Output array values using the pointer\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, *(ptr + i));\n    }\n\n    return 0;\n}",
-    "description": "This program manipulates an int array using a pointer.\nThe array's starting address is assigned to the pointer, and each element is printed using the pointer."
+    "input": "def print_array():\n    arr = [10, 20, 30, 40, 50]\n    for i in range(len(arr)):\n        print(f'arr[{i}] = {arr[i]}')\nprint_array()",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    // Declare an int array\n    int arr[] = {10, 20, 30, 40, 50};\n    int *ptr = arr; // Assign the array's starting address to the pointer\n\n    // Output array values using the pointer\n    for (int i = 0; i < 5; i++) {\n        printf(\"arr[%d] = %d\\n\", i, *(ptr + i));\n    }\n\n    return 0;\n}"
   },
   {
     "id": 55,
-    "input": "Write a C program using an enum",
-    "output": "#include <stdio.h>\n\nenum Day {SUN, MON, TUE, WED, THU, FRI, SAT};\n\nint main(void) {\n    // Declare an enum variable\n    enum Day today = WED;\n\n    // Output the result\n    printf(\"Today is the %d-th day of the week\\n\", today);\n\n    return 0;\n}",
-    "description": "Defines an enum 'Day' to represent the days of the week.\nThe variable 'today' is assigned a value, and the corresponding value (0-based) is printed."
+    "input": "from enum import Enum\n\nclass Day(Enum):\n    SUN = 0\n    MON = 1\n    TUE = 2\n    WED = 3\n    THU = 4\n    FRI = 5\n    SAT = 6\n\ntoday = Day.WED\nprint(f'Today is {today.name}, the {today.value}-th day of the week')",
+    "output": "#include <stdio.h>\n\nenum Day {SUN, MON, TUE, WED, THU, FRI, SAT};\n\nint main(void) {\n    // Declare an enum variable\n    enum Day today = WED;\n\n    // Output the result\n    printf(\"Today is the %d-th day of the week\\n\", today);\n\n    return 0;\n}"
   },
   {
     "id": 56,
-    "input": "Write a C program using pointers to manipulate variables inside a function",
-    "output": "#include <stdio.h>\n\nvoid increment(int *value) {\n    *value += 1;\n}\n\nint main(void) {\n    int num = 10;\n\n    // Call function to change value\n    increment(&num);\n\n    // Output the result\n    printf(\"Incremented value: %d\\n\", num);\n\n    return 0;\n}",
-    "description": "The function 'increment' uses a pointer to modify the argument's value.\nIn the main function, the address of 'num' is passed, and 'increment' increases the value."
+    "input": "def increment(value):\n    value[0] += 1\n\nnum = [10]\nincrement(num)\nprint(f'Incremented value: {num[0]}')",
+    "output": "#include <stdio.h>\n\nvoid increment(int *value) {\n    *value += 1;\n}\n\nint main(void) {\n    int num = 10;\n    increment(&num);\n    printf(\"Incremented value: %d\\n\", num);\n    return 0;\n}"
   },
   {
     "id": 57,
-    "input": "Write a C program to handle strings",
-    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[50] = \"Hello, \";\n    char str2[] = \"World!\";\n\n    // Concatenate strings\n    strcat(str1, str2);\n\n    // Output the result\n    printf(\"Concatenated string: %s\\n\", str1);\n\n    return 0;\n}",
-    "description": "Using a char array to store strings, 'strcat' is used to concatenate two strings.\nThe concatenated string is then printed."
+    "input": "str1 = 'Hello, '\nstr2 = 'World!'\nstr1 += str2\nprint(f'Concatenated string: {str1}')",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str1[50] = \"Hello, \";\n    char str2[] = \"World!\";\n    strcat(str1, str2);\n    printf(\"Concatenated string: %s\\n\", str1);\n    return 0;\n}"
   },
   {
     "id": 58,
-    "input": "Write a C program using dynamic memory allocation",
-    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *arr;\n    int size = 5;\n\n    // Allocate dynamic memory\n    arr = (int *)malloc(size * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n\n    // Assign values to the array\n    for (int i = 0; i < size; i++) {\n        arr[i] = i + 1;\n    }\n\n    // Output the result\n    for (int i = 0; i < size; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n\n    // Free memory\n    free(arr);\n\n    return 0;\n}",
-    "description": "The 'malloc' function is used to dynamically allocate memory for an int array.\nValues are assigned to the array, and the memory is freed at the end."
+    "input": "import ctypes\nsize = 5\narr = (ctypes.c_int * size)()\nfor i in range(size):\n    arr[i] = i + 1\nfor i in range(size):\n    print(f'arr[{i}] = {arr[i]}')",
+    "output": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void) {\n    int *arr;\n    int size = 5;\n    arr = (int *)malloc(size * sizeof(int));\n    if (arr == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return 1;\n    }\n    for (int i = 0; i < size; i++) {\n        arr[i] = i + 1;\n    }\n    for (int i = 0; i < size; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    free(arr);\n    return 0;\n}"
   },
   {
     "id": 59,
-    "input": "Write a C program to write a string to a file",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    FILE *file = fopen(\"output.txt\", \"w\");\n\n    if (file == NULL) {\n        printf(\"Failed to open file\\n\");\n        return 1;\n    }\n\n    // Write string to the file\n    fprintf(file, \"Hello, World!\\n\");\n\n    // Close the file\n    fclose(file);\n\n    printf(\"Written to the file\\n\");\n\n    return 0;\n}",
-    "description": "Using 'fopen' to open a file and 'fprintf' to write a string to it.\nThe file is closed using 'fclose' at the end."
+    "input": "with open('output.txt', 'w') as file:\n    file.write('Hello, World!\\n')\nprint('Written to the file')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    FILE *file = fopen(\"output.txt\", \"w\");\n    if (file == NULL) {\n        printf(\"Failed to open file\\n\");\n        return 1;\n    }\n    fprintf(file, \"Hello, World!\\n\");\n    fclose(file);\n    printf(\"Written to the file\\n\");\n    return 0;\n}"
   },
   {
     "id": 60,
-    "input": "Write a C program to calculate factorial using recursion",
-    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n\nint main(void) {\n    int num = 5;\n\n    // Calculate factorial using recursion\n    printf(\"%d factorial is: %d\\n\", num, factorial(num));\n\n    return 0;\n}",
-    "description": "Defines a recursive function 'factorial' to calculate the factorial of a number.\nThe function returns 1 if the argument is 0, otherwise it calls itself to calculate the factorial."
+    "input": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n\nnum = 5\nprint(f'{num} factorial is: {factorial(num)}')",
+    "output": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}\n\nint main(void) {\n    int num = 5;\n    printf(\"%d factorial is: %d\\n\", num, factorial(num));\n    return 0;\n}"
   },
   {
     "id": 61,
-    "input": "Write a program in C to print numbers from 1 to 10 using a for loop.",
+    "input": "for i in range(1, 11):\n    print(i)",
     "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 10; i++) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}",
     "description": "This program prints numbers from 1 to 10 using a for loop.\nThe loop variable i is incremented from 1 to 10, and the value is printed on each iteration."
   },
   {
     "id": 62,
-    "input": "Write a program in C to print only even numbers from 1 to 10 using a for loop.",
+    "input": "for i in range(1, 11):\n    if i % 2 == 0:\n        print(i)",
     "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}",
     "description": "This program prints only the even numbers between 1 and 10.\nAn if statement is used to check if the number is even before printing it."
   },
   {
     "id": 63,
-    "input": "Write a program in C to print elements of an array using a for loop.",
+    "input": "arr = [5, 10, 15, 20, 25]\nfor i in arr:\n    print(f'arr[{arr.index(i)}] = {i}')",
     "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = 0; i < size; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    return 0;\n}",
     "description": "This program prints the elements of an array.\nThe size of the array is calculated dynamically, and a for loop is used to display each element."
   },
   {
     "id": 64,
-    "input": "Write a program in C to calculate the sum of numbers from 1 to 10 using a for loop.",
+    "input": "sum = 0\nfor i in range(1, 11):\n    sum += i\nprint(f'Sum from 1 to 10: {sum}')",
     "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n\n    for (int i = 1; i <= 10; i++) {\n        sum += i;\n    }\n\n    printf(\"Sum from 1 to 10: %d\\n\", sum);\n    return 0;\n}",
     "description": "This program calculates the sum of numbers from 1 to 10.\nThe for loop adds each number to the sum, and the total is printed at the end."
   },
   {
     "id": 65,
-    "input": "Write a program in C to print the multiplication table (times table) using a for loop.",
+    "input": "for i in range(1, 10):\n    for j in range(1, 10):\n        print(f'{i} x {j} = {i * j}', end='\\t')\n    print()",
     "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 9; i++) {\n        for (int j = 1; j <= 9; j++) {\n            printf(\"%d x %d = %d\\t\", i, j, i * j);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
     "description": "This program uses nested for loops to print the multiplication table.\nThe outer loop controls the multiplier, while the inner loop controls the multiplicand and prints the result."
   },
   {
     "id": 66,
-    "input": "Write a program in C to print each character of a string using a for loop.",
+    "input": "str = 'Hello, World!'\nfor char in str:\n    print(char)",
     "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello, World!\";\n    int length = strlen(str);\n\n    for (int i = 0; i < length; i++) {\n        printf(\"%c\\n\", str[i]);\n    }\n    return 0;\n}",
     "description": "This program prints each character of a string one by one using a for loop.\nThe length of the string is obtained using the strlen function, and each character is printed using a loop."
   },
   {
     "id": 67,
-    "input": "Write a program in C to calculate the factorial of a number using a for loop.",
+    "input": "num = 5\nfactorial = 1\nfor i in range(1, num + 1):\n    factorial *= i\nprint(f'Factorial of {num} is: {factorial}')",
     "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n\n    for (int i = 1; i <= num; i++) {\n        factorial *= i;\n    }\n\n    printf(\"Factorial of %d is: %d\\n\", num, factorial);\n    return 0;\n}",
     "description": "This program calculates the factorial of a given number (e.g., 5) using a for loop.\nThe loop variable is incremented from 1 to the specified number, and the product is calculated."
   },
   {
     "id": 68,
-    "input": "Write a program in C to print the elements of an array in reverse order using a for loop.",
+    "input": "arr = [1, 2, 3, 4, 5]\nfor i in reversed(arr):\n    print(i)",
     "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = size - 1; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n    return 0;\n}",
     "description": "This program prints the elements of an array in reverse order using a for loop.\nThe loop variable starts from the last index and decrements to print each element."
   },
   {
     "id": 69,
-    "input": "Write a program in C to calculate powers of 2 (2^n) using a for loop.",
+    "input": "power = 1\nfor i in range(10):\n    print(f'2^{i} = {power}')\n    power *= 2",
     "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n\n    for (int i = 0; i < 10; i++) {\n        printf(\"2^%d = %d\\n\", i, power);\n        power *= 2;\n    }\n    return 0;\n}",
     "description": "This program calculates powers of 2 using a for loop and prints the results for the first 10 powers.\nThe variable 'power' is repeatedly multiplied by 2, and the result is printed at each step."
   },
   {
     "id": 70,
-    "input": "Write a program in C to draw a triangle using asterisks (*) with a for loop.",
+    "input": "rows = 5\nfor i in range(1, rows + 1):\n    print('*' * i)",
     "output": "#include <stdio.h>\n\nint main(void) {\n    int rows = 5;\n\n    for (int i = 1; i <= rows; i++) {\n        for (int j = 1; j <= i; j++) {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
     "description": "This program uses nested for loops to draw a triangle made of asterisks (*).\nThe outer loop controls the number of rows, and the inner loop increases the number of asterisks in each row."
   },
   {
     "id": 71,
-    "input": "Write a program in C that uses a while loop to output numbers from 1 to 10.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    while (i <= 10) {\n        printf(\"%d\\n\", i);\n        i++;\n    }\n    return 0;\n}",
-    "description": "This program uses a while loop to output the numbers from 1 to 10 in order.\nThe loop variable i is initialized and the loop continues while the condition is met, printing the numbers."
+    "input": "for i in range(1, 11):\n    print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 10; i++) {\n        printf(\"%d\\n\", i);\n    }\n    return 0;\n}"
   },
   {
     "id": 72,
-    "input": "Write a program in C that uses a while loop to output only even numbers from 1 to 10.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    while (i <= 10) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n        i++;\n    }\n    return 0;\n}",
-    "description": "This program uses a while loop to output only the even numbers from 1 to 10.\nThe condition checks if the number is even and only prints those that satisfy the condition."
+    "input": "for i in range(1, 11):\n    if i % 2 == 0:\n        print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d\\n\", i);\n        }\n    }\n    return 0;\n}"
   },
   {
     "id": 73,
-    "input": "Write a program in C that uses a while loop to output the elements of an array.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = 0;\n\n    while (i < size) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n        i++;\n    }\n    return 0;\n}",
-    "description": "This program outputs the elements of an array using a while loop.\nThe loop increments the array index and processes each element."
+    "input": "arr = [5, 10, 15, 20, 25]\nfor i in arr:\n    print(f'arr[{arr.index(i)}] = {i}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = 0; i < size; i++) {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n    }\n    return 0;\n}"
   },
   {
     "id": 74,
-    "input": "Write a program in C that uses a while loop to calculate the sum of numbers from 1 to 10.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n    int i = 1;\n\n    while (i <= 10) {\n        sum += i;\n        i++;\n    }\n\n    printf(\"The sum of numbers from 1 to 10: %d\\n\", sum);\n    return 0;\n}",
-    "description": "This program calculates the sum of numbers from 1 to 10 using a while loop.\nIn each loop iteration, it adds the current number to the sum."
+    "input": "sum = 0\nfor i in range(1, 11):\n    sum += i\nprint(f'The sum of numbers from 1 to 10: {sum}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n\n    for (int i = 1; i <= 10; i++) {\n        sum += i;\n    }\n\n    printf(\"The sum of numbers from 1 to 10: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 75,
-    "input": "Write a program in C that uses a while loop to output the elements of an array in reverse order.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = size - 1;\n\n    while (i >= 0) {\n        printf(\"%d\\n\", arr[i]);\n        i--;\n    }\n    return 0;\n}",
-    "description": "This program outputs the elements of an array in reverse order using a while loop.\nThe loop variable decreases from the last index of the array to the first."
+    "input": "arr = [1, 2, 3, 4, 5]\nfor i in arr[::-1]:\n    print(i)",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {1, 2, 3, 4, 5};\n    int size = sizeof(arr) / sizeof(arr[0]);\n\n    for (int i = size - 1; i >= 0; i--) {\n        printf(\"%d\\n\", arr[i]);\n    }\n    return 0;\n}"
   },
   {
     "id": 76,
-    "input": "Write a program in C that uses a while loop to calculate the sum of numbers until a negative number is entered.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    int sum = 0;\n\n    printf(\"Enter a number (negative number to end): \\n\");\n    scanf(\"%d\", &num);\n\n    while (num >= 0) {\n        sum += num;\n        printf(\"Enter a number: \\n\");\n        scanf(\"%d\", &num);\n    }\n\n    printf(\"Sum: %d\\n\", sum);\n    return 0;\n}",
-    "description": "This program calculates the sum of numbers entered by the user until a negative number is entered.\nThe user input is used as the condition for the while loop."
+    "input": "sum = 0\nwhile True:\n    num = int(input('Enter a number (negative number to end): '))\n    if num < 0:\n        break\n    sum += num\nprint(f'Sum: {sum}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, sum = 0;\n\n    printf(\"Enter a number (negative number to end): \");\n    scanf(\"%d\", &num);\n\n    while (num >= 0) {\n        sum += num;\n        printf(\"Enter a number: \");\n        scanf(\"%d\", &num);\n    }\n\n    printf(\"Sum: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 77,
-    "input": "Write a program in C that uses a while loop to calculate the factorial of a specified number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n    int i = 1;\n\n    while (i <= num) {\n        factorial *= i;\n        i++;\n    }\n\n    printf(\"The factorial of %d is: %d\\n\", num, factorial);\n    return 0;\n}",
-    "description": "This program calculates the factorial of a specified number (e.g., 5) using a while loop.\nIt multiplies the current number by the factorial value in each iteration."
+    "input": "num = 5\nfactorial = 1\nfor i in range(1, num + 1):\n    factorial *= i\nprint(f'The factorial of {num} is: {factorial}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n\n    for (int i = 1; i <= num; i++) {\n        factorial *= i;\n    }\n\n    printf(\"The factorial of %d is: %d\\n\", num, factorial);\n    return 0;\n}"
   },
   {
     "id": 78,
-    "input": "Write a program in C that uses a while loop to output each character of a string.",
-    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello, World!\";\n    int i = 0;\n\n    while (str[i] != '\\0') {\n        printf(\"%c\\n\", str[i]);\n        i++;\n    }\n    return 0;\n}",
-    "description": "This program outputs each character of a string one by one using a while loop.\nIt continues the loop until it encounters the null terminator '\\0'."
+    "input": "str = 'Hello, World!'\nfor char in str:\n    print(char)",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello, World!\";\n\n    for (int i = 0; str[i] != '\\0'; i++) {\n        printf(\"%c\\n\", str[i]);\n    }\n    return 0;\n}"
   },
   {
     "id": 79,
-    "input": "Write a program in C that uses a while loop to calculate the Fibonacci sequence.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 1;\n    int next, count = 0, limit = 10;\n\n    printf(\"Fibonacci sequence: \\n\");\n    while (count < limit) {\n        printf(\"%d\\n\", a);\n        next = a + b;\n        a = b;\n        b = next;\n        count++;\n    }\n    return 0;\n}",
-    "description": "This program calculates the Fibonacci sequence using a while loop and outputs the first 10 terms.\nTwo variables are updated in each iteration to generate the sequence."
+    "input": "a, b = 0, 1\nlimit = 10\nfor _ in range(limit):\n    print(a)\n    a, b = b, a + b",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 1;\n    int limit = 10;\n\n    for (int count = 0; count < limit; count++) {\n        printf(\"%d\\n\", a);\n        int next = a + b;\n        a = b;\n        b = next;\n    }\n    return 0;\n}"
   },
   {
     "id": 80,
-    "input": "Write a program in C that uses a while loop to calculate powers of 2.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n    int count = 0;\n\n    while (count < 10) {\n        printf(\"2^%d = %d\\n\", count, power);\n        power *= 2;\n        count++;\n    }\n    return 0;\n}",
-    "description": "This program calculates powers of 2 using a while loop and outputs the first 10 values.\nIt multiplies the current value by 2 in each loop iteration."
+    "input": "power = 1\nfor count in range(10):\n    print(f'2^{count} = {power}')\n    power *= 2",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n\n    for (int count = 0; count < 10; count++) {\n        printf(\"2^%d = %d\\n\", count, power);\n        power *= 2;\n    }\n    return 0;\n}"
   },
   {
     "id": 81,
-    "input": "Write a program in C using a do-while loop to print numbers from 1 to 10.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    do {\n        printf(\"%d\\n\", i);\n        i++;\n    } while (i <= 10);\n\n    return 0;\n}",
-    "description": "This program uses a do-while loop to print numbers from 1 to 10 in order.\nThe loop executes at least once and continues as long as the condition is met."
+    "input": "while i <= 10:\n    print(i)\n    i += 1",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int i = 1;\n\n    do {\n        printf(\"%d\\n\", i);\n        i++;\n    } while (i <= 10);\n\n    return 0;\n}"
   },
   {
     "id": 82,
-    "input": "Write a program in C using a do-while loop to calculate the sum of numbers from 1 to 10.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n    int i = 1;\n\n    do {\n        sum += i;\n        i++;\n    } while (i <= 10);\n\n    printf(\"Sum from 1 to 10: %d\\n\", sum);\n    return 0;\n}",
-    "description": "This program uses a do-while loop to calculate the sum of numbers from 1 to 10.\nThe loop executes at least once, and continues if the condition is met."
+    "input": "sum = 0\nfor i in range(1, 11):\n    sum += i\nprint(f'Sum from 1 to 10: {sum}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n    int i = 1;\n\n    do {\n        sum += i;\n        i++;\n    } while (i <= 10);\n\n    printf(\"Sum from 1 to 10: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 83,
-    "input": "Write a program in C using a do-while loop to sum numbers until the user enters 0.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    int sum = 0;\n\n    do {\n        printf(\"Please enter a number (0 to stop): \");\n        scanf(\"%d\", &num);\n        sum += num;\n    } while (num != 0);\n\n    printf(\"Sum: %d\\n\", sum);\n    return 0;\n}",
-    "description": "This program sums numbers entered by the user until 0 is entered.\nThe do-while loop ensures that the user is prompted at least once."
+    "input": "num = int(input('Please enter a number (0 to stop): '))\nsum = 0\nwhile num != 0:\n    sum += num\n    num = int(input('Please enter a number (0 to stop): '))\nprint(f'Sum: {sum}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    int sum = 0;\n\n    do {\n        printf(\"Please enter a number (0 to stop): \");\n        scanf(\"%d\", &num);\n        sum += num;\n    } while (num != 0);\n\n    printf(\"Sum: %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 84,
-    "input": "Write a program in C using a do-while loop to print a string in reverse order.",
-    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    int len = strlen(str);\n    int i = len - 1;\n\n    do {\n        printf(\"%c\", str[i]);\n        i--;\n    } while (i >= 0);\n\n    printf(\"\\n\");\n    return 0;\n}",
-    "description": "This program uses a do-while loop to print a string in reverse order.\nThe loop starts from the last character of the string and works backwards."
+    "input": "str = 'Hello'\nfor i in range(len(str) - 1, -1, -1):\n    print(str[i], end='')",
+    "output": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char str[] = \"Hello\";\n    int len = strlen(str);\n    int i = len - 1;\n\n    do {\n        printf(\"%c\", str[i]);\n        i--;\n    } while (i >= 0);\n\n    printf(\"\\n\");\n    return 0;\n}"
   },
   {
     "id": 85,
-    "input": "Write a program in C using a do-while loop to calculate the factorial of a number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n    int i = 1;\n\n    do {\n        factorial *= i;\n        i++;\n    } while (i <= num);\n\n    printf(\"%d factorial is: %d\\n\", num, factorial);\n    return 0;\n}",
-    "description": "This program uses a do-while loop to calculate the factorial of a number (e.g., 5).\nThe calculation is executed at least once."
+    "input": "num = 5\nfactorial = 1\nfor i in range(1, num + 1):\n    factorial *= i\nprint(f'{num} factorial is: {factorial}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num = 5;\n    int factorial = 1;\n    int i = 1;\n\n    do {\n        factorial *= i;\n        i++;\n    } while (i <= num);\n\n    printf(\"%d factorial is: %d\\n\", num, factorial);\n    return 0;\n}"
   },
   {
     "id": 86,
-    "input": "Write a program in C using a do-while loop to repeatedly ask for input until the user enters an even number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    do {\n        printf(\"Please enter an even number: \");\n        scanf(\"%d\", &num);\n    } while (num % 2 != 0);\n\n    printf(\"Entered even number: %d\\n\", num);\n    return 0;\n}",
-    "description": "This program repeatedly prompts the user to enter an even number using a do-while loop.\nThe loop ensures that at least one input is received."
+    "input": "num = int(input('Please enter an even number: '))\nwhile num % 2 != 0:\n    num = int(input('Please enter an even number: '))\nprint(f'Entered even number: {num}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    do {\n        printf(\"Please enter an even number: \");\n        scanf(\"%d\", &num);\n    } while (num % 2 != 0);\n\n    printf(\"Entered even number: %d\\n\", num);\n    return 0;\n}"
   },
   {
     "id": 87,
-    "input": "Write a program in C using a do-while loop to print the first 10 terms of the Fibonacci sequence.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 1;\n    int next, count = 0;\n\n    printf(\"Fibonacci sequence: \\n\");\n    do {\n        printf(\"%d\\n\", a);\n        next = a + b;\n        a = b;\n        b = next;\n        count++;\n    } while (count < 10);\n\n    return 0;\n}",
-    "description": "This program uses a do-while loop to print the first 10 terms of the Fibonacci sequence.\nThe loop runs until 10 terms are printed."
+    "input": "a, b = 0, 1\nfor _ in range(10):\n    print(a)\n    a, b = b, a + b",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 1;\n    int next, count = 0;\n\n    printf(\"Fibonacci sequence: \\n\");\n    do {\n        printf(\"%d\\n\", a);\n        next = a + b;\n        a = b;\n        b = next;\n        count++;\n    } while (count < 10);\n\n    return 0;\n}"
   },
   {
     "id": 88,
-    "input": "Write a program in C using a do-while loop to calculate and print the first 10 powers of 2.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n    int count = 0;\n\n    do {\n        printf(\"2^%d = %d\\n\", count, power);\n        power *= 2;\n        count++;\n    } while (count < 10);\n\n    return 0;\n}",
-    "description": "This program uses a do-while loop to calculate and print the first 10 powers of 2.\nThe loop ensures that the calculation is performed at least once."
+    "input": "power = 1\nfor count in range(10):\n    print(f'2^{count} = {power}')\n    power *= 2",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int power = 1;\n    int count = 0;\n\n    do {\n        printf(\"2^%d = %d\\n\", count, power);\n        power *= 2;\n        count++;\n    } while (count < 10);\n\n    return 0;\n}"
   },
   {
     "id": 89,
-    "input": "Write a program in C using a do-while loop to print the elements of an array.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = 0;\n\n    do {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n        i++;\n    } while (i < size);\n\n    return 0;\n}",
-    "description": "This program uses a do-while loop to print the elements of an array.\nThe loop ensures that each element is processed at least once."
+    "input": "arr = [5, 10, 15, 20, 25]\nfor i in range(len(arr)):\n    print(f'arr[{i}] = {arr[i]}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {5, 10, 15, 20, 25};\n    int size = sizeof(arr) / sizeof(arr[0]);\n    int i = 0;\n\n    do {\n        printf(\"arr[%d] = %d\\n\", i, arr[i]);\n        i++;\n    } while (i < size);\n\n    return 0;\n}"
   },
   {
     "id": 90,
-    "input": "Write a program in C using a do-while loop to repeatedly ask for input until the user enters a positive number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    do {\n        printf(\"Please enter a positive number: \");\n        scanf(\"%d\", &num);\n    } while (num <= 0);\n\n    printf(\"Entered positive number: %d\\n\", num);\n    return 0;\n}",
-    "description": "This program repeatedly asks for input until the user enters a positive number.\nThe do-while loop ensures that input is taken at least once."
+    "input": "num = int(input('Please enter a positive number: '))\nwhile num <= 0:\n    num = int(input('Please enter a positive number: '))\nprint(f'Entered positive number: {num}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n\n    do {\n        printf(\"Please enter a positive number: \");\n        scanf(\"%d\", &num);\n    } while (num <= 0);\n\n    printf(\"Entered positive number: %d\\n\", num);\n    return 0;\n}"
   },
   {
     "id": 91,
-    "input": "Write a program in C language that uses an if statement to determine whether a number is even or odd.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n\n    if (num % 2 == 0) {\n        printf(\"%d is even.\\n\", num);\n    } else {\n        printf(\"%d is odd.\\n\", num);\n    }\n\n    return 0;\n}",
-    "description": "This program determines whether the number entered by the user is even or odd. The `if` statement checks for the even condition, and if not, the `else` block is executed."
+    "input": "num = int(input('Please enter a number: '))\nsquare = num ** 2\nprint(f'The square of {num} is {square}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Please enter a number: \");\n    scanf(\"%d\", &num);\n    printf(\"The square of %d is %d\\n\", num, num * num);\n    return 0;\n}"
   },
   {
     "id": 92,
-    "input": "Write a program in C language that uses an if statement to determine whether a number is positive, negative, or zero.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0) {\n        printf(\"%d is positive.\\n\", num);\n    } else if (num < 0) {\n        printf(\"%d is negative.\\n\", num);\n    } else {\n        printf(\"The number is zero.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the integer entered by the user is positive, negative, or zero. It uses the `if-else if-else` statement to check the conditions."
+    "input": "num = int(input('Enter a number: '))\nif num % 2 == 0:\n    print('Even')\nelse:\n    print('Odd')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    if (num % 2 == 0) {\n        printf(\"Even\\n\");\n    } else {\n        printf(\"Odd\\n\");\n    }\n    return 0;\n}"
   },
   {
     "id": 93,
-    "input": "Write a program in C language that uses an if statement to find the largest of three numbers.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n    printf(\"Enter three numbers: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a >= b && a >= c) {\n        printf(\"The largest number is: %d\\n\", a);\n    } else if (b >= a && b >= c) {\n        printf(\"The largest number is: %d\\n\", b);\n    } else {\n        printf(\"The largest number is: %d\\n\", c);\n    }\n\n    return 0;\n}",
-    "description": "This program compares three input values and prints the largest one. It uses `if-else if` statements to evaluate the conditions."
+    "input": "num = int(input('Enter a number: '))\nif num > 0:\n    print('Positive')\nelif num < 0:\n    print('Negative')\nelse:\n    print('Zero')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    if (num > 0) {\n        printf(\"Positive\\n\");\n    } else if (num < 0) {\n        printf(\"Negative\\n\");\n    } else {\n        printf(\"Zero\\n\");\n    }\n    return 0;\n}"
   },
   {
     "id": 94,
-    "input": "Write a program in C language that uses an if statement to determine whether a person is an adult based on their age.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int age;\n    printf(\"Enter your age: \");\n    scanf(\"%d\", &age);\n\n    if (age >= 18) {\n        printf(\"You are an adult.\\n\");\n    } else {\n        printf(\"You are a minor.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the entered age is 18 or older (adult), or below 18 (minor). It uses an `if-else` statement."
+    "input": "num = int(input('Enter a number: '))\nif num % 3 == 0 and num % 5 == 0:\n    print('FizzBuzz')\nelif num % 3 == 0:\n    print('Fizz')\nelif num % 5 == 0:\n    print('Buzz')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    if (num % 3 == 0 && num % 5 == 0) {\n        printf(\"FizzBuzz\\n\");\n    } else if (num % 3 == 0) {\n        printf(\"Fizz\\n\");\n    } else if (num % 5 == 0) {\n        printf(\"Buzz\\n\");\n    }\n    return 0;\n}"
   },
   {
     "id": 95,
-    "input": "Write a program in C language that uses an if statement to determine whether a number is a positive even number or a negative even number.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int num;\n    printf(\"Enter an integer: \");\n    scanf(\"%d\", &num);\n\n    if (num > 0 && num % 2 == 0) {\n        printf(\"%d is a positive even number.\\n\", num);\n    } else if (num < 0 && num % 2 == 0) {\n        printf(\"%d is a negative even number.\\n\", num);\n    } else {\n        printf(\"%d is not an even number.\\n\", num);\n    }\n\n    return 0;\n}",
-    "description": "This program determines whether the entered number is a positive or negative even number. It uses `&&` to combine multiple conditions."
+    "input": "num = int(input('Enter a number: '))\nresult = 1\nfor i in range(1, num + 1):\n    result *= i\nprint(f'The factorial of {num} is {result}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, result = 1;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    for (int i = 1; i <= num; i++) {\n        result *= i;\n    }\n    printf(\"The factorial of %d is %d\\n\", num, result);\n    return 0;\n}"
   },
   {
     "id": 96,
-    "input": "Write a program in C language that uses an if statement to determine whether a year is a leap year.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int year;\n    printf(\"Enter a year: \");\n    scanf(\"%d\", &year);\n\n    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {\n        printf(\"%d is a leap year.\\n\", year);\n    } else {\n        printf(\"%d is not a leap year.\\n\", year);\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the entered year is a leap year. The leap year condition is evaluated using the `if` statement: divisible by 4 but not 100, or divisible by 400."
+    "input": "num = int(input('Enter a number: '))\nsum = 0\nfor i in range(1, num + 1):\n    sum += i\nprint(f'The sum of numbers from 1 to {num} is {sum}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int num, sum = 0;\n    printf(\"Enter a number: \");\n    scanf(\"%d\", &num);\n    for (int i = 1; i <= num; i++) {\n        sum += i;\n    }\n    printf(\"The sum of numbers from 1 to %d is %d\\n\", num, sum);\n    return 0;\n}"
   },
   {
     "id": 97,
-    "input": "Write a program in C language that uses an if statement to determine the state based on the temperature entered.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    float temp;\n    printf(\"Enter the temperature (in Celsius): \");\n    scanf(\"%f\", &temp);\n\n    if (temp < 0) {\n        printf(\"Below freezing.\\n\");\n    } else if (temp <= 30) {\n        printf(\"Comfortable temperature.\\n\");\n    } else {\n        printf(\"Hot.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program takes the temperature input and prints a message based on the value: 'Below freezing', 'Comfortable temperature', or 'Hot'. It uses `if-else if-else` statements."
+    "input": "nums = [int(x) for x in input('Enter numbers separated by space: ').split()]\nprint(f'The sum of the numbers is {sum(nums)}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int nums[100], count = 0, num, sum = 0;\n    printf(\"Enter numbers separated by space: \");\n    while (scanf(\"%d\", &num) != EOF) {\n        nums[count++] = num;\n        sum += num;\n    }\n    printf(\"The sum of the numbers is %d\\n\", sum);\n    return 0;\n}"
   },
   {
     "id": 98,
-    "input": "Write a program in C language that uses an if statement to determine whether three side lengths form a valid triangle.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int a, b, c;\n    printf(\"Enter the three sides of a triangle: \");\n    scanf(\"%d %d %d\", &a, &b, &c);\n\n    if (a + b > c && a + c > b && b + c > a) {\n        printf(\"The triangle is valid.\\n\");\n    } else {\n        printf(\"The triangle is not valid.\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the entered three sides form a valid triangle. The condition for a valid triangle is that the sum of any two sides must be greater than the third side."
+    "input": "nums = [int(x) for x in input('Enter numbers separated by space: ').split()]\nprint(f'The maximum number is {max(nums)}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int nums[100], count = 0, num, max;\n    printf(\"Enter numbers separated by space: \");\n    while (scanf(\"%d\", &num) != EOF) {\n        nums[count++] = num;\n    }\n    max = nums[0];\n    for (int i = 1; i < count; i++) {\n        if (nums[i] > max) {\n            max = nums[i];\n        }\n    }\n    printf(\"The maximum number is %d\\n\", max);\n    return 0;\n}"
   },
   {
     "id": 99,
-    "input": "Write a program in C language that uses an if statement to grade a student's score.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    int score;\n    printf(\"Enter the score: \");\n    scanf(\"%d\", &score);\n\n    if (score >= 90) {\n        printf(\"Grade: A\\n\");\n    } else if (score >= 80) {\n        printf(\"Grade: B\\n\");\n    } else if (score >= 70) {\n        printf(\"Grade: C\\n\");\n    } else if (score >= 60) {\n        printf(\"Grade: D\\n\");\n    } else {\n        printf(\"Grade: F\\n\");\n    }\n\n    return 0;\n}",
-    "description": "This program grades a student's score based on the range it falls into. It uses `if-else if-else` statements to evaluate the conditions."
+    "input": "nums = [int(x) for x in input('Enter numbers separated by space: ').split()]\nprint(f'The average of the numbers is {sum(nums) / len(nums)}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int nums[100], count = 0, num;\n    float average, sum = 0;\n    printf(\"Enter numbers separated by space: \");\n    while (scanf(\"%d\", &num) != EOF) {\n        nums[count++] = num;\n        sum += num;\n    }\n    average = sum / count;\n    printf(\"The average of the numbers is %.2f\\n\", average);\n    return 0;\n}"
   },
   {
     "id": 100,
-    "input": "Write a program in C language that uses an if statement to check if a character is a vowel.",
-    "output": "#include <stdio.h>\n\nint main(void) {\n    char ch;\n    printf(\"Enter a character: \");\n    scanf(\" %c\", &ch);\n\n    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||\n        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {\n        printf(\"%c is a vowel.\\n\", ch);\n    } else {\n        printf(\"%c is not a vowel.\\n\", ch);\n    }\n\n    return 0;\n}",
-    "description": "This program checks if the entered character is a vowel. It uses the `||` operator to check multiple conditions."
+    "input": "nums = [int(x) for x in input('Enter numbers separated by space: ').split()]\nprint(f'The minimum number is {min(nums)}')",
+    "output": "#include <stdio.h>\n\nint main(void) {\n    int nums[100], count = 0, num, min;\n    printf(\"Enter numbers separated by space: \");\n    while (scanf(\"%d\", &num) != EOF) {\n        nums[count++] = num;\n    }\n    min = nums[0];\n    for (int i = 1; i < count; i++) {\n        if (nums[i] < min) {\n            min = nums[i];\n        }\n    }\n    printf(\"The minimum number is %d\\n\", min);\n    return 0;\n}"
   },
   {
     "id": 101,
