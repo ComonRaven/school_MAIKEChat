@@ -1,9 +1,10 @@
 import eel
-import sys
+#import sys
 from pathlib import Path
 # pythonディレクトリをモジュールパスに追加
-sys.path.append(str(Path(__file__).parent / "python"))
-import testAI
+#sys.path.append(str(Path(__file__).parent / "python"))
+#import testAI
+import functions
 
 eel.init("web")
 eel.start("AI.html", mode="default")
