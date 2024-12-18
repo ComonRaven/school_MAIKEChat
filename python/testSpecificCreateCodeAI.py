@@ -1,23 +1,38 @@
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-# Load pre-trained GPT-2 Medium model and tokenizer
-model_name = "gpt2-medium"
-model = GPT2LMHeadModel.from_pretrained(model_name)
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+def generate_code(parsed_prompt):
+    # トークナイザーのロード
+    codegen_tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-2B-mono", legacy=False)
 
-# Encode input text (your prompt)
-input_text = "Write a function to add two numbers in C language."
+    # モデルのロード
+    codegen_model = AutoModelForCausalLM.from_pretrained("Salesforce/codegen-2B-mono")
+    codegen_model = torch.quantization.quantize_dynamic(
+        codegen_model,  # モデル本体
+        {torch.nn.Linear},  # 量子化対象のレイヤー
+        dtype=torch.qint8  # 量子化後のデータ型
+    ).to(device)
 
-inputs = tokenizer(input_text, return_tensors="pt")
+    # 推論実行
+    inputs = codegen_tokenizer(parsed_prompt, return_tensors="pt", padding=True, truncation=True)
+    input_ids = inputs.input_ids.to(device)
+    attention_mask = inputs.attention_mask.to(device)
+    
+    outputs = codegen_model.generate(
+        input_ids=input_ids,
+        attention_mask=attention_mask,
+        max_new_tokens=128,
+        num_beams=4,
+        pad_token_id=codegen_tokenizer.eos_token_id
+    )
+    
+    result = codegen_tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-# Ensure attention mask and pad_token_id are set
-inputs['attention_mask'] = inputs['attention_mask'] if 'attention_mask' in inputs else None
-model.config.pad_token_id = model.config.eos_token_id  # Set pad_token_id to eos_token_id
+    # メモリ解放
+    del codegen_model
+    torch.cuda.empty_cache()
 
-# Generate output text
-outputs = model.generate(inputs['input_ids'], max_length=50, num_return_sequences=1, attention_mask=inputs['attention_mask'])
-
-# Decode the generated output
-generated_code = tokenizer.decode(outputs[0], skip_special_tokens=True)
-
-print(generated_code)
+    return result
+  
+generate_code("Please write a function to calculate the factorial of a number to use python.")
