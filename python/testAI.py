@@ -35,24 +35,9 @@ def generate_code(parsed_prompt):
     torch.cuda.empty_cache()
     return result
 
-# ステップ 3: PolyCoderでコード補完・最適化
-def optimize_code(generated_code):
-    polycoder_tokenizer = AutoTokenizer.from_pretrained("NinedayWang/PolyCoder-160M")
-    polycoder_model = AutoModelForCausalLM.from_pretrained("NinedayWang/PolyCoder-160M").to(device)
-    result = generate_text(polycoder_model, polycoder_tokenizer, generated_code)
-    del polycoder_model  # メモリ解放
-    torch.cuda.empty_cache()
-    return result
-
-# ステップ 4: PythonコードをC言語へ変換
-def python_to_c(python_code):
-    c_code = python_code.replace("def ", "void ").replace(":", " {")
-    c_code = c_code.replace("return ", "return; // ").replace("print(", "printf(")
-    return f"#include <stdio.h>\n\n{c_code}\n}}"
-
 # メイン処理
 if __name__ == "__main__":
-    prompt = "Please write a function to calculate the factorial of a number to use C language."
+    prompt = "Please write a function to calculate the factorial of a number to use python."
     print("Original Prompt:", prompt)
 
     # ステップ 1: プロンプト解析

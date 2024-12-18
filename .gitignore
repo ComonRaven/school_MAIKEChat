@@ -13,5 +13,7 @@ logs/*
 logs
 results/*
 results
+python/*
+python
 generation_config.json
 training_args.bin
