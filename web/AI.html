@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <title>MAIkeChat</title>
-    <script src="eel.js" defer></script>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="Inoutput.js" defer></script>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAIkeChat</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script src="eel.js" defer></script>
+  <script src="Inoutput.js" defer></script>
+  <style>
+    .main-content {
+      display: block;
+    }
+    .execute-screen {
+      display: none;
+    }
+    .header {
+      background-color: #333;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button onclick="showChat()">chat</button>
+    <button onclick="showExecute()">execute</button>
+  </div>
+
+  <div class="main-content" id="chatScreen">
     <p>rogo</p>
-    <input type="button" class="newchat" value="newchat" onclick="">
+    <input type="button" class="newchat" value="newchat">
     <br>
-    <textarea id="question" placeholder="" class="question"></textarea>
-    <textarea id="output" placeholder="" class="output"></textarea>
+    <textarea id="question" placeholder="質問を入力" class="question"></textarea>
+    <textarea id="output" placeholder="出力結果" class="output"></textarea>
     <p class="space">
       <textarea id="into-text" placeholder="入力" class="into"></textarea>
     </p>
-    <button id="send-btn" size="10">送信</button>
-  </body>
+    <button id="send-btn">送信</button>
+  </div>
+
+  <div class="execute-screen" id="executeScreen">
+    <h1>Execute Screen</h1>
+    <p>ここで処理が実行されます。</p>
+  </div>
+</body>
 </html>
