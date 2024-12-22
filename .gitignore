@@ -2,6 +2,7 @@
 *.log
 *.pyc
 *.pyo
+__pycache__/
 
 # ディレクトリ
 node_modules/
