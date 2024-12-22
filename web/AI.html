@@ -6,7 +6,8 @@
   <title>MAIkeChat</title>
   <link rel="stylesheet" href="style.css" type="text/css">
   <script src="eel.js" defer></script>
-  <script src="AI.js" defer></script>
+  <script src="js/Chat.js" defer></script>
+  <script src="js/paiza.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -26,9 +27,23 @@
     <button id="send-btn">送信</button>
   </div>
 
-  <div class="execute-screen" id="executeScreen">
+  <div class="main-content" id="executeScreen">
     <h1>Execute Screen</h1>
-    <p>ここで処理が実行されます。</p>
+    <p>言語を選択してください。</p>
+    <select id="language-select" onchange="updateIframe()">
+      <option value="C">C</option>
+      <option value="C#">C#</option>
+      <option value="C++">C++</option>
+      <option value="Python3">Python3</option>
+      <option value="Python2">Python2</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Java">Java</option>
+      <option value="Ruby">Ruby</option>
+      <option value="PHP">PHP</option>
+    </select>
+    <div id="iframe-container">
+      <iframe id="language-iframe" width="100%" height="500" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+    </div>
   </div>
 </body>
 </html>
