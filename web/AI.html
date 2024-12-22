@@ -6,21 +6,7 @@
   <title>MAIkeChat</title>
   <link rel="stylesheet" href="style.css" type="text/css">
   <script src="eel.js" defer></script>
-  <script src="Inoutput.js" defer></script>
-  <style>
-    .main-content {
-      display: block;
-    }
-    .execute-screen {
-      display: none;
-    }
-    .header {
-      background-color: #333;
-      color: white;
-      padding: 1em;
-      text-align: center;
-    }
-  </style>
+  <script src="AI.js" defer></script>
 </head>
 <body>
   <div class="header">
@@ -32,7 +18,7 @@
     <p>rogo</p>
     <input type="button" class="newchat" value="newchat">
     <br>
-    <textarea id="question" placeholder="質問を入力" class="question"></textarea>
+    <textarea id="question" placeholder="質問を入力" class="question" readonly></textarea>
     <textarea id="output" placeholder="出力結果" class="output"></textarea>
     <p class="space">
       <textarea id="into-text" placeholder="入力" class="into"></textarea>
