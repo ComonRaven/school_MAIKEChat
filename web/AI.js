@@ -12,3 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+function showChat() {
+  document.getElementById('chatScreen').style.display = 'block';
+  document.getElementById('executeScreen').style.display = 'none';
+}
+
+function showExecute() {
+  document.getElementById('chatScreen').style.display = 'none';
+  document.getElementById('executeScreen').style.display = 'block';
+}
