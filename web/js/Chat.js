@@ -22,3 +22,5 @@ function showExecute() {
   document.getElementById('chatScreen').style.display = 'none';
   document.getElementById('executeScreen').style.display = 'block';
 }
+
+document.onload = showChat();
