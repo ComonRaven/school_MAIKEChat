@@ -33,3 +33,13 @@ iframe {
   padding: 1em;
   text-align: center;
 }
+#language-select-container {
+  display: flex;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+#language-select {
+  margin-block-start: auto;
+  margin-block-end: auto;
+  margin-left: 2vw;
+}
