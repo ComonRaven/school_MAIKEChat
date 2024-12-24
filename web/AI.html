@@ -8,6 +8,11 @@
   <script src="eel.js" defer></script>
   <script src="js/Chat.js" defer></script>
   <script src="js/paiza.js" defer></script>
+  <!-- BotUIの追加 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.min.js"></script>
 </head>
 <body>
   <div class="header">
@@ -16,17 +21,16 @@
   </div>
 
   <div class="main-content" id="chatScreen">
-    <p>rogo</p>
     <input type="button" class="newchat" value="newchat">
-    <br>
-    <textarea id="question" placeholder="質問を入力" class="question" readonly></textarea>
-    <textarea id="output" placeholder="出力結果" class="output"></textarea>
-    <p class="space">
+    <!-- BotUI表示領域 -->
+    <div id="botui-app" class="botUI-container">
+      <bot-ui></bot-ui>
+    </div>
+    <div class="space">
       <textarea id="into-text" placeholder="入力" class="into"></textarea>
-    </p>
+    </div>
     <button id="send-btn">送信</button>
   </div>
-
   <div class="main-content" id="executeScreen">
     <div id="language-select-container">
       <p>実行する言語を選択してください。</p>
