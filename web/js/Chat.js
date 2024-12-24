@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let text = document.getElementById('into-text');
     let question = text.value;
 
+    if (question === '') {
+      return;
+    }
+
     // 質問内容を表示
     botui.message.add({
       content: `質問: ${question}`
