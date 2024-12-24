@@ -8,7 +8,7 @@ client = OpenAI(api_key="sk-proj-53fH7vQpN0pOfe-V-I_p2Pmb7kJjowNdaY2l44RHA1vlchw
 
 @eel.expose
 def get_generated_code(text):
-  response = client.chat.completions.create(model="gpt-4o-mini",
+  response = client.chat.completions.create(model="gpt-4o-mini", # モデルの指定 40-mini or 40
   messages=[
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": text},
