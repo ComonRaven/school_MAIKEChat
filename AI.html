@@ -1,16 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="ja">
   <head>
     <title>MAIkeChat</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="Inoutput.js" defer></script>
   </head>
   <body>
     <p>rogo</p>
     <input type="button" class="newchat" value="newchat" onclick="">
     <br>
+    <textarea id="question" placeholder="" class="question"></textarea>
     <textarea id="output" placeholder="" class="output"></textarea>
     <p class="space">
-    <textarea id="input" placeholder="入力" class="input"></textarea>
-    <input type="submit" value="送信" size="10" onclick="">
+      <textarea id="into-text" placeholder="入力" class="into"></textarea>
     </p>
+    <button id="send-btn" size="10">送信</button>
   </body>
 </html>
