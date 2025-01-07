@@ -11,13 +11,17 @@
   <!-- BotUIの追加 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.min.js" defer></script>
 </head>
 <body>
   <div class="header">
     <button onclick="showChat()">Chat</button>
     <button onclick="showExecute()">Web Editor</button>
+    <button class="login" onclick="login()">login</button>
+  </div>
+  <div class="overlay" id="overlay">
+    <div class="popup" id="popup"></div>
   </div>
 
   <div class="main-content" id="chatScreen">
