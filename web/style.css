@@ -26,15 +26,19 @@ iframe {
 }
 
 .into {
+  border-radius: 15px;    /*角を丸める*/
   width: 80%;              /* 幅を調整 */
   height: 40px;            /* 高さを調整 */
   margin-right: 10px;      /* ボタンと間隔を空ける */
 }
 
 #send-btn {
+  border-radius: 30%;
   padding: 10px 20px;      /* ボタンのパディング調整 */
   font-size: 16px;         /* ボタンのフォントサイズ調整 */
-  cursor: pointer;        /* ボタンのカーソルをポインターに */
+  cursor: pointer;         /* ボタンのカーソルをポインターに */
+  width: 40px;             /* アイコンの横幅を20px*/
+  height: 40px;            /* アイコンの横幅を20px*/
 }
 .main-content {
   display: block;
