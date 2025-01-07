@@ -1,7 +1,7 @@
 iframe {
-  width: 100%;
-  height: 600px;
-  border: none;
+    width: 100%;
+    height: 600px;
+    border: none;
 }
 .newchat{
     color:#ff0000;
@@ -11,104 +11,104 @@ iframe {
     height: 200px;
 }
 .output {
-  width: 100%;
-  height: 200px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  white-space: pre-wrap; /* 改行とスペースを保持 */
-  overflow-y: scroll;
-  background-color: #f9f9f9;
-  font-family: 'Courier New', monospace;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap; /* 改行とスペースを保持 */
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+    font-family: 'Courier New', monospace;
 }
 .space {
-  display: flex;           /* 横並びにする */
-  align-items: center;     /* 垂直方向に中央揃え */
+    display: flex;           /* 横並びにする */
+    align-items: center;     /* 垂直方向に中央揃え */
 }
 
 .into {
-  width: 80%;              /* 幅を調整 */
-  height: 40px;            /* 高さを調整 */
-  margin-right: 10px;      /* ボタンと間隔を空ける */
+    width: 80%;              /* 幅を調整 */
+    height: 40px;            /* 高さを調整 */
+    margin-right: 10px;      /* ボタンと間隔を空ける */
 }
 
 #send-btn {
-  padding: 10px 20px;      /* ボタンのパディング調整 */
-  font-size: 16px;         /* ボタンのフォントサイズ調整 */
-  cursor: pointer;        /* ボタンのカーソルをポインターに */
+    padding: 10px 20px;      /* ボタンのパディング調整 */
+    font-size: 16px;         /* ボタンのフォントサイズ調整 */
+    cursor: pointer;        /* ボタンのカーソルをポインターに */
 }
 .main-content {
-  display: block;
+    display: block;
 }
 .execute-screen {
-  display: none;
+    display: none;
 }
 .header {
-  display: flex;
-  background-color: #333;
-  color: white;
-  padding: 1em;
-  text-align: center;
-  button {
-    margin: 10px;
-  }
-  .login {
-    margin-left: auto;
-  }
+    display: flex;
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    button {
+        margin: 10px;
+    }
+    .login {
+        margin-left: auto;
+    }
 }
 #language-select-container {
-  display: flex;
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+    display: flex;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 #language-select {
-  margin-block-start: auto;
-  margin-block-end: auto;
-  margin-left: 2vw;
+    margin-block-start: auto;
+    margin-block-end: auto;
+    margin-left: 2vw;
 }
 .botUI-container {
-  width: 100%;
-  height: 65vh;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #f0f0f0;
-  overflow-y: auto;
-  white-space: pre-wrap; /* 改行やスペースをそのまま表示 */
-  font-family: 'Courier New', monospace;
+    width: 100%;
+    height: 65vh;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    white-space: pre-wrap; /* 改行やスペースをそのまま表示 */
+    font-family: 'Courier New', monospace;
 }
 /* コードブロックの基本スタイル */
 pre code {
-  display: block;
-  background-color: #2d2d2d; /* ダークモードの背景色 */
-  color: #f8f8f2; /* 白文字 */
-  padding: 15px;
-  border-radius: 5px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-  line-height: 1.6;
-  overflow-x: auto; /* 横スクロールを追加 */
-  white-space: pre-wrap; /* 改行とインデントを保持 */
-  margin-bottom: 20px;
+    display: block;
+    background-color: #2d2d2d; /* ダークモードの背景色 */
+    color: #f8f8f2; /* 白文字 */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto; /* 横スクロールを追加 */
+    white-space: pre-wrap; /* 改行とインデントを保持 */
+    margin-bottom: 20px;
 }
 
 /* C言語のハイライト */
 pre code.c {
-  color: white; /* C言語のキーワードの色（赤） */
+    color: white; /* C言語のキーワードの色（赤） */
 }
 
 /* bashコマンドのハイライト */
 pre code.bash {
-  color: white; /* bashの文字列やコメントの色（黄色） */
+    color: white; /* bashの文字列やコメントの色（黄色） */
 }
 
 .inline-code {
-  background-color: #2d2d2d; /* ダークモードの背景色 */
-  color: #f8f8f2; /* 白文字 */
-  padding: 2px 4px;
-  border-radius: 2px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 12px;
-  line-height: 1.6;
-  overflow-x: auto; /* 横スクロールを追加 */
-  white-space: pre-wrap; /* 改行とインデントを保持 */
-  margin-bottom: 20px;
+    background-color: #2d2d2d; /* ダークモードの背景色 */
+    color: #f8f8f2; /* 白文字 */
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-x: auto; /* 横スクロールを追加 */
+    white-space: pre-wrap; /* 改行とインデントを保持 */
+    margin-bottom: 20px;
 }
