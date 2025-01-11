@@ -1,6 +1,6 @@
 import eel
 import mysql.connector
-from passlib.hash import bcrypt
+import bcrypt  # passlibからbcryptは不要です
 
 # MySQLデータベース接続
 def connect_db():
@@ -16,34 +16,51 @@ def connect_db():
 def signin(username, password):
     conn = connect_db()
     cursor = conn.cursor()
+    
+    # ユーザーを取得
     cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
     user = cursor.fetchone()
-    
-    if user and bcrypt.verify(password, user[2]):  # ハッシュ化されたパスワードを検証
-        return {"success": True}
+
+    if user:
+        # パスワードの検証
+        stored_password = user[3]  # データベースに保存されたハッシュ
+        if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):  # パスワード照合
+            return {"success": True}
+        else:
+            return {"success": False, "message": "Incorrect username or password"}
     else:
         return {"success": False, "message": "Incorrect username or password"}
 
 # サインアップ
 @eel.expose
-def signup(username, password, password_confirm):
+def signup(username, email, password, password_confirm):
     if password != password_confirm:
         return {"success": False, "message": "Passwords do not match"}
 
     # パスワードをハッシュ化
-    hashed_password = bcrypt.hash(password)
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-    # ユーザー名の重複確認
+    # データベース接続
     conn = connect_db()
     cursor = conn.cursor()
+
+    # ユーザー名の重複確認
     cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
     user = cursor.fetchone()
-
     if user:
         return {"success": False, "message": "The username is already in use"}
 
+    # メールアドレスの重複確認
+    cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
+    email_check = cursor.fetchone()
+    if email_check:
+        return {"success": False, "message": "The email address is already in use"}
+
     # 新規ユーザー登録
-    cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, hashed_password))
+    cursor.execute(
+        "INSERT INTO users (username, email, password) VALUES (%s, %s, %s)",
+        (username, email, hashed_password),
+    )
     conn.commit()
-    
-    return {"success": True}
+
+    return {"success": True, "message": "User registered successfully"}
