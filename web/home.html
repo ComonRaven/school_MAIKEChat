@@ -31,6 +31,7 @@
                             <label for="password">Password</label>
                             <input id="login-password" type="password" required />
                         </div>
+                        <a href="javascript:void(0);" id="forgot-password-link">Forgot password?</a>
                     </fieldset>
                     <button type="submit" class="btn-login">Login</button>
                 </form>
@@ -59,9 +60,34 @@
                             <label for="password_confirm">Confirm Password</label>
                             <input id="signup-password-confirm" type="password" required />
                         </div>
+                        <div class="input-block">
+                            <label for="secretWord">Secret Word</label>
+                            <input id="signup-secretWord" type="text" required />
+                        </div>
                     </fieldset>
                     <button type="submit" class="btn-signup">Sign Up</button>
                 </form>
+            </div>
+            <!-- パスワードリセットのポップアップ -->
+            <div id="forgot-password-popup" class="popup">
+                <div class="popup-content form-wrapper.is-active">
+                    <h2>パスワードをリセット</h2>
+                    <form id="forgot-password-form">
+                        <fieldset class="passreset">
+                            <legend class="passreset-legend">Password Reset</legend>
+                            <div class="input-block passreset">
+                                <label for="username">ユーザー名</label>
+                                <input type="text" id="forgot-username" name="username" required>
+                            </div>
+                            <div class="input-block passreset">
+                                <label for="secretWord">Secret Word</label>
+                                <input type="text" id="forgot-secretWord" name="secretWord" required>
+                            </div>
+                        </fieldset>
+                        <button type="submit" id="nextStep">次へ</button>
+                        <button type="button" id="close-popup">閉じる</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
