@@ -326,7 +326,7 @@ form fieldset.passreset {
     transition: all .3s ease-out;
 }
 
-#forgot-password-form legend.passreset-legend {
+#forgot-password-form legend.passreset-legend, #change-password-form legend.passreset-legend {
     position: absolute;
     overflow: hidden;
     width: 1px;
@@ -354,7 +354,7 @@ form fieldset.passreset {
 }
 
 /* ボタン */
-button[type='submit']#nextStep {
+button[type='submit']#nextStep, button[type='submit']#change-password-btn {
     display: block;
     min-width: 120px;
     margin: 30px auto 10px;
@@ -367,7 +367,7 @@ button[type='submit']#nextStep {
     transition: all .3s ease-out;
 }
 
-button[type='button']#close-popup {
+button[type='button']#close-popup, button[type='button']#close-popup-change-password {
     display: block;
     min-width: 120px;
     margin: 10px auto;
