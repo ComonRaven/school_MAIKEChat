@@ -3,6 +3,7 @@ document.getElementById("signin-form").onsubmit = async function(event) {
     
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
+    console.log(username, password);
 
     const result = await eel.signin(username, password)();
     if (result.success) {
@@ -16,10 +17,11 @@ document.getElementById("signup-form").onsubmit = async function(event) {
     event.preventDefault();
     
     const username = document.getElementById("signup-username").value;
+    const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
     const passwordConfirm = document.getElementById("signup-password-confirm").value;
 
-    const result = await eel.signup(username, password, passwordConfirm)();
+    const result = await eel.signup(username, email, password, passwordConfirm)();
     if (result.success) {
         alert("Sign up successful.");
     } else {
