@@ -89,6 +89,27 @@
                     </form>
                 </div>
             </div>
+            <!-- 実際にパスワードを変えるポップアップ-->
+            <div id="change-password-popup" class="popup">
+                <div class="popup-content form-wrapper.is-active">
+                    <h2>パスワードを変更</h2>
+                    <form id="change-password-form">
+                        <fieldset class="passreset">
+                            <legend class="passreset-legend">Password Change</legend>
+                            <div class="input-block passreset">
+                                <label for="newpassword">新しいパスワード</label>
+                                <input type="password" id="newpassword" name="newpassword" required>
+                            </div>
+                            <div class="input-block passreset">
+                                <label for="newpassword_confirm">パスワードの確認</label>
+                                <input type="password" id="newpassword_confirm" name="newpassword_confirm" required>
+                            </div>
+                        </fieldset>
+                        <button type="submit" id="change-password-btn">変更</button>
+                        <button type="button" id="close-popup-change-password">閉じる</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 </body>

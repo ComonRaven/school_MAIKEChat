@@ -87,3 +87,32 @@ def verify_secret_word(username, secretWord):
         return {"success": True, "message": "Secret Word validated"}
     else:
         return {"success": False, "message": "Invalid Secret Word"}
+
+# パスワードを変更する(newPassword, newPasswordConfirmが同じ場合のみ)  
+@eel.expose
+def change_password(newPassword, newPasswordConfirm, username):
+    # パスワードが一致するか確認
+    if newPassword != newPasswordConfirm:
+        return {"success": False, "message": "Passwords do not match"}
+
+    # パスワードをハッシュ化
+    hashed_password = bcrypt.hashpw(newPassword.encode('utf-8'), bcrypt.gensalt())
+
+    # データベース接続
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    # パスワードを更新するクエリ
+    cursor.execute("UPDATE users SET password = %s WHERE username = %s", (hashed_password, username))
+
+    # 更新されたユーザーが存在するか確認
+    cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+    user = cursor.fetchone()
+
+    if not user:
+        return {"success": False, "message": "User not found"}
+
+    # コミットして変更を保存
+    conn.commit()
+
+    return {"success": True, "message": "Password changed successfully"}

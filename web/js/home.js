@@ -75,6 +75,11 @@ document.getElementById("forgot-password-link").addEventListener("click", functi
 // ポップアップを閉じる
 document.getElementById("close-popup").addEventListener("click", function() {
     document.getElementById("forgot-password-popup").style.display = "none"; // ポップアップを非表示
+    resetFormFields('forgot-password-form'); // フォームの入力内容をリセット
+});
+document.getElementById("close-popup-change-password").addEventListener("click", function() {
+    document.getElementById("change-password-popup").style.display = "none"; // ポップアップを非表示
+    resetFormFields('change-password-form'); // フォームの入力内容をリセット
 });
 
 // パスワードリセットフォームの送信
@@ -90,6 +95,20 @@ document.getElementById("forgot-password-form").onsubmit = async function(event)
         resetFormFields('forgot-password-form');
         alert("Secret Word validated. You can now reset your password.");
         document.getElementById("forgot-password-popup").style.display = "none";
+        document.getElementById("change-password-popup").style.display = "block";
+        document.getElementById("change-password-form").onsubmit = async function(event) {
+            event.preventDefault();
+            const newPassword = document.getElementById("newpassword").value;
+            const newPasswordConfirm = document.getElementById("newpassword_confirm").value;
+            const result = await eel.change_password(newPassword, newPasswordConfirm, username)();
+            if (result.success) {
+                resetFormFields('change-password-form');
+                alert("Password changed successfully.");
+                document.getElementById("change-password-popup").style.display = "none";
+            } else {
+                alert(result.message); // エラーメッセージの表示
+            }
+        }
     } else {
         alert(result.message); // エラーメッセージの表示
     }
