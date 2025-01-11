@@ -24,6 +24,11 @@ document.getElementById("signup-form").onsubmit = async function(event) {
     const result = await eel.signup(username, email, password, passwordConfirm)();
     if (result.success) {
         alert("Sign up successful.");
+        // 現在アクティブなフォームを探して非アクティブにする
+        document.getElementById('signup-form').parentElement.classList.remove('is-active')
+        
+        // サインインフォームをアクティブにする
+        document.getElementById('signin-form').parentElement.classList.add('is-active')
     } else {
         alert(result.message); // エラーメッセージの表示
     }
@@ -43,7 +48,3 @@ switchers.forEach(item => {
         this.parentElement.classList.add('is-active');
     });
 });
-
-function move() {
-    window.location.href = "./AI.html";
-}
