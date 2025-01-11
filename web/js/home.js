@@ -29,6 +29,10 @@ document.getElementById("signup-form").onsubmit = async function(event) {
         
         // サインインフォームをアクティブにする
         document.getElementById('signin-form').parentElement.classList.add('is-active')
+        
+        // フォーム内容をリセット
+        resetFormFields('signup-form');
+        resetFormFields('signin-form');
     } else {
         alert(result.message); // エラーメッセージの表示
     }
@@ -46,5 +50,17 @@ switchers.forEach(item => {
 
         // 現在のフォームをアクティブに
         this.parentElement.classList.add('is-active');
+
+        // フォームの入力内容をリセット
+        resetFormFields('signup-form');
+        resetFormFields('signin-form');
     });
 });
+
+// フォームの入力内容をリセットする関数
+function resetFormFields(formId) {
+    const form = document.getElementById(formId);
+    if (form) {
+        form.reset(); // フォームの内容をリセット
+    }
+}
