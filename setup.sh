@@ -11,23 +11,36 @@ echo "sqlの初期設定を完了しました。"
 
 # MySQLの設定
 DB_NAME="MAIke"
-DB_USER="root"
+DB_USER="MAIkeUser"
 DB_PASSWORD="3@WaM2cEZDpu4SR*KUAQt"
 
-# テーブル作成のSQL文
-SQL="
+# ユーザーの存在確認
+USER_EXISTS=$(sudo mysql -u root -e "SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = '${DB_USER}' AND host = 'localhost');" -sN)
+
+# ユーザーが存在しない場合にのみ作成
+if [ "$USER_EXISTS" -eq 0 ]; then
+    echo "User does not exist. Creating user ${DB_USER}..."
+    sudo mysql -u root -e "
+        CREATE USER '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASSWORD}';
+        GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'localhost';
+        FLUSH PRIVILEGES;
+    "
+else
+    echo "User ${DB_USER} already exists."
+fi
+
+# データベース作成とテーブル作成
+sudo mysql -u root -e "
 CREATE DATABASE IF NOT EXISTS ${DB_NAME};
 USE ${DB_NAME};
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    secretWord VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 "
-
-# MySQLコマンドを実行
-echo "Creating database and users table..."
-mysql -u ${DB_USER} -p${DB_PASSWORD} -e "${SQL}"
 
 echo "Database and table created successfully!"
