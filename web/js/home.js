@@ -1,8 +1,8 @@
 document.getElementById("signin-form").onsubmit = async function(event) {
     event.preventDefault();
     
-    const username = document.getElementById("signin-username").value;
-    const password = document.getElementById("signin-password").value;
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
 
     const result = await eel.signin(username, password)();
     if (result.success) {
@@ -26,6 +26,21 @@ document.getElementById("signup-form").onsubmit = async function(event) {
         alert(result.message); // エラーメッセージの表示
     }
 };
+
+
+// Switcher ボタンを取得
+const switchers = [...document.querySelectorAll('.switcher')];
+
+// 各スイッチャーにクリックイベントを設定
+switchers.forEach(item => {
+    item.addEventListener('click', function () {
+        // 他のフォームを非アクティブに
+        switchers.forEach(switcher => switcher.parentElement.classList.remove('is-active'));
+
+        // 現在のフォームをアクティブに
+        this.parentElement.classList.add('is-active');
+    });
+});
 
 function move() {
     window.location.href = "./AI.html";
