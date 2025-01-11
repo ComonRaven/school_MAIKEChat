@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAIkeChat</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="css/AI.css" type="text/css">
     <script src="eel.js" defer></script>
     <script src="js/Chat.js" defer></script>
     <script src="js/paiza.js" defer></script>
+    <script src="js/settingPanel.js" defer></script>
     <!-- BotUIの追加 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css">
@@ -18,10 +19,14 @@
     <div class="header">
         <button onclick="showChat()">Chat</button>
         <button onclick="showExecute()">Web Editor</button>
-        <img class="setting" src="image/setting.png" />
+        <img class="setting" src="image/setting.png" onclick="showSettingPopup()"/>
     </div>
     <div class="overlay" id="overlay">
-        <div class="popup" id="popup"></div>
+        <div class="popup" id="popup">
+            <h2>settingPanel</h2>
+            <button class="close" onclick="closeSettingPopup()">閉じる</button>
+            <button class="logout" onclick="logout()">ログアウト</button>
+        </div>
     </div>
 
     <div class="main-content" id="chatScreen">

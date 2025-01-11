@@ -1,0 +1,11 @@
+/* 全体のスタイル設定 */
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* 背景色を設定 */
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/eel.js" defer></script>
+    <script src="js/home.js" defer></script>
+    <link rel="stylesheet" href="css/home.css" type="text/css">
+    <title>ログインページ</title>
+</head>
+<body>
+    <h1>ログインページ</h1>
+    <div class="logo">
+        <img src="https://picsum.photos/200" />
+    </div>
+
+    <div>
+        <button class="signup">Sign Up</button>
+        <button class="signin">Sign In</button>
+    </div>
+
+    <!-- サインインフォーム -->
+    <form id="signin-form">
+        <label for="username">ユーザー名:</label><br>
+        <input type="text" id="signin-username" required><br>
+
+        <label for="password">パスワード:</label><br>
+        <input type="password" id="signin-password" required><br><br>
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <hr>
+
+    <!-- サインアップフォーム -->
+    <form id="signup-form">
+        <label for="username">ユーザー名:</label><br>
+        <input type="text" id="signup-username" required /><br>
+
+        <label for="password">パスワード:</label><br>
+        <input type="password" id="signup-password" required /><br><br>
+
+        <label for="password_confirm">パスワード確認:</label><br>
+        <input type="password" id="signup-password-confirm" required /><br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <button onclick="move()">移動</button>
+</body>
+</html>
