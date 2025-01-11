@@ -20,8 +20,9 @@ document.getElementById("signup-form").onsubmit = async function(event) {
     const email = document.getElementById("signup-email").value;
     const password = document.getElementById("signup-password").value;
     const passwordConfirm = document.getElementById("signup-password-confirm").value;
+    const secretWord = document.getElementById("signup-secretWord").value;
 
-    const result = await eel.signup(username, email, password, passwordConfirm)();
+    const result = await eel.signup(username, email, password, passwordConfirm, secretWord)();
     if (result.success) {
         alert("Sign up successful.");
         // 現在アクティブなフォームを探して非アクティブにする
@@ -64,3 +65,32 @@ function resetFormFields(formId) {
         form.reset(); // フォームの内容をリセット
     }
 }
+
+/* パスワードリセットのポップアップ */
+// ポップアップを表示する関数
+document.getElementById("forgot-password-link").addEventListener("click", function() {
+    document.getElementById("forgot-password-popup").style.display = "block"; // ポップアップを表示
+});
+
+// ポップアップを閉じる
+document.getElementById("close-popup").addEventListener("click", function() {
+    document.getElementById("forgot-password-popup").style.display = "none"; // ポップアップを非表示
+});
+
+// パスワードリセットフォームの送信
+document.getElementById("forgot-password-form").onsubmit = async function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("forgot-username").value;
+    const secretWord = document.getElementById("forgot-secretWord").value;
+
+    const result = await eel.verify_secret_word(username, secretWord)(); // サーバーサイドで確認
+
+    if (result.success) {
+        resetFormFields('forgot-password-form');
+        alert("Secret Word validated. You can now reset your password.");
+        document.getElementById("forgot-password-popup").style.display = "none";
+    } else {
+        alert(result.message); // エラーメッセージの表示
+    }
+};
