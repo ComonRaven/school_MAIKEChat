@@ -3,10 +3,10 @@ document.getElementById("signin-form").onsubmit = async function(event) {
     
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
-    console.log(username, password);
 
     const result = await eel.signin(username, password)();
     if (result.success) {
+        localStorage.setItem("session_id", result.session_id); // ローカルストレージにセッションIDを保存
         window.location.href = "AI.html"; // ログイン成功後のリダイレクト
     } else {
         alert(result.message); // エラーメッセージの表示
