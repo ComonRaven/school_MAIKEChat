@@ -71,6 +71,10 @@ iframe {
         width: 40px;
         height: 40px;
     }
+    .history {
+        width: 40px;
+        height: 40px;
+    }
 }
 #language-select-container {
     display: flex;
