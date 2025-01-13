@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --theme-color: black;
+}
+
 body {
     margin: 0;
     font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
@@ -275,14 +279,14 @@ body {
 
 .btn-login {
     color: #fbfdff;
-    background: #a7e245;
+    background: var(--theme-color);
     transform: translateX(-30%);
 }
 
 .btn-signup {
-    color: #a7e245;
+    color: var(--theme-color);
     background: #fbfdff;
-    box-shadow: inset 0 0 0 2px #a7e245;
+    box-shadow: inset 0 0 0 2px var(--theme-color);
     transform: translateX(30%);
 }
 
@@ -326,6 +330,13 @@ form fieldset.passreset {
     transition: all .3s ease-out;
 }
 
+form fieldset a {
+    color: var(--theme-color);
+}
+form fieldset a:hover {
+    color: #999;
+}
+
 #forgot-password-form legend.passreset-legend, #change-password-form legend.passreset-legend {
     position: absolute;
     overflow: hidden;
@@ -362,7 +373,7 @@ button[type='submit']#nextStep, button[type='submit']#change-password-btn {
     line-height: 40px;
     border-radius: 25px;
     border: none;
-    background: #a7e245;
+    background: var(--theme-color);
     color: #fbfdff;
     transition: all .3s ease-out;
 }
@@ -376,8 +387,8 @@ button[type='button']#close-popup, button[type='button']#close-popup-change-pass
     border-radius: 25px;
     border: none;
     background: #fbfdff;
-    color: #a7e245;
-    box-shadow: inset 0 0 0 2px #a7e245;
+    color: var(--theme-color);
+    box-shadow: inset 0 0 0 2px var(--theme-color);
     transition: all .3s ease-out;
 }
 
