@@ -21,3 +21,18 @@ function redirectToLogin() {
 
 // 一定間隔でセッションチェックを実行
 setInterval(checkSession, 30000); // 30秒ごとにチェック
+
+// ローカルストレージからセッションを取得
+eel.expose(get_session_id);
+function get_session_id() {
+    return localStorage.getItem("session_id");
+}
+
+// セッションからユーザー情報を取得し表示
+async function loadUserInfo() {
+    const userInfo = await eel.get_user_info()();
+    document.getElementById("user-name").textContent = userInfo.username;
+    document.getElementById("user-email").textContent = userInfo.email;
+}
+
+loadUserInfo();
