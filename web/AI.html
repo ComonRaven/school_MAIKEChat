@@ -9,6 +9,7 @@
     <script src="js/Chat.js" defer></script>
     <script src="js/paiza.js" defer></script>
     <script src="js/settingPanel.js" defer></script>
+    <script src="js/session.js" defer></script>
     <!-- BotUIの追加 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css">
@@ -24,8 +25,12 @@
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
             <h2>settingPanel</h2>
-            <button class="close" onclick="closeSettingPopup()">閉じる</button>
-            <button class="logout" onclick="logout()">ログアウト</button>
+            <p>ユーザー名: <br><code id="user-name"></code></p>
+            <p>メールアドレス: <br><code id="user-email"></code></p>
+            <div class="popup-buttons">
+                <button class="close" onclick="closeSettingPopup()">閉じる</button>
+                <button class="logout" onclick="logout()">ログアウト</button>
+            </div>
         </div>
     </div>
 
