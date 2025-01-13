@@ -1,6 +1,12 @@
 import eel
 import mysql.connector
-import bcrypt  # passlibからbcryptは不要です
+import bcrypt
+import redis
+import uuid
+import json
+
+# Redisに接続
+redis_client = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
 
 # MySQLデータベース接続
 def connect_db():
@@ -25,7 +31,16 @@ def signin(username, password):
         # パスワードの検証
         stored_password = user[3]  # データベースに保存されたハッシュ
         if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):  # パスワード照合
-            return {"success": True}
+            # セッションIDを生成
+            session_id = str(uuid.uuid4())
+            # Redisにセッション情報を保存
+            redis_client.hset(session_id, mapping={
+                "username": user[1],
+                "email": user[2],
+            })
+            redis_client.expire(session_id, 3600)  # セッション有効期限を1時間に設定
+
+            return {"success": True, "session_id": session_id, "message": "Login successful"}
         else:
             return {"success": False, "message": "Incorrect username or password"}
     else:
@@ -116,3 +131,39 @@ def change_password(newPassword, newPasswordConfirm, username):
     conn.commit()
 
     return {"success": True, "message": "Password changed successfully"}
+
+# セッションチェック関数
+@eel.expose
+def check_session(session_id):
+    if redis_client.exists(session_id):
+        return {"success": True}
+    else:
+        return {"success": False, "message": "Session expired"}
+
+# セッションからユーザー情報を取得する関数
+@eel.expose
+def get_user_info():
+    try:
+        # JavaScriptからセッションIDを取得
+        session_id = eel.get_session_id()()
+        
+        # データ型を確認
+        data_type = redis_client.type(session_id)
+        if data_type != 'hash':
+            print(f"Redisエラー: キー {session_id} の型は {data_type} です")
+            return {"username": "エラー", "email": "取得失敗"}
+
+        # Redisのハッシュ型データを取得
+        user_data = redis_client.hgetall(session_id)
+
+        # データをそのまま辞書に変換（すでに文字列型である場合はdecode()は不要）
+        user_info = {k: v for k, v in user_data.items()}
+        
+        return {
+            "username": user_info.get("username", "ゲスト"),
+            "email": user_info.get("email", "未登録"),
+        }
+    
+    except redis.exceptions.RedisError as e:
+        print(f"Redisエラー: {e}")
+        return {"username": "エラー", "email": "取得失敗"}

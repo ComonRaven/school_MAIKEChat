@@ -141,15 +141,57 @@ pre code.bash {
     background: rgba(0, 0, 0, 0.5); /* 半透明の背景 */
     z-index: 999; /* 他の要素より上に表示 */
 }
+/* settingPanelの背景色やボタンデザイン */
 .popup {
-    display: none;
-    position: fixed;         /* 固定位置 */
-    top: 50%;                 /* 画面中央 */
-    left: 50%;
-    transform: translate(-50%, -50%); /* 完全に中央に配置 */
-    background: #fff;
+    background-color: #383838;
+    color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* オーバーレイの上に表示 */
+}
+
+/* ボタンのスタイル */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+    font-size: 14px;
+    text-align: center;
+}
+
+.popup-buttons button:hover {
+    background-color: #444;
+}
+
+.popup-buttons .close {
+    background-color: #777;
+}
+
+.popup-buttons .logout {
+    background-color: #e74c3c;
+}
+
+/* ボタンのホバー時のデザイン */
+.popup-buttons button:hover {
+    background-color: #555;
+}
+
+/* 動的に取得したユーザー名とメールアドレスを表示 */
+code {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
 }
