@@ -69,6 +69,10 @@ iframe {
     height: 40px;            /* アイコンの横幅を20px*/
     margin-right: auto;
 }
+#send-btn[disabled] {
+    pointer-events: none;
+    cursor: not-allowed; /* ポインターカーソルを無効にする */
+}
 .main-content {
     width: 100vw;
 }
