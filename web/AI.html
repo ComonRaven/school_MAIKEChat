@@ -9,6 +9,7 @@
     <script src="js/Chat.js" defer></script>
     <script src="js/paiza.js" defer></script>
     <script src="js/settingPanel.js" defer></script>
+    <script src="js/chatHistory.js" defer></script>
     <script src="js/session.js" defer></script>
     <!-- BotUIの追加 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css">
@@ -18,7 +19,7 @@
 </head>
 <body>
     <div class="header">
-        <img class="history" src="image/history.png" />
+        <img class="history" src="image/history.png" onclick="showHistoryPanel()" />
         <button onclick="showChat()" id="chat">Chat</button>
         <button onclick="showExecute()" id="webEditor">Web Editor</button>
         <img class="setting" src="image/setting.png" onclick="showSettingPopup()"/>
@@ -33,6 +34,14 @@
                 <button class="logout" onclick="logout()">ログアウト</button>
             </div>
         </div>
+    </div>
+    <div class="overlay" id="historyOverlay" onclick="closeHistoryPanel()"></div>
+    <div class="history-panel" id="historyPanel">
+        <h2>履歴</h2>
+        <div class="history-content">
+            <p>履歴データをここに表示します。</p>
+        </div>
+        <button class="close-panel" onclick="closeHistoryPanel()">閉じる</button>
     </div>
 
     <div class="main-content" id="chatScreen">
