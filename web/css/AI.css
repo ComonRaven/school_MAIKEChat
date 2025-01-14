@@ -87,6 +87,11 @@ iframe {
     button {
         margin: 10px;
     }
+    #webEditor {
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+    }
     #webEditor:hover {
         background-color: var(--hover-color);
         color: var(--theme-color-reverse);
