@@ -10,6 +10,8 @@ html{
 body{
     width: 100vw;
     height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 iframe {
     width: 100%;
@@ -42,6 +44,20 @@ iframe {
     width: 80%;              /* 幅を調整 */
     height: 40px;            /* 高さを調整 */
     margin-right: 10px;      /* ボタンと間隔を空ける */
+    margin-left: auto;
+    border-radius: 50px;
+    padding: 20px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    outline: none;
+    border: 1px solid black;
+    color: var(--theme-color-reverse);
+    background-color: var(--theme-color);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.into::placeholder {
+    color: var(--theme-color-reverse);
 }
 
 #send-btn {
@@ -51,10 +67,10 @@ iframe {
     cursor: pointer;         /* ボタンのカーソルをポインターに */
     width: 40px;             /* アイコンの横幅を20px*/
     height: 40px;            /* アイコンの横幅を20px*/
-    margin-right: 10px;
+    margin-right: auto;
 }
 .main-content {
-    width: 95vw;
+    width: 100vw;
 }
 .execute-screen {
     display: none;
@@ -63,8 +79,8 @@ iframe {
     display: flex;
     background-color: #333;
     color: var(--theme-color-reverse);
-    padding: 1em;
-    width: 95vw;
+    /*padding: 1em;*/
+    width: 100vw;
     text-align: center;
     justify-content: space-between;
     align-items: center;
@@ -75,12 +91,19 @@ iframe {
         background-color: var(--hover-color);
         color: var(--theme-color-reverse);
     }
+    #chat {
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+    }
     #chat:hover {
         background-color: var(--hover-color);
         color: var(--theme-color-reverse);
     }
     .setting {
+        margin: 10px;
         margin-left: auto;
+        margin-right: 20px;
         width: 40px;
         height: 40px;
     }
@@ -89,6 +112,7 @@ iframe {
         color: var(--theme-color-reverse);
     }
     .history {
+        margin: 10px;
         width: 40px;
         height: 40px;
     }
@@ -108,7 +132,7 @@ iframe {
     margin-left: 2vw;
 }
 .botUI-container {
-    width: 100%;
+    width: calc(100vw - 20px);
     height: 65vh;
     border: 1px solid #ccc;
     padding: 10px;
