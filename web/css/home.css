@@ -6,12 +6,14 @@
 
 :root {
     --theme-color: black;
+    --theme-color-reverse: white;
+    --hover-color: gray;
 }
 
 body {
     margin: 0;
     font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
-    background: #fff;
+    background: var(--theme-color-reverse);
 }
 
 .forms-section {
@@ -150,14 +152,14 @@ body {
         transform: translate(0, 0);
     }
     100% {
-        background-color: #fff;
+        background-color: var(--theme-color-reverse);
         transform: translate(35%, -20px);
     }
 }
 
 @keyframes hideLogin {
     0% {
-        background-color: #fff;
+        background-color: var(--theme-color-reverse);
         transform: translate(35%, -20px);
     }
     50% {
@@ -186,14 +188,14 @@ body {
         transform: translate(0, 0) scaleY(.8);
     }
     100% {
-        background-color: #fff;
+        background-color: var(--theme-color-reverse);
         transform: translate(-35%, -20px) scaleY(1);
     } 
 }
 
 @keyframes hideSignup {
     0% {
-        background-color: #fff;
+        background-color: var(--theme-color-reverse);
         transform: translate(-35%, -20px) scaleY(1);
     }
     50% {
@@ -282,12 +284,18 @@ body {
     background: var(--theme-color);
     transform: translateX(-30%);
 }
+.btn-login:hover {
+    background: var(--hover-color);
+}
 
 .btn-signup {
     color: var(--theme-color);
     background: #fbfdff;
     box-shadow: inset 0 0 0 2px var(--theme-color);
     transform: translateX(30%);
+}
+.btn-signup:hover {
+    color: var(--hover-color);
 }
 
 /* パスワードリセット */
@@ -312,7 +320,7 @@ body {
     padding: 30px 25px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--theme-color-reverse);
 }
 
 h2 {
@@ -377,6 +385,9 @@ button[type='submit']#nextStep, button[type='submit']#change-password-btn {
     color: #fbfdff;
     transition: all .3s ease-out;
 }
+button[type='submit']#nextStep:hover, button[type='submit']#change-password-btn:hover {
+    background: var(--hover-color);
+}
 
 button[type='button']#close-popup, button[type='button']#close-popup-change-password {
     display: block;
@@ -390,6 +401,9 @@ button[type='button']#close-popup, button[type='button']#close-popup-change-pass
     color: var(--theme-color);
     box-shadow: inset 0 0 0 2px var(--theme-color);
     transition: all .3s ease-out;
+}
+button[type='button']#close-popup:hover, button[type='button']#close-popup-change-password:hover {
+    color: var(--hover-color);
 }
 
 /* アクティブ状態 */

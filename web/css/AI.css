@@ -1,3 +1,8 @@
+:root {
+    --theme-color: black;
+    --theme-color-reverse: white;
+    --hover-color: gray;
+}
 html{
     overflow-x: hidden;
     overflow-y: hidden;
@@ -57,7 +62,7 @@ iframe {
 .header {
     display: flex;
     background-color: #333;
-    color: white;
+    color: var(--theme-color-reverse);
     padding: 1em;
     width: 95vw;
     text-align: center;
@@ -66,14 +71,30 @@ iframe {
     button {
         margin: 10px;
     }
+    #webEditor:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color-reverse);
+    }
+    #chat:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color-reverse);
+    }
     .setting {
         margin-left: auto;
         width: 40px;
         height: 40px;
     }
+    .setting:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color-reverse);
+    }
     .history {
         width: 40px;
         height: 40px;
+    }
+    .history:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color);
     }
 }
 #language-select-container {
@@ -113,12 +134,12 @@ pre code {
 
 /* C言語のハイライト */
 pre code.c {
-    color: white; /* C言語のキーワードの色（赤） */
+    color: var(--theme-color-reverse); /* C言語のキーワードの色（赤） */
 }
 
 /* bashコマンドのハイライト */
 pre code.bash {
-    color: white; /* bashの文字列やコメントの色（黄色） */
+    color: var(--theme-color-reverse); /* bashの文字列やコメントの色（黄色） */
 }
 
 .inline-code {
@@ -148,7 +169,7 @@ pre code.bash {
 /* settingPanelの背景色やボタンデザイン */
 .popup {
     background-color: #383838;
-    color: white;
+    color: var(--theme-color-reverse);
     padding: 20px;
     border-radius: 8px;
 }
@@ -163,7 +184,7 @@ pre code.bash {
 
 .popup-buttons button {
     background-color: #333;
-    color: white;
+    color: var(--theme-color-reverse);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -194,7 +215,7 @@ pre code.bash {
 code {
     display: inline-block;
     background-color: black;
-    color: white;
+    color: var(--theme-color-reverse);
     padding: 4px 8px;
     border-radius: 4px;
     font-family: Consolas, monospace;
