@@ -20,7 +20,7 @@
 <body>
     <div class="header">
         <img class="history" src="image/history.png" onclick="showHistoryPanel()" />
-        <button onclick="showChat()" id="chat">Chat</button>
+        <img class="chat" src="image/newChat.png" onclick="showChat()" id="chat">
         <button onclick="showExecute()" id="webEditor">Web Editor</button>
         <img class="setting" src="image/setting.png" onclick="showSettingPopup()"/>
     </div>
@@ -51,7 +51,7 @@
             <bot-ui></bot-ui>
         </div>
         <div class="space">
-            <textarea id="into-text" placeholder="入力" class="into"></textarea>
+            <input id="into-text" placeholder="入力" class="into" />
             <img id="send-btn" src="image/send_icon.png">
         </div>
     </div>
