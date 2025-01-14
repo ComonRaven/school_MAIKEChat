@@ -1,5 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     let sendButton = document.getElementById('send-btn');
+    let inputText = document.getElementById('into-text');
+
+    // 初期状態で無効化
+    sendButton.disabled = true;
+    sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
+    sendButton.style.pointerEvents = 'none'; // クリックを無効化
+
+    // 入力欄に文字があるかチェックして、ボタンを有効化/無効化する
+    inputText.addEventListener('input', () => {
+        if (inputText.value.trim() === "") {
+            sendButton.disabled = true; // ボタンを無効化
+            sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
+            sendButton.style.pointerEvents = 'none'; // クリックを無効化
+        } else {
+            sendButton.disabled = false; // ボタンを有効化
+            sendButton.src = 'image/send_icon.png'; // 有効時の画像
+            sendButton.style.pointerEvents = 'auto'; // クリックを有効化
+        }
+    });
 
     // BotUIの初期化
     const botui = new BotUI('botui-app');
@@ -14,8 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     sendButton.addEventListener('click', function() {
-        let text = document.getElementById('into-text');
-        let question = text.value;
+        let question = inputText.value;
 
         if (question === '') {
             return;
@@ -27,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // 質問内容をクリア
-        text.value = '';
+        inputText.value = '';
 
         eel.get_generated_code(question)(function(output) {
             console.log(output);
@@ -65,6 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 `
             });
         });
+
+        // ボタンを無効化
+        sendButton.disabled = true; // ボタンを無効化
+        sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
+        sendButton.style.pointerEvents = 'none'; // クリックを無効化
     });
 });
 
