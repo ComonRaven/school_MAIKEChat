@@ -79,6 +79,18 @@ def signup(username, email, password, password_confirm, secretWord):
         (username, email, hashed_password, hashed_secretWord),
     )
     conn.commit()
+    
+    # user_idを取得
+    cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
+    user = cursor.fetchone()
+    user_id = user[0]
+    
+    # chat_numverテーブルにchat_numberを追加
+    cursor.execute(
+        "INSERT INTO chat_number (user_id,chat_number) VALUES (%s,1)",
+        (user_id,)
+    )
+    conn.commit()
 
     return {"success": True, "message": "User registered successfully"}
 
