@@ -33,6 +33,7 @@ async function loadUserInfo() {
     const userInfo = await eel.get_user_info()();
     document.getElementById("user-name").textContent = userInfo.username;
     document.getElementById("user-email").textContent = userInfo.email;
+    document.getElementById("user-password").textContent = userInfo.password;
 }
 
 loadUserInfo();
