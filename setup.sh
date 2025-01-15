@@ -52,6 +52,12 @@ CREATE TABLE IF NOT EXISTS Chat_History (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+CREATE TABLE IF NOT EXISTS chat_number (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    chat_number INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
 "
 
 echo "Database and table created successfully!"

@@ -1,3 +1,6 @@
+let chat_number = 1;
+let botui;
+
 document.addEventListener('DOMContentLoaded', function() {
     let sendButton = document.getElementById('send-btn');
     let inputText = document.getElementById('into-text');
@@ -20,8 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // BotUIの初期化
-    const botui = new BotUI('botui-app');
+    botui = new BotUI('botui-app');
 
     // 初回メッセージ
     botui.message.add({
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }); 
     });
 
-    sendButton.addEventListener('click', function() {
+    sendButton.addEventListener('click', async function() {
         let question = inputText.value;
 
         if (question === '') {
@@ -51,6 +53,15 @@ document.addEventListener('DOMContentLoaded', function() {
         sendButton.disabled = true; // ボタンを無効化
         sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
         sendButton.style.pointerEvents = 'none'; // クリックを無効化
+
+        // 非同期で chat_number を取得
+        let response = await eel.chat_number()();
+        if (response.success) {
+            chat_number = response.message; // 最大値を取得
+        } else {
+            console.error("Error retrieving chat number:", response.message);
+            chat_number = 1; // デフォルト値
+        }
 
         eel.get_generated_code(question)(function(output) {
             console.log(output);
@@ -87,13 +98,37 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div>${formattedOutput}</div>
                 `
             });
+            // データベースにチャット履歴を保存
+            const username = document.getElementById('user-name').textContent;
+            eel.chat_to_database(username, chat_number, question, formattedOutput);
         });
     });
 });
 
-function showChat() {
+async function showChat() {
     document.getElementById('chatScreen').style.display = 'block';
     document.getElementById('executeScreen').style.display = 'none';
+
+    // BotUIのメッセージをリセット
+    await botui.message.removeAll(); // すべてのメッセージを削除
+    
+    // chat_numberの値を更新
+    let result = await eel.increase_chat_number(chat_number)(); // awaitを使って非同期処理の結果を待機
+    
+    if(result.success) {
+        chat_number = result.message;  // 成功した場合は新しいchat_numberを代入
+    } else {
+        console.error("Error updating chat number:", result.message); // エラーメッセージをログ出力
+    }
+    
+    // 初回メッセージ
+    botui.message.add({
+        content: 'こんにちは！私はMAIkeChatです。'
+    }).then(() => {
+        return botui.message.add({
+            content: '質問をどうぞ！'
+        }); 
+    });
 }
 
 function showExecute() {
