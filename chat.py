@@ -92,3 +92,43 @@ def increase_chat_number(chat_number):
             return {"success": False, "message": "Chat number is not greater than the current max."}
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
+
+@eel.expose
+def get_history():
+    try:
+        # データベース接続
+        conn = userManagemrnt.connect_db()
+        cursor = conn.cursor()
+        
+        # 現在のユーザー情報を取得
+        user_info = userManagemrnt.get_user_info()
+        user_id = user_info["user_id"]
+
+        # Chat_Historyテーブルから指定ユーザーのデータを取得
+        cursor.execute(
+            "SELECT chat_number, send_message, response_message FROM Chat_History WHERE user_id = %s ORDER BY chat_number ASC",
+            (user_id,)
+        )
+        rows = cursor.fetchall()
+
+        # chat_numberごとにデータを整理
+        history_data = {}
+        for chat_number, send_message, response_message in rows:
+            if chat_number not in history_data:
+                history_data[chat_number] = []  # 新しいチャット番号のリストを作成
+            
+            # メッセージを辞書形式で格納
+            history_data[chat_number].append({
+                "send_message": send_message,
+                "response_message": response_message
+            })
+
+        return {"success": True, "data": history_data}
+
+    except Exception as e:
+        return {"success": False, "message": f"Error: {str(e)}"}
+
+    finally:
+        # データベース接続をクローズ
+        if conn:
+            conn.close()

@@ -1,9 +1,99 @@
 let chat_number = 1;
 let botui;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     let sendButton = document.getElementById('send-btn');
     let inputText = document.getElementById('into-text');
+    let historyPanel = document.querySelector(".history-panel");
+    let historyContent = document.getElementById("history-content");
+
+    // クラスの変更を監視する
+    const observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.attributeName === "class") {
+                if (historyPanel.classList.contains("active")) {
+                    // Pythonから履歴を取得
+                    eel.get_history()().then((result) => {
+                        if (result.success) {
+                            const historyData = result.data;
+
+                            // historyContent をクリア
+                            historyContent.innerHTML = "";
+
+                            // chat_number ごとにボタンを作成
+                            for (let chatNumber in historyData) {
+                                let button = document.createElement("button");
+
+                                let firstSendMessage = historyData[chatNumber][0]?.send_message || "No Messages";
+                                let firstResponseMessage = historyData[chatNumber][0]?.response_message?.slice(0, 8) || "No Message";
+                                
+                                // send_messageとresponse_messageをラップするdivを作成
+                                let sendMessageDiv = document.createElement("div");
+                                sendMessageDiv.classList.add("send-message");
+                                sendMessageDiv.innerText = firstSendMessage;
+
+                                let responseMessageDiv = document.createElement("div");
+                                responseMessageDiv.classList.add("response-message");
+                                responseMessageDiv.innerText = firstResponseMessage;
+
+                                // ボタンにdivを追加
+                                button.appendChild(sendMessageDiv);
+                                button.appendChild(responseMessageDiv);
+                                button.classList.add("history-button");
+
+                                // ボタンにクリックイベントを追加
+                                button.addEventListener("click", () => {
+                                    displayChatHistory(historyData[chatNumber], chatNumber);
+                                });
+
+                                // ボタンを historyContent に追加
+                                historyContent.appendChild(button);
+                            }
+                        } else {
+                            console.error("履歴の取得に失敗しました:", result.message);
+                            alert("履歴を取得できませんでした。");
+                        }
+                    });
+                }
+            }
+        }
+    });
+
+    // 監視を開始
+    observer.observe(historyPanel, { attributes: true });
+
+    // チャット履歴を表示する関数
+    async  function displayChatHistory(messages, chatNumber) {
+        closeHistoryPanel();
+
+        document.getElementById('chatScreen').style.display = 'block';
+        document.getElementById('executeScreen').style.display = 'none';
+
+        // botUIの内容をクリア
+        await botui.message.removeAll();
+        chat_number = parseInt(chatNumber);
+
+        // メッセージの内容を順番に表示
+        messages.forEach((messagePair) => {
+            let messageContainer = document.createElement("div");
+            messageContainer.classList.add("message-pair");
+
+            // 質問内容を表示
+            botui.message.add({
+                content: `質問: ${messagePair.send_message}`
+            });
+            // 出力をHTMLとして挿入
+            botui.message.add({
+                type: 'html',
+                content: `
+                    <div>${messagePair.response_message}</div>
+                `
+            });
+        });
+    // 履歴表示領域をクリア
+    historyContent.innerHTML = "";
+    }
+
 
     // 初期状態で無効化
     sendButton.disabled = true;
