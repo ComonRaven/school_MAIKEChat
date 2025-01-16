@@ -38,6 +38,7 @@ def signin(username, password):
                 "username": user[1],
                 "email": user[2],
                 "password": password,
+                "user_id": user[0],
             })
             redis_client.expire(session_id, 3600)  # セッション有効期限を1時間に設定
 
@@ -175,7 +176,8 @@ def get_user_info():
         return {
             "username": user_info.get("username", "ゲスト"),
             "email": user_info.get("email", "未登録"),
-            "password": user_info.get("password", "未登録")
+            "password": user_info.get("password", "未登録"),
+            "user_id": user_info.get("user_id", "未登録"),
         }
     
     except redis.exceptions.RedisError as e:

@@ -298,3 +298,26 @@ code {
 .close-panel:hover {
     background-color: #d32f2f;
 }
+
+/* history */
+.history-content {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+.history-button {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: 35vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    font-size: 1.5em;
+}
+.send-message {
+    margin-right: auto;
+    flex-grow: 1;
+}
+.response-message {
+    margin-left: auto;
+}
