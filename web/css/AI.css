@@ -185,7 +185,6 @@ pre code.bash {
     line-height: 1.6;
     overflow-x: auto; /* 横スクロールを追加 */
     white-space: pre-wrap; /* 改行とインデントを保持 */
-    margin-bottom: 20px;
 }
 
 /* settingPanel */
