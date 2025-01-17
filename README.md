@@ -15,8 +15,9 @@ python3 -m venv ~/hoge
 <br>
 仮想環境を作動 <br>
 ```bash
-source ~/hoge/bin/activate
-```
+sudo apt install python3-venv
+python3 -m venv ~/hoge
+
 コマンドプロンプトの先頭に (hoge) が表示されれば成功<br>
 <br>
 仮想環境を停止させる<br>
