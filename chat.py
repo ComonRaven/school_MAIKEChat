@@ -90,8 +90,15 @@ def increase_chat_number(chat_number):
         if max_chat_number - chat_number == 0:
             cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_number+1))
             conn.commit()
-            
             return {"success": True, "message": chat_number}
+        elif max_chat_number > chat_number:
+            cursor.execute("SELECT MAX(chat_number) FROM Chat_History WHERE user_id = %s", (user_id,))
+            result = cursor.fetchone()
+            if result and result[0] is not None:
+                if max_chat_number == result[0]:
+                    cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_number+1))
+                    conn.commit()
+                    return {"success": True, "message": max_chat_number}
         else:
             return {"success": False, "message": "Chat number is not greater than the current max."}
     except Exception as e:
