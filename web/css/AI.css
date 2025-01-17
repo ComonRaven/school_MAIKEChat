@@ -2,6 +2,7 @@
     --theme-color: black;
     --theme-color-reverse: white;
     --hover-color: gray;
+    --hover-color2: #333;
 }
 html{
     overflow-x: hidden;
@@ -273,30 +274,31 @@ code {
 .history-panel {
     position: fixed;
     top: 0;
-    left: -400px; /* 初期状態で画面外 */
-    width: 300px;
-    height: 100%;
-    background-color: white;
+    left: -500px; /* 初期状態で画面外 */
+    width: 400px;
+    height: 96vh;
+    background-color: var(--theme-color);
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     transition: left 0.5s ease-in-out;
     overflow-y: auto;
-    padding: 20px;
+    padding: 2vh;
 }
 .history-panel.active {
     left: 0; /* スライドイン後の位置 */
 }
 .close-panel {
-    background-color: #f44336;
+    background-color: #555;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 5px;
 }
 .close-panel:hover {
-    background-color: #d32f2f;
+    background-color: var(--hover-color2);
 }
 
 /* history */
@@ -305,19 +307,30 @@ code {
     justify-content: left;
     flex-direction: column;
 }
+#history-title {
+    color: var(--theme-color-reverse);
+}
 .history-button {
     display: flex;
     flex-direction: column;
     height: 10vh;
-    width: 35vw;
+    width: 28vw;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    padding: 2vh;
     font-size: 1.5em;
+    border: 1px solid var(--theme-color-reverse);
+    border-radius: 30px;
+    background-color: var(--theme-color);
+    color: var(--theme-color-reverse);
 }
 .send-message {
     margin-right: auto;
     flex-grow: 1;
+    font-size: 20px;
 }
 .response-message {
     margin-left: auto;
+    color: var(--hover-color);
+    font-size: 12px;
 }

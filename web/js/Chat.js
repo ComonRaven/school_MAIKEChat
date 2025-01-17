@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                             for (let chatNumber in historyData) {
                                 let button = document.createElement("button");
 
-                                let firstSendMessage = historyData[chatNumber][0]?.send_message || "No Messages";
-                                let firstResponseMessage = historyData[chatNumber][0]?.response_message?.slice(0, 8) || "No Message";
+                                let firstSendMessage = historyData[chatNumber][0]?.send_message?.slice(0,12) || "No Messages";
+                                let firstResponseMessage = historyData[chatNumber][0]?.response_message?.slice(0, 10) || "No Message";
                                 
                                 // send_messageとresponse_messageをラップするdivを作成
                                 let sendMessageDiv = document.createElement("div");
