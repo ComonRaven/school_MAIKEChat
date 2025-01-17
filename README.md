@@ -5,6 +5,11 @@
 C言語のソースコードを生成するチャットボットを作成する。 <br>
 OpenAI APIを使用し、4o-miniを呼び出す。 <br>
 
+# インストール方法
+```bash
+pip install eel openai mysql-connector-python bcrypt redis
+```
+
 # 役割分担
 UI...山本瑞貴 <br>
 処理...佐藤佑作 <br>
