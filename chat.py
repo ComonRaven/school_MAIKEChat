@@ -13,6 +13,7 @@ def get_generated_code(text):
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": text},
     ])
+    print(response.choices[0].message.content)
     return response.choices[0].message.content
 
 # チャット履歴をDBに保存

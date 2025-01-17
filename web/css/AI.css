@@ -152,7 +152,10 @@ iframe {
     font-family: 'Courier New', monospace;
 }
 /* コードブロックの基本スタイル */
-pre code {
+pre {
+    margin-top: 0;
+}
+code pre {
     display: block;
     background-color: #2d2d2d; /* ダークモードの背景色 */
     color: #f8f8f2; /* 白文字 */
@@ -167,12 +170,21 @@ pre code {
 }
 
 /* C言語のハイライト */
-pre code.c {
+code.c pre {
     color: var(--theme-color-reverse); /* C言語のキーワードの色（赤） */
+}
+.copy-div-c {
+    display: flex;
+}
+.copy-button {
+    background-color: var(--hover-color);
+    color: var(--theme-color-reverse);
+    margin-left: auto;
+    border-radius: 10%;
 }
 
 /* bashコマンドのハイライト */
-pre code.bash {
+code.bash pre {
     color: var(--theme-color-reverse); /* bashの文字列やコメントの色（黄色） */
 }
 
@@ -261,7 +273,7 @@ pre code.bash {
 }
 
 /* 動的に取得したユーザー名とメールアドレスを表示 */
-code {
+code.settingInfo {
     display: inline-block;
     background-color: black;
     color: var(--theme-color-reverse);
