@@ -1,4 +1,0 @@
-基本的なchat_number（履歴管理）は実装
-max_chat_number=3の時に、chat_number=2のチャットを開く。そこで、newChatするとエラーが出る。
-（max_chat_numberとchat_numberが=じゃないから発生）
-場合わけして、Chat_Historyテーブルにある最大のチャットnumber+1までしかchat_numberを増加させないようにしたい。
