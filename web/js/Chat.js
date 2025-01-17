@@ -1,4 +1,6 @@
 let chat_number = 1;
+let chat_number_source;
+let chat_number_latest;
 let botui;
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -6,6 +8,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     let inputText = document.getElementById('into-text');
     let historyPanel = document.querySelector(".history-panel");
     let historyContent = document.getElementById("history-content");
+
+    chat_number_source = await eel.get_latestChatnumber()();
+    chat_number = chat_number_source.message; // ここは処理的に変えちゃいけない
 
     // クラスの変更を監視する
     const observer = new MutationObserver((mutationsList) => {
@@ -144,14 +149,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
         sendButton.style.pointerEvents = 'none'; // クリックを無効化
 
-        // 非同期で chat_number を取得
-        let response = await eel.chat_number()();
-        if (response.success) {
-            chat_number = response.message; // 最大値を取得
-        } else {
-            console.error("Error retrieving chat number:", response.message);
-            chat_number = 1; // デフォルト値
-        }
 
         eel.get_generated_code(question)(function(output) {
             console.log(output);
@@ -203,10 +200,21 @@ async function showChat() {
     await botui.message.removeAll(); // すべてのメッセージを削除
     
     // chat_numberの値を更新
+    console.log("更新前のchat_number:", chat_number);
+    result_latest = await eel.get_latestChatnumber()();
+    console.log("Result from get_latestChatnumber:", result_latest)
+    if (result_latest.success) {
+        chat_number_latest = parseInt(result_latest.message);
+        console.log("latest chat_number(parseInt):", chat_number_latest);
+    } else {
+        console.error("Error getting latest chat number:", result_latest.message);
+    }
+    console.log("latest chat_number:", chat_number_latest);
     let result = await eel.increase_chat_number(chat_number)(); // awaitを使って非同期処理の結果を待機
     
     if(result.success) {
-        chat_number = result.message;  // 成功した場合は新しいchat_numberを代入
+        chat_number = result.message + 1;  // 成功した場合は新しいchat_numberを増加させる
+        console.log("更新後のchat_number:", chat_number);
     } else {
         console.error("Error updating chat number:", result.message); // エラーメッセージをログ出力
     }

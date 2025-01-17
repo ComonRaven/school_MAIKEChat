@@ -32,6 +32,7 @@ def chat_to_database(username,chat_number,input, output):
             (user_id, chat_number, input, output)
         )
         conn.commit()
+        #increase_chat_number(chat_number)
         return {"success": True, "message": "Chat history saved successfully"}
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
@@ -83,8 +84,11 @@ def increase_chat_number(chat_number):
         else:
             max_chat_number = 0  # chat_number テーブルが空の場合の初期値
 
-        if chat_number == max_chat_number:
-            cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, chat_number+1))
+        print("max_chat_number:", max_chat_number)
+        print("chat_number:", chat_number)
+
+        if max_chat_number - chat_number == 0:
+            cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_number+1))
             conn.commit()
             
             return {"success": True, "message": chat_number}
@@ -132,3 +136,20 @@ def get_history():
         # データベース接続をクローズ
         if conn:
             conn.close()
+
+@eel.expose
+def get_latestChatnumber():
+    try:
+        conn = userManagemrnt.connect_db()
+        cursor = conn.cursor()
+        userinfo = userManagemrnt.get_user_info()
+        user_id = userinfo['user_id']
+        cursor.execute("SELECT MAX(chat_number) FROM chat_number WHERE user_id = %s", (user_id,))
+        result = cursor.fetchone()
+        if result and result[0] is not None:
+            max_chat_number = result[0]
+        else:
+            max_chat_number = 0
+        return {"success": True, "message": max_chat_number}
+    except Exception as e:
+        return {"success": False, "message": f"Error: {str(e)}"}
