@@ -1,0 +1,336 @@
+:root {
+    --theme-color: black;
+    --theme-color-reverse: white;
+    --hover-color: gray;
+    --hover-color2: #333;
+}
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+.newchat{
+    color:#ff0000;
+}
+.question{
+    width: 800px;
+    height: 200px;
+}
+.output {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    white-space: pre-wrap; /* 改行とスペースを保持 */
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+    font-family: 'Courier New', monospace;
+}
+.space {
+    display: flex;           /* 横並びにする */
+    align-items: center;     /* 垂直方向に中央揃え */
+}
+
+.into {
+    width: 80%;              /* 幅を調整 */
+    height: 40px;            /* 高さを調整 */
+    margin-right: 10px;      /* ボタンと間隔を空ける */
+    margin-left: auto;
+    border-radius: 50px;
+    padding: 20px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    outline: none;
+    border: 1px solid black;
+    color: var(--theme-color-reverse);
+    background-color: var(--theme-color);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.into::placeholder {
+    color: var(--theme-color-reverse);
+}
+
+#send-btn {
+    border-radius: 30%;
+    padding: 10px 20px;      /* ボタンのパディング調整 */
+    font-size: 16px;         /* ボタンのフォントサイズ調整 */
+    cursor: pointer;         /* ボタンのカーソルをポインターに */
+    width: 40px;             /* アイコンの横幅を20px*/
+    height: 40px;            /* アイコンの横幅を20px*/
+    margin-right: auto;
+}
+#send-btn[disabled] {
+    pointer-events: none;
+    cursor: not-allowed; /* ポインターカーソルを無効にする */
+}
+.main-content {
+    width: 100vw;
+}
+.execute-screen {
+    display: none;
+}
+.header {
+    display: flex;
+    background-color: #333;
+    color: var(--theme-color-reverse);
+    /*padding: 1em;*/
+    width: 100vw;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    button {
+        margin: 10px;
+    }
+    #webEditor {
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    #webEditor:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color-reverse);
+    }
+    #chat {
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    #chat:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color-reverse);
+    }
+    .setting {
+        margin: 10px;
+        margin-left: auto;
+        margin-right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+    .setting:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color-reverse);
+    }
+    .history {
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .history:hover {
+        background-color: var(--hover-color);
+        color: var(--theme-color);
+    }
+}
+#language-select-container {
+    display: flex;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+#language-select {
+    margin-block-start: auto;
+    margin-block-end: auto;
+    margin-left: 2vw;
+}
+.botUI-container {
+    width: calc(100vw - 20px);
+    height: 65vh;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    white-space: pre-wrap; /* 改行やスペースをそのまま表示 */
+    font-family: 'Courier New', monospace;
+}
+/* コードブロックの基本スタイル */
+pre code {
+    display: block;
+    background-color: #2d2d2d; /* ダークモードの背景色 */
+    color: #f8f8f2; /* 白文字 */
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto; /* 横スクロールを追加 */
+    white-space: pre-wrap; /* 改行とインデントを保持 */
+    margin-bottom: 20px;
+}
+
+/* C言語のハイライト */
+pre code.c {
+    color: var(--theme-color-reverse); /* C言語のキーワードの色（赤） */
+}
+
+/* bashコマンドのハイライト */
+pre code.bash {
+    color: var(--theme-color-reverse); /* bashの文字列やコメントの色（黄色） */
+}
+
+.inline-code {
+    background-color: #2d2d2d; /* ダークモードの背景色 */
+    color: #f8f8f2; /* 白文字 */
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-x: auto; /* 横スクロールを追加 */
+    white-space: pre-wrap; /* 改行とインデントを保持 */
+}
+
+/* settingPanel */
+.overlay {
+    display: none;
+    position: fixed;         /* 固定位置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 半透明の背景 */
+    z-index: 999; /* 他の要素より上に表示 */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.overlay.active {
+    display: flex;
+}
+/* settingPanelの背景色やボタンデザイン */
+.popup {
+    background-color: #383838;
+    color: var(--theme-color-reverse);
+    padding: 20px;
+    width: 50vw;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: -100%;
+    transition: top 0.5s ease-in-out;
+}
+.popup.slide-in {
+    top: 30px;
+}
+#popup-title {
+    text-align: center;
+}
+/* ボタンのスタイル */
+.popup-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    background-color: #333;
+    color: var(--theme-color-reverse);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+    font-size: 14px;
+    text-align: center;
+}
+
+.popup-buttons button:hover {
+    background-color: #444;
+}
+
+.popup-buttons .close {
+    background-color: #777;
+}
+
+.popup-buttons .logout {
+    background-color: #e74c3c;
+}
+
+/* ボタンのホバー時のデザイン */
+.popup-buttons button:hover {
+    background-color: #555;
+}
+
+/* 動的に取得したユーザー名とメールアドレスを表示 */
+code {
+    display: inline-block;
+    background-color: black;
+    color: var(--theme-color-reverse);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+/* historyPanel */
+.history-panel {
+    position: fixed;
+    top: 0;
+    left: -500px; /* 初期状態で画面外 */
+    width: 400px;
+    height: 96vh;
+    background-color: var(--theme-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: left 0.5s ease-in-out;
+    overflow-y: auto;
+    padding: 2vh;
+}
+.history-panel.active {
+    left: 0; /* スライドイン後の位置 */
+}
+.close-panel {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.close-panel:hover {
+    background-color: var(--hover-color2);
+}
+
+/* history */
+.history-content {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+#history-title {
+    color: var(--theme-color-reverse);
+}
+.history-button {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: 28vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 2vh;
+    font-size: 1.5em;
+    border: 1px solid var(--theme-color-reverse);
+    border-radius: 30px;
+    background-color: var(--theme-color);
+    color: var(--theme-color-reverse);
+}
+.send-message {
+    margin-right: auto;
+    flex-grow: 1;
+    font-size: 20px;
+}
+.response-message {
+    margin-left: auto;
+    color: var(--hover-color);
+    font-size: 12px;
+}

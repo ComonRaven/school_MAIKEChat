@@ -1,6 +1,7 @@
 import eel
-import functions
+import chat
+import userManagemrnt
 
 # Eelの初期化
 eel.init("web")
-eel.start("AI.html", mode="default")  # フロントエンドUIの起動
+eel.start("home.html", mode="default")  # フロントエンドUIの起動
