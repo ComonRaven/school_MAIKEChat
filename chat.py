@@ -32,33 +32,7 @@ def chat_to_database(username,chat_number,input, output):
             (user_id, chat_number, input, output)
         )
         conn.commit()
-        #increase_chat_number(chat_number)
         return {"success": True, "message": "Chat history saved successfully"}
-    except Exception as e:
-        return {"success": False, "message": f"Error: {str(e)}"}
-
-# chat_numberの最大値を返す
-@eel.expose
-def chat_number():
-    try:
-        conn = userManagemrnt.connect_db()
-        userinfo = userManagemrnt.get_user_info()
-        username = userinfo["username"]
-        cursor = conn.cursor()
-        
-        # ユーザーIDを取得
-        cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
-        user_id = cursor.fetchone()[0]
-        
-        # 最大の chat_number を取得
-        cursor.execute("SELECT MAX(chat_number) FROM chat_number WHERE user_id = %s", (user_id,))
-        result = cursor.fetchone()
-        
-        if result and result[0] is not None:
-            chat_number = result[0]  # 最大値を取得
-            return {"success": True, "message": chat_number}
-        else:
-            return {"success": False, "message": "Chat number not found"}
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
 
