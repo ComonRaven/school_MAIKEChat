@@ -194,10 +194,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             eel.chat_to_database(username, chat_number, question, formattedOutput);
         });
 
-        // ボタンを再び有効化
-        sendButton.disabled = false;
-        sendButton.src = 'image/send_icon.png';
-        sendButton.style.pointerEvents = 'auto';
+        // ボタンを無効化
+        sendButton.disabled = true; // ボタンを無効化
+        sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
+        sendButton.style.pointerEvents = 'none'; // クリックを無効化
     });
 });
 
