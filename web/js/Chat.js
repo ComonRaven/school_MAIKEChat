@@ -130,6 +130,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 
     sendButton.addEventListener('click', async function() {
+        // ボタンを無効化
+        sendButton.disabled = true; // ボタンを無効化
+        sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
+        sendButton.style.pointerEvents = 'none'; // クリックを無効化
+
+        // 画面更新を保証
+        await new Promise(resolve => requestAnimationFrame(resolve));
+
+
         let question = inputText.value;
 
         if (question === '') {
@@ -143,11 +152,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         // 質問内容をクリア
         inputText.value = '';
-
-        // ボタンを無効化
-        sendButton.disabled = true; // ボタンを無効化
-        sendButton.src = 'image/send_icon_disable.png'; // 無効時の画像
-        sendButton.style.pointerEvents = 'none'; // クリックを無効化
 
 
         eel.get_generated_code(question)(function(output) {
@@ -189,6 +193,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             const username = document.getElementById('user-name').textContent;
             eel.chat_to_database(username, chat_number, question, formattedOutput);
         });
+
+        // ボタンを再び有効化
+        sendButton.disabled = false;
+        sendButton.src = 'image/send_icon.png';
+        sendButton.style.pointerEvents = 'auto';
     });
 });
 
