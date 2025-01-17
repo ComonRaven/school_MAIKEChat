@@ -3,7 +3,6 @@ import mysql.connector
 import bcrypt
 import redis
 import uuid
-import json
 
 # Redisに接続
 redis_client = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
@@ -37,6 +36,8 @@ def signin(username, password):
             redis_client.hset(session_id, mapping={
                 "username": user[1],
                 "email": user[2],
+                "password": password,
+                "user_id": user[0],
             })
             redis_client.expire(session_id, 3600)  # セッション有効期限を1時間に設定
 
@@ -76,6 +77,18 @@ def signup(username, email, password, password_confirm, secretWord):
     cursor.execute(
         "INSERT INTO users (username, email, password, secretWord) VALUES (%s, %s, %s, %s)",
         (username, email, hashed_password, hashed_secretWord),
+    )
+    conn.commit()
+    
+    # user_idを取得
+    cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
+    user = cursor.fetchone()
+    user_id = user[0]
+    
+    # chat_numverテーブルにchat_numberを追加
+    cursor.execute(
+        "INSERT INTO chat_number (user_id,chat_number) VALUES (%s,1)",
+        (user_id,)
     )
     conn.commit()
 
@@ -162,6 +175,8 @@ def get_user_info():
         return {
             "username": user_info.get("username", "ゲスト"),
             "email": user_info.get("email", "未登録"),
+            "password": user_info.get("password", "未登録"),
+            "user_id": user_info.get("user_id", "未登録"),
         }
     
     except redis.exceptions.RedisError as e:

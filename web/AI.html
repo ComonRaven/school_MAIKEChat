@@ -18,31 +18,40 @@
 </head>
 <body>
     <div class="header">
-        <button onclick="showChat()">Chat</button>
-        <button onclick="showExecute()">Web Editor</button>
+        <img class="history" src="image/history.png" onclick="showHistoryPanel()" />
+        <img class="chat" src="image/newChat.png" onclick="showChat()" id="chat" />
+        <img class="webEditor" src="image/webEditor.png" onclick="showExecute()" id="webEditor" />
         <img class="setting" src="image/setting.png" onclick="showSettingPopup()"/>
     </div>
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
-            <h2>settingPanel</h2>
+            <h2 id="popup-title">settingPanel</h2>
             <p>ユーザー名: <br><code id="user-name"></code></p>
             <p>メールアドレス: <br><code id="user-email"></code></p>
+            <p>パスワード: <br><code id="user-password"></code></p>
             <div class="popup-buttons">
                 <button class="close" onclick="closeSettingPopup()">閉じる</button>
                 <button class="logout" onclick="logout()">ログアウト</button>
             </div>
         </div>
     </div>
+    <div class="overlay" id="historyOverlay" onclick="closeHistoryPanel()"></div>
+    <div class="history-panel" id="historyPanel">
+        <h2 id="history-title">履歴</h2>
+        <div class="history-content" id="history-content">
+            <p>履歴データをここに表示します。</p>
+        </div>
+        <button class="close-panel" onclick="closeHistoryPanel()">閉じる</button>
+    </div>
 
     <div class="main-content" id="chatScreen">
-        <input type="button" class="newchat" value="newchat">
-            <!-- BotUI表示領域 -->
-            <div id="botui-app" class="botUI-container">
+        <!-- BotUI表示領域 -->
+        <div id="botui-app" class="botUI-container">
             <bot-ui></bot-ui>
         </div>
         <div class="space">
-            <textarea id="into-text" placeholder="入力" class="into"></textarea>
-            <img id="send-btn" src="image/send_icon.png">
+            <input id="into-text" placeholder="入力" class="into" />
+            <img id="send-btn" src="image/send_icon.png" />
         </div>
     </div>
     <div class="main-content" id="executeScreen">
