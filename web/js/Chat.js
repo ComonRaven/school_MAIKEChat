@@ -209,21 +209,16 @@ async function showChat() {
     await botui.message.removeAll(); // すべてのメッセージを削除
     
     // chat_numberの値を更新
-    console.log("更新前のchat_number:", chat_number);
     result_latest = await eel.get_latestChatnumber()();
-    console.log("Result from get_latestChatnumber:", result_latest)
     if (result_latest.success) {
         chat_number_latest = parseInt(result_latest.message);
-        console.log("latest chat_number(parseInt):", chat_number_latest);
     } else {
         console.error("Error getting latest chat number:", result_latest.message);
     }
-    console.log("latest chat_number:", chat_number_latest);
     let result = await eel.increase_chat_number(chat_number)(); // awaitを使って非同期処理の結果を待機
     
     if(result.success) {
         chat_number = result.message + 1;  // 成功した場合は新しいchat_numberを増加させる
-        console.log("更新後のchat_number:", chat_number);
     } else {
         console.error("Error updating chat number:", result.message); // エラーメッセージをログ出力
     }

@@ -58,9 +58,6 @@ def increase_chat_number(chat_number):
         else:
             max_chat_number = 0  # chat_number テーブルが空の場合の初期値
 
-        print("max_chat_number:", max_chat_number)
-        print("chat_number:", chat_number)
-
         if max_chat_number - chat_number == 0:
             cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_number+1))
             conn.commit()
