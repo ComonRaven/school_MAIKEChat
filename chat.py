@@ -96,6 +96,10 @@ def get_history():
         )
         rows = cursor.fetchall()
 
+        # データがない場合の処理
+        if not rows:
+            return {"success": True, "data": None}
+
         # chat_numberごとにデータを整理
         history_data = {}
         for chat_number, send_message, response_message in rows:

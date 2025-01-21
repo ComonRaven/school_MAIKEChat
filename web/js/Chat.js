@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', async function() {
                         if (result.success) {
                             const historyData = result.data;
 
+                            if (historyData === null) {
+                                let message = document.createElement("p");
+                                message.innerText = "まだ履歴がありません。";
+                                message.style.color = "white";
+                                historyContent.appendChild(message);
+                                return;
+                            }
+
                             // historyContent をクリア
                             historyContent.innerHTML = "";
 
@@ -55,8 +63,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                                 historyContent.appendChild(button);
                             }
                         } else {
-                            console.error("履歴の取得に失敗しました:", result.message);
-                            alert("履歴を取得できませんでした。");
+                            let message = document.createElement("p");
+                            message.innerText = "履歴を取得できませんでした。";
+                            historyContent.appendChild(message);
                         }
                     });
                 }
