@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                                 // send_messageとresponse_messageをラップするdivを作成
                                 let sendMessageDiv = document.createElement("div");
                                 sendMessageDiv.classList.add("send-message");
-                                sendMessageDiv.innerText = firstSendMessage;
+                                sendMessageDiv.innerText = "{" + chatNumber + "} " + firstSendMessage;
 
                                 let responseMessageDiv = document.createElement("div");
                                 responseMessageDiv.classList.add("response-message");
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             // 質問内容を表示
             botui.message.add({
-                content: `質問: ${messagePair.send_message}`
+                content: `{${chat_number}}質問: ${messagePair.send_message}`
             });
             // 出力をHTMLとして挿入
             botui.message.add({
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // 初回メッセージ
     botui.message.add({
-        content: 'こんにちは！私はMAIkeChatです。'
+        content: '{' + chat_number + '}こんにちは！私はMAIkeChatです。'
     }).then(() => {
         return botui.message.add({
             content: '質問をどうぞ！'
@@ -211,17 +211,17 @@ async function showChat() {
     } else {
         console.error("Error getting latest chat number:", result_latest.message);
     }
-    let result = await eel.increase_chat_number(chat_number)(); // awaitを使って非同期処理の結果を待機
+    let result = await eel.increase_chat_number(chat_number_latest)(); // awaitを使って非同期処理の結果を待機
     
     if(result.success) {
-        chat_number = result.message + 1;  // 成功した場合は新しいchat_numberを増加させる
+        chat_number = result.message;  // 成功した場合は新しいchat_numberを増加させる
     } else {
         console.error("Error updating chat number:", result.message); // エラーメッセージをログ出力
     }
     
     // 初回メッセージ
     botui.message.add({
-        content: 'こんにちは！私はMAIkeChatです。'
+        content: '{' + chat_number + '}こんにちは！私はMAIkeChatです。'
     }).then(() => {
         return botui.message.add({
             content: '質問をどうぞ！'
@@ -234,7 +234,22 @@ function showExecute() {
     document.getElementById('executeScreen').style.display = 'block';
 }
 
-document.onload = showChat();
+//document.onload = showChat;
+window.addEventListener('load', async function () {
+    try {
+        showChat();
+        
+        let result = await eel.insert_chat_number_on_reload()();
+        if (result.success) {
+            console.log("Chat number updated:", result.message);
+            chat_number = parseInt(result.message);
+        } else {
+            console.warn("Chat number update failed:", result.message);
+        }
+    } catch (error) {
+        console.error("Error during page load:", error);
+    }
+});
 
 function showHistoryPanel() {
     const historyPanel = document.getElementById("historyPanel");
