@@ -163,7 +163,6 @@ def get_user_info():
         # データ型を確認
         data_type = redis_client.type(session_id)
         if data_type != 'hash':
-            print(f"Redisエラー: キー {session_id} の型は {data_type} です")
             return {"username": "エラー", "email": "取得失敗"}
 
         # Redisのハッシュ型データを取得
@@ -180,5 +179,4 @@ def get_user_info():
         }
     
     except redis.exceptions.RedisError as e:
-        print(f"Redisエラー: {e}")
-        return {"username": "エラー", "email": "取得失敗"}
+        return {"username": "エラー", "email": "取得失敗{}".format(e)}

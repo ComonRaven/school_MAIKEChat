@@ -14,7 +14,6 @@ def get_generated_code(text):
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": text},
     ])
-    print(response.choices[0].message.content)
     return response.choices[0].message.content
 
 # チャット履歴をDBに保存
@@ -158,7 +157,6 @@ def insert_chat_number_on_reload():
         cursor.execute("SELECT MAX(chat_number) FROM Chat_History WHERE user_id = %s", (user_id,))
         result_history = cursor.fetchone()
         max_chat_history_number = result_history[0] if result_history and result_history[0] is not None else 0
-        print("max_chat_history_number"+str(max_chat_history_number))
 
         # chat_numberテーブルにその値が既に存在するか確認
         cursor.execute("SELECT COUNT(*) FROM chat_number WHERE user_id = %s AND chat_number = %s", (user_id, max_chat_history_number + 1))
@@ -167,10 +165,8 @@ def insert_chat_number_on_reload():
         if exists == 0:
             cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_history_number + 1))
             conn.commit()
-            print("chat_number inserted"+str(max_chat_history_number + 1))
             return {"success": True, "message": max_chat_history_number + 1}
         else:
-            print("chat_number already exists"+str(max_chat_history_number + 1))
             return {"success": True, "message": max_chat_history_number + 1}
 
     except Exception as e:
