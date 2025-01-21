@@ -42,7 +42,7 @@ def chat_to_database(username,chat_number,input, output):
 
 # 条件が揃ったらchat_numberを1増やす
 @eel.expose
-def increase_chat_number(chat_number_latest):
+def increase_chat_number():
     try:
         conn = userManagemrnt.connect_db()
         cursor = conn.cursor()
@@ -62,6 +62,9 @@ def increase_chat_number(chat_number_latest):
         cursor.execute("SELECT MAX(chat_number) FROM Chat_History WHERE user_id = %s", (user_id,))
         result_history = cursor.fetchone()
         max_chat_history_number = result_history[0] if result_history and result_history[0] is not None else 0
+        
+        print("max_chat_number", max_chat_number)
+        print("max_chat_history_number", max_chat_history_number)
 
         # Chat_Historyの最大chat_numberまでしか増加させない
         if max_chat_number <= max_chat_history_number:
@@ -70,7 +73,7 @@ def increase_chat_number(chat_number_latest):
             conn.commit()
             return {"success": True, "message": new_chat_number}
         else:
-            return {"success": False, "message": "Chat number cannot exceed Chat_History max value."}
+            return {"success": True, "message": max_chat_number}
 
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
