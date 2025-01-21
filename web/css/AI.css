@@ -77,7 +77,7 @@ iframe {
 .main-content {
     width: 100vw;
 }
-.execute-screen {
+#executeScreen {
     display: none;
 }
 .header {
