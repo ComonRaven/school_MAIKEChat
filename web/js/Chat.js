@@ -224,7 +224,7 @@ async function showChat() {
     } else {
         console.error("Error getting latest chat number:", result_latest.message);
     }
-    let result = await eel.increase_chat_number(chat_number_latest)(); // awaitを使って非同期処理の結果を待機
+    let result = await eel.increase_chat_number()(); // awaitを使って非同期処理の結果を待機
     
     if(result.success) {
         chat_number = result.message;  // 成功した場合は新しいchat_numberを増加させる
