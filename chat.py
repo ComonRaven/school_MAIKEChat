@@ -1,5 +1,6 @@
 import eel
 from openai import OpenAI
+import re
 import userManagemrnt
 
 # OpenAI APIキーの設定
@@ -174,6 +175,46 @@ def insert_chat_number_on_reload():
 
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
+    finally:
+        cursor.close()
+        conn.close()
+
+@eel.expose
+def count_code_blocks():
+    try:
+        # データベース接続
+        conn = userManagemrnt.connect_db()
+        cursor = conn.cursor()
+
+        # 現在のユーザー情報を取得
+        user_info = userManagemrnt.get_user_info()
+        user_id = user_info["user_id"]
+
+        # チャット履歴を取得
+        cursor.execute(
+            "SELECT response_message FROM Chat_History WHERE user_id = %s",
+            (user_id,)
+        )
+        rows = cursor.fetchall()
+        
+        # データがない場合の処理
+        if not rows:
+            return {"success": True, "total_code_blocks": 0}
+
+        # 対象の言語クラスを持つ <code> タグの数をカウント
+        code_class_pattern = r'<code class="(c|cpp|csharp|ruby|php|javascript|java|bash|sh|python|html|css)">'
+        total_code_blocks = 0
+
+        for row in rows:
+            response_message = row[0]  # 取得したメッセージ
+            matches = re.findall(code_class_pattern, response_message)
+            total_code_blocks += len(matches)
+
+        return {"success": True, "total_code_blocks": total_code_blocks}
+
+    except Exception as e:
+        return {"success": False, "message": f"Error: {str(e)}"}
+
     finally:
         cursor.close()
         conn.close()
