@@ -34,35 +34,37 @@ document.addEventListener('DOMContentLoaded', async function() {
                             // historyContent をクリア
                             historyContent.innerHTML = "";
 
-                            // chat_number ごとにボタンを作成
-                            for (let chatNumber in historyData) {
-                                let button = document.createElement("button");
+                            // chat_numberを降順にソートしてボタンを作成
+                            Object.keys(historyData)
+                                .sort((a, b) => b - a)  // chat_numberを降順にソート
+                                .forEach(chatNumber => {
+                                    let button = document.createElement("button");
 
-                                let firstSendMessage = historyData[chatNumber][0]?.send_message?.slice(0,12) || "No Messages";
-                                let firstResponseMessage = historyData[chatNumber][0]?.response_message?.slice(0, 10) || "No Message";
-                                
-                                // send_messageとresponse_messageをラップするdivを作成
-                                let sendMessageDiv = document.createElement("div");
-                                sendMessageDiv.classList.add("send-message");
-                                sendMessageDiv.innerText = "{" + chatNumber + "} " + firstSendMessage;
+                                    let firstSendMessage = historyData[chatNumber][0]?.send_message?.slice(0,12) || "No Messages";
+                                    let firstResponseMessage = historyData[chatNumber][0]?.response_message?.slice(0, 10) || "No Message";
+                                    
+                                    // send_messageとresponse_messageをラップするdivを作成
+                                    let sendMessageDiv = document.createElement("div");
+                                    sendMessageDiv.classList.add("send-message");
+                                    sendMessageDiv.innerText = "{" + chatNumber + "} " + firstSendMessage;
 
-                                let responseMessageDiv = document.createElement("div");
-                                responseMessageDiv.classList.add("response-message");
-                                responseMessageDiv.innerText = firstResponseMessage;
+                                    let responseMessageDiv = document.createElement("div");
+                                    responseMessageDiv.classList.add("response-message");
+                                    responseMessageDiv.innerText = firstResponseMessage;
 
-                                // ボタンにdivを追加
-                                button.appendChild(sendMessageDiv);
-                                button.appendChild(responseMessageDiv);
-                                button.classList.add("history-button");
+                                    // ボタンにdivを追加
+                                    button.appendChild(sendMessageDiv);
+                                    button.appendChild(responseMessageDiv);
+                                    button.classList.add("history-button");
 
-                                // ボタンにクリックイベントを追加
-                                button.addEventListener("click", () => {
-                                    displayChatHistory(historyData[chatNumber], chatNumber);
+                                    // ボタンにクリックイベントを追加
+                                    button.addEventListener("click", () => {
+                                        displayChatHistory(historyData[chatNumber], chatNumber);
+                                    });
+
+                                    // ボタンを historyContent に追加
+                                    historyContent.appendChild(button);
                                 });
-
-                                // ボタンを historyContent に追加
-                                historyContent.appendChild(button);
-                            }
                         } else {
                             let message = document.createElement("p");
                             message.innerText = "履歴を取得できませんでした。";
