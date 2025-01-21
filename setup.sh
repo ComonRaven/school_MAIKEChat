@@ -3,11 +3,8 @@
 echo "sqlの初期設定を開始します。"
 sudo apt update
 sudo apt upgrade -y
-sudo apt install apache2
-sudo apt install php8.3 libapache2-mod-php8.3 php8.3-cli php8.3-common php8.3-mysql php8.3-xml php8.3-mbstring php8.3-curl php8.3-zip php8.3-gd php8.3-bcmath
-sudo apt install redis
-sudo apt install mysql-server
-php -v
+sudo apt install redis -y
+sudo apt install mysql-server -y
 echo "sqlの初期設定を完了しました。"
 
 # MySQLの設定
