@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // 初回メッセージ
     botui.message.add({
-        content: '{' + chat_number + '}こんにちは！私はMAIkeChatです。'
+        content: '{' + chat_number + '}こんにちは！私はMAIKE Chatです。'
     }).then(() => {
         return botui.message.add({
             content: '質問をどうぞ！'
@@ -236,7 +236,7 @@ async function showChat() {
     
     // 初回メッセージ
     botui.message.add({
-        content: '{' + chat_number + '}こんにちは！私はMAIkeChatです。'
+        content: '{' + chat_number + '}こんにちは！私はMAIKE Chatです。'
     }).then(() => {
         return botui.message.add({
             content: '質問をどうぞ！'
