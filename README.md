@@ -8,26 +8,33 @@
 OpenAI APIを用いたチャットアプリです
 
 ### 主な機能：
-- サインアップ・ログイン機能    
+- **サインアップ・ログイン機能**    
   ユーザー登録画面で任意のユーザーを登録可能。    
   パスワードを忘れた場合でも、`SecretWord`を入力することによりパスワード変更を可能にした
-- チャット機能    
+- **チャット機能**    
   [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示
-- コード実行機能    
+- **コード実行機能**    
   [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた    
-  C言語・C#・C++・Python3・Python2・生JavaScript・Java・Ruby・PHP
-- チャット履歴機能    
-    Chat Historyボタンを押すことによりチャット履歴を確認及び、選択可能
+  - 🟦 C言語  
+  - 🟧 C#  
+  - 🟨 C++  
+  - 🐍 Python3 / Python2  
+  - 🌐 生JavaScript  
+  - ☕ Java  
+  - 💎 Ruby  
+  - 🐘 PHP
+- **チャット履歴機能**    
+    `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能
 
 ### 各機能ごとのプレビュー：
-- サインアップ・ログイン機能    
+- **サインアップ・ログイン機能**    
   <img src="web/image/readme/signup.png" alt="サインアップ画面" width="150px">
   <img src="web/image/readme/login.png" alt="ログイン画面" width="153.5px">
-- チャット機能    
+- **チャット機能**    
   <img src="web/image/readme/chat.png" alt="チャット画面">
-- コード実行機能
+- **コード実行機能**    
   <img src="web/image/readme/webEditor.png" alt="コード実行画面">
-- チャット履歴機能    
+- **チャット履歴機能**    
   <img src="web/image/readme/chatHistory.png" alt="チャット履歴画面">    
 
 <br>
