@@ -1,5 +1,6 @@
 import eel
 from openai import OpenAI
+import re
 import userManagemrnt
 
 # OpenAI APIキーの設定
@@ -13,7 +14,6 @@ def get_generated_code(text):
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": text},
     ])
-    print(response.choices[0].message.content)
     return response.choices[0].message.content
 
 # チャット履歴をDBに保存
@@ -157,7 +157,6 @@ def insert_chat_number_on_reload():
         cursor.execute("SELECT MAX(chat_number) FROM Chat_History WHERE user_id = %s", (user_id,))
         result_history = cursor.fetchone()
         max_chat_history_number = result_history[0] if result_history and result_history[0] is not None else 0
-        print("max_chat_history_number"+str(max_chat_history_number))
 
         # chat_numberテーブルにその値が既に存在するか確認
         cursor.execute("SELECT COUNT(*) FROM chat_number WHERE user_id = %s AND chat_number = %s", (user_id, max_chat_history_number + 1))
@@ -166,14 +165,52 @@ def insert_chat_number_on_reload():
         if exists == 0:
             cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_history_number + 1))
             conn.commit()
-            print("chat_number inserted"+str(max_chat_history_number + 1))
             return {"success": True, "message": max_chat_history_number + 1}
         else:
-            print("chat_number already exists"+str(max_chat_history_number + 1))
             return {"success": True, "message": max_chat_history_number + 1}
 
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
+    finally:
+        cursor.close()
+        conn.close()
+
+@eel.expose
+def count_code_blocks():
+    try:
+        # データベース接続
+        conn = userManagemrnt.connect_db()
+        cursor = conn.cursor()
+
+        # 現在のユーザー情報を取得
+        user_info = userManagemrnt.get_user_info()
+        user_id = user_info["user_id"]
+
+        # チャット履歴を取得
+        cursor.execute(
+            "SELECT response_message FROM Chat_History WHERE user_id = %s",
+            (user_id,)
+        )
+        rows = cursor.fetchall()
+        
+        # データがない場合の処理
+        if not rows:
+            return {"success": True, "total_code_blocks": 0}
+
+        # 対象の言語クラスを持つ <code> タグの数をカウント
+        code_class_pattern = r'<code class="(c|cpp|csharp|ruby|php|javascript|java|bash|sh|python|html|css)">'
+        total_code_blocks = 0
+
+        for row in rows:
+            response_message = row[0]  # 取得したメッセージ
+            matches = re.findall(code_class_pattern, response_message)
+            total_code_blocks += len(matches)
+
+        return {"success": True, "total_code_blocks": total_code_blocks}
+
+    except Exception as e:
+        return {"success": False, "message": f"Error: {str(e)}"}
+
     finally:
         cursor.close()
         conn.close()
