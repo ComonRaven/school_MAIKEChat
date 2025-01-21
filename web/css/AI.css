@@ -264,11 +264,6 @@ code.css pre {
     border-radius: 10%;
 }
 
-/* bashコマンドのハイライト */
-code.bash pre {
-    color: var(--theme-color-reverse); /* bashの文字列やコメントの色（黄色） */
-}
-
 .inline-code {
     background-color: #2d2d2d; /* ダークモードの背景色 */
     color: #f8f8f2; /* 白文字 */

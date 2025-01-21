@@ -165,12 +165,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
         eel.get_generated_code(question)(function(output) {
-            console.log(output);
-
             eel.count_code_blocks()().then((result) => {
                 if (result.success) {
                     codeBlockCounter = result.total_code_blocks;
-                    console.log("コードブロックの数:", codeBlockCounter);
                 } else {
                     console.error("エラー:", result.message);
                 }
@@ -187,7 +184,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/```(c|cpp|csharp|ruby|php|javascript|java|bash|sh|python|html|css)/g, (match, lang) => {
                 // コードブロック開始時に番号付きのクラスを追加
                 codeBlockCounter++;
-                console.log("増加中のコードブロック番号:", codeBlockCounter);
                 return `<code class="${lang}"><div class="copy-div-${lang}"><button type="button" class="copy-button" onclick="copyCodeToClipboard(this)" data-code-block="${codeBlockCounter}">コピー</button></div><pre class="code-block-${codeBlockCounter}">`;
             })
             .replace(/```/g, '</pre></code>')  // コードブロック終了
@@ -258,7 +254,6 @@ window.addEventListener('load', async function () {
         
         let result = await eel.insert_chat_number_on_reload()();
         if (result.success) {
-            console.log("Chat number updated:", result.message);
             chat_number = parseInt(result.message);
         } else {
             console.warn("Chat number update failed:", result.message);
