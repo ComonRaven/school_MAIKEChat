@@ -36,6 +36,9 @@ def chat_to_database(username,chat_number,input, output):
         return {"success": True, "message": "Chat history saved successfully"}
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
+    finally:
+        cursor_id.close()
+        conn.close()
 
 # 条件が揃ったらchat_numberを1増やす
 @eel.expose
@@ -111,9 +114,8 @@ def get_history():
         return {"success": False, "message": f"Error: {str(e)}"}
 
     finally:
-        # データベース接続をクローズ
-        if conn:
-            conn.close()
+        cursor.close()
+        conn.close()
 
 @eel.expose
 def get_latestChatnumber():
@@ -131,6 +133,9 @@ def get_latestChatnumber():
         return {"success": True, "message": max_chat_number}
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
+    finally:
+        cursor.close()
+        conn.close()
 
 @eel.expose
 def insert_chat_number_on_reload():
@@ -157,9 +162,11 @@ def insert_chat_number_on_reload():
         if exists == 0:
             cursor.execute("INSERT INTO chat_number (user_id, chat_number) VALUES (%s, %s)", (user_id, max_chat_history_number + 1))
             conn.commit()
+            print("chat_number inserted"+str(max_chat_history_number + 1))
             return {"success": True, "message": max_chat_history_number + 1}
         else:
-            return {"success": True, "message": max_chat_history_number}
+            print("chat_number already exists"+str(max_chat_history_number + 1))
+            return {"success": True, "message": max_chat_history_number + 1}
 
     except Exception as e:
         return {"success": False, "message": f"Error: {str(e)}"}
