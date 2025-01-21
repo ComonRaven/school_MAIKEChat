@@ -15,6 +15,10 @@ body {
     font-family: Roboto, -apple-system, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
     background: var(--theme-color-reverse);
 }
+.homerogo{
+    width: 250px;
+    height: 250px;
+}
 
 .forms-section {
     display: flex;

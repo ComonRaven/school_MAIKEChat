@@ -17,7 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.min.js" defer></script>
 </head>
 <body>
-    <div class="header">
+  <div class="header">
+    <img class="rogo" src="./image/rogo_white.png">
         <img class="history" src="image/history.png" onclick="showHistoryPanel()" />
         <img class="chat" src="image/newChat.png" onclick="showChat()" id="chat" />
         <img class="webEditor" src="image/webEditor.png" onclick="showExecute()" id="webEditor" />
@@ -26,9 +27,9 @@
     <div class="overlay" id="overlay">
         <div class="popup" id="popup">
             <h2 id="popup-title">settingPanel</h2>
-            <p>ユーザー名: <br><code id="user-name"></code></p>
-            <p>メールアドレス: <br><code id="user-email"></code></p>
-            <p>パスワード: <br><code id="user-password"></code></p>
+            <p>ユーザー名: <br><code class="settingInfo" id="user-name"></code></p>
+            <p>メールアドレス: <br><code class="settingInfo" id="user-email"></code></p>
+            <p>パスワード: <br><code class="settingInfo" id="user-password"></code></p>
             <div class="popup-buttons">
                 <button class="close" onclick="closeSettingPopup()">閉じる</button>
                 <button class="logout" onclick="logout()">ログアウト</button>

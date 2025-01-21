@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                                 // send_messageとresponse_messageをラップするdivを作成
                                 let sendMessageDiv = document.createElement("div");
                                 sendMessageDiv.classList.add("send-message");
-                                sendMessageDiv.innerText = firstSendMessage;
+                                sendMessageDiv.innerText = "{" + chatNumber + "} " + firstSendMessage;
 
                                 let responseMessageDiv = document.createElement("div");
                                 responseMessageDiv.classList.add("response-message");
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
             // 質問内容を表示
             botui.message.add({
-                content: `質問: ${messagePair.send_message}`
+                content: `{${chat_number}}質問: ${messagePair.send_message}`
             });
             // 出力をHTMLとして挿入
             botui.message.add({
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // 初回メッセージ
     botui.message.add({
-        content: 'こんにちは！私はMAIkeChatです。'
+        content: '{' + chat_number + '}こんにちは！私はMAIkeChatです。'
     }).then(() => {
         return botui.message.add({
             content: '質問をどうぞ！'
@@ -157,6 +157,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         eel.get_generated_code(question)(function(output) {
             console.log(output);
 
+            // コードブロック番号の初期化
+            let codeBlockCounter = 0;
+
             // 出力を整形
             let formattedOutput = output
             .replace(/#include <(.*?)>/g, '#include <$1>')  // #include の < > のみ元に戻す
@@ -165,19 +168,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/</g, '&lt;')  // 全ての < をエスケープ
             .replace(/>/g, '&gt;')  // 全ての > をエスケープ
             .replaceAll(/&lt;br&gt;/g, '<br>')  // <br> をタグとして戻す
-            .replace(/```cpp/g, '<pre><code class="cpp">')  // コードブロック開始
-            .replace(/```csharp/g, '<pre><code class="csharp">')
-            .replace(/```c/g, '<pre><code class="c">')  // コードブロック開始
-            .replace(/```ruby/g, '<pre><code class="ruby">')
-            .replace(/```php/g, '<pre><code class="php">')
-            .replace(/```javascript/g, '<pre><code class="javascript">')
-            .replace(/```java/g, '<pre><code class="java">')
-            .replace(/```bash/g, '<pre><code class="bash">')  // コードブロック開始
-            .replace(/```sh/g, '<pre><code class="sh">')  // コードブロック開始
-            .replace(/```python/g, '<pre><code class="python">')  // コードブロック開始
-            .replace(/```html/g, '<pre><code class="html">')  // コードブロック開始
-            .replace(/```css/g, '<pre><code class="css">')  // コードブロック開始
-            .replace(/```/g, '</code></pre>')  // コードブロック終了
+            .replace(/```(c|cpp|csharp|ruby|php|javascript|java|bash|sh|python|html|css)/g, (match, lang) => {
+                // コードブロック開始時に番号付きのクラスを追加
+                codeBlockCounter++;
+                return `<code class="${lang}"><div class="copy-div-${lang}"><button type="button" class="copy-button" onclick="copyCodeToClipboard(this)" data-code-block="${codeBlockCounter}">コピー</button></div><pre class="code-block-${codeBlockCounter}">`;
+            })
+            .replace(/```/g, '</pre></code>')  // コードブロック終了
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
             .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')  // インラインコード
             .replaceAll(/### (.*?)(<br>)/g, '<h3>$1</h3>');  // 見出し（###）を <h3> に変換
@@ -215,17 +211,17 @@ async function showChat() {
     } else {
         console.error("Error getting latest chat number:", result_latest.message);
     }
-    let result = await eel.increase_chat_number(chat_number)(); // awaitを使って非同期処理の結果を待機
+    let result = await eel.increase_chat_number(chat_number_latest)(); // awaitを使って非同期処理の結果を待機
     
     if(result.success) {
-        chat_number = result.message + 1;  // 成功した場合は新しいchat_numberを増加させる
+        chat_number = result.message;  // 成功した場合は新しいchat_numberを増加させる
     } else {
         console.error("Error updating chat number:", result.message); // エラーメッセージをログ出力
     }
     
     // 初回メッセージ
     botui.message.add({
-        content: 'こんにちは！私はMAIkeChatです。'
+        content: '{' + chat_number + '}こんにちは！私はMAIkeChatです。'
     }).then(() => {
         return botui.message.add({
             content: '質問をどうぞ！'
@@ -238,7 +234,22 @@ function showExecute() {
     document.getElementById('executeScreen').style.display = 'block';
 }
 
-document.onload = showChat();
+//document.onload = showChat;
+window.addEventListener('load', async function () {
+    try {
+        showChat();
+        
+        let result = await eel.insert_chat_number_on_reload()();
+        if (result.success) {
+            console.log("Chat number updated:", result.message);
+            chat_number = parseInt(result.message);
+        } else {
+            console.warn("Chat number update failed:", result.message);
+        }
+    } catch (error) {
+        console.error("Error during page load:", error);
+    }
+});
 
 function showHistoryPanel() {
     const historyPanel = document.getElementById("historyPanel");
@@ -252,4 +263,32 @@ function closeHistoryPanel() {
     const overlay = document.getElementById("historyOverlay");
     historyPanel.classList.remove("active");
     overlay.classList.remove("active"); // オーバーレイを非表示
+}
+
+// コピー処理を行う関数
+function copyCodeToClipboard(button) {
+    // ボタンからデータ属性を取得
+    if (!button || !button.getAttribute) {
+        console.error("button が正しく渡されていません");
+        return;
+    }
+
+    const blockNumber = button.getAttribute('data-code-block');
+    const codeElement = document.querySelector(`.code-block-${blockNumber}`);
+
+    if (codeElement) {
+        // テキストを取得（innerText は改行やインデントを保持）
+        const codeText = codeElement.innerText.trim();
+
+        // クリップボードにコピー
+        navigator.clipboard.writeText(codeText)
+            .then(() => {
+                alert(`コードをクリップボードにコピーしました: ブロック番号 ${blockNumber}`);
+            })
+            .catch(err => {
+                alert('コピーに失敗しました: ' + err);
+            });
+    } else {
+        alert(`コードブロックが見つかりません: ブロック番号 ${blockNumber}`);
+    }
 }
