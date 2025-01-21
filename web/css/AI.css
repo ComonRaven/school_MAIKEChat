@@ -184,11 +184,77 @@ code pre {
     margin-bottom: 20px;
 }
 
-/* C言語のハイライト */
+/* 言語別のハイライト */
 code.c pre {
-    color: var(--theme-color-reverse); /* C言語のキーワードの色（赤） */
+    color: var(--theme-color-reverse);
+}
+code.cpp pre {
+    color: var(--theme-color-reverse);
+}
+code.csharp pre {
+    color: var(--theme-color-reverse);
+}
+code.ruby pre {
+    color: var(--theme-color-reverse);
+}
+code.php pre {
+    color: var(--theme-color-reverse);
+}
+code.javascript pre {
+    color: var(--theme-color-reverse);
+}
+code.java pre {
+    color: var(--theme-color-reverse);
+}
+code.bash pre {
+    color: var(--theme-color-reverse);
+}
+code.sh pre {
+    color: var(--theme-color-reverse);
+}
+code.python pre {
+    color: var(--theme-color-reverse);
+}
+code.html pre {
+    color: var(--theme-color-reverse);
+}
+code.css pre {
+    color: var(--theme-color-reverse);
 }
 .copy-div-c {
+    display: flex;
+}
+.copy-div-cpp {
+    display: flex;
+}
+.copy-div-csharp {
+    display: flex;
+}
+.copy-div-ruby {
+    display: flex;
+}
+.copy-div-php {
+    display: flex;
+}
+.copy-div-javascript {
+    display: flex;
+}
+.copy-div-java {
+    display: flex;
+}
+.copy-div-bash {
+    display: flex;
+}
+.copy-div-sh {
+    display: flex;
+}
+.copy-div-python {
+    display: flex;
+}
+.copy-div-html {
+    display: flex;
+}
+.copy-div-css {
     display: flex;
 }
 .copy-button {
@@ -196,11 +262,6 @@ code.c pre {
     color: var(--theme-color-reverse);
     margin-left: auto;
     border-radius: 10%;
-}
-
-/* bashコマンドのハイライト */
-code.bash pre {
-    color: var(--theme-color-reverse); /* bashの文字列やコメントの色（黄色） */
 }
 
 .inline-code {

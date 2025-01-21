@@ -2,6 +2,7 @@ let chat_number = 1;
 let chat_number_source;
 let chat_number_latest;
 let botui;
+let codeBlockCounter = 0;
 
 document.addEventListener('DOMContentLoaded', async function() {
     let sendButton = document.getElementById('send-btn');
@@ -164,10 +165,13 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
         eel.get_generated_code(question)(function(output) {
-            console.log(output);
-
-            // コードブロック番号の初期化
-            let codeBlockCounter = 0;
+            eel.count_code_blocks()().then((result) => {
+                if (result.success) {
+                    codeBlockCounter = result.total_code_blocks;
+                } else {
+                    console.error("エラー:", result.message);
+                }
+            });
 
             // 出力を整形
             let formattedOutput = output
@@ -250,7 +254,6 @@ window.addEventListener('load', async function () {
         
         let result = await eel.insert_chat_number_on_reload()();
         if (result.success) {
-            console.log("Chat number updated:", result.message);
             chat_number = parseInt(result.message);
         } else {
             console.warn("Chat number update failed:", result.message);
@@ -292,7 +295,7 @@ function copyCodeToClipboard(button) {
         // クリップボードにコピー
         navigator.clipboard.writeText(codeText)
             .then(() => {
-                alert(`コードをクリップボードにコピーしました: ブロック番号 ${blockNumber}`);
+                alert(`コードをクリップボードにコピーしました`);
             })
             .catch(err => {
                 alert('コピーに失敗しました: ' + err);
