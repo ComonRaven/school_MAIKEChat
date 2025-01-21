@@ -63,9 +63,6 @@ def increase_chat_number():
         result_history = cursor.fetchone()
         max_chat_history_number = result_history[0] if result_history and result_history[0] is not None else 0
         
-        print("max_chat_number", max_chat_number)
-        print("max_chat_history_number", max_chat_history_number)
-
         # Chat_Historyの最大chat_numberまでしか増加させない
         if max_chat_number <= max_chat_history_number:
             new_chat_number = max_chat_number + 1
