@@ -165,9 +165,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 質問内容をクリア
         inputText.value = '';
 
-        // 「お待ちください」のメッセージを表示
+        
+         // 「●●●」を順番に点滅させるため、個別に `<span>` を追加
         let waitingMessage = await botui.message.add({
-            content: 'お待ちください...'
+            content: '<span class="blinking-dot">●</span><span class="blinking-dot">●</span><span class="blinking-dot">●</span>'
         });
 
         eel.get_generated_code(question)(function(output) {
@@ -197,9 +198,9 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')  // インラインコード
             .replaceAll(/### (.*?)(<br>)/g, '<h3>$1</h3>');  // 見出し（###）を <h3> に変換
 
-            // お待ちくださいメッセージを削除
-            botui.message.remove(waitingMessage);
-    
+            // 点滅を止めて「●●●」を削除
+            botui.message.remove(waitingMessage);  // 「●●●」を削除
+
             // 出力をHTMLとして挿入
             botui.message.add({
                 type: 'html',
