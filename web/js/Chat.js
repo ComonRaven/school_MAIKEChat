@@ -165,6 +165,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 質問内容をクリア
         inputText.value = '';
 
+        // 「お待ちください」のメッセージを表示
+        let waitingMessage = await botui.message.add({
+            content: 'お待ちください...'
+        });
 
         eel.get_generated_code(question)(function(output) {
             eel.count_code_blocks()().then((result) => {
@@ -192,6 +196,9 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
             .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')  // インラインコード
             .replaceAll(/### (.*?)(<br>)/g, '<h3>$1</h3>');  // 見出し（###）を <h3> に変換
+
+            // お待ちくださいメッセージを削除
+            botui.message.remove(waitingMessage);
     
             // 出力をHTMLとして挿入
             botui.message.add({
