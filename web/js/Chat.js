@@ -306,3 +306,35 @@ function copyCodeToClipboard(button) {
         alert(`コードブロックが見つかりません: ブロック番号 ${blockNumber}`);
     }
 }
+
+// 入力量に応じてチャット画面の高さを変更
+function adjustChatScreenHeight() {
+    const textArea = document.getElementById('into-text');
+    const botUIContainer = document.querySelector('.botUI-container');
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const availableHeight = window.innerHeight - headerHeight - 50 - 22;  // 余白分を引く
+
+    // 改行の数をカウント（最初の行はカウントしない）
+    const lineBreaks = (textArea.value.match(/\n/g) || []).length;
+    const lineHeight = 20;  // 1行あたりの高さ増加分（px）
+    const baseHeight = 40;  // 入力エリアの初期高さ（CSSと一致させる）
+    const maxHeight = 150;  // 最大の高さ
+
+    // 改行がある場合のみ高さを増やす
+    let newHeight = baseHeight + (lineBreaks * lineHeight);
+    newHeight = Math.min(newHeight, maxHeight);
+    textArea.style.height = `${newHeight}px`;
+
+    // BotUI の高さを自動調整
+    const botUIHeight = availableHeight - newHeight;
+    botUIContainer.style.height = `${Math.max(botUIHeight, 200)}px`;
+
+    // 入力が空の場合、デフォルトのサイズに戻す
+    if (textArea.value.trim() === "") {
+        textArea.style.height = `${baseHeight}px`;
+        botUIContainer.style.height = `calc(100vh - 70px - 2vh - 100px)`;  // 初期の高さに戻す
+    }
+
+    console.log(`textArea.style.height: ${textArea.style.height}`);
+    console.log(`botUIContainer.style.height: ${botUIContainer.style.height}`);
+}
