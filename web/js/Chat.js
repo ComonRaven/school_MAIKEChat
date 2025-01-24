@@ -342,7 +342,4 @@ function adjustChatScreenHeight() {
         textArea.style.height = `${baseHeight}px`;
         botUIContainer.style.height = `calc(100vh - 70px - 2vh - 100px)`;  // 初期の高さに戻す
     }
-
-    console.log(`textArea.style.height: ${textArea.style.height}`);
-    console.log(`botUIContainer.style.height: ${botUIContainer.style.height}`);
 }
