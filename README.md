@@ -5,7 +5,7 @@
 # <img src="web/image/readme/logo.png" alt="ロゴ" width="60px">MAIKE Chat
 
 
-![Logo](web/image/readme/sample.png)
+![Sample](web/image/readme/Sample.gif)
 
 OpenAI APIを用いたチャットアプリです
 
