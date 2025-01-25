@@ -28,41 +28,58 @@ OpenAI APIを用いたチャットアプリです
 - **チャット履歴機能**    
     `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能
 
-### 各機能ごとのプレビュー：
-- **サインアップ・ログイン機能**    
-  <img src="web/image/readme/signup.png" alt="サインアップ画面" width="150px">
-  <img src="web/image/readme/login.png" alt="ログイン画面" width="153.5px">
-- **チャット機能**    
-  <img src="web/image/readme/chat.png" alt="チャット画面">
-- **コード実行機能**    
-  <img src="web/image/readme/webEditor.png" alt="コード実行画面">
-- **チャット履歴機能**    
-  <img src="web/image/readme/chatHistory.png" alt="チャット履歴画面">    
-
 <br>
 
-# インストール方法
-pythonの仮想環境を作成(hogeは仮想環境名)
+# 使い方   
+### 1. リポジトリをクローン    
+- httpsでクローン    
+    ```bash
+    git clone https://github.com/IS2ProjectPractice1/lesson-5-team-development-mike-1.git
+    cd lesson-5-team-development-mike-1
+    ```
+- sshでクローン    
+    ```bash
+    git clone git@github.com:IS2ProjectPractice1/lesson-5-team-development-mike-1.git
+    cd lesson-5-team-development-mike-1
+    ```
+### 2. データベースの設定
+[db_setup.sh](./db_setup.sh)を実行
 ```bash
-sudo apt install python3-venv
-python3 -m venv ~/hoge
+chmod +x ./db_setup.sh
+./db_setup.sh
+```
+### 3. python3の設定    
+- 仮想環境を作成(`hoge` は仮想環境名です)  
+    ```bash
+    sudo apt install python3-venv
+    python3 -m venv ~/hoge # "hoge" の部分を好きな名前に変更できます
+    ```
+- 仮想環境を作動
+    ```bash
+    source ~/hoge/bin/activate
+    ```
+- 仮想環境を停止
+    ```bash
+    deactivate
+    ```
+- パッケージをインストール    
+    ```bash
+    source ~/hoge/bin/activate
+    pip install eel openai mysql-connector-python bcrypt redis
+    ```
+### 4. アプリの起動
+```bash
+python3 main.py
 ```
 
-仮想環境を作動
-```bash
-source ~/venv/hoge/bin/activate
-```
-
-コマンドプロンプトの先頭に (hoge) が表示されれば成功<br>
-<br>
-仮想環境を停止させる
-```bash
-deactivate
-```
-コマンドプロンプトの先頭の (hoge) が非表示になれば成功<br>
-<br>
-仮想環境に必要なパッケージをインストール<br>
-仮想環境を作動させて、以下のコマンドを実行
-```bash
-pip install eel openai mysql-connector-python bcrypt redis
-```
+# 環境
+### 開発環境
+- Python 3.10.12
+- WSL2
+- Raspberry Pi 3B
+### 動作確認済みのpythonモジュールバージョン
+- [Eel 0.18.1](https://github.com/python-eel/Eel)
+- [openai 1.58.1](https://platform.openai.com/docs/overview)
+- [mysql-connector-python 9.1.0](https://github.com/mysql/mysql-connector-python)
+- [bcrypt 4.2.1](https://github.com/pyca/bcrypt)
+- [redis 5.2.1](https://github.com/redis/redis)
