@@ -4,29 +4,43 @@
 
 # <img src="web/image/readme/logo.png" alt="ロゴ" width="60px">MAIKE Chat
 
+<img src="https://img.shields.io/badge/-Html5-black.svg?logo=html5&style=flat-square" height="25px">
+<img src="https://img.shields.io/badge/-Css3-black.svg?logo=css3&style=flat-square" height="25px">
+<img src="https://img.shields.io/badge/-Javascript-black.svg?logo=javascript&style=flat-square" height="25px">
+<img src="https://img.shields.io/badge/-Python-black.svg?logo=python&style=flat-square" height="25px">
+<img src="https://img.shields.io/badge/-Mysql-black.svg?logo=mysql&style=flat-square" height="25px">
+<img src="https://img.shields.io/badge/-Redis-black.svg?logo=redis&style=flat-square" height="25px">
+
+<br />
 
 ![Sample](web/image/readme/Sample.gif)
 
-OpenAI APIを用いたチャットアプリです
+`OpenAI API`を用いたチャットアプリです
 
 ## 目次
-1. [主な機能](#主な機能)
-2. [使い方](#使い方)
-   1. [リポジトリをクローン](#1-リポジトリをクローン)
-   2. [python3の設定](#2-python3の設定)
-   3. [環境変数の設定](#3-環境変数の設定)
-   4. [データベースの設定](#4-データベースの設定)
-   5. [アプリの起動](#5-アプリの起動)
-3. [環境](#環境)
-4. [ライセンス](#ライセンス)
+- [主な機能](#主な機能)
+    - [サインアップ・ログイン機能](#サインアップ・ログイン機能)
+    - [チャット機能](#チャット機能)
+    - [コード実行機能](#コード実行機能)
+    - [チャット履歴機能](#チャット履歴機能)
+- [使い方](#使い方)
+    - [1. リポジトリをクローン](#1-リポジトリをクローン)
+    - [2. python3の設定](#2-python3の設定)
+    - [3. 環境変数の設定](#3-環境変数の設定)
+    - [4. データベースの設定](#4-データベースの設定)
+    - [5. アプリの起動](#5-アプリの起動)
+- [環境](#環境)
+    - [開発環境](#開発環境)
+    - [動作確認済みのpythonモジュールバージョン](#動作確認済みのpythonモジュールバージョン)
+- [ライセンス](#ライセンス)
 
-### 主な機能：
-- **サインアップ・ログイン機能**    
+# 主な機能
+- ### サインアップ・ログイン機能    
   ユーザー登録画面で任意のユーザーを登録可能。    
   パスワードを忘れた場合でも、`SecretWord`を入力することによりパスワード変更を可能にした
-- **チャット機能**    
+- ### チャット機能    
   [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示
-- **コード実行機能**    
+- ### コード実行機能    
   [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた    
   - 🟦 C言語  
   - 🟧 C#  
@@ -36,7 +50,7 @@ OpenAI APIを用いたチャットアプリです
   - ☕ Java  
   - 💎 Ruby  
   - 🐘 PHP
-- **チャット履歴機能**    
+- ### チャット履歴機能    
     `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能
 
 <br>
@@ -95,6 +109,10 @@ OpenAI APIを用いたチャットアプリです
     MAIKE_REDIS_HOST=localhost
     MAIKE_REDIS_PORT=6379
     MAIKE_REDIS_DB=0
+    ```
+3. `.env`ファイルを適応
+    ```bash
+    source .env
     ```
 ### 4. データベースの設定
 [db_setup.sh](./db_setup.sh)を実行
