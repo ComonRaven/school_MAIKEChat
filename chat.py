@@ -1,10 +1,18 @@
 import eel
 from openai import OpenAI
+import os
+from dotenv import load_dotenv
 import re
 import userManagemrnt
 
+# .envファイルを読み込む
+load_dotenv()
+
+# OpenAI APIキーを環境変数から取得
+api_key = os.getenv("MAIKE_OPENAI_API_KEY")
+
 # OpenAI APIキーの設定
-client = OpenAI(api_key="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")
+client = OpenAI(api_key=api_key)
 
 
 @eel.expose
