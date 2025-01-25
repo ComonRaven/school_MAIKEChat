@@ -42,13 +42,7 @@ OpenAI APIを用いたチャットアプリです
     git clone git@github.com:IS2ProjectPractice1/lesson-5-team-development-mike-1.git
     cd lesson-5-team-development-mike-1
     ```
-### 2. データベースの設定
-[db_setup.sh](./db_setup.sh)を実行
-```bash
-chmod +x ./db_setup.sh
-./db_setup.sh
-```
-### 3. python3の設定    
+### 2. python3の設定    
 - 仮想環境を作成(`hoge` は仮想環境名です)  
     ```bash
     sudo apt install python3-venv
@@ -67,7 +61,37 @@ chmod +x ./db_setup.sh
     source ~/hoge/bin/activate
     pip install eel openai mysql-connector-python bcrypt redis python-dotenv
     ```
-### 4. アプリの起動
+### 3. 環境変数の設定
+1. [`.env.sample`](./.env.sample)をコピーして`.env`ファイルを作成
+    ```bash
+    cp .env.sample .env
+    ```
+2. `.env`ファイルを編集    
+    `.env`ファイルに以下のように自分のAPIキーやデータベース設定を入力
+    ```bash
+    # .env
+
+    # OpenAI APIキー
+    MAIKE_OPENAI_API_KEY=your-api-key-here
+
+    # MySQLの設定
+    MAIKE_DB_HOST=localhost
+    MAIKE_DB_USER=your-database-user
+    MAIKE_DB_PASSWORD=your-database-password
+    MAIKE_DB_NAME=your-database-name
+
+    # Redisの設定
+    MAIKE_REDIS_HOST=localhost
+    MAIKE_REDIS_PORT=6379
+    MAIKE_REDIS_DB=0
+    ```
+### 4. データベースの設定
+[db_setup.sh](./db_setup.sh)を実行
+```bash
+chmod +x ./db_setup.sh
+./db_setup.sh
+```
+### 5. アプリの起動
 ```bash
 python3 main.py
 ```
