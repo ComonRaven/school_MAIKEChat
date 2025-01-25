@@ -165,6 +165,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 質問内容をクリア
         inputText.value = '';
 
+        
+         // 「●●●」を順番に点滅させるため、個別に `<span>` を追加
+        let waitingMessage = await botui.message.add({
+            content: '<span class="blinking-dot">●</span><span class="blinking-dot">●</span><span class="blinking-dot">●</span>'
+        });
 
         eel.get_generated_code(question)(function(output) {
             eel.count_code_blocks()().then((result) => {
@@ -192,7 +197,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
             .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')  // インラインコード
             .replaceAll(/### (.*?)(<br>)/g, '<h3>$1</h3>');  // 見出し（###）を <h3> に変換
-    
+
+            // 点滅を止めて「●●●」を削除
+            botui.message.remove(waitingMessage);  // 「●●●」を削除
+
             // 出力をHTMLとして挿入
             botui.message.add({
                 type: 'html',
@@ -304,5 +312,34 @@ function copyCodeToClipboard(button) {
             });
     } else {
         alert(`コードブロックが見つかりません: ブロック番号 ${blockNumber}`);
+    }
+}
+
+// 入力量に応じてチャット画面の高さを変更
+function adjustChatScreenHeight() {
+    const textArea = document.getElementById('into-text');
+    const botUIContainer = document.querySelector('.botUI-container');
+    const headerHeight = document.querySelector('.header').offsetHeight;
+    const availableHeight = window.innerHeight - headerHeight - 50 - 22;  // 余白分を引く
+
+    // 改行の数をカウント（最初の行はカウントしない）
+    const lineBreaks = (textArea.value.match(/\n/g) || []).length;
+    const lineHeight = 20;  // 1行あたりの高さ増加分（px）
+    const baseHeight = 40;  // 入力エリアの初期高さ（CSSと一致させる）
+    const maxHeight = 150;  // 最大の高さ
+
+    // 改行がある場合のみ高さを増やす
+    let newHeight = baseHeight + (lineBreaks * lineHeight);
+    newHeight = Math.min(newHeight, maxHeight);
+    textArea.style.height = `${newHeight}px`;
+
+    // BotUI の高さを自動調整
+    const botUIHeight = availableHeight - newHeight;
+    botUIContainer.style.height = `${Math.max(botUIHeight, 200)}px`;
+
+    // 入力が空の場合、デフォルトのサイズに戻す
+    if (textArea.value.trim() === "") {
+        textArea.style.height = `${baseHeight}px`;
+        botUIContainer.style.height = `calc(100vh - 70px - 2vh - 100px)`;  // 初期の高さに戻す
     }
 }
