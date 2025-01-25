@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# .envファイルを読み込む
+source .env
+
 echo "sqlの初期設定を開始します。"
 sudo apt update
 sudo apt upgrade -y
@@ -8,9 +11,9 @@ sudo apt install mysql-server -y
 echo "sqlの初期設定を完了しました。"
 
 # MySQLの設定
-DB_NAME="MAIke"
-DB_USER="MAIkeUser"
-DB_PASSWORD="3@WaM2cEZDpu4SR*KUAQt"
+DB_NAME=${MAIKE_DB_NAME}
+DB_USER=${MAIKE_DB_USER}
+DB_PASSWORD=${MAIKE_DB_PASSWORD}
 
 # ユーザーの存在確認
 USER_EXISTS=$(sudo mysql -u root -e "SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = '${DB_USER}' AND host = 'localhost');" -sN)

@@ -3,17 +3,32 @@ import mysql.connector
 import bcrypt
 import redis
 import uuid
+import os
+from dotenv import load_dotenv
+
+# .envファイルを読み込む
+load_dotenv()
 
 # Redisに接続
-redis_client = redis.StrictRedis(host='localhost', port=6379, db=0, decode_responses=True)
+redis_host = os.getenv("MAIKE_REDIS_HOST", "localhost")
+redis_port = int(os.getenv("MAIKE_REDIS_PORT", 6379))
+redis_db = int(os.getenv("MAIKE_REDIS_DB", 0))
+
+# Redisに接続
+redis_client = redis.StrictRedis(host=redis_host, port=redis_port, db=redis_db, decode_responses=True)
 
 # MySQLデータベース接続
 def connect_db():
+    db_host = os.getenv("MAIKE_DB_HOST", "localhost")
+    db_user = os.getenv("MAIKE_DB_USER", "MAIkeUser")
+    db_password = os.getenv("MAIKE_DB_PASSWORD", "yourpassword")
+    db_name = os.getenv("MAIKE_DB_NAME", "MAIke")
+    
     return mysql.connector.connect(
-        host='localhost',
-        user='MAIkeUser',
-        password='3@WaM2cEZDpu4SR*KUAQt',
-        database='MAIke'
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
     )
 
 # サインイン
