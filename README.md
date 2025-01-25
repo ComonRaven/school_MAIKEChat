@@ -65,7 +65,7 @@ chmod +x ./db_setup.sh
 - パッケージをインストール    
     ```bash
     source ~/hoge/bin/activate
-    pip install eel openai mysql-connector-python bcrypt redis
+    pip install eel openai mysql-connector-python bcrypt redis python-dotenv
     ```
 ### 4. アプリの起動
 ```bash
@@ -83,6 +83,7 @@ python3 main.py
 - [mysql-connector-python 9.1.0](https://github.com/mysql/mysql-connector-python)
 - [bcrypt 4.2.1](https://github.com/pyca/bcrypt)
 - [redis 5.2.1](https://github.com/redis/redis)
+- [python-dotenv 1.0.1](https://github.com/theskumar/python-dotenv)
 
 # ライセンス
 このプロジェクトは [MIT License](LICENSE) のもとで公開されています。
