@@ -83,3 +83,6 @@ python3 main.py
 - [mysql-connector-python 9.1.0](https://github.com/mysql/mysql-connector-python)
 - [bcrypt 4.2.1](https://github.com/pyca/bcrypt)
 - [redis 5.2.1](https://github.com/redis/redis)
+
+# ライセンス
+このプロジェクトは [MIT License](LICENSE) のもとで公開されています。
