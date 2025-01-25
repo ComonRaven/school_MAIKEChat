@@ -4,12 +4,7 @@
 
 # <img src="web/image/readme/logo.png" alt="ロゴ" width="60px">MAIKE Chat
 
-<img src="https://img.shields.io/badge/-Html5-black.svg?logo=html5&style=flat-square" height="25px">
-<img src="https://img.shields.io/badge/-Css3-black.svg?logo=css3&style=flat-square" height="25px">
-<img src="https://img.shields.io/badge/-Javascript-black.svg?logo=javascript&style=flat-square" height="25px">
-<img src="https://img.shields.io/badge/-Python-black.svg?logo=python&style=flat-square" height="25px">
-<img src="https://img.shields.io/badge/-Mysql-black.svg?logo=mysql&style=flat-square" height="25px">
-<img src="https://img.shields.io/badge/-Redis-black.svg?logo=redis&style=flat-square" height="25px">
+<img src="https://img.shields.io/badge/-Html5-black.svg?logo=html5&style=flat-square" height="25px"><img src="https://img.shields.io/badge/-Css3-black.svg?logo=css3&style=flat-square" height="25px"><img src="https://img.shields.io/badge/-Javascript-black.svg?logo=javascript&style=flat-square" height="25px"><img src="https://img.shields.io/badge/-Python-black.svg?logo=python&style=flat-square" height="25px"><img src="https://img.shields.io/badge/-Mysql-black.svg?logo=mysql&style=flat-square" height="25px"><img src="https://img.shields.io/badge/-Redis-black.svg?logo=redis&style=flat-square" height="25px">
 
 <br />
 
