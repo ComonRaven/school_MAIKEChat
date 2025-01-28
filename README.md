@@ -131,7 +131,7 @@ python3 main.py
 ### 開発環境
 - Python 3.10.12
 - WSL2
-- Raspberry Pi 3B
+- Raspberry Pi 400
 ### 動作確認済みのpythonモジュールバージョン
 - [Eel 0.18.1](https://github.com/python-eel/Eel)
 - [openai 1.58.1](https://platform.openai.com/docs/overview)
