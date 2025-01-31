@@ -20,10 +20,11 @@
     - [チャット履歴機能](#チャット履歴機能)
 - [使い方](#使い方)
     - [1. リポジトリをクローン](#1-リポジトリをクローン)
-    - [2. python3の設定](#2-python3の設定)
-    - [3. 環境変数の設定](#3-環境変数の設定)
-    - [4. データベースの設定](#4-データベースの設定)
-    - [5. アプリの起動](#5-アプリの起動)
+    - [2. aptパッケージをインストール](#2-aptパッケージをインストール)
+    - [3. python3の設定](#3-python3の設定)
+    - [4. 環境変数の設定](#4-環境変数の設定)
+    - [5. データベースの設定](#5-データベースの設定)
+    - [6. アプリの起動](#6-アプリの起動)
 - [環境](#環境)
     - [開発環境](#開発環境)
     - [動作確認済みのpythonモジュールバージョン](#動作確認済みのpythonモジュールバージョン)
@@ -62,7 +63,14 @@
     git clone git@github.com:IS2ProjectPractice1/lesson-5-team-development-mike-1.git
     cd lesson-5-team-development-mike-1
     ```
-### 2. python3の設定    
+### 2. aptパッケージをインストール
+```bash
+sudo apt update
+sudo apt install libmariadb-dev redis build-essential mariadb-server
+sudo mysql_secure_installation
+```
+
+### 3. python3の設定    
 - 仮想環境を作成(`hoge` は仮想環境名です)  
     ```bash
     sudo apt install python3-venv
@@ -79,9 +87,9 @@
 - パッケージをインストール    
     ```bash
     source ~/hoge/bin/activate
-    pip install eel openai mysql-connector-python bcrypt redis python-dotenv
+    pip install eel openai mysql-connector-python bcrypt redis python-dotenv mariadb
     ```
-### 3. 環境変数の設定
+### 4. 環境変数の設定
 1. [`.env.sample`](./.env.sample)をコピーして`.env`ファイルを作成
     ```bash
     cp .env.sample .env
@@ -116,13 +124,13 @@
     ```bash
     source .env
     ```
-### 4. データベースの設定
+### 5. データベースの設定
 [db_setup.sh](./db_setup.sh)を実行
 ```bash
 chmod +x ./db_setup.sh
 ./db_setup.sh
 ```
-### 5. アプリの起動
+### 6. アプリの起動
 ```bash
 python3 main.py
 ```

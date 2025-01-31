@@ -1,5 +1,6 @@
 import eel
-import mysql.connector
+import mariadb
+#import mysql.connector
 import bcrypt
 import redis
 import uuid
@@ -24,7 +25,7 @@ def connect_db():
     db_password = os.getenv("MAIKE_DB_PASSWORD", "yourpassword")
     db_name = os.getenv("MAIKE_DB_NAME", "MAIke")
     
-    return mysql.connector.connect(
+    return mariadb.connect(   
         host=db_host,
         user=db_user,
         password=db_password,
