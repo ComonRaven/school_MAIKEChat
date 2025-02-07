@@ -272,7 +272,6 @@ code.css pre {
     margin-left: auto;
     border-radius: 10%;
 }
-
 .inline-code {
     background-color: #2d2d2d; /* ダークモードの背景色 */
     color: #f8f8f2; /* 白文字 */
@@ -284,6 +283,23 @@ code.css pre {
     overflow-x: auto; /* 横スクロールを追加 */
     white-space: pre-wrap; /* 改行とインデントを保持 */
 }
+.include-tag, .type-name, .keyword, .address {
+    color: #e86b79;
+}
+.headerFile, .string, .number, .main-bracket, .square-bracket, .param-bracket {
+    color: #3498db;
+}
+.comment {
+    color: #007e66;
+    font-style: italic;
+}
+.func {
+    color: #968abc;
+}
+.arg-bracket {
+    color: orange;
+}
+
 /* 点滅させるためのアニメーション */
 .blinking-dot {
     animation: blink 1s infinite;

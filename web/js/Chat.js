@@ -215,6 +215,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
 
             // 出力を整形
+            console.log("整形前"+"\n"+output);
             let formattedOutput = output
             .replace(/#include <(.*?)>/g, '#include <$1>')  // #include の < > のみ元に戻す
             .replace(/\n/g, '<br>')  // 改行を <br> に
@@ -228,9 +229,67 @@ document.addEventListener('DOMContentLoaded', async function() {
                 return `<code class="${lang}"><div class="copy-div-${lang}"><button type="button" class="copy-button" onclick="copyCodeToClipboard(this)" data-code-block="${codeBlockCounter}">コピー</button></div><pre class="code-block-${codeBlockCounter}">`;
             })
             .replace(/```/g, '</pre></code>')  // コードブロック終了
+            .replace(/<pre[^>]*>(.*?)<\/pre>/gs, (match, codeBlock) => {
+                // <pre>内のコードブロックを対象にする
+                return `<pre>${codeBlock
+                    .replace(/"([^"]*?)"/g, (match, quotedString) => {
+                        // ダブルクォートで囲まれた文字列に色を付ける
+                        return `<span class="string">"${quotedString}"</span>`;
+                    })
+                    .replace(/#include\s+&lt;([^>]+)&gt;/g, (match, p1) => {
+                        return `<span class="include-tag">#include</span> <span class="headerFile">&lt;${p1}&gt;</span>`;  // #include部分だけ囲む
+                    })
+                    .replace(/\b(int|char|float|double|void|short|long|unsigned|signed|bool|long long)\b/g, (match) => {
+                        // 型名部分を<span>で囲んで色を付ける
+                        return `<span class="type-name">${match}</span>`;
+                    })
+                    .replace(/\b(if|else|for|while|do|switch|case|break|continue|return|true|false|=|==|!=)\b/g, (match) => {
+                        // キーワード部分を<span>で囲んで色を付ける
+                        return `<span class="keyword">${match}</span>`;
+                    })
+                    .replace(/\/\/(.*?)(?=<br>|\n|$)/g, (match, comment) => {
+                        // // で始まるコメントに色を付ける
+                        return `<span class="comment">//${comment}</span>`;
+                    })
+                    .replace(/\/\*([\s\S]*?)\*\//g, (match, comment) => {
+                        // /*...*/ で囲まれたコメントに色を付ける
+                        return `<span class="comment">/*${comment}*/</span>`;
+                    })
+                    // & に色を付ける（アドレスのみ）
+                    .replace(/&(?!lt;|gt;|amp;|quot;|apos;|nbsp;|#\d+;)/g, '<span class="address">&</span>')
+                    .replace(/\bmain\s*\(\)/g, (match) => {
+                        // main関数専用の色付け
+                        return `<span class="func">main</span><span class="main-bracket">()</span>`;
+                    })
+                    .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*{/g, (match, funcName, args) => {
+                        // 関数定義の括弧に色を付ける（仮引数）
+                        return `<span class="func">${funcName}</span><span class="param-bracket">(</span>${args}<span class="param-bracket">)</span> {`;
+                    })
+                    .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\((.*?)\)/g, (match, funcName, args) => {
+                        // 関数呼び出しの括弧に色を付ける（実引数）
+                        return `<span class="func">${funcName}</span><span class="arg-bracket">(</span>${args}<span class="arg-bracket">)</span>`;
+                    })
+                    .replace(/(\{|\})/g, (match) => {
+                        return `<span class="square-bracket">${match}</span>`;
+                    })
+                    .replace(/\b-?\d+(\.\d+)?\b/g, (match) => {
+                        return `<span class="number">${match}</span>`;
+                    })
+                    // comment内の数字部分のnumberクラスを削除
+                    .replace(/<span class="comment">.*?<\/span>/g, (match) => {
+                        // コメント内の数字はspanタグを除去
+                        if (match.includes('<span class="number">')) {
+                            return match.replace(/<span class="number">(.*?)<\/span>/g, '$1'); // コメント内のspanタグを削除
+                        }
+                        return match;
+                    })
+                }</pre>`;
+            })
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
             .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')  // インラインコード
             .replaceAll(/### (.*?)(<br>)/g, '<h3>$1</h3>');  // 見出し（###）を <h3> に変換
+
+            console.log("整形後"+"\n"+formattedOutput);
 
             // 点滅を止めて「●●●」を削除
             botui.message.remove(waitingMessage);  // 「●●●」を削除
