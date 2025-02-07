@@ -272,18 +272,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                     .replace(/(\{|\})/g, (match) => {
                         return `<span class="square-bracket">${match}</span>`;
                     })
-                     // commentクラス内の内容を一時的に保護
-                    /*.replace(/<span class="comment">([\s\S]*?)<\/span>/g, (match) => {
-                        return `{{COMMENT:${match}}}`;
-                    })*/
-                    // 数字部分にnumberクラスを付与
                     .replace(/\b-?\d+(\.\d+)?\b/g, (match) => {
                         return `<span class="number">${match}</span>`;
                     })
-                    // 保護したcommentクラスを元に戻す
-                    /*.replace(/{{COMMENT:([\s\S]*?)}}/g, (match, comment) => {
-                        return comment;
-                    })*/
                     // comment内の数字部分のnumberクラスを削除
                     .replace(/<span class="comment">.*?<\/span>/g, (match) => {
                         // コメント内の数字はspanタグを除去
