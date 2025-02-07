@@ -236,6 +236,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // ダブルクォートで囲まれた文字列に色を付ける
                         return `<span class="string">"${quotedString}"</span>`;
                     })
+                    .replace(/\b-?\d+(\.\d+)?\b/g, (match, num) => {
+                        return `<span class="number">${match}</span>`;  // 数値部分を<span>で囲んで色を付ける
+                    })
                     .replace(/#include\s+&lt;([^>]+)&gt;/g, (match, p1) => {
                         return `<span class="include-tag">#include</span> <span class="headerFile">&lt;${p1}&gt;</span>`;  // #include部分だけ囲む
                     })
@@ -243,7 +246,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // 型名部分を<span>で囲んで色を付ける
                         return `<span class="type-name">${match}</span>`;
                     })
-                    .replace(/\b(if|else|for|while|do|switch|case|break|continue|return|true|false|&|=|==|!=)\b/g, (match) => {
+                    .replace(/\b(if|else|for|while|do|switch|case|break|continue|return|true|false|=|==|!=)\b/g, (match) => {
                         // キーワード部分を<span>で囲んで色を付ける
                         return `<span class="keyword">${match}</span>`;
                     })
