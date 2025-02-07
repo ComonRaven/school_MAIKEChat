@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             content: '<span class="blinking-dot">●</span><span class="blinking-dot">●</span><span class="blinking-dot">●</span>'
         });
 
-        eel.get_generated_code(question)(function(output) {
+        eel.get_generated_code(question, chat_number)(function(output) {
             eel.count_code_blocks()().then((result) => {
                 if (result.success) {
                     codeBlockCounter = result.total_code_blocks;
