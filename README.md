@@ -69,10 +69,6 @@ sudo apt update
 sudo apt install mysql-server redis build-essential libmysqlclient-dev python3.x-dev # pythonのバージョンに応じて変更してください 
 sudo mysql_secure_installation
 ```
-> [!NOTE]
-> mariaDBが対応しているpythonバージョン    
-> Windows, Linux : 3.8, 3.9, 3.10, 3.11    
-> Mac		 : 3.8, 3.9, 3.10
 
 ### 3. python3の設定    
 - 仮想環境を作成(`hoge` は仮想環境名です)  
