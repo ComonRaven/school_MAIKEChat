@@ -3,12 +3,17 @@ let chat_number_source;
 let chat_number_latest;
 let botui;
 let codeBlockCounter = 0;
+let inputText = document.getElementById('into-text');
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = "ja-JP"; // 日本語対応
+recognition.interimResults = false; // 完全な結果のみ取得
+let isListening = false; // 音声認識の状態を追跡
 
 document.addEventListener('DOMContentLoaded', async function() {
     let sendButton = document.getElementById('send-btn');
-    let inputText = document.getElementById('into-text');
     let historyPanel = document.querySelector(".history-panel");
     let historyContent = document.getElementById("history-content");
+    const voiceInput = document.getElementById("voiceInput");
 
     chat_number_source = await eel.get_latestChatnumber()();
     chat_number = chat_number_source.message; // ここは処理的に変えちゃいけない
@@ -110,6 +115,35 @@ document.addEventListener('DOMContentLoaded', async function() {
     // 履歴表示領域をクリア
     historyContent.innerHTML = "";
     }
+
+    // 音声入力周りの処理
+    voiceInput.addEventListener("click", () => {
+        if (!isListening) {
+            // 音声認識を開始
+            recognition.start();
+            voiceInput.src = "image/voiceInput_gray.png"; // 画像をgrayに変更
+            voiceInput.classList.add("gray"); // クラスを追加
+            isListening = true;
+        } else {
+            // 音声認識を停止
+            recognition.stop();
+            voiceInput.src = "image/voiceInput_black.png"; // 画像をblackに戻す
+            voiceInput.classList.remove("gray"); // クラスを削除
+            isListening = false;
+        }
+    });
+    recognition.addEventListener("result", (event) => {
+        const text = event.results[0][0].transcript;
+        inputText.value += text; // Chat.jsのinputTextを参照して文字を追加
+        // inputイベントを手動で発火させる
+        const eventInput = new Event('input');
+        inputText.dispatchEvent(eventInput);  // これで手動でinputイベントを発火させる
+    });
+    recognition.addEventListener("end", () => {
+        if (isListening) {
+            recognition.start(); // 再起動して継続する場合
+        }
+    });
 
 
     // 初期状態で無効化
