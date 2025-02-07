@@ -215,6 +215,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
 
             // 出力を整形
+            console.log("整形前"+"\n"+output);
             let formattedOutput = output
             .replace(/#include <(.*?)>/g, '#include <$1>')  // #include の < > のみ元に戻す
             .replace(/\n/g, '<br>')  // 改行を <br> に
@@ -228,9 +229,23 @@ document.addEventListener('DOMContentLoaded', async function() {
                 return `<code class="${lang}"><div class="copy-div-${lang}"><button type="button" class="copy-button" onclick="copyCodeToClipboard(this)" data-code-block="${codeBlockCounter}">コピー</button></div><pre class="code-block-${codeBlockCounter}">`;
             })
             .replace(/```/g, '</pre></code>')  // コードブロック終了
+            .replace(/<pre[^>]*>(.*?)<\/pre>/gs, (match, codeBlock) => {
+                // <pre>内のコードブロックを対象にする
+                return `<pre>${codeBlock
+                    .replace(/#include\s+&lt;([^>]+)&gt;/g, (match, p1) => {
+                        return `<span class="include-tag">#include</span> <span class="headerFile">&lt;${p1}&gt;</span>`;  // #include部分だけ囲む
+                    })
+                    .replace(/\b(int|char|float|double|void|short|long|unsigned|signed|bool|long long)\b/g, (match) => {
+                        // 型名部分を<span>で囲んで色を付ける
+                        return `<span class="type-name">${match}</span>`;
+                    })
+                }</pre>`;
+            })
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
             .replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')  // インラインコード
             .replaceAll(/### (.*?)(<br>)/g, '<h3>$1</h3>');  // 見出し（###）を <h3> に変換
+
+            console.log("整形後"+"\n"+formattedOutput);
 
             // 点滅を止めて「●●●」を削除
             botui.message.remove(waitingMessage);  // 「●●●」を削除
