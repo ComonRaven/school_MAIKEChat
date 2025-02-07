@@ -286,7 +286,7 @@ code.css pre {
 .include-tag, .type-name, .keyword, .address {
     color: #e86b79;
 }
-.headerFile, .string, .number, .main-bracket, .square-bracket {
+.headerFile, .string, .number, .main-bracket, .square-bracket, .param-bracket {
     color: #3498db;
 }
 .comment {
@@ -295,6 +295,9 @@ code.css pre {
 }
 .func {
     color: #968abc;
+}
+.arg-bracket {
+    color: orange;
 }
 
 /* 点滅させるためのアニメーション */

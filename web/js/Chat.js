@@ -264,6 +264,14 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // main関数専用の色付け
                         return `<span class="func">main</span><span class="main-bracket">()</span>`;
                     })
+                    .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\)\s*{/g, (match, funcName, args) => {
+                        // 関数定義の括弧に色を付ける（仮引数）
+                        return `<span class="func">${funcName}</span><span class="param-bracket">(</span>${args}<span class="param-bracket">)</span> {`;
+                    })
+                    .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\((.*?)\)/g, (match, funcName, args) => {
+                        // 関数呼び出しの括弧に色を付ける（実引数）
+                        return `<span class="func">${funcName}</span><span class="arg-bracket">(</span>${args}<span class="arg-bracket">)</span>`;
+                    })
                     .replace(/(\{|\})/g, (match) => {
                         return `<span class="square-bracket">${match}</span>`;
                     })
