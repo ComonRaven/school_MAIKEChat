@@ -66,7 +66,7 @@
 ### 2. aptパッケージをインストール
 ```bash
 sudo apt update
-sudo apt install libmariadb-dev redis build-essential mariadb-server mariadb-client libmysqlclient-dev python3.x-dev # pythonのバージョンに応じて変更してください 
+sudo apt install mysql-server redis build-essential libmysqlclient-dev python3.x-dev # pythonのバージョンに応じて変更してください 
 sudo mysql_secure_installation
 ```
 > [!NOTE]
@@ -91,7 +91,7 @@ sudo mysql_secure_installation
 - パッケージをインストール    
     ```bash
     source ~/hoge/bin/activate
-    pip install eel openai mysql-connector-python bcrypt redis python-dotenv mariadb
+    pip install eel openai mysql-connector-python bcrypt redis python-dotenv
     ```
 ### 4. 環境変数の設定
 1. [`.env.sample`](./.env.sample)をコピーして`.env`ファイルを作成
