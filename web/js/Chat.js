@@ -260,6 +260,10 @@ document.addEventListener('DOMContentLoaded', async function() {
                     })
                     // & に色を付ける（アドレスのみ）
                     .replace(/&(?!lt;|gt;|amp;|quot;|apos;|nbsp;|#\d+;)/g, '<span class="address">&</span>')
+                    .replace(/\bmain\s*\(\)/g, (match) => {
+                        // main関数専用の色付け
+                        return `<span class="func">main</span><span class="main-bracket">()</span>`;
+                    })
                 }</pre>`;
             })
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体

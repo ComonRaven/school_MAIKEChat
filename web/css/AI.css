@@ -286,12 +286,15 @@ code.css pre {
 .include-tag, .type-name, .keyword, .address {
     color: #e86b79;
 }
-.headerFile, .string, .number {
+.headerFile, .string, .number, .main-bracket {
     color: #3498db;
 }
 .comment {
     color: #007e66;
     font-style: italic;
+}
+.func {
+    color: #968abc;
 }
 
 /* 点滅させるためのアニメーション */
