@@ -283,7 +283,7 @@ code.css pre {
     overflow-x: auto; /* 横スクロールを追加 */
     white-space: pre-wrap; /* 改行とインデントを保持 */
 }
-.include-tag, .type-name, .keyword {
+.include-tag, .type-name, .keyword, .address {
     color: #e86b79;
 }
 .headerFile, .string, .number {

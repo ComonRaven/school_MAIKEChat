@@ -258,6 +258,8 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // /*...*/ で囲まれたコメントに色を付ける
                         return `<span class="comment">/*${comment}*/</span>`;
                     })
+                    // & に色を付ける（アドレスのみ）
+                    .replace(/&(?!lt;|gt;|amp;|quot;|apos;|nbsp;|#\d+;)/g, '<span class="address">&</span>')
                 }</pre>`;
             })
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
