@@ -37,6 +37,7 @@
 - ### チャット機能    
   [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示。    
   [Web Speech API](https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi)を用いて音声入力も可能にした。    
+
 - ### コード実行機能    
   [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた。    
   - 🟦 C言語  
