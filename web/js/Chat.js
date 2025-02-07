@@ -232,6 +232,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/<pre[^>]*>(.*?)<\/pre>/gs, (match, codeBlock) => {
                 // <pre>内のコードブロックを対象にする
                 return `<pre>${codeBlock
+                    .replace(/"([^"]*?)"/g, (match, quotedString) => {
+                        // ダブルクォートで囲まれた文字列に色を付ける
+                        return `<span class="string">"${quotedString}"</span>`;
+                    })
                     .replace(/#include\s+&lt;([^>]+)&gt;/g, (match, p1) => {
                         return `<span class="include-tag">#include</span> <span class="headerFile">&lt;${p1}&gt;</span>`;  // #include部分だけ囲む
                     })

@@ -286,7 +286,7 @@ code.css pre {
 .include-tag, .type-name, .keyword {
     color: #e86b79;
 }
-.headerFile {
+.headerFile, .string {
     color: #3498db;
 }
 .comment {
