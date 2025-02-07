@@ -33,11 +33,13 @@
 # 主な機能
 - ### サインアップ・ログイン機能    
   ユーザー登録画面で任意のユーザーを登録可能。    
-  パスワードを忘れた場合でも、`SecretWord`を入力することによりパスワード変更を可能にした
+  パスワードを忘れた場合でも、`SecretWord`を入力することによりパスワード変更を可能にした。 
 - ### チャット機能    
-  [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示
+  [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示。    
+  [Web Speech API](https://dvcs.w3.org/hg/speech-api/raw-file/tip/webspeechapi)を用いて音声入力も可能にした。    
+
 - ### コード実行機能    
-  [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた    
+  [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた。    
   - 🟦 C言語  
   - 🟧 C#  
   - 🟨 C++  
@@ -47,7 +49,7 @@
   - 💎 Ruby  
   - 🐘 PHP
 - ### チャット履歴機能    
-    `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能
+    `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能。
 
 <br>
 
@@ -66,7 +68,7 @@
 ### 2. aptパッケージをインストール
 ```bash
 sudo apt update
-sudo apt install libmariadb-dev redis build-essential mariadb-server
+sudo apt install mysql-server redis build-essential libmysqlclient-dev python3.x-dev # pythonのバージョンに応じて変更してください 
 sudo mysql_secure_installation
 ```
 
@@ -87,7 +89,7 @@ sudo mysql_secure_installation
 - パッケージをインストール    
     ```bash
     source ~/hoge/bin/activate
-    pip install eel openai mysql-connector-python bcrypt redis python-dotenv mariadb
+    pip install eel openai mysql-connector-python bcrypt redis python-dotenv
     ```
 ### 4. 環境変数の設定
 1. [`.env.sample`](./.env.sample)をコピーして`.env`ファイルを作成
@@ -137,7 +139,7 @@ python3 main.py
 
 # 環境
 ### 開発環境
-- Python 3.10.12
+- Python 3.11.11
 - WSL2
 - Raspberry Pi 400
 ### 動作確認済みのpythonモジュールバージョン

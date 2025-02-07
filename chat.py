@@ -16,13 +16,55 @@ client = OpenAI(api_key=api_key)
 
 
 @eel.expose
-def get_generated_code(text):
-    response = client.chat.completions.create(model="gpt-4o-mini", # モデルの指定 40-mini or 40
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": text},
-    ])
-    return response.choices[0].message.content
+def get_generated_code(text, chat_number):
+    # データベース接続
+    conn = userManagemrnt.connect_db()
+    cursor = conn.cursor()
+    
+    # ユーザー情報の取得
+    userinfo = userManagemrnt.get_user_info()
+    user_id = userinfo['user_id']
+
+    # 最新10件の履歴を取得
+    cursor.execute("""
+        SELECT send_message, response_message 
+        FROM Chat_History 
+        WHERE user_id = %s AND chat_number = %s 
+        ORDER BY created_at DESC 
+        LIMIT 10
+    """, (user_id, chat_number))
+    rows = cursor.fetchall()
+
+    # 履歴が存在する場合
+    if rows:
+        # 履歴を時系列順に並び替える
+        rows.reverse()
+
+        # messages リストを構築
+        messages = [{"role": "system", "content": "You are a helpful assistant."}]
+        for row in rows:
+            messages.append({"role": "user", "content": row[0]})  # 過去のユーザーメッセージ
+            messages.append({"role": "assistant", "content": row[1]})  # 過去の応答
+
+        # 現在のユーザーの入力を追加
+        messages.append({"role": "user", "content": text})
+
+        # ChatGPT API 呼び出し
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",  # モデルの指定
+            messages=messages
+        )
+        return response.choices[0].message.content
+    else:
+        # 履歴が存在しない場合、現在の入力のみでリクエスト
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": text},
+            ]
+        )
+        return response.choices[0].message.content
 
 # チャット履歴をDBに保存
 @eel.expose

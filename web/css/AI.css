@@ -67,7 +67,10 @@ iframe {
 .into::placeholder {
     color: var(--theme-color-reverse);
 }
-
+#voiceInput {
+    width: 40px;
+    height: 40px;
+}
 #send-btn {
     border-radius: 30%;
     padding: 10px 20px;      /* ボタンのパディング調整 */

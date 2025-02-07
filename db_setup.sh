@@ -8,7 +8,8 @@ DB_NAME=${MAIKE_DB_NAME}
 DB_USER=${MAIKE_DB_USER}
 DB_PASSWORD=${MAIKE_DB_PASSWORD}
 
-sudo systemctl start mariadb
+# MySQLサーバーを起動
+sudo systemctl start mysql
 
 # ユーザーの存在確認
 USER_EXISTS=$(sudo mysql -u root -e "SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = '${DB_USER}' AND host = 'localhost');" -sN)
