@@ -236,9 +236,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // ダブルクォートで囲まれた文字列に色を付ける
                         return `<span class="string">"${quotedString}"</span>`;
                     })
-                    .replace(/\b-?\d+(\.\d+)?\b/g, (match, num) => {
-                        return `<span class="number">${match}</span>`;  // 数値部分を<span>で囲んで色を付ける
-                    })
                     .replace(/#include\s+&lt;([^>]+)&gt;/g, (match, p1) => {
                         return `<span class="include-tag">#include</span> <span class="headerFile">&lt;${p1}&gt;</span>`;  // #include部分だけ囲む
                     })
@@ -274,6 +271,26 @@ document.addEventListener('DOMContentLoaded', async function() {
                     })
                     .replace(/(\{|\})/g, (match) => {
                         return `<span class="square-bracket">${match}</span>`;
+                    })
+                     // commentクラス内の内容を一時的に保護
+                    /*.replace(/<span class="comment">([\s\S]*?)<\/span>/g, (match) => {
+                        return `{{COMMENT:${match}}}`;
+                    })*/
+                    // 数字部分にnumberクラスを付与
+                    .replace(/\b-?\d+(\.\d+)?\b/g, (match) => {
+                        return `<span class="number">${match}</span>`;
+                    })
+                    // 保護したcommentクラスを元に戻す
+                    /*.replace(/{{COMMENT:([\s\S]*?)}}/g, (match, comment) => {
+                        return comment;
+                    })*/
+                    // comment内の数字部分のnumberクラスを削除
+                    .replace(/<span class="comment">.*?<\/span>/g, (match) => {
+                        // コメント内の数字はspanタグを除去
+                        if (match.includes('<span class="number">')) {
+                            return match.replace(/<span class="number">(.*?)<\/span>/g, '$1'); // コメント内のspanタグを削除
+                        }
+                        return match;
                     })
                 }</pre>`;
             })
