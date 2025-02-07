@@ -243,6 +243,14 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // キーワード部分を<span>で囲んで色を付ける
                         return `<span class="keyword">${match}</span>`;
                     })
+                    .replace(/\/\/(.*?)(?=<br>|\n|$)/g, (match, comment) => {
+                        // // で始まるコメントに色を付ける
+                        return `<span class="comment">//${comment}</span>`;
+                    })
+                    .replace(/\/\*([\s\S]*?)\*\//g, (match, comment) => {
+                        // /*...*/ で囲まれたコメントに色を付ける
+                        return `<span class="comment">/*${comment}*/</span>`;
+                    })
                 }</pre>`;
             })
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体
