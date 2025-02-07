@@ -1,6 +1,5 @@
 import eel
 import mariadb
-#import mysql.connector
 import bcrypt
 import redis
 import uuid
