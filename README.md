@@ -33,11 +33,12 @@
 # 主な機能
 - ### サインアップ・ログイン機能    
   ユーザー登録画面で任意のユーザーを登録可能。    
-  パスワードを忘れた場合でも、`SecretWord`を入力することによりパスワード変更を可能にした
+  パスワードを忘れた場合でも、`SecretWord`を入力することによりパスワード変更を可能にした。 
 - ### チャット機能    
-  [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示
+  [OpenAI API](https://openai.com/index/openai-api/)を用いて`gpt-4o-mini`にテキストを送信し、その返答を[botUI](https://botui.org/)でチャットとして表示。    
+  音声入力も可能。    
 - ### コード実行機能    
-  [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた    
+  [paiza.io](https://paiza.io/ja)を使用して以下の言語に対応させた。    
   - 🟦 C言語  
   - 🟧 C#  
   - 🟨 C++  
@@ -47,7 +48,7 @@
   - 💎 Ruby  
   - 🐘 PHP
 - ### チャット履歴機能    
-    `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能
+    `Chat Historyボタン`を押すことによりチャット履歴を確認及び、選択可能。
 
 <br>
 
