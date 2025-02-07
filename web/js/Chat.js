@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // 型名部分を<span>で囲んで色を付ける
                         return `<span class="type-name">${match}</span>`;
                     })
-                    .replace(/\b(if|else|for|while|do|switch|case|break|continue|return|true|false)\b/g, (match) => {
+                    .replace(/\b(if|else|for|while|do|switch|case|break|continue|return|true|false|&|=|==|!=)\b/g, (match) => {
                         // キーワード部分を<span>で囲んで色を付ける
                         return `<span class="keyword">${match}</span>`;
                     })
