@@ -264,6 +264,9 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // main関数専用の色付け
                         return `<span class="func">main</span><span class="main-bracket">()</span>`;
                     })
+                    .replace(/(\{|\})/g, (match) => {
+                        return `<span class="square-bracket">${match}</span>`;
+                    })
                 }</pre>`;
             })
             .replace(/\*\*(.*?)\*\*/g, '<em>$1</em>')  // 斜体

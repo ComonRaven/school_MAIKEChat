@@ -286,7 +286,7 @@ code.css pre {
 .include-tag, .type-name, .keyword, .address {
     color: #e86b79;
 }
-.headerFile, .string, .number, .main-bracket {
+.headerFile, .string, .number, .main-bracket, .square-bracket {
     color: #3498db;
 }
 .comment {
