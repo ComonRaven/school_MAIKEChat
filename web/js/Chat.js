@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             .replace(/```/g, '</pre></code>')  // コードブロック終了
             .replace(/<pre[^>]*>(.*?)<\/pre>/gs, (match, codeBlock) => {
                 // <pre>内のコードブロックを対象にする
-                return `<pre>${codeBlock
+                return `<pre class="code-block-${codeBlockCounter}">${codeBlock
                     .replace(/"([^"]*?)"/g, (match, quotedString) => {
                         // ダブルクォートで囲まれた文字列に色を付ける
                         return `<span class="string">"${quotedString}"</span>`;
